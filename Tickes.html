@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Helpdesk</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-panels.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+
+
+		</noscript>
+			<link rel="stylesheet" href="css/tabla.css">
+		<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = '10e046a39fea2ca7b4867a0023f300d0f5dde264';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+	</head>
+	<body class="homepage">
+
+	<div id="header-wrapper">
+
+		<!-- Header -->
+			<div id="header">
+				<div class="container">
+
+					<!-- Logo -->
+						<div id="logo">
+							<h1> <img id="logoback" width="200px" src="images/logo.png"alt=""/><a id="logodesk" href="#"  style="color:#ffff;">Helpdesk</a></h1>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li class="active"><a href="admin.html">Inicio</a></li>
+								<li><a href="#">Estadisticos</a></li>
+								<li><a href="#">Cerrar sesion</a></li>
+							</ul>
+						</nav>
+
+				</div>
+			</div>
+
+
+
+
+
+
+				<form role="form"  action="../pag/ver.php" method="POST">
+
+					<table class="table-fill" >
+						<div class="alert alert-info">
+
+				</div>
+			</br>
+			</br>
+
+				<thead>
+						<tr>
+
+							<th class="text-left">Tipo de Tickets</th>
+						  <th class="text-left">Fecha</th>
+							<th class="text-left">opiones</th>
+
+
+
+						</tr>
+
+						  </thead>
+
+	                       <tbody class="table-hover">
+							  <tr>
+
+					    	<td>'.$cont++.'</td>
+					    	<td>'.$lista['nomencuesta'].'</td>
+
+
+
+					    	 <td>
+					    	       <a href="../pag/ver.php?idencuesta='.$lista['idencuesta'].'"><img src="../pictures/reporte.png"></a>
+					    	       <a href="../Exportar/pdf.php?idencuesta='.$lista['idencuesta'].'"><img src="../pictures/pdf.png"></a>
+					    	       <a  href="../Exportar/excel.php?idencuesta='.$lista['idencuesta'].'"><img src="../pictures/excel.png"></a>
+					    	       <a  href="../Exportar/word.php?idencuesta='.$lista['idencuesta'].'"><img src="../pictures/word.png"></a>
+					    	       <a href="../pag/ver1.php?idencuesta='.$lista['idencuesta'].'"><img src="../pictures/ver.png"></a>
+					    	 	   <a href="../cod/eliminar.php?idencuesta='.$lista['idencuesta'].'"><img src="../pictures/eliminar.png"></a>
+					    	 </td>
+
+
+
+
+					    </tr>
+					    </tbody>';
+
+
+
+						</table>
+
+					    	 </form>
+
+	</section>
+
+
+
+	<!-- /Extra -->
+	<!-- Copyright -->
+		<div id="copyright">
+			<div class="container">
+			Todos los derechos reservados 2018 ©
+			</div>
+		</div>
+
+
+	</body>
+</html>
