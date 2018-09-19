@@ -17,6 +17,7 @@
 		</noscript>
 		<link rel="stylesheet" href="css/form.css" />
 		<link rel="shortcut icon" type="image/x-icon" href="images/logop.ico" />
+		<link rel="stylesheet" href="css/tabla.css">
 		<!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
 var _smartsupp = _smartsupp || {};
@@ -49,7 +50,7 @@ window.smartsupp||(function(d) {
 								<li ><a href="minticket.html">Nuevo ticket</a></li>
 								<li class="active"><a href="miperfil.html">Mis tickets</a></li>
 								<li><a href="miperfil.html">Mi Perfil</a></li>
-
+								<li><a href="login.html">Cerrar sesion</a></li>
 							</ul>
 						</nav>
 
@@ -63,9 +64,7 @@ window.smartsupp||(function(d) {
 				</div>
 			</div>
 		<!-- /Banner -->
-
 	</div>
-
 	<!-- Main -->
 		<div id="main">
 			<div class="container">
@@ -76,12 +75,47 @@ window.smartsupp||(function(d) {
 						</header>
 						<br>
 						</section>
+						<form role="form"  action="../pag/ver.php" method="POST">
+							<table class="table-fill" >
+								<div class="alert alert-info">
+						</div>
+						</br>
+						</br>
+						<thead>
+								<tr>
+									<th class="text-left">FechaCrea</th>
+									<th class="text-left">Asunto</th>
+									<th class="text-left">Asignado a</th>
+									<th class="text-left">Area</th>
+									<th class="text-left">Estado</th>
+								</tr>
+									</thead>
+ 									<tbody class="table-hover">
+										<tr>
+										<td>19/09/2018</td>
+										<td>Hardware impresora no enciende</td>
+										<td>Jhampier Castilla</td>
+										<td>Administracion</td>
+										<td>Cerrado</td>
+									</tr>
+									<tr>
+									<td>20/09/2018</td>
+									<td>Hardware CPU no enciende</td>
+									<td>Kevin Flores</td>
+									<td>Administracion</td>
+									<td>Por confirmar</td>
+								</tr>
 
-
-
-
-
-
+								<tr>
+								<td>21/09/2018</td>
+								<td>Hardware Monitor no enciende</td>
+								<td>Cristian Hernandez</td>
+								<td>Administracion</td>
+								<td>En proceso</td>
+							</tr>
+									</tbody>
+								</table>
+										 </form>
 				</div>
 
 			</div>
