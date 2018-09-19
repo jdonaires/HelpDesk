@@ -45,10 +45,11 @@ window.smartsupp||(function(d) {
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="index.html">Homepage</a></li>
-								<li><a href="left-sidebar.html">Left Sidebar</a></li>
-								<li><a href="right-sidebar.html">Right Sidebar</a></li>
-								<li class="active"><a href="no-sidebar.html">No Sidebar</a></li>
+								<li><a href="index.html">Inicio</a></li>
+								<li class="active"><a href="no-sidebar.html">Nuevo ticket</a></li>
+								<li><a href="left-sidebar.html">Mis tickets</a></li>
+								<li><a href="right-sidebar.html">Mi Perfil</a></li>
+
 							</ul>
 						</nav>
 
@@ -78,23 +79,26 @@ window.smartsupp||(function(d) {
 						<div class="forma">
   <form action="action_page.php">
 
-    <label for="fname">First Name</label>
-    <input class="form" type="text" id="fname" name="firstname" placeholder="Your name..">
-
-    <label for="lname">Last Name</label>
-    <input class="form" type="text" id="lname" name="lastname" placeholder="Your last name..">
-
-    <labelfor="country">Country</label>
+    <labelfor="country">Categoria</label>
     <select class="form" id="country" name="country">
-      <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
-      <option value="usa">USA</option>
+      <option value="a">Impresora</option>
+      <option value="canada">CPU</option>
+      <option value="usa">Monitor</option>
     </select>
 
-    <label for="subject">Subject</label>
-    <textarea class="form" id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+		<labelfor="country">Problema</label>
+		<select class="form" id="country" name="country">
+			<option value="a">No enciende</option>
+		</select>
 
-    <input class="formb" type="submit" value="Submit">
+		<label for="lname">Asunto</label>
+    <input class="form" type="text" id="lname" name="lastname" placeholder="Impresora No enciende"  readonly="readonly">
+
+    <label for="subject">Mensaje</label>
+    <textarea class="form" id="subject" name="subject" placeholder="Escribe tu mensaje aqui.." style="height:200px">Buenos dias, para solicitar ayuda ya que mi impresora dejo de funcionar hace un dia y no puedo imprimir los documentos del trabajo para los reportes diarios que se entregan al jefe.
+Porfavor ayuda lo más antes posible. </textarea>
+
+    <input class="formb" type="submit" value="Enviar">
 
   </form>
 </div>
