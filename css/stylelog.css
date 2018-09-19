@@ -9,6 +9,7 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   color: white;
   font-weight: 300;
+  background: #111111 url(images/main-wrapper-bg.jpg) repeat;
 }
 body ::-webkit-input-placeholder {
   /* WebKit browsers */
@@ -36,9 +37,13 @@ body :-ms-input-placeholder {
   color: white;
   font-weight: 300;
 }
+.logoback{
+  background: white;
+  margin-top: 5%;
+}
 .wrapper {
-  background: #50a3a2;
-  background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+  /*background:#FDFEFE;*/
+  /*background: linear-gradient(to top,#273746 55%, #273746 100%);*/
   position: absolute;
   top: 50%;
   left: 0;
@@ -87,13 +92,18 @@ form input {
   transition-duration: 0.25s;
   font-weight: 300;
 }
+.reg{
+  text-decoration: none;
+  color: white;
+  font-size: 1.1em;
+}
 form input:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
 form input:focus {
   background-color: white;
   width: 300px;
-  color: #53e3a6;
+  color: black;
 }
 form button {
   -webkit-appearance: none;
@@ -103,7 +113,7 @@ form button {
   background-color: white;
   border: 0;
   padding: 10px 15px;
-  color: #53e3a6;
+  color: black;
   border-radius: 3px;
   width: 250px;
   cursor: pointer;
@@ -111,7 +121,7 @@ form button {
   transition-duration: 0.25s;
 }
 form button:hover {
-  background-color: #f5f7f9;
+  background-color: white;
 }
 .bg-bubbles {
   position: absolute;

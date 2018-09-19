@@ -1,41 +1,28 @@
-
-
 <html lang="en" >
-
 <head>
-
+  	<title>Helpdesk</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/logop.ico" />
 <meta charset="UTF-8">
-
-
-
-      <link rel="stylesheet" href="../Helpdesk/css/stylelog.css">
-
-
+<link rel="stylesheet" href="../Helpdesk/css/stylelog.css">
 </head>
-
 <body>
-
   <div class="wrapper">
 	<div class="container">
+    <img id="logoback" width="400px" src="images/logo.png"alt=""/>
+    <br><br>
 		<h1>Iniciar sesion</h1>
-
 		  <form role="form" name="login" action="../cod/Iniciar.php" method="Post"  >
-			<input type="text" placeholder="Username" id="Email" name="Email">
-			<input type="password" placeholder="Password" id="password" name="password">
-			<button type="submit"  id="login-button" value="Login">Login</button></br>
-
-		 <a >
+			<input type="text" placeholder="Email" id="Email" name="Email">
+			<input type="password" placeholder="Contraseña" id="password" name="password">
+			<button type="submit"  id="login-button" value="Login">Ingresar</button></br>
+        <br>
+          <a >
           <span>No eres miembro?</span>
           </a>
-
-           <a  href="RegistroU.php">
-           <span>Registrate</span>
+           <a  class="reg" href="RegistroU.php">Registrate
            </a>
-
-
 		</form>
 	</div>
-
 	<ul class="bg-bubbles">
 		<li></li>
 		<li></li>
@@ -52,10 +39,5 @@
   <script src='../Helpdesk/js/o.js'></script>
   <script  src="../Helpdesk/js/index.js"></script>
   <script  src="../Helpdesk/js/login.js"></script>
-
-
-
-
 </body>
-
 </html>
