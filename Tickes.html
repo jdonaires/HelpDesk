@@ -72,9 +72,11 @@ window.smartsupp||(function(d) {
 				<thead>
 						<tr>
 
-							<th class="text-left">Tipo de Tickets</th>
-						  <th class="text-left">Fecha</th>
-							<th class="text-left">opiones</th>
+							<th class="text-left">Fecha</th>
+						  <th class="text-left">Tipo</th>
+							<th class="text-left">Categoria</th>
+						  <th class="text-left">Problema</th>
+							 <th class="text-left">Ver</th>
 
 
 
@@ -84,19 +86,29 @@ window.smartsupp||(function(d) {
 
 	                       <tbody class="table-hover">
 							  <tr>
-
-					    	<td>'.$cont++.'</td>
-					    	<td>'.$lista['nomencuesta'].'</td>
-
-
-
+					    	<td>19-09-2018</td>
+								<td>Hardware</td>
+					    	<td>CPU</td>
+								<td>suena</td>
 					    	 <td>
-					    	       <a href="../pag/ver.php?idencuesta='.$lista['idencuesta'].'"><img src="../pictures/reporte.png"></a>
-					    	       <a href="../Exportar/pdf.php?idencuesta='.$lista['idencuesta'].'"><img src="../pictures/pdf.png"></a>
-					    	       <a  href="../Exportar/excel.php?idencuesta='.$lista['idencuesta'].'"><img src="../pictures/excel.png"></a>
-					    	       <a  href="../Exportar/word.php?idencuesta='.$lista['idencuesta'].'"><img src="../pictures/word.png"></a>
-					    	       <a href="../pag/ver1.php?idencuesta='.$lista['idencuesta'].'"><img src="../pictures/ver.png"></a>
-					    	 	   <a href="../cod/eliminar.php?idencuesta='.$lista['idencuesta'].'"><img src="../pictures/eliminar.png"></a>
+									 <a href="../cod/eliminar.php?idencuesta='.$lista['idencuesta'].'"><img src="images/ver.png"></a>
+							 </td>
+									 <tr>
+										 	<td>15-09-2018</td>
+									 <td>Hardware</td>
+									 <td>Monitor</td>
+									 <td>No enciende</td>
+										<td>
+											<a href="../cod/eliminar.php?idencuesta='.$lista['idencuesta'].'"><img src="images/ver.png"></a>
+									</td>
+											<tr>
+													<td>11-09-2018</td>
+										 <td>Hardware</td>
+										 <td>Impresora</td>
+										 <td>Rayas al imprimir</td>
+											<td>
+
+					    	 	   <a href="../cod/eliminar.php?idencuesta='.$lista['idencuesta'].'"><img src="images/ver.png"></a>
 					    	 </td>
 
 
