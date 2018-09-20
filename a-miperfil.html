@@ -45,10 +45,10 @@ window.smartsupp||(function(d) {
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="c-mimenu.html">Inicio</a></li>
-								<li class="active"><a href="c-minticket.html">Nuevo ticket</a></li>
-								<li><a href="c-miticket.html">Mis tickets</a></li>
-								<li><a href="c-miperfil.html">Mi Perfil</a></li>
+								<li><a href="mimenu.html">Inicio</a></li>
+								<li ><a href="minticket.html">Nuevo ticket</a></li>
+								<li ><a href="miticket.html">Mis tickets</a></li>
+								<li class="active"><a href="miperfil.html">Mi Perfil</a></li>
 								<li><a href="login.html">Cerrar sesion</a></li>
 							</ul>
 						</nav>
@@ -72,41 +72,42 @@ window.smartsupp||(function(d) {
 				<div class="row">
 					<section>
 						<header>
-							<h2>Nuevo ticket de ayuda</h2>
+							<h2>Mi perfil</h2>
 						</header>
 						<br>
 						</section>
-						<div class="forma"  style="width:90%;>
-  <form action="action_page.php">
 
-    <labelfor="country">Categoria</label>
-    <select class="form" id="country" name="country">
-      <option value="a">Impresora</option>
-      <option value="canada">CPU</option>
-      <option value="usa">Monitor</option>
-    </select>
+						<div class="forma" style="width:90%;">
+						<form action="action_page.php" >
 
-		<labelfor="country">Problema</label>
-		<select class="form" id="country" name="country">
-			<option value="a">No enciende</option>
-			<option value="a">Rayas en las impresiones</option>
-			<option value="a">Cartuchos con tinta Baja</option>
-		</select>
+						<label for="lname">Nombres</label>
+						<input class="form" type="text" id="lname" name="lastname" placeholder="Jorge"  readonly="readonly">
 
-		<label for="lname">Asunto</label>
-    <input class="form" type="text" id="lname" name="lastname" placeholder="Impresora No enciende"  readonly="readonly">
+						<label for="lname">Apellidos</label>
+						<input class="form" type="text" id="lname" name="lastname" placeholder="Gomez Pujay"  readonly="readonly">
 
-		<label for="lname">Prioridad</label>
-    <input class="form" type="text" id="lname" name="lastname" placeholder="Baja"  readonly="readonly">
+						<label for="lname">Correo</label>
+						<input class="form" type="text" id="lname" name="lastname" placeholder="JPujay@gmail.com"  readonly="readonly">
 
-    <label for="subject">Detalle del problema</label>
-    <textarea class="form" id="subject" name="subject" placeholder="Escribe tu mensaje aqui.." style="height:200px">Buenos dias, para solicitar ayuda ya que mi impresora dejo de funcionar hace un dia y no puedo imprimir los documentos del trabajo para los reportes diarios que se entregan al jefe.
-Porfavor ayuda lo más antes posible. </textarea>
+						<label for="lname">Celular</label>
+						<input class="form" type="text" id="lname" name="lastname" placeholder="945989698"  readonly="readonly">
 
-    <input class="formb" type="submit" value="Enviar">
+						<label for="lname">Perfil</label>
+						<input class="form" type="text" id="lname" name="lastname" placeholder="Cliente"  readonly="readonly">
 
-  </form>
-</div>
+						<label for="lname">Area</label>
+						<input class="form" type="text" id="lname" name="lastname" placeholder="Administracion"  readonly="readonly">
+
+
+						<input class="formb" type="submit" value="Cambiar clave">
+
+						</form>
+						</div>
+
+
+
+
+
 				</div>
 
 			</div>
