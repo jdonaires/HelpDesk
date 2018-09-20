@@ -79,13 +79,6 @@ window.smartsupp||(function(d) {
 						<div class="forma"  style="width:90%;>
   <form action="action_page.php">
 
-		<labelfor="country">Tipo</label>
-		<select class="form" id="country" name="country">
-			<option value="canada">Hardware</option>
-			<option value="a">Software</option>
-			<option value="usa">Otros</option>
-		</select>
-
     <labelfor="country">Categoria</label>
     <select class="form" id="country" name="country">
       <option value="a">Impresora</option>
@@ -101,9 +94,12 @@ window.smartsupp||(function(d) {
 		</select>
 
 		<label for="lname">Asunto</label>
-    <input class="form" type="text" id="lname" name="lastname" placeholder="Hardware Impresora No enciende"  readonly="readonly">
+    <input class="form" type="text" id="lname" name="lastname" placeholder="Impresora No enciende"  readonly="readonly">
 
-    <label for="subject">Mensaje</label>
+		<label for="lname">Prioridad</label>
+    <input class="form" type="text" id="lname" name="lastname" placeholder="Baja"  readonly="readonly">
+
+    <label for="subject">Detalle del problema</label>
     <textarea class="form" id="subject" name="subject" placeholder="Escribe tu mensaje aqui.." style="height:200px">Buenos dias, para solicitar ayuda ya que mi impresora dejo de funcionar hace un dia y no puedo imprimir los documentos del trabajo para los reportes diarios que se entregan al jefe.
 Porfavor ayuda lo más antes posible. </textarea>
 
