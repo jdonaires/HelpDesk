@@ -62,56 +62,67 @@
 				<div class="row">
 					<section>
 						<header>
-							<h2>Control de usuarios</h2>
+							<h2>Control de Administradores</h2>
+							<br>
+
+							<h3><a href="a-controlcliente.html">Cliente</a> / <a href="a-controlti.html">Soporte TI</a> / <a href="a-controladmin.html">Administrador</a> / <a href="a-controlnuevo.html">Nuevos</a></h3>
+
 						</header>
 						<br>
 						</section>
 
 				</div>
 				<!-- Extra -->
-			<div id="featured">
-				<div class="container">
-					<div class="row">
-						<section class="3u">
-							<header>
-								<h2>Cliente</h2>
-							</header>
-							<span class="fa fa-ticket"></span>
-						<p><a href="a-controlcliente.html" class="button2">Abrir</a></p>
-							<p>Lista de clientes.</p>
-						</section>
-
-						<section class="3u">
-							<header>
-								<h2>Soporte TI</h2>
-							</header>
-							<span class="fa fa-dashboard"></span>
-							<p><a href="a-controlti.html" class="button2">Abrir</a></p>
-							<p>Lista de personal TI.</p>
-						</section>
-
-						<section class="3u">
-							<header>
-								<h2>Administrador</h2>
-							</header>
-							<span class="fa fa-check"></span>
-								<p><a href="a-controladmin.html" class="button2">Abrir</a></p>
-							<p>Lista de administradores.</p>
-						</section>
-
-						<section class="3u">
-							<header>
-								<h2>Nuevos</h2>
-							</header>
-							<span class="fa fa-user"></span>
-								<p><a href="a-controlnuevo.html" class="button2">Abrir</a></p>
-							<p>Lista de nuevos ingresos.</p>
-						</section>
-
-
-					</div>
+				<form role="form"  action="../pag/ver.php" method="POST">
+					<table class="table-fill" >
+						<div class="alert alert-info">
 				</div>
-			</div>
+				</br>
+				</br>
+				<thead>
+						<tr>
+							<th class="text-left">ID Cliente</th>
+							<th class="text-left">Nombre completo</th>
+							<th class="text-left">Area</th>
+							<th class="text-left">Celular</th>
+							<th class="text-left">Email</th>
+							<th class="text-left">Estado</th>
+							<th class="text-left">Revisar</th>
+						</tr>
+							</thead>
+							<tbody class="table-hover">
+								<tr>
+								<td>AD001</td>
+								<td>Kevin Flores Palomino</td>
+								<td>Administrador</td>
+								<td>935654798</td>
+								<td>JGomez@gmail.com</td>
+								<td>Activo</td>
+								<td><a href="a-detalleus.html"><span class="fa fa-eye"> </a></td>
+							</tr>
+
+							<tr>
+								<td>AD002</td>
+								<td>Cristian Hernandez Villo</td>
+								<td>Administrador</td>
+								<td>935654798</td>
+								<td>ARomero@gmail.com</td>
+								<td>Activo</td>
+								<td><a href="a-detalleus.html"><span class="fa fa-eye"> </a></td>
+							</tr>
+
+							<tr>
+							<td>AD003</td>
+							<td>Jhampier Salvador Castilla</td>
+							<td>Administrador</td>
+							<td>935654798</td>
+							<td>PEsquirva@gmail.com</td>
+							<td>Activo</td>
+							<td><a href="a-detalleus.html"><span class="fa fa-eye"> </a></td>
+						</tr>
+							</tbody>
+						</table>
+								 </form>
 
 		<!-- /Extra -->
 			</div>
