@@ -24,20 +24,20 @@
 	{
 		font-weight: bold;
 	}
-	
+
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
 		{
 			color: inherit;
 			text-decoration: none;
 		}
-		
+
 	/* Change this to whatever font weight/color pairing is most suitable */
 	strong, b
 	{
 		font-weight: bold;
 		color: #000000;
 	}
-	
+
 	em, i
 	{
 		font-style: italic;
@@ -49,7 +49,7 @@
 		text-decoration: none;
 		color: #ff0000;
 	}
-	
+
 	a:hover
 	{
 		text-decoration: underline;
@@ -61,27 +61,27 @@
 		top: 0.5em;
 		font-size: 0.8em;
 	}
-	
+
 	sup
 	{
 		position: relative;
 		top: -0.5em;
 		font-size: 0.8em;
 	}
-	
+
 	hr
 	{
 		border: 0;
 		border-top: solid 1px #ddd;
 	}
-	
+
 	blockquote
 	{
 		border-left: solid 0.5em #ddd;
 		padding: 1em 0 1em 2em;
 		font-style: italic;
 	}
-	
+
 	p, ul, ol, dl, table
 	{
 		margin-bottom: 1em;
@@ -91,7 +91,7 @@
 	{
 		margin-bottom: 2em;
 	}
-	
+
 		header h2
 		{
 			font-size: 2.8em;
@@ -105,7 +105,7 @@
 			text-transform: uppercase;
 			font-size: 1.4em;
 		}
-		
+
 	footer
 	{
 		margin-top: 1em;
@@ -117,13 +117,13 @@
 	}
 
 	/* Sections/Articles */
-	
+
 		section,
 		article
 		{
 			margin-bottom: 3em;
 		}
-		
+
 		section > :last-child,
 		article > :last-child
 		{
@@ -148,7 +148,7 @@
 		{
 			display: inline-block;
 		}
-		
+
 			.image img
 			{
 				display: block;
@@ -161,20 +161,20 @@
 				width: 100%;
 				margin: 0 0 2em 0;
 			}
-			
+
 			.image.full
 			{
 				display: block;
 				width: 100%;
 				margin-bottom: 2em;
 			}
-			
+
 			.image.left
 			{
 				float: left;
 				margin: 0 2em 2em 0;
 			}
-			
+
 			.image.centered
 			{
 				display: block;
@@ -195,20 +195,20 @@
 			margin: 0;
 			padding: 0;
 		}
-		
+
 			ul.default li
 			{
 				padding: 0.80em 0em;
 				border-top: 1px solid;
 				border-color: rgba(255,255,255,.2);
 			}
-			
+
 			ul.default li:first-child
 			{
 				padding-top: 0em;
 				border-top: none;
 			}
-			
+
 			ul.default a
 			{
 				color: rgba(255,255,255,.6);
@@ -272,12 +272,30 @@
 }
 
 	/* Buttons */
-		
+
 		.button
 		{
 			position: relative;
 			display: inline-block;
 			margin-top: 0.5em;
+			padding: 1em 1.5em;
+			background: #c61732;
+			border-radius: 6px;
+			text-decoration: none;
+			text-transform: uppercase;
+			font-size: 1.1em;
+			color: #FFF;
+			-moz-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+			-webkit-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+			-o-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+			-ms-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+			transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+			cursor: pointer;
+		}
+		.button2
+		{
+			position: relative;
+			display: inline-block;
 			padding: 1em 1.5em;
 			background: #c61732;
 			border-radius: 6px;
@@ -298,7 +316,7 @@
 				background: #ad142c;
 				color: #FFF !important;
 			}
-			
+
 			.medium
 			{
 				padding: 1em 2em;
@@ -746,7 +764,7 @@
 		position: relative;
 		background: #FFF;
 	}
-	
+
 		#header .container
 		{
 			position: relative;
@@ -791,7 +809,7 @@
 		{
 			float: left;
 		}
-		
+
 			#nav > ul > li:last-child
 			{
 				padding-right: 0;
@@ -822,7 +840,7 @@
 			{
 				display: none;
 			}
-	
+
 /*********************************************************************************/
 /* Banner                                                                        */
 /*********************************************************************************/
@@ -833,7 +851,7 @@
 		text-align: center;
 		color: #fff;
 	}
-	
+
 		#banner .fa:before
 		{
 			padding-bottom: 0.50em;
@@ -848,47 +866,47 @@
 		position: relative;
 		background: #fff;
 	}
-	
+
 		.homepage #main header,
 		.homepage #main
 		{
 			text-align: center;
 		}
-		
+
 		#main .left
 		{
 			text-align: left;
 		}
-		
+
 		#main .right
 		{
 			text-align: right;
 		}
-		
+
 		#main .button
 		{
 			display: inline-block;
 			margin-top: 4em;
 		}
-		
+
 		#main .divider
 		{
 			margin-top: 4em;
 			border-bottom: 1px solid rgba(0,0,0,.2);
 		}
 
-		
+
 		.sidebar .default li
 		{
 			border-color: rgba(0,0,0,.1);
 		}
-		
+
 		.sidebar .default a
 		{
 			color: #333;
 		}
 
-	
+
 /*********************************************************************************/
 /* Extra                                                                         */
 /*********************************************************************************/
@@ -899,13 +917,13 @@
 		background: #f5f5f5;
 		text-align: center;
 	}
-	
+
 	#extra header h2
 	{
 		text-transform: uppercase;
 		font-size: 1.6em;
 	}
-	
+
 		#extra .fa:before
 		{
 			margin-bottom: 1em;
@@ -918,7 +936,7 @@
 			border-color: rgba(0,0,0,.8);
 			color: rgba(0,0,0,.8);
 		}
-		
+
 	#extra .button
 	{
 		margin-top: 4em;
@@ -927,7 +945,18 @@
 /*********************************************************************************/
 /* Featured                                                                      */
 /*********************************************************************************/
-	
+#featured .fa:before
+{
+	margin-bottom: 1em;
+	width: 2em;
+	height: 2em;
+	line-height: 2em;
+	font-size: 3em;
+	border-radius: 50%;
+	border: 2px solid;
+	border-color: #FFF;
+			color: #FFF;
+}
 	#featured
 	{
 		position: relative;
@@ -938,14 +967,14 @@
 /*********************************************************************************/
 /* Footer                                                                        */
 /*********************************************************************************/
-	
+
 	#footer
 	{
 		position: relative;
 		background: url(images/footer-content-wrapper-bg.jpg) repeat;
 		color: rgba(255,255,255,.6);
 	}
-	
+
 	#footer header h2
 	{
 		text-transform: uppercase;
@@ -953,11 +982,11 @@
 		font-size: 1.4em;
 		color: #FFF;
 	}
-	
+
 /*********************************************************************************/
 /* Copyright                                                                     */
 /*********************************************************************************/
-	
+
 	#copyright
 	{
 		position: relative;
@@ -965,9 +994,9 @@
 		text-align: center;
 		color: rgba(255,255,255,.4);
 	}
-	
+
 	#copyright a
 	{
 		text-decoration: none;
 		color: rgba(255,255,255,.6);
-	}			
+	}
