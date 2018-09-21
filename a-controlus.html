@@ -17,7 +17,7 @@
 		</noscript>
 		<link rel="stylesheet" href="css/form.css" />
 		<link rel="shortcut icon" type="image/x-icon" href="images/logop.ico" />
-</script>
+		<link rel="stylesheet" href="css/tabla.css">
 	</head>
 	<body>
 
@@ -35,13 +35,13 @@
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li ><a href="a-mimenu.html">Inicio</a></li>
+								<li><a href="a-mimenu.html">Inicio</a></li>
 								<li><a href="a-dashboard.html">Dashboard</a></li>
 								<li><a  href="a-todobandeja.html">Bandejas</a></li>
-								<li><a  href="a-controlus.html">Control</a></li>
+								<li  class="active"><a  href="a-controlus.html">Control</a></li>
 								<li><a href="https://dashboard.smartsupp.com/v2" target="_blank">Smartsupp</a></li>
-								<li class="active"><a href="a-miperfil.html">Mi perfil</a></li>
-								<li><a href="login.html">Salir<span class="fa fa-power-off"></a></li>
+								<li><a href="a-miperfil.html">Mi perfil</span></a></li>
+								<li><a href="login.html">Salir <span class="fa fa-power-off"></span></a></li>
 							</ul>
 						</nav>
 
@@ -55,47 +55,56 @@
 				</div>
 			</div>
 		<!-- /Banner -->
-
 	</div>
-
 	<!-- Main -->
 		<div id="main">
 			<div class="container">
 				<div class="row">
 					<section>
 						<header>
-							<h2>Mi perfil</h2>
+							<h2>Control de usuarios</h2>
 						</header>
 						<br>
 						</section>
+
 				</div>
-				<div class="forma" style="width:90%;">
-				<form action="action_page.php" >
+				<!-- Extra -->
+			<div id="featured">
+				<div class="container">
+					<div class="row">
+						<section class="4u">
+							<header>
+								<h2>Cliente</h2>
+							</header>
+							<span class="fa fa-ticket"></span>
+						<p><a href="#" class="button2">Abrir</a></p>
+							<p>Lista de clientes.</p>
+						</section>
 
-				<label for="lname">Nombres</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="Jhampier"  readonly="readonly">
+						<section class="4u">
+							<header>
+								<h2>Soporte TI</h2>
+							</header>
+							<span class="fa fa-dashboard"></span>
+							<p><a href="#" class="button2">Abrir</a></p>
+							<p>Lista de personal TI.</p>
+						</section>
 
-				<label for="lname">Apellidos</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="Salvador Castilla"  readonly="readonly">
-
-				<label for="lname">Correo</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="JCastillay@gmail.com"  readonly="readonly">
-
-				<label for="lname">Celular</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="945989698"  readonly="readonly">
-
-				<label for="lname">Perfil</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="Administrador"  readonly="readonly">
-
-				<label for="lname">Area</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="TI"  readonly="readonly">
+						<section class="4u">
+							<header>
+								<h2>Administrador</h2>
+							</header>
+							<span class="fa fa-check"></span>
+								<p><a href="#" class="button2">Abrir</a></p>
+							<p>Lista de administradores.</p>
+						</section>
 
 
-				<input class="formb" type="submit" value="Cambiar clave">
-
-				</form>
+					</div>
 				</div>
+			</div>
 
+		<!-- /Extra -->
 			</div>
 		</div>
 	<!-- /Main -->
