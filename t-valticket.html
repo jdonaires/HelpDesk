@@ -17,16 +17,6 @@
 		</noscript>
 		<link rel="stylesheet" href="css/form.css" />
 		<link rel="shortcut icon" type="image/x-icon" href="images/logop.ico" />
-		<!-- Smartsupp Live Chat script -->
-<script type="text/javascript">
-var _smartsupp = _smartsupp || {};
-_smartsupp.key = '10e046a39fea2ca7b4867a0023f300d0f5dde264';
-window.smartsupp||(function(d) {
-	var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-	s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-	c.type='text/javascript';c.charset='utf-8';c.async=true;
-	c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-})(document);
 </script>
 	</head>
 	<body>
@@ -45,10 +35,9 @@ window.smartsupp||(function(d) {
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="c-mimenu.html">Inicio</a></li>
-								<li class="active"><a href="c-minticket.html">Crear ticket</a></li>
-								<li><a href="c-miticket.html">Mis tickets</a></li>
-								<li><a href="c-miperfil.html">Mi Perfil</a></li>
+								<li><a href="t-mimenu.html">Inicio</a></li>
+								<li  class="active"><a  href="t-todobandeja.html">Bandeja</a></li>
+								<li ><a href="t-miperfil.html">Mi perfil</a></li>
 								<li><a href="login.html">Salir<span class="fa fa-power-off"></a></li>
 							</ul>
 						</nav>
@@ -72,7 +61,8 @@ window.smartsupp||(function(d) {
 				<div class="row">
 					<section>
 						<header>
-							<h2>Nuevo ticket de ayuda</h2>
+							<h2>Detalle de ticket</h2>
+							<br><h3><a href="t-bproceso.html">Volver</a></h3>
 						</header>
 						<br>
 						</section>
@@ -81,7 +71,39 @@ window.smartsupp||(function(d) {
 				<!--CONTAINER -->
 				<div class="forma"  style="width:90%;">
 <form action="action_page.php">
+	<h3>Descripcion de problema</h3>
+	<label for="lname">N° Ticket</label>
+	<input class="form" type="text" id="lname" name="lastname" value="TK0001" readonly="readonly">
 
+<label for="lname">Categoria</label>
+<input class="form" type="text" id="lname" name="lastname" placeholder="Impresora"  readonly="readonly">
+
+<label for="lname">Problema</label>
+<input class="form" type="text" id="lname" name="lastname" placeholder="No enciende"  readonly="readonly">
+
+<label for="lname">Asunto</label>
+<input class="form" type="text" id="lname" name="lastname" placeholder="Impresora No enciende"  readonly="readonly">
+
+<label for="lname">Prioridad</label>
+<input class="form" type="text" id="lname" name="lastname" placeholder="Baja"  readonly="readonly">
+
+<label for="subject">Detalle del problema</label>
+<textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." readonly="readonly">
+	Buenos dias, para solicitar ayuda ya que mi impresora dejo de funcionar hace un dia y no puedo imprimir los documentos del trabajo para los reportes diarios que se entregan al jefe.
+Porfavor ayuda lo más antes posible. </textarea>
+
+<label for="lname">Fecha creado</label>
+<input class="form" type="text" id="lname" name="lastname" placeholder="20/09/2018"  readonly="readonly">
+<!--NUEVO MATERIAL-->
+<h3>Asignacion personal</h3>
+
+<label for="lname">Fecha estimada de resolucion</label>
+<input class="form" type="text" id="lname" name="lastname" value="21/09/2018" readonly="readonly">
+
+<label for="lname">Asignado a</label>
+<input class="form" type="text" id="lname" name="lastname" value="Flavio Torres" readonly="readonly">
+<!--NUEVO MATERIAL-->
+<h3>Reporte personal TI</h3>
 <labelfor="country">Categoria</label>
 <select class="form" id="country" name="country">
 	<option value="a">Impresora</option>
@@ -95,19 +117,14 @@ window.smartsupp||(function(d) {
 	<option value="a">Rayas en las impresiones</option>
 	<option value="a">Cartuchos con tinta Baja</option>
 </select>
-
-<label for="lname">Asunto</label>
-<input class="form" type="text" id="lname" name="lastname" placeholder="Impresora No enciende"  readonly="readonly">
-
-<label for="lname">Prioridad</label>
-<input class="form" type="text" id="lname" name="lastname" placeholder="Baja"  readonly="readonly">
-
 <label for="subject">Detalle del problema</label>
-<textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." >
-	Buenos dias, para solicitar ayuda ya que mi impresora dejo de funcionar hace un dia y no puedo imprimir los documentos del trabajo para los reportes diarios que se entregan al jefe.
-Porfavor ayuda lo más antes posible. </textarea>
+<textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui..">
+	Se recomienda limpieza en la impresora </textarea>
 
-<input class="formb" type="submit" value="Enviar">
+<label for="lname">Fecha atendido</label>
+<input class="form" type="text" id="lname" name="lastname" placeholder="21/09/2018">
+
+<input class="formb" type="submit" value="Reportar ticket">
 </form>
 </div>
 

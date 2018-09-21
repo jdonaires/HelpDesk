@@ -17,7 +17,7 @@
 		</noscript>
 		<link rel="stylesheet" href="css/form.css" />
 		<link rel="shortcut icon" type="image/x-icon" href="images/logop.ico" />
-</script>
+		<link rel="stylesheet" href="css/tabla.css">
 	</head>
 	<body>
 
@@ -36,8 +36,8 @@
 						<nav id="nav">
 							<ul>
 								<li><a href="t-mimenu.html">Inicio</a></li>
-								<li><a  href="t-todobandeja.html">Bandeja</a></li>
-								<li  class="active"><a href="t-miperfil.html">Mi perfil</a></li>
+								<li  class="active"><a  href="t-todobandeja.html">Bandeja</a></li>
+								<li ><a href="t-miperfil.html">Mi perfil</a></li>
 								<li><a href="login.html">Salir<span class="fa fa-power-off"></a></li>
 							</ul>
 						</nav>
@@ -52,47 +52,55 @@
 				</div>
 			</div>
 		<!-- /Banner -->
-
 	</div>
-
 	<!-- Main -->
 		<div id="main">
 			<div class="container">
 				<div class="row">
 					<section>
 						<header>
-							<h2>Mi perfil</h2>
+							<h2>Selecciona Bandeja</h2>
 						</header>
 						<br>
 						</section>
+
 				</div>
-				<div class="forma" style="width:90%;">
-				<form action="action_page.php" >
+				<!-- Extra -->
+			<div id="featured">
+				<div class="container">
+					<div class="row">
+						<section class="4u">
+							<header>
+								<h2>Entrada</h2>
+							</header>
+							<span class="fa fa-ticket"></span>
+						<p><a href="t-bentrada.html" class="button2">Abrir</a></p>
+							<p>Revisa los nuevos tickets que te fueron asignados.</p>
+						</section>
 
-				<label for="lname">Nombres</label>
-				<input class="form" type="text" id="lname" name="lastname" value="Flavio"  readonly="readonly">
+						<section class="4u">
+							<header>
+								<h2>Proceso</h2>
+							</header>
+							<span class="fa fa-dashboard"></span>
+							<p><a href="t-bproceso.html" class="button2">Abrir</a></p>
+							<p>Realiza un informe del problema solucionado.</p>
+						</section>
 
-				<label for="lname">Apellidos</label>
-				<input class="form" type="text" id="lname" name="lastname" value="Torres Saravia"  readonly="readonly">
+						<section class="4u">
+							<header>
+								<h2>Salida</h2>
+							</header>
+							<span class="fa fa-folder"></span>
+							<p><a href="t-bsalida.html" class="button2">Abrir</a></p>
+							<p>Revisa tus tickets cerrados</p>
+						</section>
 
-				<label for="lname">Correo</label>
-				<input class="form" type="text" id="lname" name="lastname" value="JCastillay@gmail.com"  readonly="readonly">
-
-				<label for="lname">Celular</label>
-				<input class="form" type="text" id="lname" name="lastname" value="945989698"  readonly="readonly">
-
-				<label for="lname">Perfil</label>
-				<input class="form" type="text" id="lname" name="lastname" value="Soporte TI"  readonly="readonly">
-
-				<label for="lname">Area</label>
-				<input class="form" type="text" id="lname" name="lastname" value="TI"  readonly="readonly">
-
-
-				<input class="formb" type="submit" value="Cambiar clave">
-
-				</form>
+					</div>
 				</div>
+			</div>
 
+		<!-- /Extra -->
 			</div>
 		</div>
 	<!-- /Main -->

@@ -18,17 +18,6 @@
 		<link rel="stylesheet" href="css/form.css" />
 		<link rel="shortcut icon" type="image/x-icon" href="images/logop.ico" />
 		<link rel="stylesheet" href="css/tabla.css">
-		<!-- Smartsupp Live Chat script -->
-<script type="text/javascript">
-var _smartsupp = _smartsupp || {};
-_smartsupp.key = '10e046a39fea2ca7b4867a0023f300d0f5dde264';
-window.smartsupp||(function(d) {
-	var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-	s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-	c.type='text/javascript';c.charset='utf-8';c.async=true;
-	c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-})(document);
-</script>
 	</head>
 	<body>
 
@@ -46,10 +35,9 @@ window.smartsupp||(function(d) {
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="c-mimenu.html">Inicio</a></li>
-								<li ><a href="c-minticket.html">Crear ticket</a></li>
-								<li class="active"><a href="c-miticket.html">Mis tickets</a></li>
-								<li><a href="c-miperfil.html">Mi Perfil</a></li>
+								<li><a href="t-mimenu.html">Inicio</a></li>
+								<li  class="active"><a  href="t-todobandeja.html">Bandeja</a></li>
+								<li ><a href="t-miperfil.html">Mi perfil</a></li>
 								<li><a href="login.html">Salir<span class="fa fa-power-off"></a></li>
 							</ul>
 						</nav>
@@ -71,10 +59,14 @@ window.smartsupp||(function(d) {
 				<div class="row">
 					<section>
 						<header>
-							<h2>Mis tickets</h2>
+							<h2>Bandeja de Salida</h2>
+							<br>
+							<h3><a href="t-bentrada.html">Entrada</a> / <a href="t-bproceso.html">Proceso</a> / <a href="t-bsalida.html">Salida</a></h3>
 						</header>
 						</section>
+
 				</div>
+				<!-- Extra -->
 				<form role="form"  action="../pag/ver.php" method="POST">
 					<table class="table-fill" >
 						<div class="alert alert-info">
@@ -84,32 +76,32 @@ window.smartsupp||(function(d) {
 				<thead>
 						<tr>
 							<th class="text-left">N# Ticket</th>
-							<th class="text-left">FechaCreado</th>
+							<th class="text-left">FechaCrea</th>
 							<th class="text-left">Asunto</th>
 							<th class="text-left">Prioridad</th>
-							<th class="text-left">Asignado a</th>
-							<th class="text-left">FechaEstimada</th>
+							<th class="text-left">Area</th>
 							<th class="text-left">Estado</th>
+							<th class="text-left">Revisar</th>
 						</tr>
 							</thead>
 							<tbody class="table-hover">
 								<tr>
-									<td>TK001</td>
+										<td>TK001</td>
 								<td>19/09/2018</td>
 								<td>Hardware impresora no enciende</td>
 								<td>Baja</td>
-								<td>Jhampier Castilla</td>
-								<td>20/09/2018</td>
+								<td>Administracion</td>
 								<td>Cerrado</td>
+								<td><a href="t-ticketcerrado.html"><span class="fa fa-eye"> </a></td>
 							</tr>
 							<tr>
 									<td>TK002</td>
 							<td>20/09/2018</td>
 							<td>Hardware CPU no enciende</td>
 							<td>Alta</td>
-							<td>Kevin Flores</td>
-							<td>20/09/2018</td>
-							<td>Por confirmar</td>
+							<td>Administracion</td>
+							<td>Cerrado</td>
+							<td><a href="t-ticketcerrado.html"><span class="fa fa-eye"> </a></td>
 						</tr>
 
 						<tr>
@@ -117,14 +109,19 @@ window.smartsupp||(function(d) {
 						<td>21/09/2018</td>
 						<td>Hardware Monitor no enciende</td>
 						<td>Media</td>
-						<td>Cristian Hernandez</td>
-						<td>22/09/2018</td>
-						<td>En proceso</td>
+						<td>Administracion</td>
+						<td>Cerrado</td>
+						<td><a href="t-ticketcerrado.html"><span class="fa fa-eye"> </a></td>
 					</tr>
 							</tbody>
 						</table>
 								 </form>
 
+
+
+
+
+		<!-- /Extra -->
 			</div>
 		</div>
 	<!-- /Main -->
