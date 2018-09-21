@@ -26,9 +26,8 @@ div.table-title {
   border-collapse: collapse;
   height: 50px;
   margin: auto;
-  max-width: 900px;
   padding:5px;
-  width: 100%;
+  width: 90%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   animation: float 5s infinite;
 }
@@ -95,7 +94,7 @@ tr:last-child td:last-child {
 
 td {
   /*background-color: rgba(198, 23, 50);*/
-  padding:20px;
+  padding:10px;
   text-align:left;
   vertical-align:middle;
   font-weight:300;
