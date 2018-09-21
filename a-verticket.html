@@ -37,10 +37,10 @@
 							<ul>
 								<li ><a href="a-mimenu.html">Inicio</a></li>
 								<li><a href="a-dashboard.html">Dashboard</a></li>
-								<li><a  href="a-todobandeja.html">Bandejas</a></li>
+								<li class="active"><a  href="a-todobandeja.html">Bandejas</a></li>
 								<li><a  href="#">Usuarios</a></li>
 								<li><a href="https://dashboard.smartsupp.com/v2" target="_blank">Smartsupp</a></li>
-								<li class="active"><a href="a-miperfil.html">Mi perfil</a></li>
+								<li ><a href="a-miperfil.html">Mi perfil</a></li>
 								<li><a href="login.html">Salir<span class="fa fa-power-off"></a></li>
 							</ul>
 						</nav>
@@ -64,38 +64,52 @@
 				<div class="row">
 					<section>
 						<header>
-							<h2>Mi perfil</h2>
+							<h2>Detalle de ticket</h2>
+							<br><h3><a href="a-bproceso.html">Volver</a></h3>
 						</header>
 						<br>
 						</section>
+
 				</div>
-				<div class="forma" style="width:90%;">
-				<form action="action_page.php" >
+				<!--CONTAINER -->
+				<div class="forma"  style="width:90%;">
+<form action="action_page.php">
 
-				<label for="lname">Nombres</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="Jhampier"  readonly="readonly">
+		<h3>Descripcion de problema</h3>
+	<label for="lname">N° Ticket</label>
+	<input class="form" type="text" id="lname" name="lastname" value="TK0001" readonly="readonly">
 
-				<label for="lname">Apellidos</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="Salvador Castilla"  readonly="readonly">
+<label for="lname">Categoria</label>
+<input class="form" type="text" id="lname" name="lastname" placeholder="Impresora"  readonly="readonly">
 
-				<label for="lname">Correo</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="JCastillay@gmail.com"  readonly="readonly">
+<label for="lname">Problema</label>
+<input class="form" type="text" id="lname" name="lastname" placeholder="No enciende"  readonly="readonly">
 
-				<label for="lname">Celular</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="945989698"  readonly="readonly">
+<label for="lname">Asunto</label>
+<input class="form" type="text" id="lname" name="lastname" placeholder="Impresora No enciende"  readonly="readonly">
 
-				<label for="lname">Perfil</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="Administrador"  readonly="readonly">
+<label for="lname">Prioridad</label>
+<input class="form" type="text" id="lname" name="lastname" placeholder="Baja"  readonly="readonly">
 
-				<label for="lname">Area</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="TI"  readonly="readonly">
+<label for="subject">Detalle del problema</label>
+<textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." readonly="readonly">
+	Buenos dias, para solicitar ayuda ya que mi impresora dejo de funcionar hace un dia y no puedo imprimir los documentos del trabajo para los reportes diarios que se entregan al jefe.
+Porfavor ayuda lo más antes posible. </textarea>
 
+<label for="lname">Fecha creado</label>
+<input class="form" type="text" id="lname" name="lastname" placeholder="20/09/2018"  readonly="readonly">
 
-				<input class="formb" type="submit" value="Cambiar clave">
+<h3>Asignacion personal</h3>
+<label for="lname">Fecha estimada de resolucion</label>
+<input class="form" type="text" id="lname" name="lastname" value="21/09/2018" readonly="readonly">
 
-				</form>
-				</div>
+<label for="lname">Asignado a</label>
+<input class="form" type="text" id="lname" name="lastname" value="Kevin Flores" readonly="readonly">
 
+</form>
+</div>
+
+	<!--/CONTAINER -->
 			</div>
 		</div>
 	<!-- /Main -->
