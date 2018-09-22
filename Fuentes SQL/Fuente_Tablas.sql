@@ -74,14 +74,46 @@ CREATE TABLE HelpDesk_Problema (
 )ENGINE = InnoDB;
 
 CREATE TABLE HelpDesk_Ticket(
-	IdTicket		INT
+	IdTicket		INT PRIMARY KEY
 ,	IdCliente		INT
 ,	IdProblema		INT
 ,	Asunto			VARCHAR(450)
 ,	Descripcion		TEXT
 ,	FechaCrea		DATE
 ,	FlgEliminado	CHAR(1)
+,	FOREIGN KEY (IdCliente) REFERENCES HelpDesk_Usuario(IdUsuario)
+,	FOREIGN KEY (IdProblema) REFERENCES HelpDesk_Problema(IdProblema)
 ) ENGINE= InnoDB;
+
+
+CREATE TABLE HelpDesk_TicketRespuesta(
+	IdTicketRespuesta	INT PRIMARY KEY
+,	IdTicket			INT
+,	IdProblema			INT
+,	Asunto				VARCHAR(450)
+,	Respuesta			TEXT
+,	NivelAtencion		TINYINT
+,	FechaCrea			DATE
+,	FlgEliminado		CHAR(1)
+,	FOREIGN KEY (IdTicket) REFERENCES HelpDesk_Ticket(IdTicket)
+,	FOREIGN KEY (IdProblema) REFERENCES HelpDesk_Problema(IdProblema)
+)ENGINE= InnoDB;
+
+CREATE TABLE HelpDesk_TicketDetalle(
+	IdTicketDetalle			INT PRIMARY KEY
+,	IdTicket				INT
+,	IdAdministrador			INT
+,	IdSoporte				INT
+,	IdAdministradorCierre	INT
+,	FechaAsignacion			DATE
+,	Estado					VARCHAR(50)
+,	FechaCrea				DATE
+,	FlgEliminado			CHAR(1)
+,	FOREIGN KEY (IdTicket) REFERENCES HelpDesk_Ticket(IdTicket)
+,	FOREIGN KEY (IdAdministrador) REFERENCES HelpDesk_Usuario(IdUsuario)
+,	FOREIGN KEY (IdSoporte) REFERENCES HelpDesk_Usuario(IdUsuario)
+,	FOREIGN KEY (IdAdministradorCierre) REFERENCES HelpDesk_Usuario(IdUsuario)
+)ENGINE= InnoDB;
 
 
 drop table HelpDesk_Problema;
