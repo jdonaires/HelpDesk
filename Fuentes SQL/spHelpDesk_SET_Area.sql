@@ -1,3 +1,6 @@
+
+USE HELPDESK_2018;
+
 CREATE PROCEDURE spHelpDesk_SET_Area (
 	P_Opcion 	CHAR(1)
 ,	P_IdArea	INT

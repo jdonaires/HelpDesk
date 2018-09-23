@@ -53,9 +53,9 @@ CREATE TABLE HelpDesk_Usuario(
 ,	Apellidos		VARCHAR(200)
 ,	Correo			VARCHAR(200)
 ,	Contrasenia		VARCHAR(300)
-,	Estado			VARCHAR(300)
+,	Estado			VARCHAR(50)
 ,	NroCelular		VARCHAR(15)
-,	Confirmacion	VARCHAR(300)
+,	Confirmacion	CHAR(1)
 ,	FechaCrea		DATE
 ,	FlgEliminado	CHAR(1)
 ,	FOREIGN KEY (IdPerfil) REFERENCES HelpDesk_Perfil(IdPerfil)
