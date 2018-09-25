@@ -66,7 +66,6 @@ CREATE TABLE HelpDesk_PrivilegioDetalle(
 	IdPrivilegioDetalle	INT PRIMARY KEY
 ,	IdPrivilegio		INT
 ,	IdUsuario			INT
-,	Asignado			CHAR(1)
 ,	FechaCrea			DATE
 ,	FlgEliminado		CHAR(1)
 ,	FOREIGN KEY (IdUsuario) REFERENCES HelpDesk_Usuario(IdUsuario)
