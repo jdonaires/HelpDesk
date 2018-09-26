@@ -1,4 +1,24 @@
+/**************************************************************
+'* CREADO POR: GRUPO HELPDESK
+'*			   Cristian Hernandez Villo
+'* FECHA CREA: 23/09/2018
+**************************************************************/
+
 CREATE DATABASE HELPDESK_2018;
+
+USE HELPDESK_2018;
+
+DROP TABLE IF EXISTS HelpDesk_Problema;
+DROP TABLE IF EXISTS HelpDesk_Categoria;
+DROP TABLE IF EXISTS HelpDesk_Area;
+DROP TABLE IF EXISTS HelpDesk_TicketDetalle;
+DROP TABLE IF EXISTS HelpDesk_TicketRespuesta;
+DROP TABLE IF EXISTS HelpDesk_Ticket;
+DROP TABLE IF EXISTS HelpDesk_PrivilegioDetalle;
+DROP TABLE IF EXISTS HelpDesk_Usuario;
+DROP TABLE IF EXISTS HelpDesk_Privilegio;
+DROP TABLE IF EXISTS HelpDesk_Perfil;
+
 
 CREATE TABLE HelpDesk_Area (
 	IdArea			INT PRIMARY KEY
@@ -15,8 +35,8 @@ CREATE TABLE HelpDesk_Perfil(
 ,	FlgEliminado	CHAR(1)
 )ENGINE = InnoDB;
 
-CREATE TABLE  HelpDesk_AccionVista(
-	IdAccionVista	INT PRIMARY KEY
+CREATE TABLE  HelpDesk_Privilegio(
+	IdPrivilegio	INT PRIMARY KEY
 ,	IdPerfil		INT
 ,	Descripcion		VARCHAR(300)
 ,	FechaCrea		DATE
@@ -33,24 +53,23 @@ CREATE TABLE HelpDesk_Usuario(
 ,	Apellidos		VARCHAR(200)
 ,	Correo			VARCHAR(200)
 ,	Contrasenia		VARCHAR(300)
-,	Estado			VARCHAR(300)
+,	Estado			VARCHAR(50)
 ,	NroCelular		VARCHAR(15)
-,	Confirmacion	VARCHAR(300)
+,	Confirmacion	CHAR(1)
 ,	FechaCrea		DATE
 ,	FlgEliminado	CHAR(1)
 ,	FOREIGN KEY (IdPerfil) REFERENCES HelpDesk_Perfil(IdPerfil)
 ,	FOREIGN KEY (IdArea) REFERENCES HelpDesk_Area(IdArea)
 )ENGINE = InnoDB;
 
-CREATE TABLE HelpDesk_PrivilegioUsuario(
-	IdPriviligeoUsuario	INT PRIMARY KEY
-,	IdAccionVista		INT
+CREATE TABLE HelpDesk_PrivilegioDetalle(
+	IdPrivilegioDetalle	INT PRIMARY KEY
+,	IdPrivilegio		INT
 ,	IdUsuario			INT
-,	Asignado			CHAR(1)
 ,	FechaCrea			DATE
 ,	FlgEliminado		CHAR(1)
 ,	FOREIGN KEY (IdUsuario) REFERENCES HelpDesk_Usuario(IdUsuario)
-,	FOREIGN KEY (IdAccionVista) REFERENCES HelpDesk_AccionVista(IdAccionVista)
+,	FOREIGN KEY (IdPrivilegio) REFERENCES HelpDesk_Privilegio(IdPrivilegio)
 )ENGINE = InnoDB;
 	
 
@@ -94,7 +113,6 @@ CREATE TABLE HelpDesk_TicketRespuesta(
 ,	Respuesta			TEXT
 ,	NivelAtencion		TINYINT
 ,	FechaCrea			DATE
-,	FlgEliminado		CHAR(1)
 ,	FOREIGN KEY (IdTicket) REFERENCES HelpDesk_Ticket(IdTicket)
 ,	FOREIGN KEY (IdProblema) REFERENCES HelpDesk_Problema(IdProblema)
 )ENGINE= InnoDB;
@@ -102,20 +120,11 @@ CREATE TABLE HelpDesk_TicketRespuesta(
 CREATE TABLE HelpDesk_TicketDetalle(
 	IdTicketDetalle			INT PRIMARY KEY
 ,	IdTicket				INT
-,	IdAdministrador			INT
-,	IdSoporte				INT
-,	IdAdministradorCierre	INT
-,	FechaAsignacion			DATE
+,	IdResponsable			INT
 ,	Estado					VARCHAR(50)
 ,	FechaCrea				DATE
-,	FlgEliminado			CHAR(1)
 ,	FOREIGN KEY (IdTicket) REFERENCES HelpDesk_Ticket(IdTicket)
-,	FOREIGN KEY (IdAdministrador) REFERENCES HelpDesk_Usuario(IdUsuario)
-,	FOREIGN KEY (IdSoporte) REFERENCES HelpDesk_Usuario(IdUsuario)
-,	FOREIGN KEY (IdAdministradorCierre) REFERENCES HelpDesk_Usuario(IdUsuario)
+,	FOREIGN KEY (IdResponsable) REFERENCES HelpDesk_Usuario(IdUsuario)
 )ENGINE= InnoDB;
 
 
-drop table HelpDesk_Problema;
-drop table HelpDesk_Categoria;
-drop table HelpDesk_Area;

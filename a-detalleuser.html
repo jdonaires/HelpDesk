@@ -17,7 +17,7 @@
 		</noscript>
 		<link rel="stylesheet" href="css/form.css" />
 		<link rel="shortcut icon" type="image/x-icon" href="images/logop.ico" />
-		<link rel="stylesheet" href="css/tabla.css">
+</script>
 	</head>
 	<body>
 
@@ -35,13 +35,13 @@
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="a-mimenu.html">Inicio</a></li>
+								<li ><a href="a-mimenu.html">Inicio</a></li>
 								<li><a href="a-dashboard.html">Dashboard</a></li>
 								<li><a  href="a-todobandeja.html">Bandejas</a></li>
 								<li  class="active"><a  href="a-controlus.html">Control</a></li>
 								<li><a href="https://dashboard.smartsupp.com/v2" target="_blank">Smartsupp</a></li>
-								<li><a href="a-miperfil.html">Mi perfil</span></a></li>
-								<li><a href="login.html">Salir <span class="fa fa-power-off"></span></a></li>
+								<li><a href="a-miperfil.html">Mi perfil</a></li>
+								<li><a href="login.html">Salir<span class="fa fa-power-off"></a></li>
 							</ul>
 						</nav>
 
@@ -55,81 +55,57 @@
 				</div>
 			</div>
 		<!-- /Banner -->
+
 	</div>
+
 	<!-- Main -->
 		<div id="main">
 			<div class="container">
 				<div class="row">
 					<section>
 						<header>
-							<h2>Control de Soporte TI</h2>
+							<h2>Detalle de usuario</h2>
 							<br>
-
-							<h3><a href="a-controlcliente.html">Cliente</a> / <a href="a-controlti.html">Soporte TI</a> / <a href="a-controladmin.html">Administrador</a> / <a href="a-controlnuevo.html">Nuevos</a></h3>
+							<h3><a href="#">Volver</a></h3>
 
 						</header>
 						<br>
 						</section>
-
 				</div>
-				<!-- Extra -->
-				<form role="form"  action="../pag/ver.php" method="POST">
-					<table class="table-fill" >
-						<div class="alert alert-info">
+				<div class="forma" style="width:90%;">
+				<form action="action_page.php" >
+
+				<label for="lname">Nombres</label>
+				<input class="form" type="text" id="lname" name="lastname" placeholder="Jhampier"  readonly="readonly">
+
+				<label for="lname">Apellidos</label>
+				<input class="form" type="text" id="lname" name="lastname" placeholder="Salvador Castilla"  readonly="readonly">
+
+				<label for="lname">Correo</label>
+				<input class="form" type="text" id="lname" name="lastname" placeholder="JCastillay@gmail.com"  readonly="readonly">
+
+				<label for="lname">Celular</label>
+				<input class="form" type="text" id="lname" name="lastname" placeholder="945989698"  readonly="readonly">
+
+				<label for="lname">Perfil</label>
+				<input class="form" type="text" id="lname" name="lastname" placeholder="Administrador"  readonly="readonly">
+
+				<label for="lname">Area</label>
+				<input class="form" type="text" id="lname" name="lastname" placeholder="TI"  readonly="readonly">
+
+				<h3>Estado de cuenta</h3>
+				<br>
+				<labelfor="country">Estado</label>
+				<select class="form" id="country" name="country">
+					<option value="a">Creado</option>
+					<option value="a">Activo</option>
+					<option value="a">Inactivo</option>
+					<option value="a">Eliminado</option>
+				</select>
+					<input class="formb" type="submit" value="Guardar cambios">
+				</form>
 				</div>
-				</br>
-				</br>
-				<thead>
-						<tr>
-							<th class="text-left">ID Cliente</th>
-							<th class="text-left">Nombre completo</th>
-							<th class="text-left">Area</th>
-							<th class="text-left">Perfil</th>
-							<th class="text-left">Celular</th>
-							<th class="text-left">Email</th>
-							<th class="text-left">Estado</th>
-							<th class="text-left">Revisar</th>
 
-						</tr>
-							</thead>
-							<tbody class="table-hover">
-								<tr>
-								<td>TI001</td>
-								<td>Andrea Pareja Arteaga</td>
-								<td>TI</td>
-								<td>Soporte TI</td>
-								<td>935654798</td>
-								<td>apareja@gmail.com</td>
-								<td>Activo</td>
-								<td><a href="a-detalleuser.html"><span class="fa fa-eye"> </a></td>
-							</tr>
-
-							<tr>
-								<td>TI002</td>
-								<td>Flavio Torres Saravia</td>
-								<td>TI</td>
-								<td>Soporte TI</td>
-								<td>935654798</td>
-								<td>ftorress@gmail.com</td>
-								<td>Activo</td>
-								<td><a href="a-detalleuser.html"><span class="fa fa-eye"> </a></td>
-							</tr>
-
-							<tr>
-							<td>TI003</td>
-							<td>Daniel Sanchez Yataco</td>
-							<td>TI</td>
-							<td>Soporte TI</td>
-							<td>935654798</td>
-							<td>dyataco@gmail.com</td>
-							<td>Activo</td>
-							<td><a href="a-detalleuser.html"><span class="fa fa-eye"> </a></td>
-						</tr>
-							</tbody>
-						</table>
-								 </form>
-
-		<!-- /Extra -->
 			</div>
 		</div>
 	<!-- /Main -->
