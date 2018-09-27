@@ -46,7 +46,7 @@ BEGIN
 		BEGIN
         
 			UPDATE HelpDesk_Area SET
-				FlgEliminado = '0'
+				FlgEliminado = '1'
 			WHERE IdArea     = P_IdArea;
 		END;
     END IF;

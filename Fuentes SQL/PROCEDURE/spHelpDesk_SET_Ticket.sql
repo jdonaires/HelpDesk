@@ -80,7 +80,7 @@ BEGIN
             IF(P_Opcion = 'V') THEN
                 BEGIN
 
-                     SELECT COALESCE (MAX(IdTicketRespuesta), 0) + 1 INTO V_IdTicketRespuesta FROM HelpDesk_TicketRespuesta;
+                    SELECT COALESCE (MAX(IdTicketRespuesta), 0) + 1 INTO V_IdTicketRespuesta FROM HelpDesk_TicketRespuesta;
 
                     INSERT INTO HelpDesk_TicketRespuesta (
                         IdTicketRespuesta, IdTicket, IdProblema, Asunto, Respuesta, NivelAtencion, FechaCrea
