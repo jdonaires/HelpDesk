@@ -49,7 +49,7 @@ BEGIN
         END;
     END IF;
 
-    -- ! REGISTRA PROCESO DE TICKET
+    -- ! REGISTRA PROCESO DE TICKET -
     IF(P_Opcion IN('A', 'P', 'V', 'C')) THEN
         BEGIN
 
