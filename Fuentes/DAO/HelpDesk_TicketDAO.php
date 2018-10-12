@@ -14,7 +14,7 @@ class HelpDesk_TicketDAO
 	public function SET_Ticket(HelpDesk_Ticket $HelpDesk_Ticket){
 		try
 		{
-			$statement = $this->pdo->prepare("CALL spHelpDesk_SET_Ticket(?,?,?)");
+			$statement = $this->pdo->prepare("CALL spHelpDesk_SET_Ticket(?,?,?,?,?,?,?)");
 			$statement->bindParam(1, $HelpDesk_Ticket->__GET('Opcion'));
       $statement->bindParam(2, $HelpDesk_Ticket->__GET('IdTicket'));
       $statement->bindParam(3, $HelpDesk_Ticket->__GET('IdCliente'));
