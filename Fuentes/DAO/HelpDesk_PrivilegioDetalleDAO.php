@@ -15,11 +15,11 @@ class HelpDesk_PrivilegioDetalleDAO
 		try
 		{
 			$statement = $this->pdo->prepare("CALL spHelpDesk_SET_PrivilegioDetalle(?,?,?,?,?)");
-			$statement->bindParam(1, $HelpDesk_Usuario->__GET('Opcion'));
-      $statement->bindParam(2, $HelpDesk_Usuario->__GET('IdPrivilegioDetalle'));
-      $statement->bindParam(3, $HelpDesk_Usuario->__GET('IdPrivilegio'));
-      $statement->bindParam(4, $HelpDesk_Usuario->__GET('IdUsuario'));
-      $statement->bindParam(5, $HelpDesk_Usuario->__GET('FechaCrea'));
+			$statement->bindParam(1, $HelpDesk_PrivilegioDetalle->__GET('Opcion'));
+      $statement->bindParam(2, $HelpDesk_PrivilegioDetalle->__GET('IdPrivilegioDetalle'));
+      $statement->bindParam(3, $HelpDesk_PrivilegioDetalle->__GET('IdPrivilegio'));
+      $statement->bindParam(4, $HelpDesk_PrivilegioDetalle->__GET('IdUsuario'));
+      $statement->bindParam(5, $HelpDesk_PrivilegioDetalle->__GET('FechaCrea'));
 			$statement -> execute();
 		} catch (Exception $ex){
 			die($ex->getMessage());
