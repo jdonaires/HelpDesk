@@ -14,7 +14,7 @@ class HelpDesk_UsuarioDAO
 	public function SET_Usuario(HelpDesk_TicketRespuesta $HelpDesk_Usuario){
 		try
 		{
-			$statement = $this->pdo->prepare("CALL spHelpDesk_SET_Usuario(?,?,?,?,?,?,?,?)");
+			$statement = $this->pdo->prepare("CALL spHelpDesk_SET_Usuario(?,?,?,?,?,?,?,?,?,?,?,?)");
 			$statement->bindParam(1, $HelpDesk_Usuario->__GET('Opcion'));
       $statement->bindParam(2, $HelpDesk_Usuario->__GET('IdUsuario'));
       $statement->bindParam(3, $HelpDesk_Usuario->__GET('IdArea'));
