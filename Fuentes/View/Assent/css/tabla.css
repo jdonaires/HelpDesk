@@ -1,0 +1,134 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+
+
+div.table-title {
+   display: block;
+  margin: auto;
+  max-width: 600px;
+  padding:5px;
+  width: 100%;
+}
+.table-title h3 {
+   color: #fafafa;
+   font-size: 30px;
+   font-weight: 400;
+   font-style:normal;
+   text-shadow: -1px -1px 1px rgba(198, 23, 50);
+   text-transform:uppercase;
+}
+
+/*** Table Styles **/
+
+.table-fill {
+  background: white;
+  border-radius:3px;
+  border-collapse: collapse;
+  height: 50px;
+  margin: auto;
+  padding:5px;
+  width: 90%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+}
+
+th {
+  color:#FFFFFF  ;
+  background:#1b1e24;
+  border-bottom:4px solid #9ea7af;
+  border-right: 1px solid #343a45;
+  font-size:15px;
+  font-weight: 100;
+  padding:15px;
+  text-align:left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align:middle;
+}
+
+th:first-child {
+  border-top-left-radius:3px;
+}
+
+th:last-child {
+  border-top-right-radius:3px;
+  border-right:none;
+}
+
+tr {
+  border-top: 1px solid #e5e5e5;
+  border-bottom-: 1px solid #C1C3D1;
+  color:#212F3D;
+  font-size:15px;
+  font-weight:normal;
+}
+
+tr:hover td {
+  background:#E5E5E5 ;
+  color:#212F3D;
+
+}
+
+tr:first-child {
+  border-top:none;
+}
+
+tr:last-child {
+  border-bottom:none;
+}
+
+tr:nth-child(odd) td {
+  /*background:#EBEBEB;*/
+}
+
+tr:nth-child(odd):hover td {
+  /*background:#ffff;*/
+}
+
+tr:last-child td:first-child {
+  border-bottom-left-radius:3px;
+}
+
+tr:last-child td:last-child {
+  border-bottom-right-radius:3px;
+}
+
+td {
+  /*background-color: rgba(198, 23, 50);*/
+  padding:10px;
+  text-align:left;
+  vertical-align:middle;
+  font-weight:300;
+  font-size:18px;
+  /*text-shadow: -1px -1px 1px rgba(198, 23, 50);*/
+  border-right: 1px solid #ffff;
+}
+
+th.text-left {
+  text-align: left;
+ background-color: rgba(198, 23, 50);
+}
+
+th.text-center {
+  text-align: center;
+  background-color: rgba(198, 23, 50);
+}
+
+th.text-right {
+  text-align: right;
+  background-color: rgba(198, 23, 50);
+}
+
+td.text-left {
+  text-align: left;
+  background-color: rgba(198, 23, 50);
+}
+
+td.text-center {
+  text-align: center;
+  background-color: rgba(198, 23, 50);
+}
+
+td.text-right {
+  text-align: right;
+  background-color: rgba(198, 23, 50);
+}
