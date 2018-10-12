@@ -2,17 +2,17 @@
 class DBAccess
 {
   private $conn;
-  public function __CONSTRUCT()
+  public function __construct()
   {
     try {
-      $this->conn = new PDO('mysql:host=localhost;dbname=cuestionario', 'root', 'admin');
+      $this->conn = new PDO('mysql:host=localhost;dbname=helpdesk_2018', 'root', 'root');
 			$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e ) {
-      echo "error:" .$e->getMessage();
+    } catch (PDOException $ex ) {
+      echo "error:" .$ex->getMessage();
     }
  }
 
-  public function get_connection()
+  public function Get_Connection()
   {
     return $this->conn;
   }
