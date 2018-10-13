@@ -1,7 +1,11 @@
 <?php
 require_once 'DAL/DBAccess.php';
-require_once 'BOL/HelpDesk_Perfil.php';
 
+/***********************************************************
+ * CREADO POR: GRUPO HELPDESK
+ *             Cristian Hernandez Villo
+ * FECHA CREA: 11/10/2018
+ **********************************************************/
 class HelpDesk_PerfilDAO
 {
 	private $pdo;
@@ -11,23 +15,16 @@ class HelpDesk_PerfilDAO
 			$this->pdo = $dba->Get_Connection();
 	}
 
-	public function SET_Perfil(HelpDesk_Perfil $HelpDesk_Perfil){
-		try
-		{
-			$statement = $this->pdo->prepare("CALL spHelpDesk_SET_Perfil(?,?,?,?)");
-			$statement->bindParam(1, $HelpDesk_Perfil->__GET('Opcion'));
-      $statement->bindParam(2, $HelpDesk_Perfil->__GET('IdPerfil'));
-			$statement->bindParam(3, $HelpDesk_Perfil->__GET('Descripcion'));
-      $statement->bindParam(4, $HelpDesk_Perfil->__GET('FechaCrea'));
-			$statement -> execute();
-		} catch (Exception $ex){
-			die($ex->getMessage());
-		}
-	}
-
 	public function GET_Perfil(){
 		try{
-
+            $statement = $this->pdo->prepare("CALL spHelpDesk_GET_BusquedaGeneral(?,?,?,?)");
+			$statement->bindValue(1, "GET_Perfil", PDO::PARAM_STR);
+			$statement->bindValue(2, "%", PDO::PARAM_STR);
+            $statement->bindValue(3, 0, PDO::PARAM_INT);
+            $statement->bindValue(4, 0, PDO::PARAM_INT);
+            $statement->execute();
+			$Result = $statement->fetchAll(PDO::FETCH_ASSOC);
+			return $Result;
 		}
 		catch(Exception $ex){
 			die($ex->getMessage());

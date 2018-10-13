@@ -1,5 +1,9 @@
 <?php
-
+/***********************************************************
+ * CREADO POR: GRUPO HELPDESK
+ *             Cristian Hernandez Villo
+ * FECHA CREA: 11/10/2018
+ **********************************************************/
 class HelpDesk_Privilegio
 {
     private $Opcion;

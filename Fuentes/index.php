@@ -16,48 +16,45 @@
 			<link rel="stylesheet" href="css/style-desktop.css" />
 		</noscript>
 		<link rel="shortcut icon" type="image/x-icon" href="images/logop.ico" />
-		<!-- Smartsupp Live Chat script -->
-<script type="text/javascript">
-var _smartsupp = _smartsupp || {};
-_smartsupp.key = '10e046a39fea2ca7b4867a0023f300d0f5dde264';
-window.smartsupp||(function(d) {
-  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-  c.type='text/javascript';c.charset='utf-8';c.async=true;
-  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-})(document);
-</script>
+		<script type="text/javascript">
+			var _smartsupp = _smartsupp || {};
+			_smartsupp.key = '10e046a39fea2ca7b4867a0023f300d0f5dde264';
+			window.smartsupp||(function(d) {
+				var s,c,o = smartsupp = function(){ o._.push(arguments)};
+				o._=[];
+				s = d.getElementsByTagName('script')[0];c=d.createElement('script');
+				c.type = 'text/javascript';
+				c.charset = 'utf-8';
+				c.async = true;
+				c.src = 'https://www.smartsuppchat.com/loader.js?';
+				s.parentNode.insertBefore(c,s);
+			})(document);
+		</script>
 	</head>
 	<body class="homepage">
-
-	<div id="header-wrapper">
-
-		<!-- Header -->
+		<div id="header-wrapper">
+			<!-- Header -->
 			<div id="header">
 				<div class="container">
-
 					<!-- Logo -->
-						<div id="logo">
-							<h1> <img id="logoback" width="200px" src="images/logo.png"alt=""/><a id="logodesk" href="#"  style="color:#ffff;">Helpdesk</a></h1>
-						</div>
-
+					<div id="logo">
+						<h1> <img id="logoback" width="200px" src="images/logo.png"alt=""/><a id="logodesk" href="#"  style="color:#ffff;">Helpdesk</a></h1>
+					</div>
 					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li class="active"><a href="index.html">Inicio</a></li>
-								<li><a href="registro.html">Registrarme</a></li>
-								<li><a href="login.html">Iniciar sesion</a></li>
-							</ul>
-						</nav>
-
+					<nav id="nav">
+						<ul>
+							<li class="active"><a href="index.php">Inicio</a></li>
+							<li><a href="registro.php">Registrarme</a></li>
+							<li><a href="login.html">Iniciar sesion</a></li>
+						</ul>
+					</nav>
 				</div>
 			</div>
-		<!-- Header -->
+			<!-- Header -->
 
-		<!-- Banner -->
+			<!-- Banner -->
 			<div id="banner">
 				<div class="container">
-
 					<section>
 						<span class="fa fa-cubes"></span>
 						<header>
@@ -68,11 +65,10 @@ window.smartsupp||(function(d) {
 					</section>
 				</div>
 			</div>
-		<!-- /Banner -->
+			<!-- /Banner -->
+		</div>
 
-	</div>
-
-	<!-- Extra -->
+		<!-- Extra -->
 		<div id="extra">
 			<div class="container">
 				<div class="row">
@@ -107,15 +103,13 @@ window.smartsupp||(function(d) {
 				</div>
 			</div>
 		</div>
+		<!-- /Extra -->
 
-	<!-- /Extra -->
-	<!-- Copyright -->
+		<!-- Copyright -->
 		<div id="copyright">
 			<div class="container">
 			Todos los derechos reservados 2018 ©
 			</div>
 		</div>
-
-
 	</body>
 </html>
