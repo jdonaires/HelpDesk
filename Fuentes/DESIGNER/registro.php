@@ -85,13 +85,13 @@
 					<form action="?action=registrar" method="post">
 						<h3>Datos personales</h3><br>
 						<label for="lname">Nombres</label>
-						<input class="form" type="text" id="_nombre" name="_nombre">
+						<input class="form" type="text" id="_nombre" name="_nombre" autocomplete="off">
 
 						<label for="lname">Apellidos</label>
-						<input class="form" type="text" id="_apellidos" name="_apellidos">
+						<input class="form" type="text" id="_apellidos" name="_apellidos" autocomplete="off">
 
 						<label for="lname">Celular</label>
-						<input class="form" type="text" id="_celular" name="_celular">
+						<input class="form" type="text" id="_celular" name="_celular" autocomplete="off">
 
 						<labelfor="country">Area</label>
 						<select class="form" id="_area" name="_area">
@@ -102,6 +102,7 @@
 								}
 							?>
 						</select>
+
 						<h3>Datos de cuenta</h3><br>
 						<labelfor="country">Perfil</label>
 						<select class="form" id="_perfil" name="_perfil">
@@ -140,7 +141,14 @@
 <script>
 
 	$("#_registrar").click(function () {
-		swal("Good job!", "Login Success!", "success");
+		if($("#_nombre").value == null ||  $("#_nombre").value.length == 0){
+			ShowMessage("Ingrese un nombre.");
+		}
 	});
+
+	function ShowMessage(Message){
+		swal("Registro de Usuario", Message, "info");
+	}
+
 
 </script>
