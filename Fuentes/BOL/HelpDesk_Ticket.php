@@ -8,7 +8,8 @@ class HelpDesk_Ticket
     private $Asunto;
     private $Descripcion;
 
-    function __construct(){
+    function __construct()
+    {
         $this->HelpDesk_Problema = new HelpDesk_Problema();
         $this->HelpDesk_Cliente = new HelpDesk_Usuario();
     }

@@ -1,5 +1,5 @@
 <?php
-require_once 'DAL/DBAccess.php';
+require_once '..\DAL\DBAccess.php';
 
 /***********************************************************
  * CREADO POR: GRUPO HELPDESK
@@ -10,13 +10,16 @@ class HelpDesk_PerfilDAO
 {
 	private $pdo;
 
-	public function __CONSTRUCT(){
+	public function __construct()
+	{
 			$dba = new DBAccess();
 			$this->pdo = $dba->Get_Connection();
 	}
 
-	public function GET_Perfil(){
-		try{
+	public function GET_Perfil()
+	{
+		try
+		{
             $statement = $this->pdo->prepare("CALL spHelpDesk_GET_BusquedaGeneral(?,?,?,?)");
 			$statement->bindValue(1, "GET_Perfil", PDO::PARAM_STR);
 			$statement->bindValue(2, "%", PDO::PARAM_STR);
@@ -26,7 +29,8 @@ class HelpDesk_PerfilDAO
 			$Result = $statement->fetchAll(PDO::FETCH_ASSOC);
 			return $Result;
 		}
-		catch(Exception $ex){
+		catch(Exception $ex)
+		{
 			die($ex->getMessage());
 		}
 	}

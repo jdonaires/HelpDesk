@@ -7,7 +7,8 @@ class HelpDesk_TicketDetalle
     private $HelpDesk_Responsable;
     private $Estado;
 
-    function __construct(){
+	function __construct()
+	{
         $this->HelpDesk_Ticket = new HelpDesk_Ticket();
         $this->HelpDesk_Responsable = new HelpDesk_Usuario();
     }

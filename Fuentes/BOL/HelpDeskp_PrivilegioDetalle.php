@@ -5,7 +5,8 @@ class HelpDesk_PrivilegioDetalle
     private $IdPrivilegioDetalle;
     private $HelpDesk_Usuario;
     private $HelpDesk_Privilegio;
-    function __construct(){
+	function __construct()
+	{
         $this->HelpDesk_Usuario = new HelpDesk_Usuario();
         $this->HelpDesk_Privilegio = new HelpDesk_Privilegio();
     }
