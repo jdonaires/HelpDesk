@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -81,6 +83,8 @@
 				</br>
 				<thead>
 						<tr>
+			
+
 							<th class="text-left">ID Cliente</th>
 							<th class="text-left">Nombre completo</th>
 							<th class="text-left">Area</th>
@@ -91,40 +95,35 @@
 							<th class="text-left">Revisar</th>
 						</tr>
 							</thead>
+											<?php
+							require_once '..\DAL\DBAccess.php';
+
+
+$dba = new DBAccess();
+$conn = $dba->Get_Connection();
+
+$stmt = $conn->prepare("SELECT * FROM helpdesk_usuario");
+// Ejecutamos
+$stmt->execute();
+// Ahora vamos a indicar el fetch mode cuando llamamos a fetch:
+while($row = $stmt->fetch(PDO::FETCH_OBJ)){
+    echo'
+
 							<tbody class="table-hover">
 								<tr>
-								<td>AD001</td>
-								<td>Kevin Flores Palomino</td>
-								<td>TI</td>
-								<td>Administrador</td>
-								<td>935654798</td>
-								<td>JGomez@gmail.com</td>
-								<td>Activo</td>
-								<td><a href="a-detalleuser.html"><span class="fa fa-eye"> </a></td>
+								<td>'.$row->IdUsuario.'</td>
+								<td>'.$row->Nombre.'</td>
+								<td>'.$row->Nombre.'</td>
+								<td>'.$row->Nombre.'</td>
+								<td>'.$row->Nombre.'</td>
+								<td>'.$row->Nombre.'</td>
+								<td>'.$row->Nombre.'</td>
+								<td><a href="a-detalleuser.html?IdUsuario='.$row->IdUsuario.'"><span class="fa fa-eye"> </a></td>
 							</tr>
 
-							<tr>
-								<td>AD002</td>
-								<td>Cristian Hernandez Villo</td>
-								<td>TI</td>
-								<td>Administrador</td>
-								<td>935654798</td>
-								<td>ARomero@gmail.com</td>
-								<td>Activo</td>
-								<td><a href="a-detalleuser.html"><span class="fa fa-eye"> </a></td>
-							</tr>
-
-							<tr>
-							<td>AD003</td>
-							<td>Jhampier Salvador Castilla</td>
-							<td>TI</td>
-							<td>Administrador</td>
-							<td>935654798</td>
-							<td>PEsquirva@gmail.com</td>
-							<td>Activo</td>
-							<td><a href="a-detalleuser.html"><span class="fa fa-eye"> </a></td>
-						</tr>
-							</tbody>
+							</tbody>';
+							}
+							?>
 						</table>
 								 </form>
 
