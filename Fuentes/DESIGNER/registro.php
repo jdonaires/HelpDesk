@@ -143,12 +143,6 @@
 		</div>
 	</body>
 </html>
-<script>
-
-	$("#_registrar").click(function () {
-		//fn_ValidaDatos();
-		$("#_frm_action").submit();
-	});
 
 	
 
