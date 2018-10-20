@@ -7,6 +7,11 @@
 
 	$Result = $HelpDesk_PerfilDAO->GET_Perfil();
 	$ResultArea = $HelpDesk_AreaDAO->GET_Area();
+
+	if(isset($_POST['_frm_action']))
+	{
+				echo("hola");
+	}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -82,7 +87,7 @@
 					</section>
 				</div>
 				<div class="forma" style="width:90%;">
-					<form action="?action=registrar" method="post">
+					<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method="post" id="_frm_action" name="_frm_action">
 						<h3>Datos personales</h3><br>
 						<label for="lname">Nombres</label>
 						<input class="form" type="text" id="_nombre" name="_nombre" autocomplete="off">
@@ -141,14 +146,48 @@
 <script>
 
 	$("#_registrar").click(function () {
-		if($("#_nombre").value == null ||  $("#_nombre").value.length == 0){
-			ShowMessage("Ingrese un nombre.");
-		}
+		//fn_ValidaDatos();
+		$("#_frm_action").submit();
 	});
+
+	
+
+	function fn_ValidaDatos(){
+		if($("#_nombre").val() == null ||  $("#_nombre").val().length == 0){
+			ShowMessage("Ingrese su nombre.");
+		}
+		else if($("#_apellidos").val() == null ||  $("#_apellidos").val().length == 0){
+			ShowMessage("Ingrese su apellido.");
+		}
+		else if($("#_celular").val() == null ||  $("#_celular").val().length == 0){
+			ShowMessage("Ingrese su nro. de celular.");
+		}
+		else if($("#_area").val() == null ||  $("#_area").val().length == 0){
+			ShowMessage("Seleccione su area de trabajo.");
+		}
+		else if($("#_perfil").val() == null ||  $("#_perfil").val() == "0"){
+			ShowMessage("Seleccione un perfil.");
+		}
+		else if($("#_correo").val() == null ||  $("#_correo").val().length == 0){
+			ShowMessage("Ingrese su correo electronico.");
+		}
+		else if($("#_contrasenia").val() == null ||  $("#_contrasenia").val().length == 0){
+			ShowMessage("Ingrese su contraseña.");
+		}
+		else if($("#_rcontrasenia").val() == null ||  $("#_rcontrasenia").val().length == 0){
+			ShowMessage("Ingrese su apellido.");
+		}
+	}
 
 	function ShowMessage(Message){
 		swal("Registro de Usuario", Message, "info");
 	}
 
-
 </script>
+
+	<?php echo "<script> swal({
+   title: '¡ERROR!',
+   text: 'Esto es un mensaje de error',
+   type: 'error',
+ });</script>";
+?>
