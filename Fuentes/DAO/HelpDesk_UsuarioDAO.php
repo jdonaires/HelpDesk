@@ -29,8 +29,13 @@ class HelpDesk_UsuarioDAO
 			$statement->bindValue(11, $HelpDesk_Usuario->__GET('Confirmacion'));
 			$statement->bindValue(12, "");
 			$statement->bindValue(13,0);
-			$statement -> execute();
-			echo("Success");
+			$result = $statement -> execute();
+			if($result != null || !empty($result)){
+				 echo($statement->fetchAll(PDO::FETCH_ASSOC)[0]['V_MensajeError']);
+			}
+			else {
+				echo("Success");
+			}
 		}
 		catch (Exception $ex)
 		{
