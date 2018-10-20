@@ -83,7 +83,7 @@
 				</br>
 				<thead>
 						<tr>
-			
+
 
 							<th class="text-left">ID Cliente</th>
 							<th class="text-left">Nombre completo</th>
@@ -95,17 +95,15 @@
 							<th class="text-left">Revisar</th>
 						</tr>
 							</thead>
-											<?php
-							require_once '..\DAL\DBAccess.php';
-
-
+<?php
+require_once '..\DAL\DBAccess.php';
 $dba = new DBAccess();
 $conn = $dba->Get_Connection();
 
 $stmt = $conn->prepare("SELECT * FROM helpdesk_usuario");
-// Ejecutamos
+
 $stmt->execute();
-// Ahora vamos a indicar el fetch mode cuando llamamos a fetch:
+
 while($row = $stmt->fetch(PDO::FETCH_OBJ)){
     echo'
 
