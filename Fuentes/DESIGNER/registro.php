@@ -1,6 +1,6 @@
 <?php
-	require_once 'DAO/HelpDesk_PerfilDAO.php';
-	require_once 'DAO/HelpDesk_AreaDAO.php';
+	include_once "..\DAO\HelpDesk_PerfilDAO.php";
+	include_once "..\DAO\HelpDesk_AreaDAO.php";
 
 	$HelpDesk_PerfilDAO = new HelpDesk_PerfilDAO();
 	$HelpDesk_AreaDAO = new HelpDesk_AreaDAO();
@@ -93,7 +93,7 @@
 						<label for="lname">Celular</label>
 						<input class="form" type="text" id="_celular" name="_celular" autocomplete="off">
 
-						<labelfor="country">Area</label>
+						<label for="country">Area</label>
 						<select class="form" id="_area" name="_area">
 							<option value="0">Seleccione..</option>
 							<?php
@@ -104,7 +104,7 @@
 						</select>
 
 						<h3>Datos de cuenta</h3><br>
-						<labelfor="country">Perfil</label>
+						<label for="country">Perfil</label>
 						<select class="form" id="_perfil" name="_perfil">
 							<option value="0">Seleccione..</option>
 							<?php

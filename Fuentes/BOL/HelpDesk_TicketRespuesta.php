@@ -9,7 +9,8 @@ class HelpDesk_TicketRespuesta
     private $Respuesta;
     private $NivelAtencion;
 
-    function __construct(){
+    function __construct()
+    {
         $this->HelpDesk_Ticket = new HelpDesk_Ticket();
         $this->HelpDesk_Problema = new HelpDesk_Problema();
     }

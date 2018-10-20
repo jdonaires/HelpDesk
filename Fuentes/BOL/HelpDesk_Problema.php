@@ -12,7 +12,8 @@ class HelpDesk_Problema
     private $Descripcion;
     private $Prioridad;
 
-    function __construct(){
+	function __construct()
+	{
         $this->HelpDesk_Categoria = new HelpDesk_Categoria();
     }
 
