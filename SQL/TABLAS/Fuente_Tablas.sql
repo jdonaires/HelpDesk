@@ -4,9 +4,9 @@
 '* FECHA CREA: 23/09/2018
 **************************************************************/
 
-CREATE DATABASE HELPDESK_2018;
 
-USE HELPDESK_2018;
+
+USE helpdesk_2018;
 
 DROP TABLE IF EXISTS HelpDesk_Problema;
 DROP TABLE IF EXISTS HelpDesk_Categoria;

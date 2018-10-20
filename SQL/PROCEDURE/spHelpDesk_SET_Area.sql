@@ -1,4 +1,4 @@
-USE HELPDESK_2018;
+USE helpdesk_2018;
 DELIMITER $
 CREATE PROCEDURE spHelpDesk_SET_Area (
 	P_Opcion 	CHAR(1)

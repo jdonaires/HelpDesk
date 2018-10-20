@@ -1,4 +1,9 @@
-<!DOCTYPE HTML>
+<?php
+
+?>
+
+
+
 <html>
 	<head>
 		<title>Helpdesk</title>
@@ -82,12 +87,14 @@ window.smartsupp||(function(d) {
 				<div class="forma"  style="width:90%;">
 <form action="action_page.php">
 
+
 <labelfor="country">Categoria</label>
 <select class="form" id="country" name="country">
-	<option value="a">Impresora</option>
-	<option value="canada">CPU</option>
-	<option value="usa">Monitor</option>
+	<option value="a">.$result.</option>
+
 </select>
+
+
 
 <labelfor="country">Problema</label>
 <select class="form" id="country" name="country">

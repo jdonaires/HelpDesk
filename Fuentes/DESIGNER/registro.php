@@ -1,12 +1,13 @@
 <?php
 	include_once "..\DAO\HelpDesk_PerfilDAO.php";
 	include_once "..\DAO\HelpDesk_AreaDAO.php";
+	include_once "..\DAO\HelpDesk_UsuarioDAO.php";
+	include_once "..\BOL\HelpDesk_Usuario.php";
 
 	$HelpDesk_PerfilDAO = new HelpDesk_PerfilDAO();
 	$HelpDesk_AreaDAO = new HelpDesk_AreaDAO();
-
-	$Result = $HelpDesk_PerfilDAO->GET_Perfil();
-	$ResultArea = $HelpDesk_AreaDAO->GET_Area();
+	$ResultArea= $HelpDesk_AreaDAO->GET_Area();
+	$Result= $HelpDesk_PerfilDAO->GET_Perfil();
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -15,13 +16,14 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
+		
 		<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src = "https://unpkg.com/sweetalert/dist/sweetalert.min.js"> </script> 
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-panels.min.js"></script>
 		<script src="js/init.js"></script>
-		<script src="js/helpdesk_main.js"  rel></script>
+		<script src="js/helpdesk_main.js"  ></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -82,7 +84,7 @@
 					</section>
 				</div>
 				<div class="forma" style="width:90%;">
-					<form action="?action=registrar" method="post">
+					<form action="?action=registrar" method="post" id="_frm_action">
 						<h3>Datos personales</h3><br>
 						<label for="lname">Nombres</label>
 						<input class="form" type="text" id="_nombre" name="_nombre" autocomplete="off">
@@ -122,8 +124,8 @@
 						<label>Confirmar contraseña</label>
 						<input class="form" type="password" id="_rcontrasenia" name="_rcontrasenia" autocomplete="off">
 
-						<input class="formb" type="button" value="Validar datos" id="_validad">
-						<input class="formb" type="button" value="Registrarme" id="_registrar">
+						<input class="formb" type="button" value="Validar datos" id="_validar" >
+						<input class="formb" type="button" value="Registrarme" id="_registrar" >
 					</form>
 				</div>
 			</div>
@@ -138,16 +140,85 @@
 		</div>
 	</body>
 </html>
+
 <script>
 
-	$("#_registrar").click(function () {
-		if($("#_nombre").value == null ||  $("#_nombre").value.length == 0){
-			ShowMessage("Ingrese un nombre.");
-		}
+	$("#_registrar").click(function(){
+		if( fn_ValidaDatos() == false){
+			var data = {
+				Opcion: "I" ,
+				IdUsuario: 0,
+				IdPerfil: $("#_perfil").val(),
+				IdArea: $("#_area").val(),
+				Nombre: $("#_nombre").val(),
+				Apellidos: $("#_apellidos").val(),
+				Correo: $("#_correo").val(),
+				Contrasenia: $("#_contrasenia").val(),
+				NroCelular:$("#_celular").val()
+			};
+			HelpDeskajaxPostSetProcess({
+				url: "../Helper/HelpDesk_Usuario.php",
+				data: { "SET_Usuario": JSON.stringify(data)},
+				title: "Registro de Usuario"
+			});
+		};
+		
 	});
 
-	function ShowMessage(Message){
-		swal("Registro de Usuario", Message, "info");
+	$("#_validar").click(function(){
+		
+		// VALIDA QUE EL CORREO SEA INGRESADO
+		if($("#_correo").val() == null ||  $("#_correo").val().length == 0){
+			ShowMessage("Ingrese su correo electronico.", "Registro de usuario", "info");
+		}
+		var data = {
+			Correo: $("#_correo").val(),
+		};
+
+		HelpDeskajaxPostSetProcess({
+			url: "../Helper/HelpDesk_Usuario.php",
+			data: { "Valida_Email": JSON.stringify(data)},
+			title: "Registro de Usuario",
+			isWarning: true
+		});
+	});
+
+
+	function fn_ValidaDatos(validafull){
+		var Valida = false;
+		if($("#_nombre").val() == null ||  $("#_nombre").val().length == 0){
+			Valida = true;
+			ShowMessage("Ingrese su nombre.", "Registro de usuario", "info");
+		}
+		else if($("#_apellidos").val() == null ||  $("#_apellidos").val().length == 0){
+			Valida = true;
+			ShowMessage("Ingrese su apellido.", "Registro de usuario", "info");
+		}
+		else if($("#_celular").val() == null ||  $("#_celular").val().length == 0){
+			Valida = true;
+			ShowMessage("Ingrese su nro. de celular.", "Registro de usuario", "info");
+		}
+		else if($("#_area").val() == null ||  $("#_area").val().length == 0){
+			Valida = true;
+			ShowMessage("Seleccione su area de trabajo.", "Registro de usuario", "info");
+		}
+		else if($("#_perfil").val() == null ||  $("#_perfil").val() == "0"){
+			Valida = true;
+			ShowMessage("Seleccione un perfil.", "Registro de usuario", "info");
+		}
+		else if($("#_correo").val() == null ||  $("#_correo").val().length == 0){
+			Valida = true;
+			ShowMessage("Ingrese su correo electronico.", "Registro de usuario", "info");
+		}
+		else if($("#_contrasenia").val() == null ||  $("#_contrasenia").val().length == 0){
+			Valida = true;
+			ShowMessage("Ingrese su contraseña.", "Registro de usuario", "info");
+		}
+		else if($("#_rcontrasenia").val() == null ||  $("#_rcontrasenia").val().length == 0){
+			Valida = true;
+			ShowMessage("Vuelva ingresar su contraseña.", "Registro de usuario", "info");
+		}
+		return Valida;
 	}
 
 
