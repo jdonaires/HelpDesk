@@ -1,6 +1,6 @@
 <?php
 require_once '..\DAL\DBAccess.php';
-require_once 'BOL/HelpDesk_Usuario.php';
+require_once '..\BOL\HelpDesk_Usuario.php';
 
 class HelpDesk_UsuarioDAO
 {
@@ -15,20 +15,22 @@ class HelpDesk_UsuarioDAO
 	{
 		try
 		{
-			$statement = $this->pdo->prepare("CALL spHelpDesk_SET_Usuario(?,?,?,?,?,?,?,?,?,?,?,?)");
-			$statement->bindParam(1, $HelpDesk_Usuario->__GET('Opcion'));
-			$statement->bindParam(2, $HelpDesk_Usuario->__GET('IdUsuario'));
-			$statement->bindParam(3, $HelpDesk_Usuario->__GET('IdArea'));
-			$statement->bindParam(4, $HelpDesk_Usuario->__GET('IdPerfil'));
-			$statement->bindParam(5, $HelpDesk_Usuario->__GET('Nombre'));
-			$statement->bindParam(6, $HelpDesk_Usuario->__GET('Apellidos'));
-			$statement->bindParam(7, $HelpDesk_Usuario->__GET('Correo'));
-			$statement->bindParam(8, $HelpDesk_Usuario->__GET('Contrasenia'));
-			$statement->bindParam(9, $HelpDesk_Usuario->__GET('Estado'));
-			$statement->bindParam(10, $HelpDesk_Usuario->__GET('NroCelular'));
-			$statement->bindParam(11, $HelpDesk_Usuario->__GET('Confirmacion'));
-			$statement->bindParam(12, $HelpDesk_Usuario->__GET('FechaCrea'));
+			$statement = $this->pdo->prepare("CALL spHelpDesk_SET_Usuario(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			$statement->bindValue(1, $HelpDesk_Usuario->__GET('Opcion'));
+			$statement->bindValue(2, $HelpDesk_Usuario->__GET('IdUsuario'));
+			$statement->bindValue(3, $HelpDesk_Usuario->__GET('IdPerfil'));
+			$statement->bindValue(4, $HelpDesk_Usuario->__GET('IdArea'));
+			$statement->bindValue(5, $HelpDesk_Usuario->__GET('Nombre'));
+			$statement->bindValue(6, $HelpDesk_Usuario->__GET('Apellidos'));
+			$statement->bindValue(7, $HelpDesk_Usuario->__GET('Correo'));
+			$statement->bindValue(8, $HelpDesk_Usuario->__GET('Contrasenia'));
+			$statement->bindValue(9, $HelpDesk_Usuario->__GET('Estado'));
+			$statement->bindValue(10, $HelpDesk_Usuario->__GET('NroCelular'));
+			$statement->bindValue(11, $HelpDesk_Usuario->__GET('Confirmacion'));
+			$statement->bindValue(12, "");
+			$statement->bindValue(13,0);
 			$statement -> execute();
+			echo("Success");
 		}
 		catch (Exception $ex)
 		{
@@ -36,11 +38,18 @@ class HelpDesk_UsuarioDAO
 		}
 	}
 
-	public function GET_Usuario()
+	public function GET_ValidaEmail($ValueEmail)
 	{
 		try
 		{
-
+            $statement = $this->pdo->prepare("CALL spHelpDesk_GET_BusquedaGeneral(?,?,?,?)");
+			$statement->bindValue(1, "GET_ValidaEmail", PDO::PARAM_STR);
+			$statement->bindValue(2, $ValueEmail, PDO::PARAM_STR);
+            $statement->bindValue(3, 0, PDO::PARAM_INT);
+            $statement->bindValue(4, 0, PDO::PARAM_INT);
+            $statement->execute();
+			$Result = $statement->fetchAll(PDO::FETCH_ASSOC);
+			return $Result;
 		}
 		catch(Exception $ex)
 		{

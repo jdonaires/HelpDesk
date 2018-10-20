@@ -3,8 +3,8 @@
     {
         private $Opcion;
         private $IdUsuario;
-        private $HelpDesk_Area;
-        private $HelpDesk_Perfil;
+        private $IdPerfil;
+        private $IdArea;
         private $Nombre;
         private $Apellidos;
         private $Correo;
@@ -14,8 +14,6 @@
         private $Confirmacion;
 
         function __construct(){
-            $this->HelpDesk_Area = new HelpDesk_Area();
-            $this->HelpDesk_Perfil = new HelpDesk_Perfil();
         }
 
         public function __GET($x)
