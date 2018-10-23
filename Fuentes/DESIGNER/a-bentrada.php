@@ -60,7 +60,11 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
+
+
+
                 <ul class="nav side-menu">
+
                   <li><a><i class="fa fa-home"></i> Administrar Datos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="a-contnuevoc.php">Control Nuevos</a></li>
@@ -154,20 +158,19 @@
             <table class="table-fill" >
               <div class="alert alert-info">
           </div>
-            <h2>Control Clientes</h2>
+            <h2>Bandeja Entrada</h2>
           </br>
           </br>
           <thead>
               <tr>
 
-                <th class="text-left">ID Cliente</th>
-                <th class="text-left">Nombre completo</th>
-                <th class="text-left">Area</th>
-                <th class="text-left">Perfil</th>
-                <th class="text-left">Celular</th>
-                <th class="text-left">Email</th>
-                <th class="text-left">Estado</th>
-                <th class="text-left">Revisar</th>
+                <th class="text-left">N# Ticket</th>
+  							<th class="text-left">FechaCrea</th>
+  							<th class="text-left">Asunto</th>
+  							<th class="text-left">Prioridad</th>
+  							<th class="text-left">Area</th>
+  							<th class="text-left">Estado</th>
+  							<th class="text-left">Revisar</th>
               </tr>
                 </thead>
           <?php
@@ -187,7 +190,7 @@
                   <td>'.$row->Nombre.'</td>
                   <td>'.$row->Nombre.'</td>
                   <td>'.$row->Nombre.'</td>
-                  <td>'.$row->Nombre.'</td>
+
                   <td><a href="a-detalleuser.html?IdUsuario='.$row->IdUsuario.'"><span class="fa fa-eye"> </a></td>
                 </tr>
 
