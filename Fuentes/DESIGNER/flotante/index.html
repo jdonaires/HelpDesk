@@ -16,9 +16,9 @@
 					onCleanup:function(){ alert('onCleanup: colorbox has begun the close process'); },
 					onClosed:function(){ alert('onClosed: colorbox has completely closed'); }
 				});
-				
+
 				//Example of preserving a JavaScript event for inline calls.
-				$("#click").click(function(){ 
+				$("#click").click(function(){
 					$('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
 					return false;
 				});
@@ -26,10 +26,10 @@
 		</script>
 	</head>
 	<body>
-		
+
 		<p><a class='inline' href="#inline_content">Abrir formulario</a></p>
 
-		
+
 		<!-- This contains the hidden content for inline calls -->
 		<div style='display:none'>
 			<div id='inline_content' style='padding:10px; background:#fff;'>
@@ -37,9 +37,9 @@
             <input name="" type="text">
             <input name="" type="text">
             <input name="boton" type="button" value="enviar">
-            
+
             </form></strong></p>
-			
+
 			</div>
 		</div>
 	</body>
