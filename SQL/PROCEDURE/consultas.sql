@@ -12,7 +12,7 @@ where IdProblema = 1;
 
 update helpdesk_categoria set
 FlgEliminado = '0'
-where IdCategoria = 1;
+where IdCategoria = 2;
 
 UPDATE HelpDesk_Perfil SET
 	Descripcion = 'Cliente'
@@ -22,3 +22,22 @@ select * from helpdesk_categoria;
 select * from helpdesk_problema;
 
 CALL spHelpDesk_GET_BusquedaGeneral('GET_Categoria', '', 0, 0);
+
+SELECT
+	IdCategoria,
+    Tipo,
+    Descripcion
+FROM HelpDesk_Categoria
+	WHERE FlgEliminado = '0';
+
+
+SELECT
+				PRO.IdProblema
+					, PRO.IdCategoria
+					, PRO.Descripcion
+					, PRO.Prioridad
+					, PRO.FechaEstimacion
+					, CAT.Descripcion  + ' ' + PRO.Descripcion AS 'Asunto'
+			FROM HelpDesk_Problema PRO
+				INNER JOIN HelpDesk_Categoria CAT ON CAT.IdCategoria = PRO.IdCategoria
+			WHERE FlgEliminado = '0' AND PRO.IdCategoria =  P_ParametroId;

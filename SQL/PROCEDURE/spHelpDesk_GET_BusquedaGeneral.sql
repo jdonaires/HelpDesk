@@ -1,4 +1,5 @@
-CREATE DEFINER=`usert_test`@`%` PROCEDURE `spHelpDesk_GET_BusquedaGeneral`(
+DELIMITER $$;
+CREATE PROCEDURE `spHelpDesk_GET_BusquedaGeneral`(
     P_Opcion         VARCHAR(100)
 ,   P_Filtro         TEXT
 ,   P_ParametroId    INT
@@ -47,7 +48,7 @@ BEGIN
 			SELECT
 				PRO.IdProblema
 					, PRO.IdCategoria
-					, PRO.Descripcion 
+					, PRO.Descripcion
 					, PRO.Prioridad
 					, PRO.FechaEstimacion
 					, CAT.Descripcion  + ' ' + PRO.Descripcion AS 'Asunto'
