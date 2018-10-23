@@ -72,12 +72,19 @@
                   <ul class="nav side-menu">
                     <li><a><i class="fa fa-home"></i>Bandeja<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <li><a href="index.php">Entrada</a></li>
-                        <li><a href="index2.html">Proceso</a></li>
-                        <li><a href="index3.html">Validez</a></li>
-                        <li><a href="index3.html">Salida</a></li>
+                        <li><a href="a-bentrada.php">Entrada</a></li>
+                        <li><a href="a-bproceso.php">Proceso</a></li>
+                        <li><a href="a-bvalidez.php">Validez</a></li>
+                        <li><a href="a-bsalida.php">Salida</a></li>
                       </ul>
                     </li>
+                    <ul class="nav side-menu">
+                      <li><a><i class="fa fa-home"></i>Dashboard<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                          <li><a href="a-bentrada.php">Entrada</a></li>
+                        </ul>
+                        <a href="https://dashboard.smartsupp.com/v2" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;">Mensajeria<span> </a>
+                      </li>
 
                 </ul>
               </div>
