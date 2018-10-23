@@ -102,11 +102,7 @@
 </select>
 
 <label for="lname">Problema</label>
-<?php
-	foreach ($ResultCat as $key => $item) {
-		echo '<input class="form" type="text" value="'.$item["Descripcion"].'" id="lname" name="lastname" placeholder="No enciende"  readonly="readonly">';
-	}
-?>
+<input class="form" type="text" id="lname" name="lastname" placeholder="No enciende"  readonly="readonly">
 
 <label for="lname">Asunto</label>
 <input class="form" type="text" id="lname" name="lastname" placeholder="Impresora No enciende"  readonly="readonly">
