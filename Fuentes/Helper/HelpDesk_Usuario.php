@@ -14,6 +14,7 @@
         $HelpDesk_Usuario->__SET('Apellidos', $vrHelpDesk_Usuario->Apellidos);
         $HelpDesk_Usuario->__SET('Correo', $vrHelpDesk_Usuario->Correo);
         $HelpDesk_Usuario->__SET('Contrasenia', $vrHelpDesk_Usuario->Contrasenia);
+        $HelpDesk_Usuario->__SET('NroCelular', $vrHelpDesk_Usuario->NroCelular);
         $result = $HelpDesk_UsuarioDAO->SET_Usuario($HelpDesk_Usuario);
         echo ($result);
     }

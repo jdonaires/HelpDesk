@@ -23,7 +23,7 @@ class HelpDesk_CategoriaDAO
 			$statement->bindParam(4, $HelpDesk_Categoria->__GET('Descripcion'));
       		$statement->bindParam(5, $HelpDesk_Categoria->__GET('FechaCrea'));
 			$statement -> execute();
-		} 
+		}
 		catch (Exception $ex)
 		{
 			die($ex->getMessage());
@@ -34,7 +34,19 @@ class HelpDesk_CategoriaDAO
 	{
 		try
 		{
-
+			/*$statement = $this->pdo->prepare("select * from helpdesk_categoria;");
+			$statement->execute();
+		  $Result = $statement->fetchAll(PDO::FETCH_ASSOC);
+			return $Result;
+			------------------------------*/
+			$statement = $this->pdo->prepare("CALL spHelpDesk_GET_BusquedaGeneral(?,?,?,?)");
+			$statement->bindValue(1, "GET_Categoria", PDO::PARAM_STR);
+			$statement->bindValue(2, "%", PDO::PARAM_STR);
+			$statement->bindValue(3, 0, PDO::PARAM_INT);
+			$statement->bindValue(4, 0, PDO::PARAM_INT);
+			$statement->execute();
+			$Result = $statement->fetchAll(PDO::FETCH_ASSOC);
+			return $Result;
 		}
 		catch(Exception $ex)
 		{
