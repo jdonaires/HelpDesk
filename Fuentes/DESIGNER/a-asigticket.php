@@ -1,11 +1,10 @@
 <?php
 	require_once('../DAO/HelpDesk_CategoriaDAO.php');
-	require_once('../DAO/HelpDesk_ProblemaDAO.php');
 	$HelpDesk_CategoriaDAO = new HelpDesk_CategoriaDAO();
-	$HelpDesk_CategoriaDAO = new HelpDesk_ProblemaDAO();
 	$ResultCat = $HelpDesk_CategoriaDAO->GET_Categoria();
+	require_once('../DAO/HelpDesk_ProblemaDAO.php');
+	$HelpDesk_ProblemaDAO = new HelpDesk_ProblemaDAO();
 	$ResultPro = $HelpDesk_ProblemaDAO->GET_Problema();
-
 ?>
 
 <!DOCTYPE HTML>
