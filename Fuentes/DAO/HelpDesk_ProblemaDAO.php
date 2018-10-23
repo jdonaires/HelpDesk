@@ -29,11 +29,11 @@ class HelpDesk_ProblemaDAO
 		}
 	}
 
-	public function GET_Problema(HelpDesk_Problema $Problema){
+	public function GET_Problema(){
 		try{
 			$statement = $this->pdo->prepare("CALL spHelpDesk_GET_BusquedaGeneral(?,?,?,?)");
 			$statement->bindValue(1, "GET_Problema", PDO::PARAM_STR);
-			$statement->bindValue(2, "$Problema", PDO::PARAM_STR);
+			$statement->bindValue(2, "%", PDO::PARAM_STR);
 			$statement->bindValue(3, 0, PDO::PARAM_INT);
 			$statement->bindValue(4, 0, PDO::PARAM_INT);
 			$statement->execute();
