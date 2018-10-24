@@ -4,7 +4,11 @@ INSERT INTO helpdesk_categoria (IdCategoria, Tipo, Descripcion, FechaCrea, FlgEl
 INSERT INTO helpdesk_categoria (IdCategoria, Tipo, Descripcion, FechaCrea, FlgEliminado) VALUES ('2', 'LAPTOP', 'LAPTOP NO PRENDE', '2018-10-19', '1');
 
 INSERT INTO helpdesk_problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('1', '1', 'IMPRESORA NO PRENDE', 'ALTA', '2018-10-30', '2018-10-22', 1 );
+INSERT INTO helpdesk_problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('2', '2', 'LAPTOP SIN WIFI', 'MEDIA', '2018-10-30', '2018-10-22', 0 );
 
+INSERT INTO helpdesk_ticket (IdTicket, IdCliente, IdProblema, Asunto, Descripcion, FechaCrea, FlgElminado) VALUES ('1', '1', '1', 'IMPRESORA', 'NO PRENDE', '2018-10-22', 0 );
+
+INSERT INTO helpdesk_Cliente (IdTicket, IdCliente, IdProblema, Asunto, Descripcion, FechaCrea, FlgElminado) VALUES ('1', '1', '1', 'IMPRESORA', 'NO PRENDE', '2018-10-22', 0 );
 
 UPDATE helpdesk_problema set
 FlgElminado = '0'
@@ -20,6 +24,7 @@ WHERE IdPerfil  = 1;
 
 select * from helpdesk_categoria;
 select * from helpdesk_problema;
+select * from helpdesk_ticket;
 
 CALL spHelpDesk_GET_BusquedaGeneral('GET_Categoria', '', 0, 0);
 
@@ -31,13 +36,35 @@ FROM HelpDesk_Categoria
 	WHERE FlgEliminado = '0';
 
 
-SELECT
-				PRO.IdProblema
-					, PRO.IdCategoria
-					, PRO.Descripcion
-					, PRO.Prioridad
-					, PRO.FechaEstimacion
-					, CAT.Descripcion  + ' ' + PRO.Descripcion AS 'Asunto'
+SELECT 
+	PRO.IdProblema,
+    PRO.IdCategoria,
+    PRO.Descripcion,
+    PRO.Prioridad,
+    PRO.FechaEstimacion,
+    concat(CAT.Descripcion," ",PRO.Descripcion) AS Asunto
 			FROM HelpDesk_Problema PRO
 				INNER JOIN HelpDesk_Categoria CAT ON CAT.IdCategoria = PRO.IdCategoria
-			WHERE FlgEliminado = '0' AND PRO.IdCategoria =  P_ParametroId;
+			WHERE FlgEliminado = '0';
+            
+            
+            
+DELIMITER $$
+create procedure spHelpDesk_GET_DetTicket(
+	in _IdTicket INT,
+    )
+    BEGIN
+    SELECT
+    PRO.IdTicket,
+    PRO.IdProblema,
+    PRO.IdCategoria,
+    PRO.Descripcion,
+    PRO.Prioridad,
+    PRO.FechaEstimacion,
+    concat(CAT.Descripcion," ",PRO.Descripcion) AS Asunto
+			FROM HelpDesk_Ticket as TIC
+			INNER JOIN HelpDesk_Problema as PRO ON PRO.IdProblema = TIC.IdProblema
+			INNER JOIN HelpDesk_Categoria as CAT ON CAT.IdCategoria = PRO.IdCategoria
+			where TIC.IdTicket=1;
+END
+DELIMITER ;
