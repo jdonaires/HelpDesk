@@ -1,0 +1,377 @@
+areas 
+
+1 =(Administración)
+
+2 =(RR.HH.)
+
+3 =(Operaciones)
+
+
+
+perfiles
+
+1 =(HelpDesk_Perfil)
+
+2 =(Soporte)
+
+3 =(Administrador)
+
+
+comfirmacion ingrear(1 o 0)
+
+flgEliminado(ingresar 1 o 0)
+
+Estado(ingresar )
+-Activo
+-Inactivo
+
+
+
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('2', '2', '3', 'edwind', 'loayza', 'loayza@gmail.com', 'loayza', 'activo', '987632342', '1', '2018-10-22', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('3', '3', '3', 'luis', 'chauca', 'chauca@gmail.com', '123456', 'activo', '91234567', '1', '2018-04-15', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('4', '2', '2', 'paolo', 'esquirva', 'pesquirva@gmail.com', '654321', 'activo', '956565656', '1', '2018-06-02', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('5', '1', '3', 'jayme', 'sanchez', 'jaymedaniel@gmail.com', 'justin', 'activo', '926262626', '1', '2018-02-29', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('6', '2', '3', 'flavio', 'torres', 'alexists@gmail.com', 'mochito', 'activo', '925252525', '1', '2018-12-31', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('7', '1', '2', 'kevin', 'flores', 'kevinfap@gmail.com', 'angie123', 'inactivo', '920202020', '1', '2018-04-26', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('8', '2', '3', 'jorge', 'gomez', 'mazaro@gmail.com', 'infiel123', 'activo', '919191919', '1', '2018-10-21', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('9', '1', '2', 'anders', 'romero', 'superanders@gmail.com', 'rolaelpack', 'inactivo', '987632342', '1', '2018-08-09', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('10', '2', '3', 'rodrigo', 'escobar', 'el_bobby@gmail.com', 'vasir321', 'activo', '946571133', '1', '2018-08-17', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('11', '1', '2', 'jhampier', 'castilla', 'jhamp@gmail.com', '123456', 'inactivo', '981818181', '1', '2018-10-12', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('12', '2', '3', 'crhistian', 'hernandez', 'villo3@gmail.com', '741258', 'activo', '917171717', '1', '2018-03-15', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('13', '1', '3', 'andrea', 'pareja', 'a_dayana@gmail.com', '9876543', 'inactivo', '915151515', '1', '2018-08-19', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('14', '2', '1', 'margarita', 'lovera', 'margaracha@gmail.com', 'iloveyou', 'activo', '910101010', '1', '2018-10-22', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('15', '2', '3', 'oscar', 'huaman', 'oscarhuaman@gmail.com', '142536', 'activo', '923232323', '1', '2018-01-22', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('16', '1', '1', 'kevin', 'sachun', 'jordienp@gmail.com', 'imissyou', 'inactivo', '921212121', '1', '2018-10-23', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('17', '2', '1', 'aldair', 'castilla', 'el_pelon2@gmail.com', '012548', 'inactivo', '902020220', '1', '2018-02-22', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('18', '3', '3', 'marisol', 'valey', 'mari_sol@gmail.com', '123321', 'activo', '987788778', '1', '2018-10-22', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('19', '2', '3', 'anghelo', 'cristobal', 'f_ano@gmail.com', '123456', 'activo', '966666666', '1', '2018-09-22', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('20', '2', '1', 'daniel', 'de la cruz', 'daniel_kung_fu@gmail.com', 'inactivo', 'inactivo', '925252525', '1', '2018-01-02', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('21', '3', '1', 'camila', 'romero', 'cami_la@gmail.com', '852369', 'inactivo', '9001001011', '1', '2018-06-22', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('22', '3', '3', 'jessica', 'yataco', 'peligrosa666@gmail.com', '654789', 'activo', '986868686', '1', '2018-12-06', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('23', '2', '3', 'jhoneri', 'cueva', 'jhoneri_y4ll3@gmail.com', '123456', 'activo', '929292929', '1', '2018-12-22', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('24', '3', '3', 'pamela', 'perez', 'thu_pamelitha@gmail.com', 'lafirulays', 'activo', '9696969696', '1', '2018-10-22', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('25', '2', '3', 'frank', 'uceda', 'programador@gmail.com', '01010101', 'inactivo', '912121212', '1', '2018-10-22', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('26', '3', '2', 'jhampool', 'saravia', 'tupolcito@gmail.com', 'pol321cito', 'inactivo', '93232323232', '1', '2018-105-28', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('27', '1', '1', 'luis', 'labrin', 'pum4@gmail.com', '521463', 'inactivo', '911111111', '1', '2018-02-15', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('28', '2', '2', 'jazmin', 'arango', 'jaz_min@gmail.com', '123456', 'activo', '952525252', '1', '2018-12-01', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('28', '1', '2', 'brigithe', 'guerra', 'b_dolores@gmail.com', '123456', 'inactivo', '927272727', '1', '2018-08-22', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('29', '2', '3', 'omar', 'martinez', 'omar_mart@gmail.com', '123456', 'activo', '931323131', '1', '2018-10-22', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('30', '1', '3', 'vinz', 'paredes', 'vinzcencho@gmail.com', '1234567', 'inactivo', '902020202', '1', '2018-10-22', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('31', '2', '3', 'joan', 'gonzales', 'nec@gmail.com', 'sandwiches', 'inactivo', '921233225', '1', '2018-06-10', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('32', '2', '3', 'wylie', 'fernandez', 'feugiat@gmail.com', 'soups', 'inactivo', '901759569', '1', '2018-06-10', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('33', '1', '3', 'aiko', 'sparks', 'lacinia@gmail.com', 'seafood', 'inactivo', '902818074', '1', '2018-06-10', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('34', '2', '1', 'hedwig', 'brock', 'erat.eget@gmail.com', 'sdesserts', 'activo', '921232425', '1', '2018-06-10', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('35', '2', '2', 'dean', 'sargent', 'magna@gmail.com', 'ssalads', 'inactivo', '921222221', '1', '2018-06-10', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('36', '2', '3', 'april', 'rosales', 'ap_ros@gmail.com', 'cereals', 'inactivo', '921314151', '1', '2018-06-10', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('37', '2', '3', 'britanni', 'uribe', 'uribe_brit@gmail.com', '5225526', 'inactivo', '921314155', '1', '2018-06-10', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('38', '2', '3', 'alexandra', 'murray', 'pharetra@gmail.com', '8521469', 'inactivo', '991817245', '1', '2018-06-10', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('39', '3', '1', 'karla', 'perez', 'karlay@gmail.com', 'yako123', 'inactivo', '955667788', '1', '2018-08-14', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('40', '3', '3', 'xiomara', 'silva', 'priz_silva@gmail.com', 'andres321', 'inactivo', '9256582351', '1', '2018-06-10', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('41', '2', '3', 'norma', 'sandiga', 'tu_princd@gmail.com', 'martinez', 'activo', '962655895', '1', '2018-12-25', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('42', '2', '3', 'leslye', 'uceda', 'les_uceda@gmail.com', 'volmalean', 'activo', '920304050', '1', '2018-06-19', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('43', '2', '3', 'joan', 'gonzales', 'nec@gmail.com', 'sandwiches', 'inactivo', '921233225', '1', '2018-06-10', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('44', '1', '2', 'maria', 'peña', 'sap_ito@gmail.com', 'mayonesa', 'inactivo', '999989795', '1', '2018-03-18', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('45', '2', '3', 'amyra', 'espino', 'gansters_je@gmail.com', 'sandwiches214', 'inactivo', '956585551', '1', '2018-06-10', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('46', '3', '1', 'silvia', 'magallanes', 'silvia@gmail.com', 'soapssalts', 'inactivo', '962656330', '1', '2018-03-12', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('47', '2', '2', 'alex', 'rivera', 'rive_al@gmail.com', 'allfoods', 'inactivo', '911559988', '1', '2018-09-01', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('48', '2', '3', 'alberto', 'rodriguez', 'nacho_alto@gmail.com', 'freedom', 'activo', '925541563', '1', '2018-05-30', '1');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('49', '1', '2', 'jose', 'pachas', 'jpachas@gmail.com', 'chinoloco', 'inactivo', '958326976', '1', '2018-09-13', '0');
+
+INSERT INTO `helpdesk_usuario` 
+(`IdUsuario`, `IdPerfil`, `IdArea`, `Nombre`, `Apellidos`, `Correo`, `Contrasenia`, `Estado`, 
+`NroCelular`, `Confirmacion`, `FechaCrea`, `FlgEliminado`)
+ VALUES 
+('50', '1', '1', 'jackeline', 'paredes', 'jacky@gmail.com', 'redflowers', 'activo', '925265262', '1', '2018-01-01', '1');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

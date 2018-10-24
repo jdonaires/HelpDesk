@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -14,6 +16,7 @@
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-desktop.css" />
+
 		</noscript>
 		<link rel="stylesheet" href="css/form.css" />
 		<link rel="shortcut icon" type="image/x-icon" href="images/logop.ico" />
@@ -35,7 +38,7 @@
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-							
+
 							</ul>
 						</nav>
 
@@ -60,38 +63,53 @@
 						<header>
 							<h2>Detalle de usuario</h2>
 							<br>
-							<h3><a href="#">Volver</a></h3>
+
 
 						</header>
-						<br>
+
 						</section>
+
+		  	<?php
+				require_once '..\DAL\DBAccess.php';
+				$idUsuario=$_GET['IdUsuario'];
+				$dba = new DBAccess();
+				$conn = $dba->Get_Connection();
+				$stmt = $conn->prepare("SELECT USU.IdUsuario ,
+					 USU.IdPerfil ,
+					 PER.Descripcion AS 'Perfil' , USU.IdArea , ARE.Descripcion AS 'Area' , USU.Nombre , USU.Apellidos ,
+						USU.Correo , USU.NroCelular , USU.Correo , USU.Contrasenia , USU.Estado
+						FROM HelpDesk_Usuario USU INNER JOIN HelpDesk_Perfil PER ON PER.IdPerfil = USU.IdPerfil
+						INNER JOIN HelpDesk_Area ARE ON ARE.IdArea = USU.IdArea WHERE usu.IdUsuario='$idUsuario'");
+				$stmt->execute();
+				while($row = $stmt->fetch(PDO::FETCH_OBJ)){
+				echo'
 				</div>
 				<div class="forma" style="width:90%;">
 				<form action="action_page.php" >
-
-				<label for="lname">Nombres</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="Jhampier"  readonly="readonly">
-
-				<label for="lname">Apellidos</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="Salvador Castilla"  readonly="readonly">
+         
+				<label for="lname">Nombres y Apellidos</label>
+				<input class="form" type="text" id="lname" name="lastname" placeholder="'.$row->Nombre.' '.$row->Apellidos.'"  readonly="readonly">
 
 				<label for="lname">Correo</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="JCastillay@gmail.com"  readonly="readonly">
+				<input class="form" type="text" id="lname" name="lastname" placeholder="'.$row->Correo.'"  readonly="readonly">
 
 				<label for="lname">Celular</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="945989698"  readonly="readonly">
+				<input class="form" type="text" id="lname" name="lastname" placeholder="'.$row->NroCelular.'"  readonly="readonly">
 
 				<label for="lname">Perfil</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="Administrador"  readonly="readonly">
+				<input class="form" type="text" id="lname" name="lastname" placeholder="'.$row->Perfil.'"  readonly="readonly">
 
 				<label for="lname">Area</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="TI"  readonly="readonly">
+				<input class="form" type="text" id="lname" name="lastname" placeholder="'.$row->Area.'"  readonly="readonly">
 
-				<h3>Estado de cuenta</h3>
-				<br>
-				<labelfor="country">Estado</label>
+				<label for="lname">Estado</label>
+				<input class="form" type="text" id="lname" name="lastname" placeholder="'.$row->Estado.'"  readonly="readonly">
+				';}
+				?>
+
+				<h3>Cambiar estado de cuenta a:</h3>
 				<select class="form" id="country" name="country">
-					<option value="a">Creado</option>
+
 					<option value="a">Activo</option>
 					<option value="a">Inactivo</option>
 					<option value="a">Eliminado</option>

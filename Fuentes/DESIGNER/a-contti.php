@@ -164,9 +164,9 @@
           <thead>
               <tr>
 
-                <th class="text-left">ID Cliente</th>
+              
   							<th class="text-left">Nombre completo</th>
-  							<th class="text-left">Area</th>
+
   							<th class="text-left">Perfil</th>
   							<th class="text-left">Celular</th>
   							<th class="text-left">Email</th>
@@ -178,20 +178,25 @@
           require_once '..\DAL\DBAccess.php';
           $dba = new DBAccess();
           $conn = $dba->Get_Connection();
-          $stmt = $conn->prepare("SELECT * FROM helpdesk_usuario");
+          $stmt = $conn->prepare("SELECT USU.IdUsuario ,
+             USU.IdPerfil ,
+             PER.Descripcion AS 'Perfil' , USU.IdArea , ARE.Descripcion AS 'Area' , USU.Nombre , USU.Apellidos ,
+              USU.Correo , USU.NroCelular , USU.Correo , USU.Contrasenia , USU.Estado
+              FROM HelpDesk_Usuario USU INNER JOIN HelpDesk_Perfil PER ON PER.IdPerfil = USU.IdPerfil
+              INNER JOIN HelpDesk_Area ARE ON ARE.IdArea = USU.IdArea WHERE usu.IdPerfil='2'");
           $stmt->execute();
           while($row = $stmt->fetch(PDO::FETCH_OBJ)){
           echo'
 
                 <tbody class="table-hover">
                   <tr>
-                  <td>'.$row->IdUsuario.'</td>
-                  <td>'.$row->Nombre.'</td>
-                  <td>'.$row->Nombre.'</td>
-                  <td>'.$row->Nombre.'</td>
-                  <td>'.$row->Nombre.'</td>
-                  <td>'.$row->Nombre.'</td>
-                  <td>'.$row->Nombre.'</td>
+
+                  <td>'.$row->Nombre.' '.$row->Apellidos.'</td>
+
+                  <td>'.$row->Perfil.'</td>
+                  <td>'.$row->NroCelular.'</td>
+                  <td>'.$row->Correo.'</td>
+                  <td>'.$row->Estado.'</td>
                   <td><a href="a-detalleuser.html?IdUsuario='.$row->IdUsuario.'"><span class="fa fa-eye"> </a></td>
                 </tr>
 
