@@ -14,6 +14,10 @@ insert into helpdesk_area (IdArea, Descripcion, FechaCrea, FlgEliminado) values 
 
 insert into helpdesk_perfil (IdPerfil, Descripcion, FechaCrea, FlgEliminado) values ('1', 'Cliente', '2018-10-23', 0);
 
+
+
+insert into helpdesk_ticketdetalle (IdTicketDetalle, IdTicket, IdResponsable, Estado, FechaCrea) values ('1', '1', '1', 'Pendiente', '2018-10-23');
+
 UPDATE helpdesk_problema set
 FlgElminado = '0'
 where IdProblema = 1;
@@ -32,6 +36,7 @@ select * from helpdesk_ticket;
 select * from helpdesk_usuario;
 select * from helpdesk_perfil;
 select * from helpdesk_area;
+select * from helpdesk_ticketdetalle;
 
 delete from helpdesk_area where IdArea = '1';
 

@@ -4,7 +4,8 @@
 '* FECHA CREA: 23/09/2018
 **************************************************************/
 
-
+DROP DATABASE IF EXISTS helpdesk_2018;
+CREATE DATABASE helpdesk_2018;
 
 USE helpdesk_2018;
 
