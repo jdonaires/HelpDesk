@@ -74,7 +74,7 @@
 					<section>
 						<header>
 							<h2>Detalle de ticket</h2>
-							<br><h3><a href="a-bentrada.html">Volver</a></h3>
+							<br><h3><a href="a-bentrada.php">Volver</a></h3>
 						</header>
 						<br>
 						</section>
@@ -82,7 +82,7 @@
 				</div>
 				<!--CONTAINER -->
 				<div class="forma"  style="width:90%;">
-<form action="action_page.php">
+		<form action="action_page.php">
 
 		<h3>Descripcion de problema</h3>
 	<label for="lname">N° Ticket</label>

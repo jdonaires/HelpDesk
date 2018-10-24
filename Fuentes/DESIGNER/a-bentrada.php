@@ -177,21 +177,21 @@
           require_once '..\DAL\DBAccess.php';
           $dba = new DBAccess();
           $conn = $dba->Get_Connection();
-          $stmt = $conn->prepare("SELECT * FROM helpdesk_usuario");
+          $stmt = $conn->prepare("SELECT * FROM helpdesk_Ticket");
           $stmt->execute();
           while($row = $stmt->fetch(PDO::FETCH_OBJ)){
           echo'
 
                 <tbody class="table-hover">
                   <tr>
-                  <td>'.$row->IdUsuario.'</td>
-                  <td>'.$row->Nombre.'</td>
-                  <td>'.$row->Nombre.'</td>
-                  <td>'.$row->Nombre.'</td>
-                  <td>'.$row->Nombre.'</td>
-                  <td>'.$row->Nombre.'</td>
+                  <td>'.$row->IdTicket.'</td>
+                  <td>'.$row->FechaCrea.'</td>
+                  <td>'.$row->Asunto.'</td>
+                  <td>'.$row->Asunto.'</td>
+                  <td>'.$row->Asunto.'</td>
+                  <td>'.$row->Asunto.'</td>
 
-                  <td><a href="a-detalleuser.html?IdUsuario='.$row->IdUsuario.'"><span class="fa fa-eye"> </a></td>
+                  <td><a href="a-asigticket.php?IdTicket='.$row->IdTicket.'"><span class="fa fa-eye"> </a></td>
                 </tr>
 
                 </tbody>';

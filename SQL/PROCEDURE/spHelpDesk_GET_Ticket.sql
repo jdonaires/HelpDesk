@@ -4,8 +4,7 @@ create procedure spHelpDesk_GET_DetTicket(
     )
     BEGIN
     SELECT
-    PRO.IdTicket,
-    PRO.IdProblema,
+    TIC.IdTicket,
     PRO.IdCategoria,
     PRO.Descripcion,
     PRO.Prioridad,

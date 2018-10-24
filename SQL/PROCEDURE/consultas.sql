@@ -6,9 +6,13 @@ INSERT INTO helpdesk_categoria (IdCategoria, Tipo, Descripcion, FechaCrea, FlgEl
 INSERT INTO helpdesk_problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('1', '1', 'IMPRESORA NO PRENDE', 'ALTA', '2018-10-30', '2018-10-22', 1 );
 INSERT INTO helpdesk_problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('2', '2', 'LAPTOP SIN WIFI', 'MEDIA', '2018-10-30', '2018-10-22', 0 );
 
-INSERT INTO helpdesk_ticket (IdTicket, IdCliente, IdProblema, Asunto, Descripcion, FechaCrea, FlgElminado) VALUES ('1', '1', '1', 'IMPRESORA', 'NO PRENDE', '2018-10-22', 0 );
+INSERT INTO helpdesk_ticket (IdTicket, IdCliente, IdProblema, Asunto, Descripcion, FechaCrea, FlgEliminado) VALUES ('1', '1', '1', 'IMPRESORA', 'NO PRENDE', '2018-10-22', 0 );
 
-INSERT INTO helpdesk_Cliente (IdTicket, IdCliente, IdProblema, Asunto, Descripcion, FechaCrea, FlgElminado) VALUES ('1', '1', '1', 'IMPRESORA', 'NO PRENDE', '2018-10-22', 0 );
+INSERT INTO helpdesk_usuario (IdUsuario, IdPerfil, IdArea, Nombre, Apellidos, Correo, Contrasenia, Estado, NroCelular, Confirmacion, Fechacrea, FlgElIminado) VALUES ('1', '1', '1', 'Anders', 'Romero Quispe', 'lien2902@gmail.com', '123456', 'ACTIVO', '922178381',0, '2018-10-23', 0 );
+
+insert into helpdesk_area (IdArea, Descripcion, FechaCrea, FlgEliminado) values ('1', 'TI', '2018-10-23', 0);
+
+insert into helpdesk_perfil (IdPerfil, Descripcion, FechaCrea, FlgEliminado) values ('1', 'Cliente', '2018-10-23', 0);
 
 UPDATE helpdesk_problema set
 FlgElminado = '0'
@@ -25,6 +29,12 @@ WHERE IdPerfil  = 1;
 select * from helpdesk_categoria;
 select * from helpdesk_problema;
 select * from helpdesk_ticket;
+select * from helpdesk_usuario;
+select * from helpdesk_perfil;
+select * from helpdesk_area;
+
+delete from helpdesk_area where IdArea = '1';
+
 
 CALL spHelpDesk_GET_BusquedaGeneral('GET_Categoria', '', 0, 0);
 
