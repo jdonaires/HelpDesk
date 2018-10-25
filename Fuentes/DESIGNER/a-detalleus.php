@@ -63,11 +63,8 @@
 						<header>
 							<h2>Detalle de usuario</h2>
 							<br>
-
-
 						</header>
-
-						</section>
+					</section>
 
 		  	<?php
 				require_once '..\DAL\DBAccess.php';
@@ -86,7 +83,7 @@
 				</div>
 				<div class="forma" style="width:90%;">
 				<form action="action_page.php" >
-         
+
 				<label for="lname">Nombres y Apellidos</label>
 				<input class="form" type="text" id="lname" name="lastname" placeholder="'.$row->Nombre.' '.$row->Apellidos.'"  readonly="readonly">
 

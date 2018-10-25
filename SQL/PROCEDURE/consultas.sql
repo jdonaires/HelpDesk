@@ -83,3 +83,7 @@ create procedure spHelpDesk_GET_DetTicket(
 			where TIC.IdTicket=1;
 END
 DELIMITER ;
+
+
+
+

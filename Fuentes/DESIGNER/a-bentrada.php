@@ -1,11 +1,9 @@
-<?php
- ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -177,19 +175,19 @@
           require_once '..\DAL\DBAccess.php';
           $dba = new DBAccess();
           $conn = $dba->Get_Connection();
-          $stmt = $conn->prepare("SELECT * FROM helpdesk_Ticket");
-          $stmt->execute();
-          while($row = $stmt->fetch(PDO::FETCH_OBJ)){
+          $statement = $conn->prepare("call spHelpDesk_GET_Ticket");
+          $statement->execute();
+          while($row = $statement->fetch(PDO::FETCH_OBJ)){
           echo'
 
                 <tbody class="table-hover">
                   <tr>
-                  <td>'.$row->IdTicket.'</td>
+                  <td>'.$row->IdTicketDetalle.'</td>
                   <td>'.$row->FechaCrea.'</td>
                   <td>'.$row->Asunto.'</td>
-                  <td>'.$row->Asunto.'</td>
-                  <td>'.$row->Asunto.'</td>
-                  <td>'.$row->Asunto.'</td>
+                  <td>'.$row->Prioridad.'</td>
+                  <td>'.$row->Area.'</td>
+                  <td>'.$row->Estado.'</td>
 
                   <td><a href="a-asigticket.php?IdTicket='.$row->IdTicket.'"><span class="fa fa-eye"> </a></td>
                 </tr>

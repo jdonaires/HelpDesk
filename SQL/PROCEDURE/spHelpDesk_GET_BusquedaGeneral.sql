@@ -1,11 +1,7 @@
-<<<<<<< HEAD
+
 DELIMITER $$;
-CREATE PROCEDURE `spHelpDesk_GET_BusquedaGeneral`(
-=======
-USE helpdesk_2018;
-DELIMITER $
 CREATE  PROCEDURE spHelpDesk_GET_BusquedaGeneral(
->>>>>>> 89418a7eb908c61b5ed2723cd7343b1dd18f7e80
+
     P_Opcion         VARCHAR(100)
 ,   P_Filtro         TEXT
 ,   P_ParametroId    INT
@@ -50,7 +46,7 @@ BEGIN
     END IF;
 
     IF(P_Opcion  = 'GET_Problema') THEN
-<<<<<<< HEAD
+
 		BEGIN
 			SELECT
 				PRO.IdProblema
@@ -64,21 +60,6 @@ BEGIN
 			WHERE FlgEliminado = '0' AND PRO.IdCategoria =  P_ParametroId;
 		END;
 	END IF;
-
-=======
-        BEGIN
-            SELECT
-                PRO.IdProblema
-                    , PRO.IdCategoria
-                    , PRO.Descripcion
-                    , PRO.Prioridad
-                    , PRO.FechaEstimacion
-                    , CAT.Descripcion  + ' ' + PRO.Descripcion AS 'Asunto'
-            FROM HelpDesk_Problema PRO
-                INNER JOIN HelpDesk_Categoria CAT ON CAT.IdCategoria = PRO.IdCategoria
-            WHERE FlgEliminado = '0' AND PRO.IdCategoria =  P_ParametroId;
-        END;
-    END IF;
 
     IF(P_Opcion = 'GET_ValidaEmail') THEN
         BEGIN
@@ -116,5 +97,27 @@ BEGIN
             WHERE USU.FlgEliminado = '0' AND USU.Estado IS NULL;
         END;
     END IF;
->>>>>>> 89418a7eb908c61b5ed2723cd7343b1dd18f7e80
+    -- CONSULTA A DETALLE TICKET
+    IF(P_Option = 'GET_TicketDet') THEN
+		BEGIN
+			SELECT
+				TID.IdTicketDetalle,
+				TIC.IdTicket,
+				US.Nombre,
+				ARE.Descripcion,
+				TIC.FechaCrea,
+				TID.Estado,
+				PRO.Descripcion,
+				PRO.Prioridad,
+				PRO.FechaEstimacion,
+					concat(CAT.Descripcion," ",PRO.Descripcion) AS Asunto
+				FROM HelpDesk_Ticket as TIC
+				INNER JOIN helpdesk_TicketDetalle as TID ON TID.IdTicket= TIC.IdTicket
+				INNER JOIN helpdesk_Usuario as US ON US.IdUsuario = TID.IdResponsable
+				INNER JOIN helpdesk_Area as ARE on ARE.IdArea = US.IdArea
+				INNER JOIN HelpDesk_Problema as PRO ON PRO.IdProblema = TIC.IdProblema
+				INNER JOIN HelpDesk_Categoria as CAT ON CAT.IdCategoria = PRO.IdCategoria
+				where TID.IdTicketDetalle=P_ParametroId;
+		END;
+	END IF;
 END

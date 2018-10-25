@@ -82,11 +82,11 @@
 				</div>
 				<!--CONTAINER -->
 				<div class="forma"  style="width:90%;">
-		<form action="action_page.php">
+					<form action="action_page.php">
 
-		<h3>Descripcion de problema</h3>
-	<label for="lname">N° Ticket</label>
-	<input class="form" type="text" id="lname" name="lastname" value="TK0001" readonly="readonly">
+						<h3>Descripcion de problema</h3>
+						<label for="lname">N° Ticket</label>
+						<input class="form" type="text" id="lname" name="lastname" value="TK0001" readonly="readonly">
 
 <!--<label for="lname">Categoria</label>
 <input class="form" type="text" id="lname" name="lastname" placeholder="Impresora"  readonly="readonly">
