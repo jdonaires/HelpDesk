@@ -1,10 +1,5 @@
 <?php
-	require_once('../DAO/HelpDesk_CategoriaDAO.php');
-	$HelpDesk_CategoriaDAO = new HelpDesk_CategoriaDAO();
-	$ResultCat = $HelpDesk_CategoriaDAO->GET_Categoria();
-	require_once('../DAO/HelpDesk_ProblemaDAO.php');
-	$HelpDesk_ProblemaDAO = new HelpDesk_ProblemaDAO();
-	$ResultPro = $HelpDesk_ProblemaDAO->GET_Problema();
+
 ?>
 
 <!DOCTYPE HTML>
@@ -78,67 +73,61 @@
 						</header>
 						<br>
 						</section>
+						<?php
+						require_once '..\DAL\DBAccess.php';
+						$idTicketDet=$_GET['IdTicketDetalle'];
+						$dba = new DBAccess();
+						$conn = $dba->Get_Connection();
+						$stmt = $conn->prepare("call spHelpDesk_GET_DetTicket($idTicketDet);");
+						$stmt->execute();
+						while($row = $stmt->fetch(PDO::FETCH_OBJ)){
+						echo
+						'
+						</div>
+						<!--CONTAINER -->
+						<div class="forma"  style="width:90%;">
+							<form action="action_page.php">
 
-				</div>
-				<!--CONTAINER -->
-				<div class="forma"  style="width:90%;">
-					<form action="action_page.php">
+								<h3>Descripcion de problema</h3>
+								<label for="lname">N° Ticket</label>
+								<input class="form" type="text" id="lname" name="lastname" value="TKN '.$row->IdTicket.'" readonly>
 
-						<h3>Descripcion de problema</h3>
-						<label for="lname">N° Ticket</label>
-						<input class="form" type="text" id="lname" name="lastname" value="TK0001" readonly="readonly">
+		<label for="lname">Categoria</label>
+		<input class="form" type="text" id="lname" name="lastname" value="'.$row->Tipo.'"  readonly="readonly">
 
-<!--<label for="lname">Categoria</label>
-<input class="form" type="text" id="lname" name="lastname" placeholder="Impresora"  readonly="readonly">
--->
-<label for="lname">Categoria</label>
-<select class="form" id="categoria" name="categoria">
-  <option value="0">Seleccione..</option>
-  <?php
-    foreach ($ResultCat as $key => $item) {
-      echo '<option value="'.$item["Tipo"].'">'.$item['Tipo'].'</option>';
-    }
-  ?>
-</select>
+		<label for="lname">Problema</label>
+		<input class="form" type="text" id="lname" name="lastname" value="'.$row->Descripcion.'"  readonly="readonly">
 
-<label for="lname">Problema</label>
-<input class="form" type="text" id="lname" name="lastname" placeholder="No enciende"  readonly="readonly">
+		<label for="lname">Asunto</label>
+		<input class="form" type="text" id="lname" name="lastname" value="'.$row->Asunto.'"  readonly="readonly">
 
-<label for="lname">Asunto</label>
-<input class="form" type="text" id="lname" name="lastname" placeholder="Impresora No enciende"  readonly="readonly">
+		<label for="lname">Prioridad</label>
+		<input class="form" type="text" id="lname" name="lastname" value="'.$row->Prioridad.'"  readonly="readonly">
 
-<!--<label for="lname">Prioridad</label>
-<input class="form" type="text" id="lname" name="lastname" placeholder="Baja"  readonly="readonly">
--->
-<label for="lname">Prioridad</label>
-<select class="form" id="prioridad" name="prioridad">
-  <option value="0">Seleccione..</option>
-  <?php
-    foreach ($ResultPro as $key => $item) {
-      echo '<option value="'.$item["Prioridad"].'">'.$item['Prioridad'].'</option>';
-    }
-  ?>
-</select>
 
-<label for="subject">Detalle del problema</label>
-<textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." readonly="readonly">
-	Buenos dias, para solicitar ayuda ya que mi impresora dejo de funcionar hace un dia y no puedo imprimir los documentos del trabajo para los reportes diarios que se entregan al jefe.
-Porfavor ayuda lo más antes posible. </textarea>
+		<label for="subject">Detalle del problema</label>
+		<textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." readonly="readonly">
+			Buenos dias, para solicitar ayuda ya que mi impresora dejo de funcionar hace un dia y no puedo imprimir los documentos del trabajo para los reportes diarios que se entregan al jefe.
+		Porfavor ayuda lo más antes posible. </textarea>
 
-<label for="lname">Fecha creado</label>
-<input class="form" type="text" id="lname" name="lastname" placeholder="20/09/2018"  readonly="readonly">
+		<label for="lname">Fecha creado</label>
+		<input class="form" type="text" id="lname" name="lastname" value="'.$row->FechaCrea.'"  readonly="readonly">
 
-<h3>Asignacion personal</h3>
-<label for="lname">Fecha estimada de resolucion</label>
-<input class="form" type="text" id="lname" name="lastname" value="21/09/2018">
+		<h3>Asignacion personal</h3>
+		<label for="lname">Fecha estimada de resolucion</label>
+		<input class="form" type="text" id="lname" name="lastname" value="'.$row->FechaEstimacion.'">
 
-<label for="lname">Asignar a:</label>
-<select class="form" id="country" name="country">
-	<option value="a">Kevin Flores</option>
-	<option value="canada">Anders Romero</option>
-	<option value="usa">Luis Navarro</option>
-</select>
-<input class="formb" type="submit" value="Guardar cambios">
+		<label for="lname">Asignar a:</label>
+		<select class="form" id="country" name="country">
+			<option value="a">Kevin Flores</option>
+			<option value="canada">Anders Romero</option>
+			<option value="usa">Luis Navarro</option>
+		</select>
+						';
+						}
+						?>
+
+<input class="formb" type="submit" name="guardar" value="Guardar cambios">
 </form>
 </div>
 

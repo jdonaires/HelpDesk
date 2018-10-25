@@ -189,7 +189,7 @@
                   <td>'.$row->Area.'</td>
                   <td>'.$row->Estado.'</td>
 
-                  <td><a href="a-asigticket.php?IdTicket='.$row->IdTicket.'"><span class="fa fa-eye"> </a></td>
+                  <td><a href="a-asigticket.php?IdTicketDetalle='.$row->IdTicketDetalle.'"><span class="fa fa-eye"> </a></td>
                 </tr>
 
                 </tbody>';
