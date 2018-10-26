@@ -1,4 +1,4 @@
-<?php
+  <?php
 	include_once "..\DAO\HelpDesk_PerfilDAO.php";
 	include_once "..\DAO\HelpDesk_AreaDAO.php";
 	include_once "..\DAO\HelpDesk_UsuarioDAO.php";
@@ -16,10 +16,10 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		
+
 		<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src = "https://unpkg.com/sweetalert/dist/sweetalert.min.js"> </script> 
+		<script src = "https://unpkg.com/sweetalert/dist/sweetalert.min.js"> </script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-panels.min.js"></script>
 		<script src="js/init.js"></script>
@@ -162,11 +162,11 @@
 				title: "Registro de Usuario"
 			});
 		};
-		
+
 	});
 
 	$("#_validar").click(function(){
-		
+
 		// VALIDA QUE EL CORREO SEA INGRESADO
 		if($("#_correo").val() == null ||  $("#_correo").val().length == 0){
 			ShowMessage("Ingrese su correo electronico.", "Registro de usuario", "info");

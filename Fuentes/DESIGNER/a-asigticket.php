@@ -92,37 +92,36 @@
 								<label for="lname">N° Ticket</label>
 								<input class="form" type="text" id="lname" name="lastname" value="TKN '.$row->IdTicket.'" readonly>
 
-		<label for="lname">Categoria</label>
-		<input class="form" type="text" id="lname" name="lastname" value="'.$row->Tipo.'"  readonly="readonly">
+								<label for="lname">Categoria</label>
+								<input class="form" type="text" id="lname" name="lastname" value="'.$row->Tipo.'"  readonly="readonly">
 
-		<label for="lname">Problema</label>
-		<input class="form" type="text" id="lname" name="lastname" value="'.$row->Descripcion.'"  readonly="readonly">
+								<label for="lname">Problema</label>
+								<input class="form" type="text" id="lname" name="lastname" value="'.$row->Descripcion.'"  readonly="readonly">
 
-		<label for="lname">Asunto</label>
-		<input class="form" type="text" id="lname" name="lastname" value="'.$row->Asunto.'"  readonly="readonly">
+								<label for="lname">Asunto</label>
+								<input class="form" type="text" id="lname" name="lastname" value="'.$row->Asunto.'"  readonly="readonly">
 
-		<label for="lname">Prioridad</label>
-		<input class="form" type="text" id="lname" name="lastname" value="'.$row->Prioridad.'"  readonly="readonly">
+								<label for="lname">Prioridad</label>
+								<input class="form" type="text" id="lname" name="lastname" value="'.$row->Prioridad.'"  readonly="readonly">
 
+								<label for="subject">Detalle del problema</label>
+								<textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." readonly="readonly">
+									Buenos dias, para solicitar ayuda ya que mi impresora dejo de funcionar hace un dia y no puedo imprimir los documentos del trabajo para los reportes diarios que se entregan al jefe.
+								Porfavor ayuda lo más antes posible. </textarea>
 
-		<label for="subject">Detalle del problema</label>
-		<textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." readonly="readonly">
-			Buenos dias, para solicitar ayuda ya que mi impresora dejo de funcionar hace un dia y no puedo imprimir los documentos del trabajo para los reportes diarios que se entregan al jefe.
-		Porfavor ayuda lo más antes posible. </textarea>
+								<label for="lname">Fecha creado</label>
+								<input class="form" type="text" id="lname" name="lastname" value="'.$row->FechaCrea.'"  readonly="readonly">
 
-		<label for="lname">Fecha creado</label>
-		<input class="form" type="text" id="lname" name="lastname" value="'.$row->FechaCrea.'"  readonly="readonly">
+								<h3>Asignacion personal</h3>
+								<label for="lname">Fecha estimada de resolucion</label>
+								<input class="form" type="text" id="lname" name="lastname" value="'.$row->FechaEstimacion.'">
 
-		<h3>Asignacion personal</h3>
-		<label for="lname">Fecha estimada de resolucion</label>
-		<input class="form" type="text" id="lname" name="lastname" value="'.$row->FechaEstimacion.'">
-
-		<label for="lname">Asignar a:</label>
-		<select class="form" id="country" name="country">
-			<option value="a">Kevin Flores</option>
-			<option value="canada">Anders Romero</option>
-			<option value="usa">Luis Navarro</option>
-		</select>
+								<label for="lname">Asignar a:</label>
+								<select class="form" id="country" name="country">
+									<option value="a">Kevin Flores</option>
+									<option value="canada">Anders Romero</option>
+									<option value="usa">Luis Navarro</option>
+								</select>
 						';
 						}
 						?>
