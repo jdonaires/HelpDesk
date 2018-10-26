@@ -126,9 +126,9 @@
 						}
 						?>
 
-<input class="formb" type="submit" name="guardar" value="Guardar cambios">
-</form>
-</div>
+				<input class="formb" type="submit" name="guardar" value="Guardar cambios">
+				</form>
+				</div>
 
 	<!--/CONTAINER -->
 			</div>
