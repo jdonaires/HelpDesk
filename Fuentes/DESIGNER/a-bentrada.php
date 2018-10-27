@@ -138,7 +138,7 @@
                     </li>
                     <li><a href="javascript:;">Ayuda
                     </a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesion</a></li>
+                    <li><a href="salir.php"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesion</a></li>
                   </ul>
                 </li>
 
@@ -154,6 +154,8 @@
         <div class="right_col" role="main">
           <!-- top tiles -->
           <form role="form"  action="../pag/ver.php" method="POST">
+            <div class="table-wrapper-scroll-y">
+
             <table class="table-fill" >
               <div class="alert alert-info">
           </div>
@@ -197,7 +199,8 @@
                 }
                 ?>
               </table>
-                   </form>
+              </div>
+            </form>
 
               </div>
             </div>

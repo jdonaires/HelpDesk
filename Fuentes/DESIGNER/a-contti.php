@@ -141,7 +141,7 @@
                     </li>
                     <li><a href="javascript:;">Ayuda
                     </a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesion</a></li>
+                    <li><a href="salir.php"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesion</a></li>
                   </ul>
                 </li>
 
@@ -157,6 +157,8 @@
         <div class="right_col" role="main">
           <!-- top tiles -->
           <form role="form"  action="../pag/ver.php" method="POST">
+            <div class="table-wrapper-scroll-y">
+
 
             <table class="table-fill" >
               <div class="alert alert-info">
@@ -164,22 +166,16 @@
             <h2>Control Soporte Tecnico</h2>
           </br>
           </br>
-
-
-
           <thead>
               <tr>
-
-
   							<th class="text-left">Nombre completo</th>
-
   							<th class="text-left">Perfil</th>
   							<th class="text-left">Celular</th>
   							<th class="text-left">Email</th>
   							<th class="text-left">Estado</th>
   							<th class="text-left">Revisar</th>
               </tr>
-                </thead>
+          </thead>
           <?php
           require_once '..\DAL\DBAccess.php';
           $dba = new DBAccess();
@@ -202,6 +198,8 @@
                 }
                 ?>
               </table>
+
+              </div>
                    </form>
 
               </div>
