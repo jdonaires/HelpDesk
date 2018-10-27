@@ -80,22 +80,22 @@
 				<form action="action_page.php" >
 
 				<label for="lname">Nombres y Apellidos</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="'.$row->Nombre.' '.$row->Apellidos.'"  readonly="readonly">
+				<input class="form" type="text" id="lname" name="lastname" value="'.$row->Nombre.' '.$row->Apellidos.'"  readonly="readonly">
 
 				<label for="lname">Correo</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="'.$row->Correo.'"  readonly="readonly">
+				<input class="form" type="text" id="lname" name="lastname" value="'.$row->Correo.'"  readonly="readonly">
 
 				<label for="lname">Celular</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="'.$row->NroCelular.'"  readonly="readonly">
+				<input class="form" type="text" id="lname" name="lastname" value="'.$row->NroCelular.'"  readonly="readonly">
 
 				<label for="lname">Perfil</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="'.$row->Perfil.'"  readonly="readonly">
+				<input class="form" type="text" id="lname" name="lastname" value="'.$row->Perfil.'"  readonly="readonly">
 
 				<label for="lname">Area</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="'.$row->Area.'"  readonly="readonly">
+				<input class="form" type="text" id="lname" name="lastname" value="'.$row->Area.'"  readonly="readonly">
 
 				<label for="lname">Estado</label>
-				<input class="form" type="text" id="lname" name="lastname" placeholder="'.$row->Estado.'"  readonly="readonly">
+				<input class="form" type="text" id="lname" name="lastname" value="'.$row->Estado.'"  readonly="readonly">
 				';}
 				?>
 
