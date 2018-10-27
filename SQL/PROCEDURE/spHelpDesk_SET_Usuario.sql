@@ -1,4 +1,5 @@
-USE HELPDESK_2018;
+drop procedure spHelpDesk_SET_Usuario;
+USE helpdesk_2018;
 DELIMITER $$
 
 CREATE PROCEDURE spHelpDesk_SET_Usuario(
