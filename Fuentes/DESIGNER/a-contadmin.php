@@ -49,7 +49,10 @@
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
-                <h2>Anders</h2>
+                <?php
+  							 	session_start();
+  								echo('<h2>'.$_SESSION["UsuarioLogin"][0]["Nombre"].'</h2>');
+  							?>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -61,7 +64,7 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Administrar Datos <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-user"></i> Administrar Datos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="a-contnuevoc.php">Control Nuevos</a></li>
                       <li><a href="a-contadmin.php">Control Admistradores</a></li>
@@ -70,7 +73,7 @@
                     </ul>
                   </li>
                   <ul class="nav side-menu">
-                    <li><a><i class="fa fa-home"></i>Bandeja<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-inbox"></i>Bandeja<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                         <li><a href="a-bentrada.php">Entrada</a></li>
                         <li><a href="a-bproceso.php">Proceso</a></li>
@@ -123,7 +126,10 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">Anders
+                    <img src="images/img.jpg" alt="">
+                    <?php
+      								echo($_SESSION["UsuarioLogin"][0]["Nombre"]);
+      							?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
