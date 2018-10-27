@@ -1,4 +1,10 @@
-<!DOCTYPE HTML>
+<?php
+	session_start();
+	if($_SESSION["UsuarioLogin"] == null){
+		header('Location: login.php');
+	}
+?>
+<!DOCTYPE>
 <html>
 	<head>
 		<title>Helpdesk</title>
@@ -17,56 +23,40 @@
 		</noscript>
 		<link rel="stylesheet" href="css/form.css" />
 		<link rel="shortcut icon" type="image/x-icon" href="images/logop.ico" />
-		<!-- Smartsupp Live Chat script -->
-<script type="text/javascript">
-var _smartsupp = _smartsupp || {};
-_smartsupp.key = '10e046a39fea2ca7b4867a0023f300d0f5dde264';
-window.smartsupp||(function(d) {
-	var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-	s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-	c.type='text/javascript';c.charset='utf-8';c.async=true;
-	c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-})(document);
-</script>
+		<script type="text/javascript">
+		var _smartsupp = _smartsupp || {};
+		_smartsupp.key = '10e046a39fea2ca7b4867a0023f300d0f5dde264';
+		window.smartsupp||(function(d) {
+			var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+			s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+			c.type='text/javascript';c.charset='utf-8';c.async=true;
+			c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+		})(document);
+		</script>
 	</head>
 	<body>
-
-	<div id="header-wrapper">
-
-		<!-- Header -->
+		<div id="header-wrapper">
 			<div id="header">
 				<div class="container">
-
-					<!-- Logo -->
-						<div id="logo">
-							<h1> <img id="logoback" width="200px" src="images/logo.png"alt=""/><a id="logodesk" href="#"  style="color:#ffff;">Helpdesk</a></h1>
-						</div>
-
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li><a href="c-mimenu.html">Inicio</a></li>
-								<li ><a href="c-minticket.html">Crear ticket</a></li>
-								<li ><a href="c-miticket.html">Mis tickets</a></li>
-								<li class="active"><a href="c-miperfil.html">Mi Perfil</a></li>
-								<li><a href="login.html">Salir<span class="fa fa-power-off"></a></li>
-							</ul>
-						</nav>
-
+					<div id="logo">
+						<h1> <img id="logoback" width="200px" src="images/logo.png"alt=""/><a id="logodesk" href="#"  style="color:#ffff;">Helpdesk</a></h1>
+					</div>
+					<nav id="nav">
+						<ul>
+							<li><a href="c-mimenu.html">Inicio</a></li>
+							<li ><a href="c-minticket.html">Crear ticket</a></li>
+							<li ><a href="c-miticket.html">Mis tickets</a></li>
+							<li class="active"><a href="c-miperfil.html">Mi Perfil</a></li>
+							<li><a href="login.html">Salir<span class="fa fa-power-off"></a></li>
+						</ul>
+					</nav>
 				</div>
 			</div>
-		<!-- Header -->
-
-		<!-- Banner -->
 			<div id="banner">
 				<div class="container">
 				</div>
 			</div>
-		<!-- /Banner -->
-
-	</div>
-
-	<!-- Main -->
+		</div>
 		<div id="main">
 			<div class="container">
 				<div class="row">
@@ -75,45 +65,39 @@ window.smartsupp||(function(d) {
 							<h2>Mi perfil</h2>
 						</header>
 						<br>
-						</section>
+					</section>
 				</div>
 				<div class="forma" style="width:90%;">
 				<form action="action_page.php" >
-
-				<label for="lname">Nombres</label>
-				<input class="form" type="text" id="lname" name="lastname" value="Jorge"  readonly="readonly">
-
-				<label for="lname">Apellidos</label>
-				<input class="form" type="text" id="lname" name="lastname" value="Gomez Pujay"  readonly="readonly">
-
-				<label for="lname">Correo</label>
-				<input class="form" type="text" id="lname" name="lastname" value="JPujay@gmail.com"  readonly="readonly">
-
-				<label for="lname">Celular</label>
-				<input class="form" type="text" id="lname" name="lastname" value="945989698"  readonly="readonly">
-
-				<label for="lname">Perfil</label>
-				<input class="form" type="text" id="lname" name="lastname" value="Cliente"  readonly="readonly">
-
-				<label for="lname">Area</label>
-				<input class="form" type="text" id="lname" name="lastname" value="Administracion"  readonly="readonly">
-
-
-				<input class="formb" type="submit" value="Cambiar clave">
-
+					<?php
+						echo('
+						<label for="lname">Nombres</label>
+						<input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Nombre"].'"  readonly="readonly">
+						<label for="lname">Apellidos</label>
+						<input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Apellidos"].'"  readonly="readonly">
+						<label for="lname">Correo</label>
+						<input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Correo"].'"  readonly="readonly">
+						<label for="lname">Celular</label>
+						<input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["NroCelular"].'"  readonly="readonly">
+						<label for="lname">Perfil</label>
+						<input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Perfil"].'"  readonly="readonly">
+						<label for="lname">Area</label>
+						<input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Area"].'"  readonly="readonly">
+						<input class="formb" type="button" value="Volver" id="_btnVolver">')
+					?>
 				</form>
-				</div>
-
 			</div>
 		</div>
-	<!-- /Main -->
-	<!-- Copyright -->
+		</div>
 		<div id="copyright">
 			<div class="container">
 				Todos los derechos reservados 2018 ©
 			</div>
 		</div>
-
-
 	</body>
 </html>
+<script>
+	$("#_btnVolver").click(function(){
+		location.href="c-mimenu.php" ;
+	});
+</script>
