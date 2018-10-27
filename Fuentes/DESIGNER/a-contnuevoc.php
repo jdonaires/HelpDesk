@@ -156,6 +156,8 @@
               <div class="alert alert-info">
           </div>
             <h2>Control Nuevos Usuarios</h2>
+
+
           </br>
           </br>
           <thead>
@@ -174,40 +176,20 @@
           require_once '..\DAL\DBAccess.php';
           $dba = new DBAccess();
           $conn = $dba->Get_Connection();
-          $stmt = $conn->prepare(" SELECT
-                  USU.IdUsuario
-                , USU.IdPerfil
-                , PER.Descripcion AS 'Perfil'
-                , USU.IdArea
-                , ARE.Descripcion AS 'Area'
-                , USU.Nombre
-                , USU.Apellidos
-                , USU.Correo
-                , USU.NroCelular
-                , USU.Correo
-                , USU.Contrasenia
-                , USU.Estado
-            FROM HelpDesk_Usuario USU
-                INNER JOIN HelpDesk_Perfil PER ON PER.IdPerfil = USU.IdPerfil
-                INNER JOIN HelpDesk_Area   ARE ON ARE.IdArea   = USU.IdArea
-            WHERE USU.FlgEliminado = '0' AND USU.Estado ='inactivo';");
+          $stmt = $conn->prepare("call spHelpDesk_GET_ContPendiente();");
           $stmt->execute();
           while($row = $stmt->fetch(PDO::FETCH_OBJ)){
           echo'
-
                 <tbody class="table-hover">
                   <tr>
-
                   <td>'.$row->Nombre.' '.$row->Apellidos.'</td>
                   <td>'.$row->Area.'</td>
                   <td>'.$row->Perfil.'</td>
                   <td>'.$row->NroCelular.'</td>
                   <td>'.$row->Correo.'</td>
                   <td>'.$row->Estado.'</td>
-
                   <td><a href="a-detalleus.php?IdUsuario='.$row->IdUsuario.'" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;"><span class="fa fa-eye"> </a></td>
                 </tr>
-
                 </tbody>';
                 }
                 ?>

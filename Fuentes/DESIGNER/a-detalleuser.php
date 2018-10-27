@@ -16,7 +16,6 @@
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-desktop.css" />
-
 		</noscript>
 		<link rel="stylesheet" href="css/form.css" />
 		<link rel="shortcut icon" type="image/x-icon" href="images/logop.ico" />
@@ -34,7 +33,6 @@
 						<div id="logo">
 							<h1> <img id="logoback" width="200px" src="images/logo.png"alt=""/><a id="logodesk" href="#"  style="color:#ffff;">Helpdesk</a></h1>
 						</div>
-
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
@@ -62,11 +60,13 @@
 					<section>
 						<header>
 							<h2>Detalle de usuario</h2>
-							<br>
-						</header>
-					</section>
 
-		  	<?php
+						</header>
+						<br>
+							<input class="formb" type="submit" value="Presinar para editar">
+						</section>
+				</div>
+				<?php
 				require_once '..\DAL\DBAccess.php';
 				$idUsuario=$_GET['IdUsuario'];
 				$dba = new DBAccess();
@@ -75,7 +75,6 @@
 				$stmt->execute();
 				while($row = $stmt->fetch(PDO::FETCH_OBJ)){
 				echo'
-				</div>
 				<div class="forma" style="width:90%;">
 				<form action="action_page.php" >
 
@@ -99,55 +98,16 @@
 				';}
 				?>
 
-				<h3>Cambiar estado de cuenta a:</h3>
+				<h3>Estado de cuenta</h3>
+				<br>
+				<labelfor="country">Estado</label>
 				<select class="form" id="country" name="country">
-
+					<option value="a">Creado</option>
 					<option value="a">Activo</option>
 					<option value="a">Inactivo</option>
 					<option value="a">Eliminado</option>
 				</select>
-
-				<h3>Privilegios</h3>
-				<!-- Extra<label>
-
-<input type="checkbox" id="cbox2" value="second_checkbox"> <label for="cbox2">Este es mi segundo checkbox</label> -->
-
-					<table class="table-fill" >
-						<div class="alert alert-info">
-				</div>
-				<thead>
-						<tr>
-							<th class="text-left">Cliente</th>
-
-							<th class="text-left">Administrador</th>
-							<th class="text-left">Soporte TI</th>
-						</tr>
-							</thead>
-							<tbody class="table-hover">
-								<tr>
-									<th class="text-left"><input type="checkbox" id="cbox1" value="first_checkbox">Crear Tickets</label></th>
-									<th class="text-left"><input type="checkbox" id="cbox1" value="first_checkbox">Asignar Tickets</label></th>
-									<th class="text-left"><input type="checkbox" id="cbox1" value="first_checkbox">Validar tickets</label></th>
-							</tr>
-							<tr>
-								<th class="text-left"><input type="checkbox" id="cbox1" value="first_checkbox"> Mi perfil</label></th>
-								<th class="text-left"><input type="checkbox" id="cbox1" value="first_checkbox"> Aceptar Usuarios</label></th>
-								<th class="text-left"><input type="checkbox" id="cbox1" value="first_checkbox"> Tickets cerrados</label></th>
-
-						</tr>
-						<tr>
-							<th class="text-left"><input type="checkbox" id="cbox1" value="first_checkbox">Mi ticket</label></th>
-							<th class="text-left"><input type="checkbox" id="cbox1" value="first_checkbox"> dashboard</label></th>
-							<th class="text-left"><input type="checkbox" id="cbox1" value="first_checkbox"> Ver tickets</label></th>
-
-					</tr>
-							</tbody>
-						</table>
-						<input class="formb" type="submit" value="Guardar cambios">
-
-
-
-
+					<input class="formb" type="submit" value="Guardar cambios">
 				</form>
 				</div>
 
