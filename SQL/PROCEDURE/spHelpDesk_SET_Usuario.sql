@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+
+drop procedure spHelpDesk_SET_Usuario;
+=======
 drop procedure spHelpDesk_SET_Usuario;
 USE helpdesk_2018;
+>>>>>>> 0afbb4762c34ac12f80b0b99ce89d1821b5ad5f7
 DELIMITER $$
 
 CREATE PROCEDURE spHelpDesk_SET_Usuario(
@@ -11,7 +16,6 @@ CREATE PROCEDURE spHelpDesk_SET_Usuario(
 ,  P_Apellidos      VARCHAR(200) 
 ,  P_Correo         VARCHAR(200) 
 ,  P_Contrasenia    VARCHAR(300) 
-,  P_Estado         VARCHAR(300)
 ,  P_NroCelular     VARCHAR(15)
 ,  P_Confirmacion   CHAR(1)
 ,  P_XML            TEXT
@@ -41,7 +45,7 @@ BEGIN
 				IdUsuario, IdPerfil, IdArea, Nombre, Apellidos, Correo, Contrasenia, Estado, NroCelular, Confirmacion, FechaCrea, FlgEliminado 
             )
             VALUES (
-				P_IdUsuario, P_IdPerfil, P_IdArea, P_Nombre, P_Apellidos, P_Correo, P_Contrasenia, P_Estado, P_NroCelular, '0', NOW(), '0'
+				P_IdUsuario, P_IdPerfil, P_IdArea, P_Nombre, P_Apellidos, P_Correo, P_Contrasenia, 'Inactivo', P_NroCelular, '0', NOW(), '0'
             );
 
         END;
