@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 
 drop procedure spHelpDesk_SET_Usuario;
+=======
+drop procedure spHelpDesk_SET_Usuario;
+USE helpdesk_2018;
+>>>>>>> 0afbb4762c34ac12f80b0b99ce89d1821b5ad5f7
 DELIMITER $$
 
 CREATE PROCEDURE spHelpDesk_SET_Usuario(
