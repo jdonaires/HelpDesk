@@ -6,14 +6,17 @@
 <html>
 	<head>
 		<title>Helpdesk</title>
+		<meta name="google" content="notranslate" />
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src = "https://unpkg.com/sweetalert/dist/sweetalert.min.js"> </script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-panels.min.js"></script>
 		<script src="js/init.js"></script>
+		<script src="js/helpdesk_main.js"  ></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -85,8 +88,8 @@
 						<label for="lname">Prioridad</label>
 						<input class="form" type="text" id="_prioridad" name="lastname" placeholder="Prioridad.."  readonly="readonly">
 						<label for="subject">Detalle del problema</label>
-						<textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." ></textarea>
-						<input class="formb" type="button" value="Enviar">
+						<textarea class="form" id="_detalle" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." ></textarea>
+						<input class="formb" type="button" value="Enviar" id="_Enviar">
 					</form>
 				</div>
 			</div>
@@ -140,18 +143,13 @@
 		}
 	});
 
-	$("#_registrar").click(function(){
+	$("#_Enviar").click(function(){
 		if( fn_ValidaDatos() == false){
 			var data = {
 				Opcion: "I" ,
-				IdUsuario: 0,
-				IdPerfil: $("#_perfil").val(),
-				IdArea: $("#_area").val(),
-				Nombre: $("#_nombre").val(),
-				Apellidos: $("#_apellidos").val(),
-				Correo: $("#_correo").val(),
-				Contrasenia: $("#_contrasenia").val(),
-				NroCelular:$("#_celular").val()
+				IdCategoria: $("#_categoria").val(),
+				IdProblema: $("#_problema").val(),
+				Descripcion: $("#_detalle").val(),
 			};
 			HelpDeskajaxPostSetProcess({
 				url: "../Helper/HelpDesk_Usuario.php",
@@ -162,5 +160,21 @@
 
 	});
 
+	function fn_ValidaDatos(){
+		var Valida = false;
+		if($("#_categoria").val() == null ||  $("#_categoria").val() == "0"){
+			Valida = true;
+			ShowMessage("Seleccione una categoría para el ticket.", "Registro de Ticket", "info");
+		}
+		else if($("#_problema").val() == null ||  $("#_problema").val() == "0"){
+			Valida = true;
+			ShowMessage("Seleccione un problema para el ticket.", "Registro de Ticket", "info");
+		}
+		else if($("#_detalle").val() == null ||  $("#_detalle").val().length == 0){
+			Valida = true;
+			ShowMessage("Digite un detalle del problema.", "Registro de Ticket", "info");
+		}
+		return Valida;
+	}
 
 </script>
