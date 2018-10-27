@@ -88,5 +88,9 @@ END
 DELIMITER ;
 
 
+select * from HelpDesk_Usuario;
+delete from HelpDesk_Usuario where IdUsuario=25;
 
-select * from HelpDesk_Usuario where Estado=null;
+update HelpDesk_Usuario set
+FlgEliminado=0
+where IdUsuario = 4;
