@@ -68,7 +68,7 @@
 				<div class="forma"  style="width:90%;">
 					<form action="action_page.php">
 						<label for="country">Categoria</label>
-						<select class="form" id="country" name="country">
+						<select class="form" id="_categoria" name="_categoria">
 							<option value="0">Seleccione..</option>
 							<?php
 								foreach ($result as $key => $item) {
@@ -105,3 +105,29 @@
 		</div>
 	</body>
 </html>
+<script>
+	$('#_categoria').change(function(){
+		var data = { IdCategoria: $(this).val() };
+		$.ajax({
+				url: "../Helper/HelpDesk_Usuario.php",
+				data: { "Login": JSON.stringify(data)},
+				type: "POST",
+				async: true,
+				datatype: "html",
+				success: function (data) {
+					if (data == "Soporte") {
+						location.href="t-mimenu.php"; 
+					}
+					else if (data == "Cliente") {
+						location.href="c-mimenu.php";
+					}
+					else if (data == "Administrador") {
+						location.href="a-contadmin.php" ;
+					}
+					else {
+						swal('HelpDesk', data, 'info');
+					};
+				},
+		});
+	});
+</script>

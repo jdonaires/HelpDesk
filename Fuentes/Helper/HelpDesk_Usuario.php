@@ -24,7 +24,6 @@
         $HelpDesk_UsuarioDAO = new HelpDesk_UsuarioDAO();
         $result = $HelpDesk_UsuarioDAO->GET_ValidaEmail($vrHelpDesk_Usuario->Correo);
         echo ($result[0]["Valida"]);
-        
     }
 
      if(isset( $_POST['Login'] )) {
@@ -34,7 +33,6 @@
         if($result != null || !empty($result)){
             session_start();
             $_SESSION["UsuarioLogin"] = $result;
-            //echo($result[0]["Perfil"]);
             echo($_SESSION["UsuarioLogin"][0]["Perfil"]);
         }
         else {
