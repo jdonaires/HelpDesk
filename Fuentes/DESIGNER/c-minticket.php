@@ -77,18 +77,16 @@
 							?>
 						</select>
 						<label for="country">Problema</label>
-						<select class="form" id="_problema" name="_problema"/>
+						<select class="form" id="_problema" name="_problema">
+							<option value="0">Seleccione..</option>
+						</select>
 						<label for="lname">Asunto</label>
-						<input class="form" type="text" id="lname" name="lastname" placeholder="Impresora No enciende"  readonly="readonly">
-
+						<input class="form" type="text" id="_asunto" name="lastname" placeholder="Asunto.."  readonly="readonly">
 						<label for="lname">Prioridad</label>
-						<input class="form" type="text" id="lname" name="lastname" placeholder="Baja"  readonly="readonly">
-
+						<input class="form" type="text" id="_prioridad" name="lastname" placeholder="Prioridad.."  readonly="readonly">
 						<label for="subject">Detalle del problema</label>
-						<textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." >
-							Buenos dias, para solicitar ayuda ya que mi impresora dejo de funcionar hace un dia y no puedo imprimir los documentos del trabajo para los reportes diarios que se entregan al jefe.
-							Porfavor ayuda lo más antes posible. </textarea>
-						<input class="formb" type="submit" value="Enviar">
+						<textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." ></textarea>
+						<input class="formb" type="button" value="Enviar">
 					</form>
 				</div>
 			</div>
@@ -101,27 +99,68 @@
 	</body>
 </html>
 <script>
+
+	var vrJsonProblema;
+
 	// CONSULTA DE PROBLEMA POR CATEGORIA
 	$('#_categoria').change(function(){
-		
 		var data = { IdCategoria: $(this).val() };
 		$.ajax({
-				url: "../Helper/HelpDesk_Problema.php",
-				data: { "GET_Problema": JSON.stringify(data)},
-				type: "POST",
-				async: true,
-				datatype: "html",
-				success: function (data) {
-					$('#_problema').empty();
-					var vroption= "";
-					$.each(data, function( index, value ) {
-						alert( index + ": " + value );
-					});
-					/*data.forEach(function(element) {
-						vroption+='<option value="1">'+element['Descripcion']>+'</option>';
-					});
-					$('#_problema').append(vroption);*/
-				},
+			url: "../Helper/HelpDesk_Problema.php",
+			data: { "GET_Problema": JSON.stringify(data)},
+			type: "POST",
+			async: true,
+			datatype: "html",
+			success: function (data) {
+				$('#_problema').empty();
+				vrJsonProblema = data;
+				var option = new Option('Seleccione..','0');
+				$('#_problema').append($(option));
+				$.each($.parseJSON(data), function( index, value ) {
+					var option = new Option(value['Descripcion'],value['IdProblema']); 
+					$('#_problema').append($(option));
+				});
+			},
 		});
 	});
+
+	// GENERA ASUNTO DEL TICKET Y MUESTRA LA PRIORIDAD DEL TICKET
+	$('#_problema').change(function(){
+		if($(this).val() == "0"){
+			$('#_asunto').val('');
+			$('#_prioridad').val('');	
+		}
+		else{
+			$.each($.parseJSON(vrJsonProblema), function( index, value ) {
+				if(value['IdProblema'] == $('#_problema').val()){
+					$('#_asunto').val(value['Asunto']);
+					$('#_prioridad').val(value['Prioridad']);
+				}
+			});
+		}
+	});
+
+	$("#_registrar").click(function(){
+		if( fn_ValidaDatos() == false){
+			var data = {
+				Opcion: "I" ,
+				IdUsuario: 0,
+				IdPerfil: $("#_perfil").val(),
+				IdArea: $("#_area").val(),
+				Nombre: $("#_nombre").val(),
+				Apellidos: $("#_apellidos").val(),
+				Correo: $("#_correo").val(),
+				Contrasenia: $("#_contrasenia").val(),
+				NroCelular:$("#_celular").val()
+			};
+			HelpDeskajaxPostSetProcess({
+				url: "../Helper/HelpDesk_Usuario.php",
+				data: { "SET_Usuario": JSON.stringify(data)},
+				title: "Registro de Usuario"
+			});
+		};
+
+	});
+
+
 </script>

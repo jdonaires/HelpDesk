@@ -6,7 +6,7 @@
     $vrHelpDesk_Problema = json_decode($_POST['GET_Problema']);
     $HelpDesk_ProblemaDAO = new HelpDesk_ProblemaDAO();
     $result = $HelpDesk_ProblemaDAO->GET_Problema($vrHelpDesk_Problema->IdCategoria);
-    echo(serialize($result));
+    echo(json_encode($result));
  }
 
 ?>
