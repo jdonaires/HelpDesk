@@ -10,6 +10,9 @@ INSERT INTO helpdesk_ticket (IdTicket, IdCliente, IdProblema, Asunto, Descripcio
 
 INSERT INTO helpdesk_usuario (IdUsuario, IdPerfil, IdArea, Nombre, Apellidos, Correo, Contrasenia, Estado, NroCelular, Confirmacion, Fechacrea, FlgElIminado) VALUES ('1', '1', '1', 'Anders', 'Romero Quispe', 'lien2902@gmail.com', '123456', 'ACTIVO', '922178381',0, '2018-10-23', 0 );
 
+INSERT INTO helpdesk_usuario (IdUsuario, IdPerfil, IdArea, Nombre, Apellidos, Correo, Contrasenia, Estado, NroCelular, Confirmacion, Fechacrea, FlgElIminado) VALUES ('2', '2', '2', 'Luis', 'Navarro Saravia', 'lsnavarro@gmail.com', '123456', 'ACTIVO', '934238740',0, '2018-10-26', 0 );
+
+
 insert into helpdesk_area (IdArea, Descripcion, FechaCrea, FlgEliminado) values ('1', 'TI', '2018-10-23', 0);
 
 insert into helpdesk_perfil (IdPerfil, Descripcion, FechaCrea, FlgEliminado) values ('1', 'Cliente', '2018-10-23', 0);

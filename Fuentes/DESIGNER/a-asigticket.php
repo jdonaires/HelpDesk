@@ -90,7 +90,7 @@
 
 								<h3>Descripcion de problema</h3>
 								<label for="lname">N° Ticket</label>
-								<input class="form" type="text" id="lname" name="lastname" value="TKN '.$row->IdTicket.'" readonly>
+								<input class="form" type="text" id="lname" name="lastname" value="'.$row->IdTicket.'" readonly="readonly">
 
 								<label for="lname">Categoria</label>
 								<input class="form" type="text" id="lname" name="lastname" value="'.$row->Tipo.'"  readonly="readonly">
@@ -103,6 +103,7 @@
 
 								<label for="lname">Prioridad</label>
 								<input class="form" type="text" id="lname" name="lastname" value="'.$row->Prioridad.'"  readonly="readonly">
+
 
 								<label for="subject">Detalle del problema</label>
 								<textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." readonly="readonly">
@@ -126,9 +127,10 @@
 						}
 						?>
 
-				<input class="formb" type="submit" name="guardar" value="Guardar cambios">
-				</form>
-				</div>
+
+<input class="formb" type="submit" value="Guardar cambios">
+</form>
+</div>
 
 	<!--/CONTAINER -->
 			</div>
