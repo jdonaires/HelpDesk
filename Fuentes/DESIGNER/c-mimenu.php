@@ -63,7 +63,10 @@ window.smartsupp||(function(d) {
 					<section>
 						<span class="fa fa-cubes"></span>
 						<header>
-							<h2>Hola Jorge,</h2>
+							<?php
+							 	session_start();
+								echo('<h2>Hola '.$_SESSION["UsuarioLogin"][0]["Nombre"].'</h2>');
+							?>
 							<span class="byline">Para ayudarte crea un ticket</span>
 						</header>
 						<a href="c-minticket.php" class="button medium">Crear nuevo ticket</a>
@@ -80,7 +83,5 @@ window.smartsupp||(function(d) {
 			Todos los derechos reservados 2018 ©
 			</div>
 		</div>
-
-
 	</body>
 </html>

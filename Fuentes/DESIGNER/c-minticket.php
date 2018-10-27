@@ -19,7 +19,6 @@
 		</noscript>
 		<link rel="stylesheet" href="css/form.css" />
 		<link rel="shortcut icon" type="image/x-icon" href="images/logop.ico" />
-		<!-- Smartsupp Live Chat script -->
 		<script type="text/javascript">
 		var _smartsupp = _smartsupp || {};
 		_smartsupp.key = '10e046a39fea2ca7b4867a0023f300d0f5dde264';
