@@ -34,11 +34,6 @@ class HelpDesk_CategoriaDAO
 	{
 		try
 		{
-			/*$statement = $this->pdo->prepare("select * from helpdesk_categoria;");
-			$statement->execute();
-		  $Result = $statement->fetchAll(PDO::FETCH_ASSOC);
-			return $Result;
-			------------------------------*/
 			$statement = $this->pdo->prepare("CALL spHelpDesk_GET_BusquedaGeneral(?,?,?,?)");
 			$statement->bindValue(1, "GET_Categoria", PDO::PARAM_STR);
 			$statement->bindValue(2, "%", PDO::PARAM_STR);

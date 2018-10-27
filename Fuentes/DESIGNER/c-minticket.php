@@ -1,5 +1,7 @@
 <?php
-
+	require_once '..\DAO\HelpDesk_CategoriaDAO.php';
+	$HelpDesk_CategoriaDAO = new HelpDesk_CategoriaDAO();
+	$result = $HelpDesk_CategoriaDAO->GET_Categoria();
 ?>
 <html>
 	<head>
@@ -67,7 +69,12 @@
 					<form action="action_page.php">
 						<label for="country">Categoria</label>
 						<select class="form" id="country" name="country">
-							<option value="a">.$result.</option>
+							<option value="0">Seleccione..</option>
+							<?php
+								foreach ($result as $key => $item) {
+									echo '<option value="'.$item["IdCategoria"].'">'.$item['Descripcion'].'</option>';
+								}
+							?>
 						</select>
 						<label for="country">Problema</label>
 						<select class="form" id="country" name="country">
