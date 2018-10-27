@@ -47,14 +47,31 @@ class HelpDesk_UsuarioDAO
 	{
 		try
 		{
-      $statement = $this->pdo->prepare("CALL spHelpDesk_GET_BusquedaGeneral(?,?,?,?)");
+      		$statement = $this->pdo->prepare("CALL spHelpDesk_GET_BusquedaGeneral(?,?,?,?)");
 			$statement->bindValue(1, "GET_ValidaEmail", PDO::PARAM_STR);
 			$statement->bindValue(2, $ValueEmail, PDO::PARAM_STR);
-      $statement->bindValue(3, 0, PDO::PARAM_INT);
-      $statement->bindValue(4, 0, PDO::PARAM_INT);
-      $statement->execute();
+      		$statement->bindValue(3, 0, PDO::PARAM_INT);
+      		$statement->bindValue(4, 0, PDO::PARAM_INT);
+      		$statement->execute();
 			$Result = $statement->fetchAll(PDO::FETCH_ASSOC);
 			return $Result;
+		}
+		catch(Exception $ex)
+		{
+			die($ex->getMessage());
+		}
+	}
+
+	public function GET_UsuarioLogin($Correo, $Contrasenia)
+	{
+		try
+		{
+      		$statement = $this->pdo->prepare("CALL spHelpDesk_GET_Login(?,?)");
+			$statement->bindValue(1, $Correo, PDO::PARAM_STR);
+			$statement->bindValue(2, $Contrasenia, PDO::PARAM_STR);
+      		$statement->execute();
+			$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+			return $result;
 		}
 		catch(Exception $ex)
 		{

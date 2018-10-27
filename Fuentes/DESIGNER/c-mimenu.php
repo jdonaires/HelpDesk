@@ -44,11 +44,11 @@ window.smartsupp||(function(d) {
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li class="active"><a href="c-mimenu.html">Inicio</a></li>
-								<li><a href="c-minticket.html">Crear ticket</a></li>
-								<li><a  href="c-miticket.html">Mis tickets</a></li>
-								<li><a href="c-miperfil.html">Mi perfil</a></li>
-								<li><a href="login.html">Salir<span class="fa fa-power-off"></a></li>
+								<li class="active"><a href="c-mimenu.php">Inicio</a></li>
+								<li><a href="c-minticket.php">Crear ticket</a></li>
+								<li><a  href="c-miticket.php">Mis tickets</a></li>
+								<li><a href="c-miperfil.php">Mi perfil</a></li>
+								<li><a href="login.php">Salir<span class="fa fa-power-off"></a></li>
 							</ul>
 						</nav>
 
@@ -66,7 +66,7 @@ window.smartsupp||(function(d) {
 							<h2>Hola Jorge,</h2>
 							<span class="byline">Para ayudarte crea un ticket</span>
 						</header>
-						<a href="c-minticket.html" class="button medium">Crear nuevo ticket</a>
+						<a href="c-minticket.php" class="button medium">Crear nuevo ticket</a>
 					</section>
 				</div>
 			</div>
