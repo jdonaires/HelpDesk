@@ -1,6 +1,8 @@
-drop procedure spHelpDesk_GET_TicDet;
+
 drop procedure spHelpDesk_GET_DetTicket;
-drop procedure HelpDesk_UP_DetTicket;
+drop procedure spHelpDesk_UP_DetTicket;
+drop procedure spHelpDesk_SET_DetTicket;
+drop procedure spHelpDesk_GET_Ticket;
 
 
 DELIMITER //
@@ -40,9 +42,9 @@ SELECT
 	PRO.FechaEstimacion,
 		concat(CAT.Descripcion," ",PRO.Descripcion) AS Asunto
 	FROM HelpDesk_Ticket as TIC
-	INNER JOIN helpdesk_TicketDetalle as TID ON TID.IdTicket= TIC.IdTicket
-	INNER JOIN helpdesk_Usuario as US ON US.IdUsuario = TID.IdResponsable
-	INNER JOIN helpdesk_Area as ARE on ARE.IdArea = US.IdArea
+	INNER JOIN HelpDesk_TicketDetalle as TID ON TID.IdTicket= TIC.IdTicket
+	INNER JOIN HelpDesk_Usuario as US ON US.IdUsuario = TID.IdResponsable
+	INNER JOIN HelpDesk_Area as ARE on ARE.IdArea = US.IdArea
 	INNER JOIN HelpDesk_Problema as PRO ON PRO.IdProblema = TIC.IdProblema
 	INNER JOIN HelpDesk_Categoria as CAT ON CAT.IdCategoria = PRO.IdCategoria
 	where TID.IdTicketDetalle;
@@ -63,9 +65,9 @@ SELECT
 	PRO.FechaEstimacion,
 		concat(CAT.Tipo," ",PRO.Descripcion) AS Asunto
 	FROM HelpDesk_Ticket as TIC
-	INNER JOIN helpdesk_TicketDetalle as TID ON TID.IdTicket= TIC.IdTicket
-	INNER JOIN helpdesk_Usuario as US ON US.IdUsuario = TID.IdResponsable
-	INNER JOIN helpdesk_Area as ARE on ARE.IdArea = US.IdArea
+	INNER JOIN HelpDesk_TicketDetalle as TID ON TID.IdTicket= TIC.IdTicket
+	INNER JOIN HelpDesk_Usuario as US ON US.IdUsuario = TID.IdResponsable
+	INNER JOIN HelpDesk_Area as ARE on ARE.IdArea = US.IdArea
 	INNER JOIN HelpDesk_Problema as PRO ON PRO.IdProblema = TIC.IdProblema
 	INNER JOIN HelpDesk_Categoria as CAT ON CAT.IdCategoria = PRO.IdCategoria
 	where TID.IdTicketDetalle=_IdTicketDetalle;
