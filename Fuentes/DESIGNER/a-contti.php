@@ -49,7 +49,10 @@
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
-                <h2>Anders</h2>
+                <?php
+  							 	session_start();
+  								echo('<h2>'.$_SESSION["UsuarioLogin"][0]["Nombre"].'</h2>');
+  							?>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -122,7 +125,10 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">Anders
+                    <img src="images/img.jpg" alt="">
+                    <?php
+      								echo($_SESSION["UsuarioLogin"][0]["Nombre"]);
+      							?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">

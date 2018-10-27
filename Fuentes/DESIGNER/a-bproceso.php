@@ -49,7 +49,10 @@
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
-                <h2>Anders</h2>
+                <?php
+  							 	session_start();
+  								echo('<h2>'.$_SESSION["UsuarioLogin"][0]["Nombre"].'</h2>');
+  							?>
               </div>
             </div>
             <!-- /menu profile quick info -->
