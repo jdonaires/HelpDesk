@@ -5,8 +5,9 @@ class HelpDesk_Ticket
     private $IdTicket;
     private $HelpDesk_Problema;
     private $HelpDesk_Cliente;
-    private $Asunto;
     private $Descripcion;
+    private $IdProblema;
+    private $IdCliente;
 
     function __construct()
     {

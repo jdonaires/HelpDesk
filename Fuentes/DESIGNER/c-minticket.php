@@ -147,9 +147,10 @@
 		if( fn_ValidaDatos() == false){
 			var data = {
 				Opcion: "I" ,
-				IdCategoria: $("#_categoria").val(),
+				IdTicket: 0,
 				IdProblema: $("#_problema").val(),
 				Descripcion: $("#_detalle").val(),
+				Usunto: $("#_asunto").val(),
 			};
 			HelpDeskajaxPostSetProcess({
 				url: "../Helper/HelpDesk_Usuario.php",
