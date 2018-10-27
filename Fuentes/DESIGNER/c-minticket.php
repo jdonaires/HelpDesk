@@ -77,12 +77,7 @@
 							?>
 						</select>
 						<label for="country">Problema</label>
-						<select class="form" id="country" name="country">
-							<option value="a">No enciende</option>
-							<option value="a">Rayas en las impresiones</option>
-							<option value="a">Cartuchos con tinta Baja</option>
-						</select>
-
+						<select class="form" id="_problema" name="_problema"/>
 						<label for="lname">Asunto</label>
 						<input class="form" type="text" id="lname" name="lastname" placeholder="Impresora No enciende"  readonly="readonly">
 
@@ -108,15 +103,24 @@
 <script>
 	// CONSULTA DE PROBLEMA POR CATEGORIA
 	$('#_categoria').change(function(){
+		
 		var data = { IdCategoria: $(this).val() };
 		$.ajax({
-				url: "../Helper/HelpDesk_Usuario.php",
+				url: "../Helper/HelpDesk_Problema.php",
 				data: { "GET_Problema": JSON.stringify(data)},
 				type: "POST",
 				async: true,
 				datatype: "html",
 				success: function (data) {
-
+					$('#_problema').empty();
+					var vroption= "";
+					$.each(data, function( index, value ) {
+						alert( index + ": " + value );
+					});
+					/*data.forEach(function(element) {
+						vroption+='<option value="1">'+element['Descripcion']>+'</option>';
+					});
+					$('#_problema').append(vroption);*/
 				},
 		});
 	});
