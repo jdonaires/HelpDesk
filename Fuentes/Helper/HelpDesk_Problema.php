@@ -3,10 +3,10 @@
  include_once "..\BOL\HelpDesk_Problema.php";
  
  if(isset( $_POST['GET_Problema'] )) {
-    $vrHelpDesk_Usuario = json_decode($_POST['GET_Problema']);
+    $vrHelpDesk_Problema = json_decode($_POST['GET_Problema']);
     $HelpDesk_ProblemaoDAO = new HelpDesk_ProblemaoDAO();
-    $result = $HelpDesk_ProblemaoDAO->GET_Problema($vrHelpDesk_Usuario->Correo);
-    echo ($result[0]["Valida"]);
+    $result = $HelpDesk_ProblemaoDAO->GET_Problema($vrHelpDesk_Problema->IdCategoria);
+    echo ($result);
  }
 
 ?>

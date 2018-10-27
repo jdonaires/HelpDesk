@@ -106,27 +106,17 @@
 	</body>
 </html>
 <script>
+	// CONSULTA DE PROBLEMA POR CATEGORIA
 	$('#_categoria').change(function(){
 		var data = { IdCategoria: $(this).val() };
 		$.ajax({
 				url: "../Helper/HelpDesk_Usuario.php",
-				data: { "Login": JSON.stringify(data)},
+				data: { "GET_Problema": JSON.stringify(data)},
 				type: "POST",
 				async: true,
 				datatype: "html",
 				success: function (data) {
-					if (data == "Soporte") {
-						location.href="t-mimenu.php"; 
-					}
-					else if (data == "Cliente") {
-						location.href="c-mimenu.php";
-					}
-					else if (data == "Administrador") {
-						location.href="a-contadmin.php" ;
-					}
-					else {
-						swal('HelpDesk', data, 'info');
-					};
+
 				},
 		});
 	});
