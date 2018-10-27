@@ -47,7 +47,10 @@
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
-                <h2>Anders</h2>
+                <?php
+  							 	session_start();
+  								echo('<h2>'.$_SESSION["UsuarioLogin"][0]["Nombre"].'</h2>');
+  							?>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -108,7 +111,10 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">Anders
+                    <img src="images/img.jpg" alt="">
+                    <?php
+      								echo($_SESSION["UsuarioLogin"][0]["Nombre"]);
+      							?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -121,7 +127,7 @@
                     </li>
                     <li><a href="javascript:;">Ayuda
                     </a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesion</a></li>
+                    <li><a href="salir.php"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesion</a></li>
                   </ul>
                 </li>
 
@@ -171,8 +177,6 @@
                   <td>'.$row->Prioridad.'</td>
                   <td>'.$row->Area.'</td>
                   <td>'.$row->Estado.'</td>
-                  <td>'.$row->Area.'</td>
-                  <td>'.$row->Area.'</td>
 
 
                   <td><a href="a-asigticket.php?IdTicketDetalle='.$row->IdTicketDetalle.'"><span class="fa fa-eye"> </a></td>

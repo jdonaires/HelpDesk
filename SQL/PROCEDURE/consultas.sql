@@ -6,19 +6,17 @@ INSERT INTO HelpDesk_Categoria (IdCategoria, Tipo, Descripcion, FechaCrea, FlgEl
 INSERT INTO HelpDesk_Problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('1', '1', 'IMPRESORA NO PRENDE', 'ALTA', '2018-10-30', '2018-10-22', 1 );
 INSERT INTO HelpDesk_Problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('2', '2', 'LAPTOP SIN WIFI', 'MEDIA', '2018-10-30', '2018-10-22', 0 );
 
-INSERT INTO HelpDesk_Ticket (IdTicket, IdCliente, IdProblema, Asunto, Descripcion, FechaCrea, FlgEliminado) VALUES ('1', '1', '1', 'IMPRESORA', 'NO PRENDE', '2018-10-22', 0 );
 
 INSERT INTO HelpDesk_Usuario (IdUsuario, IdPerfil, IdArea, Nombre, Apellidos, Correo, Contrasenia, Estado, NroCelular, Confirmacion, Fechacrea, FlgElIminado) VALUES ('1', '1', '1', 'Anders', 'Romero Quispe', 'lien2902@gmail.com', '123456', 'ACTIVO', '922178381',0, '2018-10-23', 0 );
 
 INSERT INTO HelpDesk_Usuario (IdUsuario, IdPerfil, IdArea, Nombre, Apellidos, Correo, Contrasenia, Estado, NroCelular, Confirmacion, Fechacrea, FlgElIminado) VALUES ('2', '2', '2', 'Luis', 'Navarro Saravia', 'lsnavarro@gmail.com', '123456', 'ACTIVO', '934238740',0, '2018-10-26', 0 );
 
 
-insert into HelpDesk_Area (IdArea, Descripcion, FechaCrea, FlgEliminado) values ('1', 'TI', '2018-10-23', 0);
+/*insert into HelpDesk_Area (IdArea, Descripcion, FechaCrea, FlgEliminado) values ('1', 'TI', '2018-10-23', 0);*/
 
 /*insert into Helpdesk_Perfil (IdPerfil, Descripcion, FechaCrea, FlgEliminado) values ('1', 'Cliente', '2018-10-23', 0);*/
 
-
-
+INSERT INTO HelpDesk_Ticket (IdTicket, IdCliente, IdProblema, Asunto, Descripcion, FechaCrea, FlgEliminado) VALUES ('1', '1', '1', 'IMPRESORA', 'NO PRENDE', '2018-10-22', 0 );
 insert into HelpDesk_TicketDetalle (IdTicketDetalle, IdTicket, IdResponsable, Estado, FechaCrea) values ('1', '1', '1', 'Pendiente', '2018-10-23');
 
 UPDATE helpdesk_problema set

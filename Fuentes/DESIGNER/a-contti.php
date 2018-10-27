@@ -158,9 +158,7 @@
           <!-- top tiles -->
           <form role="form"  action="../pag/ver.php" method="POST">
             <div class="table-wrapper-scroll-y">
-
-
-            <table class="table-fill" >
+            <table class="table table-fill" >
               <div class="alert alert-info">
           </div>
             <h2>Control Soporte Tecnico</h2>
@@ -184,7 +182,7 @@
           $stmt->execute();
           while($row = $stmt->fetch(PDO::FETCH_OBJ)){
           echo'
-                <tbody class="table-hover">
+                <tbody class="table table-hover" style="height: 5px">
                   <tr>
                   <td>'.$row->Nombre.' '.$row->Apellidos.'</td>
                   <td>'.$row->Perfil.'</td>
@@ -200,7 +198,7 @@
               </table>
 
               </div>
-                   </form>
+              </form>
 
               </div>
             </div>
