@@ -7,7 +7,7 @@
 			<script src = "https://unpkg.com/sweetalert/dist/sweetalert.min.js"> </script>
 			<link rel="shortcut icon" type="image/x-icon" href="images/logop.ico" />
 			<meta charset="UTF-8">
-			
+
 			<link rel="stylesheet" href="css/stylelog.css">
 	</head>
 	<body>
@@ -41,7 +41,7 @@ $("#login-button").click(function(){
 				datatype: "html",
 				success: function (data) {
 					if (data == "Soporte") {
-						location.href="t-mimenu.php"; 
+						location.href="t-bentrada.php";
 					}
 					else if (data == "Cliente") {
 						location.href="c-mimenu.php";

@@ -59,31 +59,15 @@
               <div class="menu_section">
                 <h3>General</h3>
 
-
-
-                <ul class="nav side-menu">
-
-                  <li><a><i class="fa fa-home"></i> Administrar Datos <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="a-contnuevoc.php">Control Nuevos</a></li>
-                      <li><a href="a-contadmin.php">Control Admistradores</a></li>
-                      <li><a href="a-contcliente.php">Control Clientes</a></li>
-                      <li><a href="a-contti.php">Control Soporte TI</a></li>
-                    </ul>
-                  </li>
                   <ul class="nav side-menu">
                     <li><a><i class="fa fa-home"></i>Bandeja<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <li><a href="a-bentrada.php">Entrada</a></li>
-                        <li><a href="a-bproceso.php">Proceso</a></li>
-                        <li><a href="a-bvalidez.php">Validez</a></li>
-                        <li><a href="a-bsalida.php">Salida</a></li>
+                        <li><a href="t-bentrada.php">Entrada</a></li>
+                        <li><a href="t-bproceso.php">Proceso</a></li>
+                        <li><a href="t-bsalida.php">Salida</a></li>
                       </ul>
                     </li>
-                    <ul class="nav side-menu">
-                      <li><a><i class="fa fa-home"></i>Dashboard<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                          <li><a href="a-bentrada.php">Entrada</a></li>
+
                         </ul>
                         <a href="https://dashboard.smartsupp.com/v2" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;">Mensajeria<span> </a>
                       </li>
@@ -161,12 +145,13 @@
           </br>
           <thead>
               <tr>
-
                 <th class="text-left">N# Ticket</th>
-  							<th class="text-left">FechaCrea</th>
+  							<th class="text-left">FechaCreado</th>
   							<th class="text-left">Asunto</th>
   							<th class="text-left">Prioridad</th>
   							<th class="text-left">Area</th>
+  							<th class="text-left">Asignado a</th>
+  							<th class="text-left">FechaEstimada</th>
   							<th class="text-left">Estado</th>
   							<th class="text-left">Revisar</th>
               </tr>
@@ -188,6 +173,9 @@
                   <td>'.$row->Prioridad.'</td>
                   <td>'.$row->Area.'</td>
                   <td>'.$row->Estado.'</td>
+                  <td>'.$row->Area.'</td>
+                  <td>'.$row->Area.'</td>
+
 
                   <td><a href="a-asigticket.php?IdTicketDetalle='.$row->IdTicketDetalle.'"><span class="fa fa-eye"> </a></td>
                 </tr>
