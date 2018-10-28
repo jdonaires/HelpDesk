@@ -14,7 +14,7 @@
     $HelpDesk_Ticket->__SET('IdProblema', $vrHelpDesk_Ticket->IdProblema);
     $HelpDesk_Ticket->__SET('IdCliente', $_SESSION["UsuarioLogin"][0]["IdUsuario"]);
     $result = $HelpDesk_TicketDAO->SET_Ticket($HelpDesk_Ticket);
-    echo(json_encode($result));
+    echo($result);
  }
 
 ?>

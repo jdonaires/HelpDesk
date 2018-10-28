@@ -143,6 +143,7 @@
 		}
 	});
 
+	// GUARDA DATOS DE TICKET
 	$("#_Enviar").click(function(){
 		if( fn_ValidaDatos() == false){
 			var data = {
@@ -150,12 +151,13 @@
 				IdTicket: 0,
 				IdProblema: $("#_problema").val(),
 				Descripcion: $("#_detalle").val(),
-				Usunto: $("#_asunto").val(),
+				Asunto: $("#_asunto").val(),
 			};
+			alert(JSON.stringify(data));
 			HelpDeskajaxPostSetProcess({
-				url: "../Helper/HelpDesk_Usuario.php",
-				data: { "SET_Usuario": JSON.stringify(data)},
-				title: "Registro de Usuario"
+				url: "../Helper/HelpDesk_Ticket.php",
+				data: { "SET_Ticket": JSON.stringify(data)},
+				title: "Registro de Ticket"
 			});
 		};
 

@@ -8,11 +8,16 @@ class HelpDesk_Ticket
     private $Descripcion;
     private $IdProblema;
     private $IdCliente;
-
+    private $IdResponsable;
+    private $IdSoporte;
+    private $IdProblema_R;
+    private $Asunto_R;
+    private $Respuesta;
+    private $NivelAtencion;
+    private $Asunto;
+    
     function __construct()
     {
-        $this->HelpDesk_Problema = new HelpDesk_Problema();
-        $this->HelpDesk_Cliente = new HelpDesk_Usuario();
     }
 
 	public function __GET($x)
