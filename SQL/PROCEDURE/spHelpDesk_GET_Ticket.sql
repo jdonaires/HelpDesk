@@ -70,7 +70,7 @@ SELECT
 	INNER JOIN HelpDesk_Area as ARE on ARE.IdArea = US.IdArea
 	INNER JOIN HelpDesk_Problema as PRO ON PRO.IdProblema = TIC.IdProblema
 	INNER JOIN HelpDesk_Categoria as CAT ON CAT.IdCategoria = PRO.IdCategoria
-	where TID.IdTicketDetalle=_IdTicketDetalle;
+	where TIC.IdTicket=_IdTicketDetalle;
 END //
 
 DELIMITER //
