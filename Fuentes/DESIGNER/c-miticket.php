@@ -19,31 +19,24 @@
 		<link rel="shortcut icon" type="image/x-icon" href="images/logop.ico" />
 		<link rel="stylesheet" href="css/tabla.css">
 		<!-- Smartsupp Live Chat script -->
-<script type="text/javascript">
-var _smartsupp = _smartsupp || {};
-_smartsupp.key = '10e046a39fea2ca7b4867a0023f300d0f5dde264';
-window.smartsupp||(function(d) {
-	var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-	s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-	c.type='text/javascript';c.charset='utf-8';c.async=true;
-	c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-})(document);
-</script>
+		<script type="text/javascript">
+		var _smartsupp = _smartsupp || {};
+		_smartsupp.key = '10e046a39fea2ca7b4867a0023f300d0f5dde264';
+		window.smartsupp||(function(d) {
+			var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+			s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+			c.type='text/javascript';c.charset='utf-8';c.async=true;
+			c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+		})(document);
+		</script>
 	</head>
 	<body>
-
-	<div id="header-wrapper">
-
-		<!-- Header -->
+		<div id="header-wrapper">
 			<div id="header">
 				<div class="container">
-
-					<!-- Logo -->
 						<div id="logo">
 							<h1> <img id="logoback" width="200px" src="images/logo.png"alt=""/><a id="logodesk" href="#"  style="color:#ffff;">Helpdesk</a></h1>
 						</div>
-
-					<!-- Nav -->
 						<nav id="nav">
 							<ul>
 								<li><a href="c-mimenu.php">Inicio</a></li>
@@ -53,19 +46,13 @@ window.smartsupp||(function(d) {
 								<li><a href="login.php">Salir<span class="fa fa-power-off"></a></li>
 							</ul>
 						</nav>
-
 				</div>
 			</div>
-		<!-- Header -->
-
-		<!-- Banner -->
 			<div id="banner">
 				<div class="container">
 				</div>
 			</div>
-		<!-- /Banner -->
-	</div>
-	<!-- Main -->
+		</div>
 		<div id="main">
 			<div class="container">
 				<div class="row">
@@ -78,10 +65,10 @@ window.smartsupp||(function(d) {
 				<form role="form"  action="../pag/ver.php" method="POST">
 					<table class="table-fill" >
 						<div class="alert alert-info">
-				</div>
-				</br>
-				</br>
-				<thead>
+						</div>
+					</br>
+					</br>
+					<thead>
 						<tr>
 							<th class="text-left">N# Ticket</th>
 							<th class="text-left">FechaCreado</th>
