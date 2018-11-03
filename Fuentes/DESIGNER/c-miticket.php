@@ -1,3 +1,9 @@
+<?php
+ 	session_start();
+	require_once '..\DAO\HelpDesk_TicketDAO.php';
+	$HelpDesk_TicketDAO = new HelpDesk_TicketDAO();
+	$result = $HelpDesk_TicketDAO->GET_Ticket($_SESSION["UsuarioLogin"][0]["IdUsuario"]);
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -70,58 +76,45 @@
 					</br>
 					<thead>
 						<tr>
+							<th class="text-left"># </th>
 							<th class="text-left">N# Ticket</th>
-							<th class="text-left">FechaCreado</th>
+							<th class="text-left">Fecha Creado</th>
 							<th class="text-left">Asunto</th>
 							<th class="text-left">Prioridad</th>
 							<th class="text-left">Asignado a</th>
-							<th class="text-left">FechaEstimada</th>
+							<th class="text-left">Fecha Estimada</th>
 							<th class="text-left">Estado</th>
 						</tr>
-							</thead>
-							<tbody class="table-hover">
+					</thead>
+					<tbody class="table-hover">
+						<?php 
+							$items = 1;
+							foreach ($result as $key => $item) {
+								echo('
 								<tr>
-									<td>TK001</td>
-								<td>19/09/2018</td>
-								<td>Hardware impresora no enciende</td>
-								<td>Baja</td>
-								<td>Jhampier Castilla</td>
-								<td>20/09/2018</td>
-								<td>Cerrado</td>
-							</tr>
-							<tr>
-									<td>TK002</td>
-							<td>20/09/2018</td>
-							<td>Hardware CPU no enciende</td>
-							<td>Alta</td>
-							<td>Kevin Flores</td>
-							<td>20/09/2018</td>
-							<td>Por confirmar</td>
-						</tr>
+								<td>'.$items.'</td>
+								<td>'.$item["CodTicket"].'</td>
+								<td>'.$item["FechaCrea"].'</td>
+								<td>'.$item["Asunto"].'</td>
+								<td>'.$item["Prioridad"].'</td>
+								<td>'.$item["Responsable"].'</td>
+								<td>'.$item["FechaEstimacion"].'</td>
+								<td>'.$item["Estado"].'</td>
+								</tr>
+								');
+								$items = $items + 1;
+							}
+						?>
+					</tbody>
+				</table>
+			</form>
 
-						<tr>
-								<td>TK003</td>
-						<td>21/09/2018</td>
-						<td>Hardware Monitor no enciende</td>
-						<td>Media</td>
-						<td>Cristian Hernandez</td>
-						<td>22/09/2018</td>
-						<td>En proceso</td>
-					</tr>
-							</tbody>
-						</table>
-								 </form>
-
-			</div>
 		</div>
-	<!-- /Main -->
-	<!-- Copyright -->
-		<div id="copyright">
-			<div class="container">
-				Todos los derechos reservados 2018 ©
-			</div>
+	</div>
+	<div id="copyright">
+		<div class="container">
+			Todos los derechos reservados 2018 ©
 		</div>
-
-
+	</div>
 	</body>
 </html>

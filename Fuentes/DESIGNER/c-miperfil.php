@@ -43,11 +43,11 @@
 					</div>
 					<nav id="nav">
 						<ul>
-							<li><a href="c-mimenu.html">Inicio</a></li>
-							<li ><a href="c-minticket.html">Crear ticket</a></li>
-							<li ><a href="c-miticket.html">Mis tickets</a></li>
-							<li class="active"><a href="c-miperfil.html">Mi Perfil</a></li>
-							<li><a href="login.html">Salir<span class="fa fa-power-off"></a></li>
+							<li><a href="c-mimenu.php">Inicio</a></li>
+							<li ><a href="c-minticket.php">Crear ticket</a></li>
+							<li ><a href="c-miticket.php">Mis tickets</a></li>
+							<li class="active"><a href="c-miperfil.php">Mi Perfil</a></li>
+							<li><a href="login.php">Salir<span class="fa fa-power-off"></a></li>
 						</ul>
 					</nav>
 				</div>
@@ -96,6 +96,11 @@
 		</div>
 	</body>
 </html>
+<style>
+	#skel-panels-defaultWrapper{
+		height: auto;
+	}
+</style>
 <script>
 	$("#_btnVolver").click(function(){
 		location.href="c-mimenu.php" ;
