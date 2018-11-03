@@ -1,0 +1,17 @@
+INSERT INTO `helpdesk_categoria` (`IdCategoria`, `Tipo`, `Descripcion`, `FechaCrea`, `FlgEliminado`) VALUES ('1', 'LAPTOP', 'LAPTOP NO PRENDE', '2018-10-19', '1');
+INSERT INTO `helpdesk_categoria` (`IdCategoria`, `Tipo`, `Descripcion`, `FechaCrea`, `FlgEliminado`) VALUES ('2', 'IMPRESORA', 'ATASCO DE PAPEL', '2018-10-20', '1');
+INSERT INTO `helpdesk_categoria` (`IdCategoria`, `Tipo`, `Descripcion`, `FechaCrea`, `FlgEliminado`) VALUES ('3', 'RED', 'NO TENGO INTERNET', '2018-10-20', '1');
+INSERT INTO `helpdesk_categoria` (`IdCategoria`, `Tipo`, `Descripcion`, `FechaCrea`, `FlgEliminado`) VALUES ('4', 'IMPRESORA', 'NO HAY TINTA', '2018-10-22', '1');
+INSERT INTO `helpdesk_categoria` (`IdCategoria`, `Tipo`, `Descripcion`, `FechaCrea`, `FlgEliminado`) VALUES ('5', 'LAPTOP', 'PANTALLA AZUL', '2018-10-23', '1');
+INSERT INTO `helpdesk_categoria` (`IdCategoria`, `Tipo`, `Descripcion`, `FechaCrea`, `FlgEliminado`) VALUES ('6', 'PC', 'SONIDOS EXTRAÑOS CPU', '2018-10-24', '1');
+INSERT INTO `helpdesk_categoria` (`IdCategoria`, `Tipo`, `Descripcion`, `FechaCrea`, `FlgEliminado`) VALUES ('7', 'FOTOCOPIADORA', 'NO PRENDE', '2018-10-24', '1');
+INSERT INTO `helpdesk_categoria` (`IdCategoria`, `Tipo`, `Descripcion`, `FechaCrea`, `FlgEliminado`) VALUES ('8', 'PC', 'TECLADO NO FUNCIONA', '2018-10-24', '1');
+INSERT INTO `helpdesk_categoria` (`IdCategoria`, `Tipo`, `Descripcion`, `FechaCrea`, `FlgEliminado`) VALUES ('9', 'RED', 'CABLES DAÑADOS', '2018-10-25', '1');
+INSERT INTO `helpdesk_categoria` (`IdCategoria`, `Tipo`, `Descripcion`, `FechaCrea`, `FlgEliminado`) VALUES ('10', RED', 'MODEM NO ENCIENDE', '2018-10-25', '1');
+INSERT INTO `helpdesk_categoria` (`IdCategoria`, `Tipo`, `Descripcion`, `FechaCrea`, `FlgEliminado`) VALUES ('11', 'Laptop', 'APARECEN MENSAJES DE ERROR', '2018-10-25', '1');
+INSERT INTO `helpdesk_categoria` (`IdCategoria`, `Tipo`, `Descripcion`, `FechaCrea`, `FlgEliminado`) VALUES ('12', 'FOTOCOPIADORA', 'RECARGA DE TONER', '2018-10-26', '1');
+INSERT INTO `helpdesk_categoria` (`IdCategoria`, `Tipo`, `Descripcion`, `FechaCrea`, `FlgEliminado`) VALUES ('13', 'LAPTOP', 'NO CARGA', '2018-10-26', '1');
+INSERT INTO `helpdesk_categoria` (`IdCategoria`, `Tipo`, `Descripcion`, `FechaCrea`, `FlgEliminado`) VALUES ('14', 'PC', 'MOUSE NO FUNCIONA', '2018-10-27', '1');
+INSERT INTO `helpdesk_categoria` (`IdCategoria`, `Tipo`, `Descripcion`, `FechaCrea`, `FlgEliminado`) VALUES ('15', 'IMPRESORA', 'IMPRESORA NO PRENDE', '2018-10-27', '1');
+
+
