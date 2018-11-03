@@ -30,7 +30,7 @@ class HelpDesk_TicketDAO
 			$result = $statement -> execute();
 			$resultFinal = $statement->fetchAll(PDO::FETCH_ASSOC)[0]['V_MensajeError'];
 			if($resultFinal != null || !empty($resultFinal)){
-				 echo(resultFinal);
+				 echo($resultFinal);
 			}
 			else {
 				echo("Success");

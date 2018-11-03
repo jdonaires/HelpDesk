@@ -1,10 +1,10 @@
-DELIMITER $
-CREATE PROCEDURE spHelpDesk_SET_Ticket(
+CREATE DEFINER=`usert_test`@`%` PROCEDURE `spHelpDesk_SET_Ticket`(
     P_Opcion        CHAR(1)
 ,   P_IdTicket      INT
 ,   P_IdCliente     INT
 ,   P_IdProblema    INT
 ,   P_Asunto        VARCHAR(450)
+,	P_Descripcion	TEXT
 ,   P_IdResponsable INT
 ,   P_IdSoporte     INT
 ,   P_IdProblema_R  INT
@@ -20,7 +20,7 @@ BEGIN
 **************************************************************/
 	
     -- ! DECLARACION DE VARIABLES
-    DECLARE V_MensajeError       VARCHAR(50) DEFAULT '0';
+    DECLARE V_MensajeError       VARCHAR(50) DEFAULT '';
     DECLARE V_IdTicketDetalle    INT;
     DECLARE V_IdTicketRespuesta  INT;
     DECLARE V_Estado             VARCHAR(50);
@@ -103,9 +103,9 @@ BEGIN
     END IF;
 
     -- SI EN CASO SE GENERA UN ERROR CANCELA TODO EL PROCESO
-    IF  _MessageError <> '0' THEN
+    IF  V_MensajeError <> '' THEN
 			ROLLBACK;
 		END IF;	
-	SELECT  _MessageError;
+	SELECT  V_MensajeError;
 
-END;
+END
