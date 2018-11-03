@@ -1,0 +1,45 @@
+
+
+INSERT INTO HelpDesk_Problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('1', '1', 'LAPTOP NO PRENDE', 'ALTA', '2018-10-25', '2018-10-19', 1 );
+
+
+INSERT INTO HelpDesk_Problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('2', '2', 'PAPEL ATASCADO DENTRO DE LA IMPRESORA', 'BAJA', '2018-10-25', '2018-10-20', 1 );
+
+
+INSERT INTO HelpDesk_Problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('3', '3', 'NO PUEDO CONECTARME A NINGUNA PAGINA', 'MEDIA', '2018-10-21', '2018-10-20', 1 );
+
+
+INSERT INTO HelpDesk_Problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('4', '4', 'LAS IMPRESIONES SALEN DE BAJA CALIDAD, SIN COLOR', 'BAJA', '2018-10-22', '2018-10-22', 1 );
+
+
+INSERT INTO HelpDesk_Problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('5', '5', 'ENCENDI LA LAPTOP Y MOSTRO PANTALLA AZUL', 'ALTA', '2018-10-28', '2018-10-23', 1 );
+
+
+INSERT INTO HelpDesk_Problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('6', '6', 'AL ENCENDER LA PC, EMITE SONIDOS RAROS DEL CPU', 'MEDIA', '2018-10-28', '2018-10-24', 1 );
+
+
+INSERT INTO HelpDesk_Problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('7', '7', 'FOTOCOPIADORA NO PRENDE', 'BAJA', '2018-10-26', '2018-10-24', 1 );
+
+
+INSERT INTO HelpDesk_Problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('8', '8', 'TECLADO NO FUNCIONA', 'MEDIA', '2018-10-30', '2018-10-22', 1 );
+
+
+INSERT INTO HelpDesk_Problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('9', '9', 'CABLES APARENTEMENTE ROTOS', 'ALTA', '2018-10-28', '2018-10-25', 1 );
+
+
+INSERT INTO HelpDesk_Problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('10', '10', 'MODEM NO ENCIENDE', 'ALTA', '2018-10-28', '2018-10-25', 1 );
+
+
+INSERT INTO HelpDesk_Problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('11', '11', 'MIENTRAS USO LA MAQUINA APARECEN CONSTANTES MENSAJES DE ERROR', 'ALTA', '2018-10-30', '2018-10-25', 1 );
+
+
+INSERT INTO HelpDesk_Problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('12', '12', 'NECESITA RECARGA DE TONER', 'BAJA', '2018-10-26', '2018-10-26', 1 );
+
+
+INSERT INTO HelpDesk_Problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('13', '13', 'LAPTOP NO CARGA', 'ALTA', '2018-10-30', '2018-10-26', 1 );
+
+
+INSERT INTO HelpDesk_Problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('14', '14', 'MOUSE NO FUNCIONA', 'BAJA', '2018-10-30', '2018-10-27', 1 );
+
+
+INSERT INTO HelpDesk_Problema (IdProblema, IdCategoria, Descripcion, Prioridad, FechaEstimacion, FechaCrea, FlgElminado) VALUES ('15', '15', 'IMPRESORA NO PRENDE', 'ALTA', '2018-10-30', '2018-10-27', 1 );
