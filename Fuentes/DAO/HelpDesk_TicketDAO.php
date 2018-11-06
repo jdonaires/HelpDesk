@@ -30,7 +30,7 @@ class HelpDesk_TicketDAO
 			$result = $statement -> execute();
 			$resultFinal = $statement->fetchAll(PDO::FETCH_ASSOC)[0]['V_MensajeError'];
 			if($resultFinal != null || !empty($resultFinal)){
-				 echo(resultFinal);
+				 echo($resultFinal);
 			}
 			else {
 				echo("Success");
@@ -41,13 +41,21 @@ class HelpDesk_TicketDAO
 		}
 	}
 
-	public function GET_Ticket()
+	public function GET_Ticket($IdUsuario)
 	{
 		try
 		{
-
+            $statement = $this->pdo->prepare("CALL spHelpDesk_GET_BusquedaGeneral(?,?,?,?)");
+			$statement->bindValue(1, "GET_Ticket", PDO::PARAM_STR);
+			$statement->bindValue(2, "%", PDO::PARAM_STR);
+            $statement->bindValue(3, $IdUsuario, PDO::PARAM_INT);
+            $statement->bindValue(4, 0, PDO::PARAM_INT);
+            $statement->execute();
+			$Result = $statement->fetchAll(PDO::FETCH_ASSOC);
+			return $Result;
 		}
-		catch(Exception $ex){
+		catch(Exception $ex)
+		{
 			die($ex->getMessage());
 		}
 	}

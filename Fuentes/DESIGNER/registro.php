@@ -55,9 +55,9 @@
 					<!-- Nav -->
 					<nav id="nav">
 						<ul>
-							<li><a href="index.html">Inicio</a></li>
-							<li  class="active"><a href="registro.html">Registrarme</a></li>
-							<li><a href="login.html">Iniciar sesion</a></li>
+							<li><a href="index.php">Inicio</a></li>
+							<li  class="active"><a href="registro.php">Registrarme</a></li>
+							<li><a href="login.php">Iniciar sesion</a></li>
 						</ul>
 					</nav>
 				</div>

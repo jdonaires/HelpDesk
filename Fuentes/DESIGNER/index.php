@@ -45,7 +45,7 @@
 						<ul>
 							<li class="active"><a href="index.php">Inicio</a></li>
 							<li><a href="registro.php">Registrarme</a></li>
-							<li><a href="login.html">Iniciar sesion</a></li>
+							<li><a href="login.php">Iniciar sesion</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -61,7 +61,7 @@
 							<h2>Hola,</h2>
 							<span class="byline">Para ayudarte crea un ticket</span>
 						</header>
-						<a href="login.html" class="button medium">Crear nuevo ticket</a>
+						<a href="login.php" class="button medium">Crear nuevo ticket</a>
 					</section>
 				</div>
 			</div>

@@ -1,3 +1,9 @@
+<?php
+ 	session_start();
+	require_once '..\DAO\HelpDesk_TicketDAO.php';
+	$HelpDesk_TicketDAO = new HelpDesk_TicketDAO();
+	$result = $HelpDesk_TicketDAO->GET_Ticket($_SESSION["UsuarioLogin"][0]["IdUsuario"]);
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -19,53 +25,40 @@
 		<link rel="shortcut icon" type="image/x-icon" href="images/logop.ico" />
 		<link rel="stylesheet" href="css/tabla.css">
 		<!-- Smartsupp Live Chat script -->
-<script type="text/javascript">
-var _smartsupp = _smartsupp || {};
-_smartsupp.key = '10e046a39fea2ca7b4867a0023f300d0f5dde264';
-window.smartsupp||(function(d) {
-	var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-	s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-	c.type='text/javascript';c.charset='utf-8';c.async=true;
-	c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-})(document);
-</script>
+		<script type="text/javascript">
+		var _smartsupp = _smartsupp || {};
+		_smartsupp.key = '10e046a39fea2ca7b4867a0023f300d0f5dde264';
+		window.smartsupp||(function(d) {
+			var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+			s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+			c.type='text/javascript';c.charset='utf-8';c.async=true;
+			c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+		})(document);
+		</script>
 	</head>
 	<body>
-
-	<div id="header-wrapper">
-
-		<!-- Header -->
+		<div id="header-wrapper">
 			<div id="header">
 				<div class="container">
-
-					<!-- Logo -->
 						<div id="logo">
 							<h1> <img id="logoback" width="200px" src="images/logo.png"alt=""/><a id="logodesk" href="#"  style="color:#ffff;">Helpdesk</a></h1>
 						</div>
-
-					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="c-mimenu.html">Inicio</a></li>
-								<li ><a href="c-minticket.html">Crear ticket</a></li>
-								<li class="active"><a href="c-miticket.html">Mis tickets</a></li>
-								<li><a href="c-miperfil.html">Mi Perfil</a></li>
-								<li><a href="login.html">Salir<span class="fa fa-power-off"></a></li>
+								<li><a href="c-mimenu.php">Inicio</a></li>
+								<li ><a href="c-minticket.php">Crear ticket</a></li>
+								<li class="active"><a href="c-miticket.php">Mis tickets</a></li>
+								<li><a href="c-miperfil.php">Mi Perfil</a></li>
+								<li><a href="login.php">Salir<span class="fa fa-power-off"></a></li>
 							</ul>
 						</nav>
-
 				</div>
 			</div>
-		<!-- Header -->
-
-		<!-- Banner -->
 			<div id="banner">
 				<div class="container">
 				</div>
 			</div>
-		<!-- /Banner -->
-	</div>
-	<!-- Main -->
+		</div>
 		<div id="main">
 			<div class="container">
 				<div class="row">
@@ -78,63 +71,50 @@ window.smartsupp||(function(d) {
 				<form role="form"  action="../pag/ver.php" method="POST">
 					<table class="table-fill" >
 						<div class="alert alert-info">
-				</div>
-				</br>
-				</br>
-				<thead>
+						</div>
+					</br>
+					</br>
+					<thead>
 						<tr>
+							<th class="text-left"># </th>
 							<th class="text-left">N# Ticket</th>
-							<th class="text-left">FechaCreado</th>
+							<th class="text-left">Fecha Creado</th>
 							<th class="text-left">Asunto</th>
 							<th class="text-left">Prioridad</th>
 							<th class="text-left">Asignado a</th>
-							<th class="text-left">FechaEstimada</th>
+							<th class="text-left">Fecha Estimada</th>
 							<th class="text-left">Estado</th>
 						</tr>
-							</thead>
-							<tbody class="table-hover">
+					</thead>
+					<tbody class="table-hover">
+						<?php 
+							$items = 1;
+							foreach ($result as $key => $item) {
+								echo('
 								<tr>
-									<td>TK001</td>
-								<td>19/09/2018</td>
-								<td>Hardware impresora no enciende</td>
-								<td>Baja</td>
-								<td>Jhampier Castilla</td>
-								<td>20/09/2018</td>
-								<td>Cerrado</td>
-							</tr>
-							<tr>
-									<td>TK002</td>
-							<td>20/09/2018</td>
-							<td>Hardware CPU no enciende</td>
-							<td>Alta</td>
-							<td>Kevin Flores</td>
-							<td>20/09/2018</td>
-							<td>Por confirmar</td>
-						</tr>
+								<td>'.$items.'</td>
+								<td>'.$item["CodTicket"].'</td>
+								<td>'.$item["FechaCrea"].'</td>
+								<td>'.$item["Asunto"].'</td>
+								<td>'.$item["Prioridad"].'</td>
+								<td>'.$item["Responsable"].'</td>
+								<td>'.$item["FechaEstimacion"].'</td>
+								<td>'.$item["Estado"].'</td>
+								</tr>
+								');
+								$items = $items + 1;
+							}
+						?>
+					</tbody>
+				</table>
+			</form>
 
-						<tr>
-								<td>TK003</td>
-						<td>21/09/2018</td>
-						<td>Hardware Monitor no enciende</td>
-						<td>Media</td>
-						<td>Cristian Hernandez</td>
-						<td>22/09/2018</td>
-						<td>En proceso</td>
-					</tr>
-							</tbody>
-						</table>
-								 </form>
-
-			</div>
 		</div>
-	<!-- /Main -->
-	<!-- Copyright -->
-		<div id="copyright">
-			<div class="container">
-				Todos los derechos reservados 2018 ©
-			</div>
+	</div>
+	<div id="copyright">
+		<div class="container">
+			Todos los derechos reservados 2018 ©
 		</div>
-
-
+	</div>
 	</body>
 </html>
