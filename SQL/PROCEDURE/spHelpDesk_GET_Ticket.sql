@@ -5,7 +5,7 @@ drop procedure spHelpDesk_SET_DetTicket;
 drop procedure spHelpDesk_GET_Ticket;
 
 
-DELIMITER //
+DELIMITER $$
 CREATE PROCEDURE spHelpDesk_SET_DetTicket(
 IN _IdTicketDetalle INT,
 IN _IdTicket INT,
@@ -61,7 +61,7 @@ SELECT
 	PRO.Descripcion,
 	ARE.Descripcion as Area,
 	TIC.FechaCrea,
-	PRO.Prioridad,	
+	PRO.Prioridad,
 	PRO.FechaEstimacion,
 		concat(CAT.Tipo," ",PRO.Descripcion) AS Asunto
 	FROM HelpDesk_Ticket as TIC
@@ -89,7 +89,7 @@ UPDATE HelpDesk_Ticket as TIC
 	PRO.Descripcion=_Descripcion,
 	ARE.Descripcion=_Area,
 	TIC.FechaCrea=_FechaCrea,
-	PRO.Prioridad=_Prioridad,	
+	PRO.Prioridad=_Prioridad,
 	PRO.FechaEstimacion=FechaEstimacion
 WHERE IdTicketDetalle  =  _IdTicketDetalle;
 END //

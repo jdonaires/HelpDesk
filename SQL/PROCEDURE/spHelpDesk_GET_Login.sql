@@ -1,10 +1,11 @@
+DELIMITER $$;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spHelpDesk_GET_Login`(
 	P_Correo		VARCHAR(500)
 ,	P_Contrasenia	TEXT
 )
 BEGIN
 
-	SELECT 
+	SELECT
 		USU.IdUsuario
 	,	USU.IdPerfil
     ,	PER.Descripcion  AS 'Perfil'
@@ -20,5 +21,5 @@ BEGIN
 		INNER JOIN HelpDesk_Perfil	PER ON PER.IdPerfil = USU.IdPerfil
 		INNER JOIN HelpDesk_Area	ARE ON ARE.IdArea	= USU.IdArea
 	WHERE USU.Correo = P_Correo AND USU.Contrasenia = P_Contrasenia;
-    
+
 END

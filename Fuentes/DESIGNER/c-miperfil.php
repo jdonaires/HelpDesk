@@ -25,7 +25,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="images/logop.ico" />
 		<script type="text/javascript">
 		var _smartsupp = _smartsupp || {};
-		_smartsupp.key = '10e046a39fea2ca7b4867a0023f300d0f5dde264';
+		_smartsupp.key = '854e8cbddf22d3d004589f79e9765c9e86ddaaaa';
 		window.smartsupp||(function(d) {
 			var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
 			s=d.getElementsByTagName('script')[0];c=d.createElement('script');
