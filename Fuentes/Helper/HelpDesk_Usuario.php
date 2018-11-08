@@ -31,7 +31,7 @@
         $HelpDesk_UsuarioDAO = new HelpDesk_UsuarioDAO();
         $result = $HelpDesk_UsuarioDAO->GET_UsuarioLogin($vrHelpDesk_Usuario->Correo, $vrHelpDesk_Usuario->Contrasenia);
         if($result != null || !empty($result)){
-            if($result[0]["Estado"]== "Inactivo"){
+            if(strtoupper($result[0]["Estado"])== "INACTIVO"){
                 echo( "Su cuenta aun no se encuentra activo, por favor comuniquese con el administrador");
             }
             else{
