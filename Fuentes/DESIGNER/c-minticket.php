@@ -120,7 +120,7 @@
 				var option = new Option('Seleccione..','0');
 				$('#_problema').append($(option));
 				$.each($.parseJSON(data), function( index, value ) {
-					var option = new Option(value['Descripcion'],value['IdProblema']); 
+					var option = new Option(value['Descripcion'],value['IdProblema']);
 					$('#_problema').append($(option));
 				});
 			},
@@ -131,7 +131,7 @@
 	$('#_problema').change(function(){
 		if($(this).val() == "0"){
 			$('#_asunto').val('');
-			$('#_prioridad').val('');	
+			$('#_prioridad').val('');
 		}
 		else{
 			$.each($.parseJSON(vrJsonProblema), function( index, value ) {
@@ -153,7 +153,6 @@
 				Descripcion: $("#_detalle").val(),
 				Asunto: $("#_asunto").val(),
 			};
-			alert(JSON.stringify(data));
 			HelpDeskajaxPostSetProcess({
 				url: "../Helper/HelpDesk_Ticket.php",
 				data: { "SET_Ticket": JSON.stringify(data)},

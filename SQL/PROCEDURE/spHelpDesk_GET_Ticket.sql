@@ -52,13 +52,14 @@ END //
 
 delimiter //
 CREATE PROCEDURE spHelpDesk_GET_DetTicket(
-	in _IdTicketDetalle INT
+	in _IdTicket INT
 )
 BEGIN
 SELECT
 	TIC.IdTicket,
     CAT.Tipo,
 	PRO.Descripcion,
+    TIC.Descripcion as TDes,
 	ARE.Descripcion as Area,
 	TIC.FechaCrea,
 	PRO.Prioridad,
@@ -70,12 +71,19 @@ SELECT
 	INNER JOIN HelpDesk_Area as ARE on ARE.IdArea = US.IdArea
 	INNER JOIN HelpDesk_Problema as PRO ON PRO.IdProblema = TIC.IdProblema
 	INNER JOIN HelpDesk_Categoria as CAT ON CAT.IdCategoria = PRO.IdCategoria
-	where TIC.IdTicket=_IdTicketDetalle;
+	where TIC.IdTicket=_IdTicket;
 END //
 
 DELIMITER //
 CREATE PROCEDURE HelpDesk_UP_DetTicket(
-	in _IdTicketDetalle INT
+	in _IdTicket INT,
+    in _Descripcion TEXT,
+    in _Area TEXT,
+    in _TDes TEXT,
+    in _FechaCrea DATE,
+    in _Prioridad VARCHAR(100),
+    in _FechaEstimacion DATE,
+    in _Responsable INT
 )
 BEGIN
 UPDATE HelpDesk_Ticket as TIC
@@ -88,8 +96,10 @@ UPDATE HelpDesk_Ticket as TIC
     CAT.Tipo=_Tipo,
 	PRO.Descripcion=_Descripcion,
 	ARE.Descripcion=_Area,
+    TIC.Descripcion=_TDes,
 	TIC.FechaCrea=_FechaCrea,
 	PRO.Prioridad=_Prioridad,
-	PRO.FechaEstimacion=FechaEstimacion
-WHERE IdTicketDetalle  =  _IdTicketDetalle;
+	PRO.FechaEstimacion=_FechaEstimacion,
+    TID.IdResponsable=_Responsable
+WHERE IdTicket  =  _IdTicket;
 END //

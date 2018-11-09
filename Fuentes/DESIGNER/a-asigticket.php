@@ -106,9 +106,7 @@
 
 
 								<label for="subject">Detalle del problema</label>
-								<textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." readonly="readonly">
-									Buenos dias, para solicitar ayuda ya que mi impresora dejo de funcionar hace un dia y no puedo imprimir los documentos del trabajo para los reportes diarios que se entregan al jefe.
-								Porfavor ayuda lo más antes posible. </textarea>
+								<textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." readonly="readonly" >'.$row->TDes.'</textarea>
 
 								<label for="lname">Fecha creado</label>
 								<input class="form" type="text" id="lname" name="lastname" value="'.$row->FechaCrea.'"  readonly="readonly">
