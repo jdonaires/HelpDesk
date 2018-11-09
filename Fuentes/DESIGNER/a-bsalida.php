@@ -172,7 +172,7 @@
   							<th class="text-left">Prioridad</th>
   							<th class="text-left">Area</th>
   							<th class="text-left">Estado</th>
-  							<th class="text-left">Revisar</th>
+  							<!--<th class="text-left">Revisar</th>-->
               </tr>
                 </thead>
           <?php
@@ -191,7 +191,7 @@
                   <td>'.$row->Asunto.'</td>
                   <td>'.$row->Prioridad.'</td>
                   <td>'.$row->Area.'</td>
-                  <td>'.$row->Nombre.'</td>
+                  <td>'.$row->Estado.'</td>
 
 
                   <td><a href="a-detalleuser.html?IdUsuario='.$row->IdUsuario.'"><span class="fa fa-eye"> </a></td>
