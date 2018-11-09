@@ -25,12 +25,12 @@ class HelpDesk_UsuarioDAO
 			$statement->bindValue(7, $HelpDesk_Usuario->__GET('Correo'));
 			$statement->bindValue(8, $HelpDesk_Usuario->__GET('Contrasenia'));
 			$statement->bindValue(9, $HelpDesk_Usuario->__GET('NroCelular'));
-			$statement->bindValue(10, $HelpDesk_Usuario->__GET('Confirmacion'));
+			$statement->bindValue(10,$HelpDesk_Usuario->__GET('Confirmacion'));
 			$statement->bindValue(11, "");
 			$statement->bindValue(12,0);
 			$result = $statement -> execute();
 			if($result != null || !empty($result)){
-				 echo($statement->fetchAll(PDO::FETCH_ASSOC)[0]['V_MensajeError']);
+			echo($statement->fetchAll(PDO::FETCH_ASSOC)[0]['V_MensajeError']);
 			}
 			else {
 				echo("Success");
@@ -46,7 +46,7 @@ class HelpDesk_UsuarioDAO
 	{
 		try
 		{
-      		$statement = $this->pdo->prepare("CALL spHelpDesk_GET_BusquedaGeneral(?,?,?,?)");
+      $statement = $this->pdo->prepare("CALL spHelpDesk_GET_BusquedaGeneral(?,?,?,?)");
 			$statement->bindValue(1, "GET_ValidaEmail", PDO::PARAM_STR);
 			$statement->bindValue(2, $ValueEmail, PDO::PARAM_STR);
       		$statement->bindValue(3, 0, PDO::PARAM_INT);
@@ -77,6 +77,39 @@ class HelpDesk_UsuarioDAO
 			die($ex->getMessage());
 		}
 	}
+
+
+	public function SET_Usuario(HelpDesk_Usuario $HelpDesk_Usuario)
+	{
+		try
+		{
+			$statement = $this->pdo->prepare("CALL spHelpDesk_SET_Usuario(?,?,?,?,?,?,?,?,?,?,?,?)");
+			$statement->bindValue(1, $HelpDesk_Usuario->__GET('Opcion'));
+			$statement->bindValue(2, $HelpDesk_Usuario->__GET('IdUsuario'));
+			$statement->bindValue(3, $HelpDesk_Usuario->__GET('IdPerfil'));
+			$statement->bindValue(4, $HelpDesk_Usuario->__GET('IdArea'));
+			$statement->bindValue(5, $HelpDesk_Usuario->__GET('Nombre'));
+			$statement->bindValue(6, $HelpDesk_Usuario->__GET('Apellidos'));
+			$statement->bindValue(7, $HelpDesk_Usuario->__GET('Correo'));
+			$statement->bindValue(8, $HelpDesk_Usuario->__GET('Contrasenia'));
+			$statement->bindValue(9, $HelpDesk_Usuario->__GET('NroCelular'));
+			$statement->bindValue(10,$HelpDesk_Usuario->__GET('Confirmacion'));
+			$statement->bindValue(11, "");
+			$statement->bindValue(12,0);
+			$result = $statement -> execute();
+			if($result != null || !empty($result)){
+			echo($statement->fetchAll(PDO::FETCH_ASSOC)[0]['V_MensajeError']);
+			}
+			else {
+				echo("Success");
+			}
+		}
+		catch (Exception $ex)
+		{
+			die($ex->getMessage());
+		}
+	}
+
 }
 
 ?>

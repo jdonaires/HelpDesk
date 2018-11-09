@@ -9,7 +9,6 @@
 	$ResultArea= $HelpDesk_AreaDAO->GET_Area();
 	$Result= $HelpDesk_PerfilDAO->GET_Perfil();
 ?>
-<!DOCTYPE HTML>
 <html>
 	<head>
 		<title>Helpdesk</title>

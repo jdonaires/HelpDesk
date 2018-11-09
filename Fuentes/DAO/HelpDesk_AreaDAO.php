@@ -23,8 +23,8 @@ class HelpDesk_AreaDAO
 		try
 		{
             $statement = $this->pdo->prepare("CALL spHelpDesk_GET_BusquedaGeneral(?,?,?,?)");
-			$statement->bindValue(1, "GET_Area", PDO::PARAM_STR);
-			$statement->bindValue(2, "%", PDO::PARAM_STR);
+						$statement->bindValue(1, "GET_Area", PDO::PARAM_STR);
+						$statement->bindValue(2, "%", PDO::PARAM_STR);
             $statement->bindValue(3, 0, PDO::PARAM_INT);
             $statement->bindValue(4, 0, PDO::PARAM_INT);
             $statement->execute();

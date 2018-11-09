@@ -63,7 +63,6 @@
 
 						</header>
 						<br>
-							<input class="formb" type="submit" value="Presinar para editar">
 						</section>
 				</div>
 				<?php
@@ -98,16 +97,19 @@
 				';}
 				?>
 
-				<h3>Estado de cuenta</h3>
+				<h3>Cambiar estado de cuenta</h3>
 				<br>
-				<labelfor="country">Estado</label>
+
 				<select class="form" id="country" name="country">
-					<option value="a">Creado</option>
+					<option value="a">Seleccione un estado</option>
 					<option value="a">Activo</option>
 					<option value="a">Inactivo</option>
 					<option value="a">Eliminado</option>
 				</select>
+					<input class="formb" type="submit" value="Presinar para editar">
 					<input class="formb" type="submit" value="Guardar cambios">
+
+
 				</form>
 				</div>
 
