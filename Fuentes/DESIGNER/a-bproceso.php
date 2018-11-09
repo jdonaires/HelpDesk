@@ -194,7 +194,7 @@
 
                                   </tbody>';
                                   }
-                                  
+                                  ?>
                           </table>
    </form>
                         </div>
