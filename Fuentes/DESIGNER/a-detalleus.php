@@ -80,31 +80,31 @@
 				<form action="action_page.php" >
 
 				<label for="lname">Nombres y Apellidos</label>
-				<input class="form" type="text" id="lname" name="lastname" value="'.$row->Nombre.' '.$row->Apellidos.'"  readonly="readonly">
+				<input class="form" type="text" id="lname" name="Nombre" value="'.$row->Nombre.' '.$row->Apellidos.'"  readonly="readonly">
 
 				<label for="lname">Correo</label>
-				<input class="form" type="text" id="lname" name="lastname" value="'.$row->Correo.'"  readonly="readonly">
+				<input class="form" type="text" id="lname" name="Correo" value="'.$row->Correo.'"  readonly="readonly">
 
 				<label for="lname">Celular</label>
-				<input class="form" type="text" id="lname" name="lastname" value="'.$row->NroCelular.'"  readonly="readonly">
+				<input class="form" type="text" id="lname" name="Nuemro de celular" value="'.$row->NroCelular.'"  readonly="readonly">
 
 				<label for="lname">Perfil</label>
-				<input class="form" type="text" id="lname" name="lastname" value="'.$row->Perfil.'"  readonly="readonly">
+				<input class="form" type="text" id="lname" name="Perfil" value="'.$row->Perfil.'"  readonly="readonly">
 
 				<label for="lname">Area</label>
-				<input class="form" type="text" id="lname" name="lastname" value="'.$row->Area.'"  readonly="readonly">
+				<input class="form" type="text" id="lname" name="Area" value="'.$row->Area.'"  readonly="readonly">
 
 				<label for="lname">Estado</label>
-				<input class="form" type="text" id="lname" name="lastname" value="'.$row->Estado.'"  readonly="readonly">
+				<input class="form" type="text" id="lname" name="Estado" value="'.$row->Estado.'"  readonly="readonly">
 				';}
 				?>
 
 				<h3>Cambiar estado de cuenta a:</h3>
-				<select class="form" id="country" name="country">
+				<select class="form" id="Estado" name="NuevoEstado">
 
-					<option value="a">Activo</option>
-					<option value="a">Inactivo</option>
-					<option value="a">Eliminado</option>
+					<option value="Activo">Activo</option>
+					<option value="Inactivo">Inactivo</option>
+					<option value="Eliminado">Eliminado</option>
 				</select>
 
 				<h3>Privilegios</h3>
@@ -118,7 +118,6 @@
 				<thead>
 						<tr>
 							<th class="text-left">Cliente</th>
-
 							<th class="text-left">Administrador</th>
 							<th class="text-left">Soporte TI</th>
 						</tr>
@@ -153,6 +152,8 @@
 
 			</div>
 		</div>
+
+
 	<!-- /Main -->
 	<!-- Copyright -->
 		<div id="copyright">
