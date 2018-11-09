@@ -50,19 +50,17 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="images/user.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
-								<!-- /menu profile quick info?php
-  							 	session_start();
+
+								<?php
   								echo('<h2>'.$_SESSION["UsuarioLogin"][0]["Nombre"].'</h2>');
-  							?> -->
+  							?>
 
               </div>
             </div>
-            <!-- /menu profile quick info -->
-
             <br />
 
             <!-- sidebar menu -->
@@ -111,7 +109,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">
+										<img src="images/user.png" alt="">
                     <?php
       								echo($_SESSION["UsuarioLogin"][0]["Nombre"]);
       							?>
