@@ -179,14 +179,14 @@
           require_once '..\DAL\DBAccess.php';
           $dba = new DBAccess();
           $conn = $dba->Get_Connection();
-          $stmt = $conn->prepare("call spHelpDesk_GET_DetTicket($idTicket)");
+          $stmt = $conn->prepare("call spHelpDesk_GET_Ticket");
           $stmt->execute();
           while($row = $stmt->fetch(PDO::FETCH_OBJ)){
           echo'
 
                 <tbody class="table-hover">
                   <tr>
-                  <td>'.$row->$idTicket.'</td>
+                  <td>'.$row->$IdTicket.'</td>
                   <td>'.$row->FechaCrea.'</td>
                   <td>'.$row->Asunto.'</td>
                   <td>'.$row->Prioridad.'</td>
