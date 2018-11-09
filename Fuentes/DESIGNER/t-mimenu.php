@@ -34,10 +34,10 @@
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li class="active"><a href="t-mimenu.html">Inicio</a></li>
-								<li><a  href="t-todobandeja.html">Bandeja</a></li>
-								<li><a href="t-miperfil.html">Mi perfil</a></li>
-								<li><a href="login.html">Salir<span class="fa fa-power-off"></a></li>
+								<li class="active"><a href="t-mimenu.php">Inicio</a></li>
+								<li><a  href="t-todobandeja.php">Bandeja</a></li>
+								<li><a href="t-miperfil.php">Mi perfil</a></li>
+								<li><a href="login.php">Salir<span class="fa fa-power-off"></a></li>
 							</ul>
 						</nav>
 				</div>
@@ -54,7 +54,7 @@
 							<h2>Hola Flavio,</h2>
 							<span class="byline">Revisa tu bandeja de entrada</span>
 						</header>
-						<a href="t-bentrada.html" class="button medium">Bandeja de entrada</a>
+						<a href="t-bentrada.php" class="button medium">Bandeja de entrada</a>
 					</section>
 				</div>
 			</div>
