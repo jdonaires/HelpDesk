@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Dashboard | HelpDesk</title>
+		    <title>HelpDesk | Mi perfil</title>
 	<link rel="stylesheet" href="css/tabla.css">
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -33,6 +33,7 @@
 
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
+
   </head>
 
   <body class="nav-md">
@@ -41,7 +42,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-info-circle"></i> <span>HelpDesk!</span></a>
+              <a href="t-bentrada.php" class="site_title"><i class="fa fa-paper-plane-o"></i> <span>HelpDesk</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -49,18 +50,17 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="images/user.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
-                <?php
-  							 	session_start();
+
+								<?php
   								echo('<h2>'.$_SESSION["UsuarioLogin"][0]["Nombre"].'</h2>');
   							?>
+
               </div>
             </div>
-            <!-- /menu profile quick info -->
-
             <br />
 
             <!-- sidebar menu -->
@@ -84,8 +84,6 @@
                             <ul class="nav child_menu">
                               <li>  <a href="https://dashboard.smartsupp.com/v2" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;">Mensajeria<span> </a>
                             </li>
-                              <li><a href="c-miperfil.php">Mi perfil</a></li>
-                              <li><a href="#">Cambiar de contraseña</a></li>
                             </ul>
                           </li>
                             </ul>
@@ -96,22 +94,7 @@
             </div>
             <!-- /sidebar menu -->
 
-            <!-- /menu footer buttons -->
-            <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-              </a>
-            </div>
-            <!-- /menu footer buttons -->
+
           </div>
         </div>
 
@@ -126,23 +109,16 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">
+										<img src="images/user.png" alt="">
                     <?php
       								echo($_SESSION["UsuarioLogin"][0]["Nombre"]);
       							?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Perfil</a></li>
-                    <li>
-                      <a href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>Configuracion</span>
-                      </a>
-                    </li>
-                    <li><a href="javascript:;">Ayuda
-                    </a></li>
-                    <li><a href="salir.php"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesion</a></li>
+	                    <li><a href="t-miperfil.php">Mi perfil</a></li>
+	                    <li><a href="#">Cambiar de contraseña</a></li>
+	                  <li><a href="salir.php"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesion</a></li>
                   </ul>
                 </li>
 
@@ -154,27 +130,81 @@
         </div>
         <!-- /top navigation -->
 
+
         <!-- page content -->
         <div class="right_col" role="main">
-          <!-- top tiles -->
-          <form role="form"  action="../pag/ver.php" method="POST">
-            <?php
-              echo('
-              <label for="lname">Nombres</label>
-              <input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Nombre"].'"  readonly="readonly">
-              <label for="lname">Apellidos</label>
-              <input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Apellidos"].'"  readonly="readonly">
-              <label for="lname">Correo</label>
-              <input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Correo"].'"  readonly="readonly">
-              <label for="lname">Celular</label>
-              <input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["NroCelular"].'"  readonly="readonly">
-              <label for="lname">Perfil</label>
-              <input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Perfil"].'"  readonly="readonly">
-              <label for="lname">Area</label>
-              <input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Area"].'"  readonly="readonly">
-              <input class="formb" type="button" value="Volver" id="_btnVolver">')
-            ?>
-          </form>
+					<div class="row">
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="x_panel">
+								<div class="x_title">
+
+
+
+									<h2>Mi perfil</h2>
+									<div class="clearfix"></div>
+								</div>
+								<div class="x_content">
+									<br />
+										<form role="form"  action="../pag/ver.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+											<?php
+												echo('
+										<div class="form-group">
+											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombres
+											</label>
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<input type="text" readonly="readonly" id="first-name" value="'.$_SESSION["UsuarioLogin"][0]["Nombre"].'" class="form-control col-md-7 col-xs-12">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Apellidos
+											</label>
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<input type="text" readonly="readonly" id="last-name" name="last-name" value="'.$_SESSION["UsuarioLogin"][0]["Apellidos"].'" class="form-control col-md-7 col-xs-12">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Correo</label>
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<input id="middle-name" readonly="readonly" class="form-control col-md-7 col-xs-12" value="'.$_SESSION["UsuarioLogin"][0]["Correo"].'" type="text" name="middle-name">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3 col-sm-3 col-xs-12">N° Celular
+											</label>
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<input id="birthday" readonly="readonly" value="'.$_SESSION["UsuarioLogin"][0]["NroCelular"].'"   class="date-picker form-control col-md-7 col-xs-12" type="text">
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label col-md-3 col-sm-3 col-xs-12">Perfil
+											</label>
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<input id="birthday" readonly="readonly" value="'.$_SESSION["UsuarioLogin"][0]["Perfil"].'" class="date-picker form-control col-md-7 col-xs-12" type="text">
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label col-md-3 col-sm-3 col-xs-12">Área
+											</label>
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<input id="birthday" readonly="readonly" value="'.$_SESSION["UsuarioLogin"][0]["Area"].'" class="date-picker form-control col-md-7 col-xs-12" type="text">
+											</div>
+										</div>
+										<div class="ln_solid"></div>
+										<div class="form-group">
+											<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+											<input class="btn btn-primary" type="button" value="Volver" id="_btnVolver">
+											</div>
+										</div>
+
+									</form>')
+			?>
+
+								</div>
+							</div>
+						</div>
+					</div>
 
               </div>
             </div>
@@ -182,9 +212,6 @@
         </div>
 
         <footer>
-          <div class="pull-right">
-            HelpDesk - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-          </div>
           <div class="clearfix"></div>
         </footer>
 
@@ -234,12 +261,9 @@
 
   </body>
 </html>
-#skel-panels-defaultWrapper{
-  height: auto;
-}
 </style>
 <script>
 $("#_btnVolver").click(function(){
-  location.href="c-mimenu.php" ;
+  location.href="t-bentrada.php" ;
 });
 </script>

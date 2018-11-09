@@ -1,4 +1,8 @@
 <?php
+	session_start();
+	if($_SESSION["UsuarioLogin"] == null){
+		header('Location: login.php');
+	}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -9,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-		    <title>HelpDesk | Detalle usuario</title>
+		    <title>HelpDesk | Mi perfil</title>
 	<link rel="stylesheet" href="css/tabla.css">
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -52,8 +56,7 @@
                 <span>Bienvenido,</span>
 
 								<?php
-								session_start();
-								echo('<h2>'.$_SESSION["UsuarioLogin"][0]["Nombre"].'</h2>');
+  								echo('<h2>'.$_SESSION["UsuarioLogin"][0]["Nombre"].'</h2>');
   							?>
 
               </div>
@@ -73,6 +76,7 @@
 											<li><a href="a-bsalida.php">Salida</a></li>
 										</ul>
 									</li></ul>
+
 
 								<ul class="nav side-menu">
 									<li><a><i class="fa fa-user"></i> Administrar Datos <span class="fa fa-chevron-down"></span></a>
@@ -101,9 +105,14 @@
 										</ul>
 									</li>
 										</ul>
+
 							</div>
+
+
             </div>
             <!-- /sidebar menu -->
+
+
           </div>
         </div>
 
@@ -119,7 +128,7 @@
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 										<img src="images/user.png" alt="">
-										<?php
+                    <?php
       								echo($_SESSION["UsuarioLogin"][0]["Nombre"]);
       							?>
                     <span class=" fa fa-angle-down"></span>
@@ -146,46 +155,50 @@
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<div class="x_panel">
 								<div class="x_title">
-									<h2>Detalle de usuario</h2>
+
+
+
+									<h2>Mi perfil</h2>
 									<div class="clearfix"></div>
 								</div>
 								<div class="x_content">
 									<br />
 										<form role="form"  action="../pag/ver.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
 											<?php
-											require_once '..\DAL\DBAccess.php';
-											$idUsuario=$_GET['IdUsuario'];
-											$dba = new DBAccess();
-											$conn = $dba->Get_Connection();
-											$stmt = $conn->prepare("call spHelpDesk_GET_ConsultaUsu('$idUsuario');");
-											$stmt->execute();
-											while($row = $stmt->fetch(PDO::FETCH_OBJ)){
-											echo'
+												echo('
 										<div class="form-group">
-											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombres y Apellidos
+											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombres
 											</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input type="text" readonly="readonly" id="first-name" value="'.$row->Nombre.' '.$row->Apellidos.'" class="form-control col-md-7 col-xs-12">
+												<input type="text" readonly="readonly" id="first-name" value="'.$_SESSION["UsuarioLogin"][0]["Nombre"].'" class="form-control col-md-7 col-xs-12">
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Correo
+											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Apellidos
 											</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input type="text" readonly="readonly" id="last-name" name="last-name" value="'.$row->Correo.'" class="form-control col-md-7 col-xs-12">
+												<input type="text" readonly="readonly" id="last-name" name="last-name" value="'.$_SESSION["UsuarioLogin"][0]["Apellidos"].'" class="form-control col-md-7 col-xs-12">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Celular</label>
+											<label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Correo</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input id="middle-name" readonly="readonly" class="form-control col-md-7 col-xs-12" value="'.$row->NroCelular.'" type="text" name="middle-name">
+												<input id="middle-name" readonly="readonly" class="form-control col-md-7 col-xs-12" value="'.$_SESSION["UsuarioLogin"][0]["Correo"].'" type="text" name="middle-name">
 											</div>
 										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3 col-sm-3 col-xs-12">N° Celular
+											</label>
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<input id="birthday" readonly="readonly" value="'.$_SESSION["UsuarioLogin"][0]["NroCelular"].'"   class="date-picker form-control col-md-7 col-xs-12" type="text">
+											</div>
+										</div>
+
 										<div class="form-group">
 											<label class="control-label col-md-3 col-sm-3 col-xs-12">Perfil
 											</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input id="birthday" readonly="readonly" value="'.$row->Perfil.'"   class="date-picker form-control col-md-7 col-xs-12" type="text">
+												<input id="birthday" readonly="readonly" value="'.$_SESSION["UsuarioLogin"][0]["Perfil"].'" class="date-picker form-control col-md-7 col-xs-12" type="text">
 											</div>
 										</div>
 
@@ -193,218 +206,22 @@
 											<label class="control-label col-md-3 col-sm-3 col-xs-12">Área
 											</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input id="birthday" readonly="readonly" value="'.$row->Area.'" class="date-picker form-control col-md-7 col-xs-12" type="text">
+												<input id="birthday" readonly="readonly" value="'.$_SESSION["UsuarioLogin"][0]["Area"].'" class="date-picker form-control col-md-7 col-xs-12" type="text">
 											</div>
 										</div>
-
-										<div class="form-group">
-											<label class="control-label col-md-3 col-sm-3 col-xs-12">Estado
-											</label>
-											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input id="birthday" readonly="readonly" value="'.$row->Estado.'" class="date-picker form-control col-md-7 col-xs-12" type="text">
-											</div>
-										</div>
-
-										<div class="x_title">
-										<h2>Privilegios</h2>
-										<div class="clearfix"></div>
-										</div>
-										<div class="form-group">
-									                         <label class="col-md-3 col-sm-3 col-xs-12 control-label">Privilegios de usuario
-									                           <br>
-									                           <small class="text-navy">Selecciona vistas</small>
-									                         </label>
-
-									                         <div class="col-md-9 col-sm-9 col-xs-12">
-									                           <div class="checkbox">
-									                             <label>
-									                               <input type="checkbox" class="flat" checked="checked">Crear ticket
-									                             </label>
-									                           </div>
-									                           <div class="checkbox">
-									                             <label>
-									                               <input type="checkbox" class="flat" checked="checked">Mi perfil
-									                             </label>
-									                           </div>
-									                           <div class="checkbox">
-									                             <label>
-									                               <input type="checkbox" class="flat" checked="checked">Mi ticket
-									                             </label>
-									                           </div>
-									                           <div class="checkbox">
-									                             <label>
-									                               <input type="checkbox" class="flat" checked="checked">Cambiar contraseña
-									                             </label>
-									                           </div>
-									                         </div>
-									                       </div>
-
-										<br>
-
-										<div class="x_title">
-											<h2>Cambiar estado de cuenta</h2>
-											<div class="clearfix"></div>
-										</div>
-
-										<div class="form-group">
-									<label class="control-label col-md-3 col-sm-3 col-xs-12">Seleccionar</label>
-									<div class="col-md-6 col-sm-6 col-xs-12">
-										<select class="form-control">
-											<option>Activo</option>
-											<option>Inactivo</option>
-											<option>Eliminado</option>
-										</select>
-									</div>
-								</div>
-
-
 										<div class="ln_solid"></div>
 										<div class="form-group">
 											<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 											<input class="btn btn-primary" type="button" value="Volver" id="_btnVolver">
-											<input class="btn btn-success" type="button" value="Guardar cambios" id="_btnVolver">
 											</div>
 										</div>
 
-									</form>';}
-									?>
+									</form>')
+			?>
 
 								</div>
 							</div>
 						</div>
-<<<<<<< HEAD
-
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-
-							</ul>
-						</nav>
-
-				</div>
-			</div>
-		<!-- Header -->
-
-		<!-- Banner -->
-			<div id="banner">
-				<div class="container">
-				</div>
-			</div>
-		<!-- /Banner -->
-
-	</div>
-
-	<!-- Main -->
-		<div id="main">
-			<div class="container">
-				<div class="row">
-					<section>
-						<header>
-							<h2>Detalle de usuario</h2>
-							<br>
-							<h3><a href="a-bentrada.php">Volver</a></h3>
-						</header>
-					</section>
-
-		  	<?php
-				require_once '..\DAL\DBAccess.php';
-				$idUsuario=$_GET['IdUsuario'];
-				$dba = new DBAccess();
-				$conn = $dba->Get_Connection();
-				$stmt = $conn->prepare("call spHelpDesk_GET_ConsultaUsu('$idUsuario');");
-				$stmt->execute();
-				while($row = $stmt->fetch(PDO::FETCH_OBJ)){
-				echo'
-				</div>
-				<div class="forma" style="width:90%;">
-				<form action="action_page.php" >
-
-				<label for="lname">Nombres y Apellidos</label>
-				<input class="form" type="text" id="lname" name="Nombre" value="'.$row->Nombre.' '.$row->Apellidos.'"  readonly="readonly">
-
-				<label for="lname">Correo</label>
-				<input class="form" type="text" id="lname" name="Correo" value="'.$row->Correo.'"  readonly="readonly">
-
-				<label for="lname">Celular</label>
-				<input class="form" type="text" id="lname" name="Nuemro de celular" value="'.$row->NroCelular.'"  readonly="readonly">
-
-				<label for="lname">Perfil</label>
-				<input class="form" type="text" id="lname" name="Perfil" value="'.$row->Perfil.'"  readonly="readonly">
-
-				<label for="lname">Area</label>
-				<input class="form" type="text" id="lname" name="Area" value="'.$row->Area.'"  readonly="readonly">
-
-				<label for="lname">Estado</label>
-				<input class="form" type="text" id="lname" name="Estado" value="'.$row->Estado.'"  readonly="readonly">
-				';}
-				?>
-
-				<h3>Cambiar estado de cuenta a:</h3>
-				<select class="form" id="Estado" name="NuevoEstado">
-
-					<option value="Activo">Activo</option>
-					<option value="Inactivo">Inactivo</option>
-					<option value="Eliminado">Eliminado</option>
-				</select>
-
-				<h3>Privilegios</h3>
-				<!-- Extra<label>
-
-<input type="checkbox" id="cbox2" value="second_checkbox"> <label for="cbox2">Este es mi segundo checkbox</label> -->
-
-					<table class="table-fill" >
-						<div class="alert alert-info">
-				</div>
-				<thead>
-						<tr>
-							<th class="text-left">Cliente</th>
-							<th class="text-left">Administrador</th>
-							<th class="text-left">Soporte TI</th>
-						</tr>
-							</thead>
-							<tbody class="table-hover">
-								<tr>
-									<th class="text-left"><input type="checkbox" id="cbox1" value="first_checkbox">Crear Tickets</label></th>
-									<th class="text-left"><input type="checkbox" id="cbox1" value="first_checkbox">Asignar Tickets</label></th>
-									<th class="text-left"><input type="checkbox" id="cbox1" value="first_checkbox">Validar tickets</label></th>
-							</tr>
-							<tr>
-								<th class="text-left"><input type="checkbox" id="cbox1" value="first_checkbox"> Mi perfil</label></th>
-								<th class="text-left"><input type="checkbox" id="cbox1" value="first_checkbox"> Aceptar Usuarios</label></th>
-								<th class="text-left"><input type="checkbox" id="cbox1" value="first_checkbox"> Tickets cerrados</label></th>
-
-						</tr>
-						<tr>
-							<th class="text-left"><input type="checkbox" id="cbox1" value="first_checkbox">Mi ticket</label></th>
-							<th class="text-left"><input type="checkbox" id="cbox1" value="first_checkbox"> dashboard</label></th>
-							<th class="text-left"><input type="checkbox" id="cbox1" value="first_checkbox"> Ver tickets</label></th>
-
-					</tr>
-							</tbody>
-						</table>
-						<input class="formb" type="submit" value="Guardar cambios">
-
-
-
-
-				</form>
-				</div>
-
-			</div>
-		</div>
-
-
-	<!-- /Main -->
-	<!-- Copyright -->
-		<div id="copyright">
-			<div class="container">
-				Todos los derechos reservados 2018 ©
-			</div>
-		</div>
-
-
-	</body>
-=======
 					</div>
 
               </div>
@@ -461,7 +278,6 @@
     <script src="build/js/custom.min.js"></script>
 
   </body>
->>>>>>> 0e4db8bddb535d893fa85c2807b922e36f9759b9
 </html>
 </style>
 <script>

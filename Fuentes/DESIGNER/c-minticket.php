@@ -12,7 +12,9 @@
 		<meta name="keywords" content="" />
 		<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src = "https://unpkg.com/sweetalert/dist/sweetalert.min.js"> </script>
+		<script src="js/helpdesk_main.js"></script>
+		<script src="js/sweetalert.min.js"></script>
+		<link href="css/sweetalert.css" rel="stylesheet" />
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-panels.min.js"></script>
 		<script src="js/init.js"></script>
@@ -156,11 +158,16 @@
 			HelpDeskajaxPostSetProcess({
 				url: "../Helper/HelpDesk_Ticket.php",
 				data: { "SET_Ticket": JSON.stringify(data)},
-				title: "Registro de Ticket"
+				title: "Registro de Ticket",
+				invokefunction:navigationPage
 			});
 		};
 
 	});
+
+	function navigationPage(){
+		location.href="c-mimenu.php";
+	}
 
 	function fn_ValidaDatos(){
 		var Valida = false;
