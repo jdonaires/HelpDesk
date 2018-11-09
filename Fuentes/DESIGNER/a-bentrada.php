@@ -47,10 +47,7 @@
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
-                <?php
-  							 	session_start();
-  								echo('<h2>'.$_SESSION["UsuarioLogin"][0]["Nombre"].'</h2>');
-  							?>
+
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -181,7 +178,7 @@
                                     <td>'.$row->Area.'</td>
                                     <td>'.$row->Estado.'</td>
 
-                                    <td><a href="#" IdTicketDetalle='.$row->IdTicketDetalle.'"><span class="fa fa-eye"> </a></td>
+                                    <td><a href="a_asigticket.php?IdTicketDetalle='.$row->IdTicketDetalle.'"><span class="fa fa-eye"> </a></td>
                                   </tr>
 
                                   </tbody>';

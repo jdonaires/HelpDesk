@@ -86,49 +86,63 @@
 						</div>
 						<!--CONTAINER -->
 						<div class="forma"  style="width:90%;">
-							<form action="action_page.php">
+							<form action="../BOL/DTicUp.php" method="POST">
 
 								<h3>Descripcion de problema</h3>
 								<label for="lname">N° Ticket</label>
-								<input class="form" type="text" id="lname" name="lastname" value="'.$row->IdTicket.'" readonly="readonly">
+								<input class="form" type="text" id="IdTicketDetalle" name="IdTicketDetalle" value="'.$row->IdTicketDetalle.'" readonly="readonly">
 
 								<label for="lname">Categoria</label>
-								<input class="form" type="text" id="lname" name="lastname" value="'.$row->Tipo.'"  readonly="readonly">
+								<input class="form" type="text" id="lname" name="Tipo" value="'.$row->Tipo.'"  readonly="readonly">
 
 								<label for="lname">Problema</label>
-								<input class="form" type="text" id="lname" name="lastname" value="'.$row->Descripcion.'"  readonly="readonly">
+								<input class="form" type="text" id="lname" name="Descripcion" value="'.$row->Descripcion.'"  readonly="readonly">
 
 								<label for="lname">Asunto</label>
-								<input class="form" type="text" id="lname" name="lastname" value="'.$row->Asunto.'"  readonly="readonly">
+								<input class="form" type="text" id="lname" name="Asunto" value="'.$row->Asunto.'"  readonly="readonly">
+
+								<input class="form" type="hidden" id="lname" name="Area" value="'.$row->Area.'"  readonly="readonly">
 
 								<label for="lname">Prioridad</label>
-								<input class="form" type="text" id="lname" name="lastname" value="'.$row->Prioridad.'"  readonly="readonly">
+								<input class="form" type="text" id="lname" name="Prioridad" value="'.$row->Prioridad.'"  readonly="readonly">
 
 
 								<label for="subject">Detalle del problema</label>
-								<textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." readonly="readonly" >'.$row->TDes.'</textarea>
+								<textarea class="form" id="subject" name="TDes" style="height:200px;" placeholder="Escribe tu mensaje aqui.." readonly="readonly" >'.$row->TDes.'</textarea>
 
 								<label for="lname">Fecha creado</label>
-								<input class="form" type="text" id="lname" name="lastname" value="'.$row->FechaCrea.'"  readonly="readonly">
+								<input class="form" type="text" id="lname" name="FechaCrea" value="'.$row->FechaCrea.'"  readonly="readonly">
 
 								<h3>Asignacion personal</h3>
 								<label for="lname">Fecha estimada de resolucion</label>
-								<input class="form" type="text" id="lname" name="lastname" value="'.$row->FechaEstimacion.'">
+								<input class="form" type="text" id="lname" name="FechaEstimacion" value="'.$row->FechaEstimacion.'">
 
-								<label for="lname">Asignar a:</label>
-								<select class="form" id="country" name="country">
-									<option value="a">Kevin Flores</option>
-									<option value="canada">Anders Romero</option>
-									<option value="usa">Luis Navarro</option>
-								</select>
+
 						';
+
 						}
 						?>
 
+						<?php
+						$stmt = $conn->prepare("select * from HelpDesk_Usuario where IdPerfil=2 and Estado='activo';");
+						$stmt->execute();
+						?>
+						<select class="form" id="Asignar" name="Asignar">
+						<?php
+							while($row = $stmt->fetch(PDO::FETCH_OBJ)){
+								?>
+									<option value="<?php echo $row->IdUsuario ?>"><?php echo $row->Nombre ?> </option>
 
-<input class="formb" type="submit" value="Guardar cambios">
-</form>
-</div>
+
+									<?php
+							}
+							  ?>
+						</select>
+						<input class="formb" type="submit" value="Guardar cambios">
+
+
+		</form>
+		</div>
 
 	<!--/CONTAINER -->
 			</div>
