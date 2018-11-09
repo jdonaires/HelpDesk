@@ -145,7 +145,7 @@
         <!-- page content -->
         <div class="right_col" role="main">
 
-<<<<<<< HEAD
+
             <table class="table-fill" >
               <div class="alert alert-info">
           </div>
@@ -187,56 +187,9 @@
               </table>
               </div>
                    </form>
-=======
-          <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                      <div class="x_panel">
-                        <div class="x_title">
-                          <h2>Control Nuevos Usuarios</h2>
-                          <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content">
 
-                          <form role="form"  action="../pag/ver.php" method="POST">
-                          <table class="table">
-                            <thead>
-                              <tr>
-                                <th class="text-left">Nombre completo</th>
-                                <th class="text-left">Area</th>
-                                <th class="text-left">Perfil</th>
-                                <th class="text-left">Celular</th>
-                                <th class="text-left">Email</th>
-                                <th class="text-left">Estado</th>
-                                <th class="text-left">Revisar</th>
-                              </tr>
-                            </thead>
-                            <?php
-                            require_once '..\DAL\DBAccess.php';
-                            $dba = new DBAccess();
-                            $conn = $dba->Get_Connection();
-                            $stmt = $conn->prepare("call spHelpDesk_GET_ContPendiente();");
-                            $stmt->execute();
-                            while($row = $stmt->fetch(PDO::FETCH_OBJ)){
-                            echo'
-                                  <tbody class="table-hover">
-                                    <tr>
-                                    <td>'.$row->Nombre.' '.$row->Apellidos.'</td>
-                                    <td>'.$row->Area.'</td>
-                                    <td>'.$row->Perfil.'</td>
-                                    <td>'.$row->NroCelular.'</td>
-                                    <td>'.$row->Correo.'</td>
-                                    <td>'.$row->Estado.'</td>
-                                    <td><a href="a-detalleus.php?IdUsuario='.$row->IdUsuario.'"><span class="fa fa-eye"> </a></td>
-                                  </tr>
-                                  </tbody>';
-                                  }
-                                  ?>
-                          </table>
-   </form>
-                        </div>
-                      </div>
-                    </div></div>
->>>>>>> 0e4db8bddb535d893fa85c2807b922e36f9759b9
+        
+
 
               </div>
             </div>
