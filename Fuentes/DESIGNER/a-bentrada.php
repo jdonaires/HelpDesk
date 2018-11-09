@@ -188,14 +188,14 @@
 
                 <tbody class="table-hover">
                   <tr>
-                  <td>'.$row->IdTicket.'</td>
+                  <td>'.$row->IdTicketDetalle.'</td>
                   <td>'.$row->FechaCrea.'</td>
                   <td>'.$row->Asunto.'</td>
                   <td>'.$row->Prioridad.'</td>
                   <td>'.$row->Area.'</td>
                   <td>'.$row->Estado.'</td>
 
-                  <td><a href="a-asigticket.php?IdTicketDetalle='.$row->IdTicket.'"><span class="fa fa-eye"> </a></td>
+                  <td><a href="a-asigticket.php?IdTicketDetalle='.$row->IdTicketDetalle.'"><span class="fa fa-eye"> </a></td>
                 </tr>
 
                 </tbody>';
