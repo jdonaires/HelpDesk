@@ -64,7 +64,7 @@
                 <h3>General</h3>
 
                   <ul class="nav side-menu">
-                    <li><a><i class="fa fa-home"></i>Bandeja<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-envelope"></i>Bandeja<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                         <li><a href="t-bentrada.php">Entrada</a></li>
                         <li><a href="t-bproceso.php">Proceso</a></li>

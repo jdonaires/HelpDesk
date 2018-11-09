@@ -180,7 +180,7 @@
                                     <td>'.$row->NroCelular.'</td>
                                     <td>'.$row->Correo.'</td>
                                     <td>'.$row->Estado.'</td>
-                                    <td><a href="a-detalleuser.php?IdUsuario='.$row->IdUsuario.'" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;"><span class="fa fa-eye"> </a></td>
+                                    <td><a href="a-detalleus.php?IdUsuario='.$row->IdUsuario.'" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;"><span class="fa fa-eye"> </a></td>
 
                                   </tr>
                                   </tbody>';
