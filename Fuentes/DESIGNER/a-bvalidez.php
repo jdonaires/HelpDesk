@@ -1,13 +1,14 @@
+<?php
+ ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>HelpDesk | Bandeja de entrada</title>
+            <title>HelpDesk | Bandeja de validez</title>
 	<link rel="stylesheet" href="css/tabla.css">
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -43,7 +44,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-              <img src="images/user.png" alt="..." class="img-circle profile_img">
+                <img src="images/user.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
@@ -101,6 +102,8 @@
                     </ul>
 
               </div>
+
+
             </div>
             <!-- /sidebar menu -->
           </div>
@@ -145,7 +148,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                       <div class="x_panel">
                         <div class="x_title">
-                          <h2>Bandeja de entrada</h2>
+                          <h2>Bandeja de validez</h2>
                           <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
@@ -155,44 +158,47 @@
                             <thead>
                               <tr>
                                 <th class="text-left">N# Ticket</th>
-                  							<th class="text-left">FechaCrea</th>
-                  							<th class="text-left">Asunto</th>
-                  							<th class="text-left">Prioridad</th>
-                  							<th class="text-left">Area</th>
-                  							<th class="text-left">Estado</th>
-                  							<th class="text-left">Revisar</th>
+                                <th class="text-left">FechaCreado</th>
+                                <th class="text-left">Asunto</th>
+                                <th class="text-left">Prioridad</th>
+                                <th class="text-left">Area</th>
+                                <th class="text-left">Asignado a</th>
+                                <th class="text-left">FechaEstimada</th>
+                                <th class="text-left">Estado</th>
+                                <th class="text-left">Revisar</th>
                               </tr>
                             </thead>
-                            <?php
+                            <!--php
                             require_once '..\DAL\DBAccess.php';
                             $dba = new DBAccess();
                             $conn = $dba->Get_Connection();
-                            $statement = $conn->prepare("call spHelpDesk_GET_Ticket");
-                            $statement->execute();
-                            while($row = $statement->fetch(PDO::FETCH_OBJ)){
+                            $stmt = $conn->prepare("SELECT * FROM helpdesk_usuario");
+                            $stmt->execute();
+                            while($row = $stmt->fetch(PDO::FETCH_OBJ)){
                             echo'
 
                                   <tbody class="table-hover">
                                     <tr>
-                                    <td>'.$row->IdTicketDetalle.'</td>
-                                    <td>'.$row->FechaCrea.'</td>
-                                    <td>'.$row->Asunto.'</td>
-                                    <td>'.$row->Prioridad.'</td>
-                                    <td>'.$row->Area.'</td>
-                                    <td>'.$row->Estado.'</td>
+                                    <td>'.$row->IdUsuario.'</td>
+                                    <td>'.$row->Nombre.'</td>
+                                    <td>'.$row->Nombre.'</td>
+                                    <td>'.$row->Nombre.'</td>
+                                    <td>'.$row->Nombre.'</td>
+                                    <td>'.$row->Nombre.'</td>
+                                    <td>'.$row->Nombre.'</td>
+                                    <td>'.$row->Nombre.'</td>
 
-                                    <td><a href="#" IdTicketDetalle='.$row->IdTicketDetalle.'"><span class="fa fa-eye"> </a></td>
+                                    <td><a href="a-detalleuser.html?IdUsuario='.$row->IdUsuario.'"><span class="fa fa-eye"> </a></td>
                                   </tr>
 
                                   </tbody>';
                                   }
-                                  ?>
+                                  ?-->
                           </table>
    </form>
                         </div>
                       </div>
                     </div></div>
-
 
               </div>
             </div>
