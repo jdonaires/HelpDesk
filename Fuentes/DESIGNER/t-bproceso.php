@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Dashboard | HelpDesk</title>
+    <title>HelpDesk | Bandeja de proceso</title>
 	<link rel="stylesheet" href="css/tabla.css">
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -35,7 +35,8 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.php" class="site_title"><i class="fa fa-info-circle"></i> <span>HelpDesk!</span></a>
+              <a href="t-bentrada.php" class="site_title"><i class="fa fa-paper-plane-o"></i> <span>HelpDesk</span></a>
+
             </div>
 
             <div class="clearfix"></div>
@@ -63,17 +64,19 @@
                 <h3>General</h3>
 
                   <ul class="nav side-menu">
-                    <li><a><i class="fa fa-home"></i>Bandeja<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-envelope"></i>Bandeja<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                         <li><a href="t-bentrada.php">Entrada</a></li>
                         <li><a href="t-bproceso.php">Proceso</a></li>
                         <li><a href="t-bsalida.php">Salida</a></li>
                       </ul>
                     </li>
-
+                    <ul class="nav side-menu">
+                      <li><a><i class="fa fa-comment"></i>Contacto<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                          <li>  <a href="https://dashboard.smartsupp.com/v2" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;">Mensajeria<span> </a>
+                        </li>
                         </ul>
-                        <a href="https://dashboard.smartsupp.com/v2" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;">Mensajeria<span> </a>
-                      </li>
                 </ul>
               </div>
 
@@ -81,22 +84,7 @@
             </div>
             <!-- /sidebar menu -->
 
-            <!-- /menu footer buttons -->
-            <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.php">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-              </a>
-            </div>
-            <!-- /menu footer buttons -->
+
           </div>
         </div>
 
@@ -118,16 +106,9 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Perfil</a></li>
-                    <li>
-                      <a href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>Configuracion</span>
-                      </a>
-                    </li>
-                    <li><a href="javascript:;">Ayuda
-                    </a></li>
-                    <li><a href="salir.php"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesion</a></li>
+                    <li><a href="t-miperfil.php">Mi perfil</a></li>
+                    <li><a href="#">Cambiar de contraseña</a></li>
+                  <li><a href="salir.php"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesion</a></li>
                   </ul>
                 </li>
 
@@ -146,7 +127,7 @@
             <table class="table-fill" >
               <div class="alert alert-info">
           </div>
-            <h2>Bandeja Entrada</h2>
+            <h2>Bandeja de Proceso</h2>
           </br>
           </br>
           <thead>
@@ -198,9 +179,6 @@
         </div>
 
         <footer>
-          <div class="pull-right">
-            HelpDesk - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-          </div>
           <div class="clearfix"></div>
         </footer>
 
