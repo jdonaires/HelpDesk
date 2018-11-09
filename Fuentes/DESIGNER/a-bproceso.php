@@ -165,28 +165,29 @@
                                 <th class="text-left">Asignado a</th>
                                 <th class="text-left">FechaEstimada</th>
                                 <th class="text-left">Estado</th>
-                                <th class="text-left">Revisar</th>
+                                <!--th class="text-left">Revisar</th-->
                               </tr>
                             </thead>
-                            <!--php
+                            <?php
                             require_once '..\DAL\DBAccess.php';
                             $dba = new DBAccess();
                             $conn = $dba->Get_Connection();
-                            $stmt = $conn->prepare("SELECT * FROM helpdesk_usuario");
+                            $stmt = $conn->prepare("call spHelpDesk_GET_Ticket");
                             $stmt->execute();
                             while($row = $stmt->fetch(PDO::FETCH_OBJ)){
                             echo'
 
                                   <tbody class="table-hover">
                                     <tr>
-                                    <td>'.$row->IdUsuario.'</td>
+                                    <td>'.$row->IdTicket.'</td>
+                                    <td>'.$row->FechaCrea.'</td>
+                                    <td>'.$row->Asunto.'</td>
+                                    <td>'.$row->Prioridad.'</td>
+                                    <td>'.$row->Area.'</td>
                                     <td>'.$row->Nombre.'</td>
-                                    <td>'.$row->Nombre.'</td>
-                                    <td>'.$row->Nombre.'</td>
-                                    <td>'.$row->Nombre.'</td>
-                                    <td>'.$row->Nombre.'</td>
-                                    <td>'.$row->Nombre.'</td>
-                                    <td>'.$row->Nombre.'</td>
+                                    <td>'.$row->FechaEstimacion.'</td>
+                                    <td>'.$row->Estado.'</td>
+
 
                                     <td><a href="a-detalleuser.html?IdUsuario='.$row->IdUsuario.'"><span class="fa fa-eye"> </a></td>
                                   </tr>
