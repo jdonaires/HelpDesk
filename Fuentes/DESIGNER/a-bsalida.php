@@ -186,7 +186,7 @@
 
                 <tbody class="table-hover">
                   <tr>
-                  <td>'.$row->$IdTicket.'</td>
+                  <td>'.$row->IdTicket.'</td>
                   <td>'.$row->FechaCrea.'</td>
                   <td>'.$row->Asunto.'</td>
                   <td>'.$row->Prioridad.'</td>
@@ -194,7 +194,7 @@
                   <td>'.$row->Estado.'</td>
 
 
-                  <td><a href="a-detalleuser.html?IdUsuario='.$row->IdUsuario.'"><span class="fa fa-eye"> </a></td>
+                  <td><a href="a-detalleuser.html?IdUsuario='.$row->IdTicket.'"><span class="fa fa-eye"> </a></td>
                 </tr>
 
                 </tbody>';
