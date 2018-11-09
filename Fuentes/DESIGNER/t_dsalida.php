@@ -69,7 +69,7 @@
 					<section>
 						<header>
 							<h2>Detalle de ticket</h2>
-							<br><h3><a href="a-bentrada.php">Volver</a></h3>
+							<br><h3><a href="t-bsalida.php">Volver</a></h3>
 						</header>
 						<br>
 						</section>
