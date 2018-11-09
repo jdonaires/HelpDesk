@@ -33,6 +33,7 @@
 
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
+
   </head>
 
   <body class="nav-md">
@@ -131,27 +132,81 @@
         </div>
         <!-- /top navigation -->
 
+
         <!-- page content -->
         <div class="right_col" role="main">
-          <!-- top tiles -->
-          <form role="form"  action="../pag/ver.php" method="POST">
-            <?php
-              echo('
-              <label for="lname">Nombres</label>
-              <input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Nombre"].'"  readonly="readonly">
-              <label for="lname">Apellidos</label>
-              <input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Apellidos"].'"  readonly="readonly">
-              <label for="lname">Correo</label>
-              <input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Correo"].'"  readonly="readonly">
-              <label for="lname">Celular</label>
-              <input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["NroCelular"].'"  readonly="readonly">
-              <label for="lname">Perfil</label>
-              <input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Perfil"].'"  readonly="readonly">
-              <label for="lname">Area</label>
-              <input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Area"].'"  readonly="readonly">
-              <input class="formb" type="button" value="Volver" id="_btnVolver">')
-            ?>
-          </form>
+					<div class="row">
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="x_panel">
+								<div class="x_title">
+
+
+
+									<h2>Mi perfil</h2>
+									<div class="clearfix"></div>
+								</div>
+								<div class="x_content">
+									<br />
+										<form role="form"  action="../pag/ver.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+											<?php
+												echo('
+										<div class="form-group">
+											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombres
+											</label>
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<input type="text" readonly="readonly" id="first-name" value="'.$_SESSION["UsuarioLogin"][0]["Nombre"].'" class="form-control col-md-7 col-xs-12">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Apellidos
+											</label>
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<input type="text" readonly="readonly" id="last-name" name="last-name" value="'.$_SESSION["UsuarioLogin"][0]["Apellidos"].'" class="form-control col-md-7 col-xs-12">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Correo</label>
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<input id="middle-name" readonly="readonly" class="form-control col-md-7 col-xs-12" value="'.$_SESSION["UsuarioLogin"][0]["Correo"].'" type="text" name="middle-name">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-md-3 col-sm-3 col-xs-12">N° Celular
+											</label>
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<input id="birthday" readonly="readonly" value="'.$_SESSION["UsuarioLogin"][0]["NroCelular"].'"   class="date-picker form-control col-md-7 col-xs-12" type="text">
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label col-md-3 col-sm-3 col-xs-12">Perfil
+											</label>
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<input id="birthday" readonly="readonly" value="'.$_SESSION["UsuarioLogin"][0]["Perfil"].'" class="date-picker form-control col-md-7 col-xs-12" type="text">
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label col-md-3 col-sm-3 col-xs-12">Área
+											</label>
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<input id="birthday" readonly="readonly" value="'.$_SESSION["UsuarioLogin"][0]["Area"].'" class="date-picker form-control col-md-7 col-xs-12" type="text">
+											</div>
+										</div>
+										<div class="ln_solid"></div>
+										<div class="form-group">
+											<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+											<input class="btn btn-primary" type="button" value="Volver" id="_btnVolver">
+											</div>
+										</div>
+
+									</form>')
+			?>
+
+								</div>
+							</div>
+						</div>
+					</div>
 
               </div>
             </div>
@@ -211,6 +266,6 @@
 </style>
 <script>
 $("#_btnVolver").click(function(){
-  location.href="c-mimenu.php" ;
+  location.href="t-bentrada.php" ;
 });
 </script>

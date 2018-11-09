@@ -123,51 +123,57 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-          <!-- top tiles -->
-          <form role="form"  action="../pag/ver.php" method="POST">
-            <table class="table-fill" >
-              <div class="alert alert-info">
-          </div>
-            <h2>Bandeja Entrada</h2>
-          </br>
-          </br>
-          <thead>
-              <tr>
-                <th class="text-left">N# Ticket</th>
-                <th class="text-left">Fecha Creación</th>
-                <th class="text-left">Asunto</th>
-                <th class="text-left">Prioridad</th>
-                <th class="text-left">Area</th>
-                <th class="text-left">Estado</th>
-                <th class="text-left">Revisar</th>
-              </tr>
-                </thead>
-          <?php
-          require_once '..\DAL\DBAccess.php';
-          $dba = new DBAccess();
-          $conn = $dba->Get_Connection();
-          $statement = $conn->prepare("call spHelpDesk_GET_Ticket");
-          $statement->execute();
-          while($row = $statement->fetch(PDO::FETCH_OBJ)){
-          echo'
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                      <div class="x_panel">
+                        <div class="x_title">
+                          <h2>Bandeja de entrada</h2>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
 
-                <tbody class="table-hover">
-                  <tr>
-                  <td>'.$row->IdTicketDetalle.'</td>
-                  <td>'.$row->FechaCrea.'</td>
-                  <td>'.$row->Asunto.'</td>
-                  <td>'.$row->Prioridad.'</td>
-                  <td>'.$row->Area.'</td>
-                  <td>'.$row->Estado.'</td>
+                          <form role="form"  action="../pag/ver.php" method="POST">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th class="text-left">N# Ticket</th>
+                                <th class="text-left">Fecha Creación</th>
+                                <th class="text-left">Asunto</th>
+                                <th class="text-left">Prioridad</th>
+                                <th class="text-left">Area</th>
+                                <th class="text-left">Estado</th>
+                                <th class="text-left">Revisar</th>
+                              </tr>
+                            </thead>
+                            <?php
+                            require_once '..\DAL\DBAccess.php';
+                            $dba = new DBAccess();
+                            $conn = $dba->Get_Connection();
+                            $statement = $conn->prepare("call spHelpDesk_GET_Ticket");
+                            $statement->execute();
+                            while($row = $statement->fetch(PDO::FETCH_OBJ)){
+                            echo'
 
-                  <td><a href="a-asigticket.php?IdTicketDetalle='.$row->IdTicketDetalle.'"><span class="fa fa-eye"> </a></td>
-                </tr>
+                                  <tbody>
+                                    <tr>
+                                    <td>'.$row->IdTicketDetalle.'</td>
+                                    <td>'.$row->FechaCrea.'</td>
+                                    <td>'.$row->Asunto.'</td>
+                                    <td>'.$row->Prioridad.'</td>
+                                    <td>'.$row->Area.'</td>
+                                    <td>'.$row->Estado.'</td>
 
-                </tbody>';
-                }
-                ?>
-              </table>
-                   </form>
+                                    <td><a href="#" IdTicketDetalle='.$row->IdTicketDetalle.'"><span class="fa fa-eye"> </a></td>
+                                  </tr>
+
+                                  </tbody>';
+                                  }
+                                  ?>
+                          </table>
+   </form>
+                        </div>
+                      </div>
+                    </div></div>
 
               </div>
             </div>
