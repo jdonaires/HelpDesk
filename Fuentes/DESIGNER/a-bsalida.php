@@ -186,7 +186,7 @@
 
                 <tbody class="table-hover">
                   <tr>
-                  <td>'.$row->$idTicket.'</td>
+                  <td>'.$row->$IdTicket.'</td>
                   <td>'.$row->FechaCrea.'</td>
                   <td>'.$row->Asunto.'</td>
                   <td>'.$row->Prioridad.'</td>
