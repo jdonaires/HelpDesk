@@ -18,10 +18,10 @@ class HelpDesk_CategoriaDAO
 		{
 			$statement = $this->pdo->prepare("CALL spHelpDesk_SET_Categoria(?,?,?,?,?)");
 			$statement->bindParam(1, $HelpDesk_Categoria->__GET('Opcion'));
-      		$statement->bindParam(2, $HelpDesk_Categoria->__GET('IdCategoria'));
+    	$statement->bindParam(2, $HelpDesk_Categoria->__GET('IdCategoria'));
 			$statement->bindParam(3, $HelpDesk_Categoria->__GET('Tipo'));
 			$statement->bindParam(4, $HelpDesk_Categoria->__GET('Descripcion'));
-      		$statement->bindParam(5, $HelpDesk_Categoria->__GET('FechaCrea'));
+      $statement->bindParam(5, $HelpDesk_Categoria->__GET('FechaCrea'));
 			$statement -> execute();
 		}
 		catch (Exception $ex)
