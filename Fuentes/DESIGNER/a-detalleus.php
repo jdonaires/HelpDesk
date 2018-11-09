@@ -63,6 +63,7 @@
 						<header>
 							<h2>Detalle de usuario</h2>
 							<br>
+							<h3><a href="a-bentrada.php">Volver</a></h3>
 						</header>
 					</section>
 
