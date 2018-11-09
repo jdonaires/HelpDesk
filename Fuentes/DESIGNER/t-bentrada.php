@@ -29,13 +29,13 @@
     <link href="build/css/custom.min.css" rel="stylesheet">
   </head>
 
-  <body class="nav-md">
+  <body class="nav-md" method="POST">
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-info-circle"></i> <span>HelpDesk!</span></a>
+              <a href="index.php" class="site_title"><i class="fa fa-info-circle"></i> <span>HelpDesk!</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -99,7 +99,7 @@
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.php">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -134,7 +134,7 @@
                     </li>
                     <li><a href="javascript:;">Ayuda
                     </a></li>
-                    <li><a href="salir.php"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesion</a></li>
+                    <li><a href="salir.php"><i class="fa fa-sign-out pull-right"></i>Cerrar Sesión</a></li>
                   </ul>
                 </li>
 
@@ -159,7 +159,7 @@
           <thead>
               <tr>
                 <th class="text-left">N# Ticket</th>
-                <th class="text-left">FechaCrea</th>
+                <th class="text-left">Fecha Creación</th>
                 <th class="text-left">Asunto</th>
                 <th class="text-left">Prioridad</th>
                 <th class="text-left">Area</th>

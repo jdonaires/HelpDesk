@@ -160,14 +160,14 @@
   							<th class="text-left">Revisar</th>
               </tr>
                 </thead>
-          <?php
-          require_once '..\DAL\DBAccess.php';
-          $dba = new DBAccess();
-          $conn = $dba->Get_Connection();
-          $statement = $conn->prepare("call spHelpDesk_GET_Ticket");
-          $statement->execute();
-          while($row = $statement->fetch(PDO::FETCH_OBJ)){
-          echo'
+            <?php
+            require_once '..\DAL\DBAccess.php';
+            $dba = new DBAccess();
+            $conn = $dba->Get_Connection();
+            $statement = $conn->prepare("call spHelpDesk_GET_Ticket");
+            $statement->execute();
+            while($row = $statement->fetch(PDO::FETCH_OBJ)){
+            echo'
 
                 <tbody class="table-hover">
                   <tr>
@@ -177,7 +177,6 @@
                   <td>'.$row->Prioridad.'</td>
                   <td>'.$row->Area.'</td>
                   <td>'.$row->Estado.'</td>
-
 
                   <td><a href="t_dsalida.php?IdTicket='.$row->IdTicket.'"><span class="fa fa-eye"> </a></td>
                 </tr>
