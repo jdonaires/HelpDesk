@@ -201,7 +201,7 @@
                   <td><a href="a-detalleuser.html?IdUsuario='.$row->IdUsuario.'"><span class="fa fa-eye"> </a></td>
                 </tr>
 
-                </tbody>'
+                </tbody>';
                 }
                 ?>
               </table>
