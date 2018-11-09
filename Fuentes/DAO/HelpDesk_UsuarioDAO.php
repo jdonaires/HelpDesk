@@ -15,7 +15,7 @@ class HelpDesk_UsuarioDAO
 	{
 		try
 		{
-			$statement = $this->pdo->prepare("CALL spHelpDesk_SET_Usuario(?,?,?,?,?,?,?,?,?,?,?,?)");
+			$statement = $this->pdo->prepare("CALL spHelpDesk_SET_Usuario(?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			$statement->bindValue(1, $HelpDesk_Usuario->__GET('Opcion'));
 			$statement->bindValue(2, $HelpDesk_Usuario->__GET('IdUsuario'));
 			$statement->bindValue(3, $HelpDesk_Usuario->__GET('IdPerfil'));
@@ -28,9 +28,10 @@ class HelpDesk_UsuarioDAO
 			$statement->bindValue(10,$HelpDesk_Usuario->__GET('Confirmacion'));
 			$statement->bindValue(11, "");
 			$statement->bindValue(12,0);
+			$statement->bindValue(13,"");
 			$result = $statement -> execute();
-			if($result != null || !empty($result)){
-			echo($statement->fetchAll(PDO::FETCH_ASSOC)[0]['V_MensajeError']);
+			if($statement->fetchAll(PDO::FETCH_ASSOC)[0]['V_MensajeError'] != null || !empty($statement->fetchAll(PDO::FETCH_ASSOC)[0]['V_MensajeError'])){
+				echo($statement->fetchAll(PDO::FETCH_ASSOC)[0]['V_MensajeError']);
 			}
 			else {
 				echo("Success");
