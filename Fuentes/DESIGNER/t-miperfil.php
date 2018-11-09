@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	if($_SESSION["UsuarioLogin"] == null){
+		header('Location: login.php');
+	}
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -70,13 +76,15 @@
                         <li><a href="t-bsalida.php">Salida</a></li>
                       </ul>
 
+
+
                         </li>
                         <ul class="nav side-menu">
                           <li><a><i class="fa fa-comment"></i>Contacto<span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
                               <li>  <a href="https://dashboard.smartsupp.com/v2" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;">Mensajeria<span> </a>
                             </li>
-                              <li><a href="t-miperfil.php">Mi perfil</a></li>
+                              <li><a href="c-miperfil.php">Mi perfil</a></li>
                               <li><a href="#">Cambiar de contraseña</a></li>
                             </ul>
                           </li>
@@ -150,49 +158,23 @@
         <div class="right_col" role="main">
           <!-- top tiles -->
           <form role="form"  action="../pag/ver.php" method="POST">
-            <table class="table-fill" >
-              <div class="alert alert-info">
-          </div>
-            <h2>Bandeja Entrada</h2>
-          </br>
-          </br>
-          <thead>
-              <tr>
-                <th class="text-left">N# Ticket</th>
-                <th class="text-left">FechaCrea</th>
-                <th class="text-left">Asunto</th>
-                <th class="text-left">Prioridad</th>
-                <th class="text-left">Area</th>
-                <th class="text-left">Estado</th>
-                <th class="text-left">Revisar</th>
-              </tr>
-                </thead>
-          <?php
-          require_once '..\DAL\DBAccess.php';
-          $dba = new DBAccess();
-          $conn = $dba->Get_Connection();
-          $statement = $conn->prepare("call spHelpDesk_GET_Ticket");
-          $statement->execute();
-          while($row = $statement->fetch(PDO::FETCH_OBJ)){
-          echo'
-
-                <tbody class="table-hover">
-                  <tr>
-                  <td>'.$row->IdTicketDetalle.'</td>
-                  <td>'.$row->FechaCrea.'</td>
-                  <td>'.$row->Asunto.'</td>
-                  <td>'.$row->Prioridad.'</td>
-                  <td>'.$row->Area.'</td>
-                  <td>'.$row->Estado.'</td>
-
-                  <td><a href="a-asigticket.php?IdTicketDetalle='.$row->IdTicketDetalle.'"><span class="fa fa-eye"> </a></td>
-                </tr>
-
-                </tbody>';
-                }
-                ?>
-              </table>
-                   </form>
+            <?php
+              echo('
+              <label for="lname">Nombres</label>
+              <input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Nombre"].'"  readonly="readonly">
+              <label for="lname">Apellidos</label>
+              <input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Apellidos"].'"  readonly="readonly">
+              <label for="lname">Correo</label>
+              <input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Correo"].'"  readonly="readonly">
+              <label for="lname">Celular</label>
+              <input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["NroCelular"].'"  readonly="readonly">
+              <label for="lname">Perfil</label>
+              <input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Perfil"].'"  readonly="readonly">
+              <label for="lname">Area</label>
+              <input class="form" type="text" id="lname" name="lastname" value="'.$_SESSION["UsuarioLogin"][0]["Area"].'"  readonly="readonly">
+              <input class="formb" type="button" value="Volver" id="_btnVolver">')
+            ?>
+          </form>
 
               </div>
             </div>
@@ -252,3 +234,12 @@
 
   </body>
 </html>
+#skel-panels-defaultWrapper{
+  height: auto;
+}
+</style>
+<script>
+$("#_btnVolver").click(function(){
+  location.href="c-mimenu.php" ;
+});
+</script>

@@ -1,3 +1,4 @@
+delimiter$$
 CREATE DEFINER=`usert_test`@`%` PROCEDURE `spHelpDesk_SET_Ticket`(
     P_Opcion        CHAR(1)
 ,   P_IdTicket      INT
@@ -18,7 +19,7 @@ BEGIN
 '*			   Cristian Hernandez Villo
 '* FECHA CREA: 23/09/2018
 **************************************************************/
-	
+
     -- ! DECLARACION DE VARIABLES
     DECLARE V_MensajeError       VARCHAR(50) DEFAULT '';
     DECLARE V_IdTicketDetalle    INT;
@@ -26,15 +27,15 @@ BEGIN
     DECLARE V_Estado             VARCHAR(50);
 
     -- ! IDENTIFICA ESTADO SEGUN EL TIPO DE ACCION
-    SET V_Estado =  CASE 
+    SET V_Estado =  CASE
                         WHEN P_Opcion = 'A' THEN 'ASIGNADO'
                         WHEN P_Opcion = 'P' THEN 'PROCESANDO'
                         WHEN P_Opcion = 'V' THEN 'POR VALIDAR'
                         WHEN P_Opcion = 'C' THEN 'CERRADO'
-                        ELSE '' 
-                    END; 
-    
-    IF(P_Opcion = 'I') THEN 
+                        ELSE ''
+                    END;
+
+    IF(P_Opcion = 'I') THEN
         BEGIN
 
             -- ! GENERA CORRELATIVO DE TICKET
@@ -72,7 +73,7 @@ BEGIN
                 IdTicketDetalle, IdTicket, IdResponsable, Estado, FechaCrea
             )
             VALUES(
-                (V_IdTicketDetalle + CASE WHEN P_Opcion  = 'A' THEN  1 ELSE  0 END), P_IdTicket, 
+                (V_IdTicketDetalle + CASE WHEN P_Opcion  = 'A' THEN  1 ELSE  0 END), P_IdTicket,
                 CASE WHEN P_Opcion = 'A' THEN  P_IdSoporte ELSE  P_IdResponsable END , V_Estado , NOW()
             );
 
@@ -94,7 +95,7 @@ BEGIN
             -- ! CUANDO SE CIERRA UN TICKET ACTUALIZA EL NIVEL DE ATENCION
             IF(P_Opcion = 'C') THEN
                 BEGIN
-                    UPDATE HelpDesk_TicketRespuesta SET 
+                    UPDATE HelpDesk_TicketRespuesta SET
                          NivelAtencion = P_NivelAtencion
                     WHERE IdTicket     = P_IdTicket;
                 END;
@@ -105,7 +106,7 @@ BEGIN
     -- SI EN CASO SE GENERA UN ERROR CANCELA TODO EL PROCESO
     IF  V_MensajeError <> '' THEN
 			ROLLBACK;
-		END IF;	
+		END IF;
 	SELECT  V_MensajeError;
 
 END
