@@ -70,17 +70,19 @@
                         <li><a href="t-bproceso.php">Proceso</a></li>
                         <li><a href="t-bsalida.php">Salida</a></li>
                       </ul>
-
                         </li>
-                        <ul class="nav side-menu">
-                          <li><a><i class="fa fa-comment"></i>Contacto<span class="fa fa-chevron-down"></span></a>
-                            <ul class="nav child_menu">
-                              <li>  <a href="https://dashboard.smartsupp.com/v2" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;">Mensajeria<span> </a>
-                            </li>
-                            </ul>
-                          </li>
-                            </ul>
                 </ul>
+
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-comment"></i>Contacto<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li>  <a href="https://dashboard.smartsupp.com/v2" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;">Mensajeria<span> </a>
+                    </li>
+                    </ul>
+                  </li>
+                    </ul>
+
+                    
               </div>
 
 
