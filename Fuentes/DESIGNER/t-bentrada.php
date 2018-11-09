@@ -29,13 +29,17 @@
     <link href="build/css/custom.min.css" rel="stylesheet">
   </head>
 
-  <body class="nav-md">
+  <body class="nav-md" method="POST">
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
+<<<<<<< HEAD
               <a href="t-bentrada.php" class="site_title"><i class="fa fa-paper-plane-o"></i> <span>HelpDesk</span></a>
+=======
+              <a href="index.php" class="site_title"><i class="fa fa-info-circle"></i> <span>HelpDesk!</span></a>
+>>>>>>> df5bdfeadf479e9813ae76054be44797a056ba91
             </div>
 
             <div class="clearfix"></div>
@@ -86,6 +90,25 @@
             </div>
             <!-- /sidebar menu -->
 
+<<<<<<< HEAD
+=======
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.php">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+>>>>>>> df5bdfeadf479e9813ae76054be44797a056ba91
           </div>
         </div>
 
@@ -107,9 +130,22 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
+<<<<<<< HEAD
                       <li><a href="t-miperfil.php">Mi perfil</a></li>
                       <li><a href="#">Cambiar de contraseña</a></li>
                     <li><a href="salir.php"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesion</a></li>
+=======
+                    <li><a href="javascript:;"> Perfil</a></li>
+                    <li>
+                      <a href="javascript:;">
+                        <span class="badge bg-red pull-right">50%</span>
+                        <span>Configuracion</span>
+                      </a>
+                    </li>
+                    <li><a href="javascript:;">Ayuda
+                    </a></li>
+                    <li><a href="salir.php"><i class="fa fa-sign-out pull-right"></i>Cerrar Sesión</a></li>
+>>>>>>> df5bdfeadf479e9813ae76054be44797a056ba91
                   </ul>
                 </li>
 
@@ -134,7 +170,7 @@
           <thead>
               <tr>
                 <th class="text-left">N# Ticket</th>
-                <th class="text-left">FechaCrea</th>
+                <th class="text-left">Fecha Creación</th>
                 <th class="text-left">Asunto</th>
                 <th class="text-left">Prioridad</th>
                 <th class="text-left">Area</th>
