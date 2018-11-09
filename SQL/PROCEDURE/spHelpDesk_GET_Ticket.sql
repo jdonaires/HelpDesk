@@ -33,6 +33,7 @@ BEGIN
 SELECT
 	TID.IdTicketDetalle,
 	TIC.IdTicket,
+    TID.Estado,
 	US.Nombre,
 	ARE.Descripcion as Area,
 	TIC.FechaCrea,
