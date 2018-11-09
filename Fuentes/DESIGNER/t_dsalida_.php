@@ -69,16 +69,16 @@
 					<section>
 						<header>
 							<h2>Detalle de ticket</h2>
-							<br><h3><a href="a-bentrada.php">Volver</a></h3>
+							<br><h3><a href="t-bsalida.php">Volver</a></h3>
 						</header>
 						<br>
 						</section>
 						<?php
 						require_once '..\DAL\DBAccess.php';
-						$idTicketDet=$_GET['IdTicketDetalle'];
+						$idTicketS=$_GET['IdTicket'];
 						$dba = new DBAccess();
 						$conn = $dba->Get_Connection();
-						$stmt = $conn->prepare("call spHelpDesk_GET_DetTicket($idTicketDet);");
+						$stmt = $conn->prepare("call spHelpDesk_GET_DetTicket($idTicketS);");
 						$stmt->execute();
 						while($row = $stmt->fetch(PDO::FETCH_OBJ)){
 						echo
@@ -106,9 +106,7 @@
 
 
 								<label for="subject">Detalle del problema</label>
-								<textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." readonly="readonly">
-									Buenos dias, para solicitar ayuda ya que mi impresora dejo de funcionar hace un dia y no puedo imprimir los documentos del trabajo para los reportes diarios que se entregan al jefe.
-								Porfavor ayuda lo más antes posible. </textarea>
+								<textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." readonly="readonly" >'.$row->TDes.'</textarea>
 
 								<label for="lname">Fecha creado</label>
 								<input class="form" type="text" id="lname" name="lastname" value="'.$row->FechaCrea.'"  readonly="readonly">
@@ -117,18 +115,13 @@
 								<label for="lname">Fecha estimada de resolucion</label>
 								<input class="form" type="text" id="lname" name="lastname" value="'.$row->FechaEstimacion.'">
 
-								<label for="lname">Asignar a:</label>
-								<select class="form" id="country" name="country">
-									<option value="a">Kevin Flores</option>
-									<option value="canada">Anders Romero</option>
-									<option value="usa">Luis Navarro</option>
-								</select>
+
 						';
 						}
 						?>
 
 
-<input class="formb" type="submit" value="Guardar cambios">
+<input class="formb" type="submit" value="Volver">
 </form>
 </div>
 

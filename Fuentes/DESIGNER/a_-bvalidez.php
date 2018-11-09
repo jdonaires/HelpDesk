@@ -1,9 +1,11 @@
+<?php
+ ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -35,7 +37,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-info-circle"></i> <span>HelpDesk!</span></a>
+              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>HelpDesk!</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -61,19 +63,32 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
-
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-user"></i> Administrar Datos <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="a-contnuevoc.php">Control Nuevos</a></li>
+                      <li><a href="a-contadmin.php">Control Admistradores</a></li>
+                      <li><a href="a-contcliente.php">Control Clientes</a></li>
+                      <li><a href="a-contti.php">Control Soporte TI</a></li>
+                    </ul>
+                  </li>
                   <ul class="nav side-menu">
-                    <li><a><i class="fa fa-home"></i>Bandeja<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-inbox"></i>Bandeja<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <li><a href="t-bentrada.php">Entrada</a></li>
-                        <li><a href="t-bproceso.php">Proceso</a></li>
-                        <li><a href="t-bsalida.php">Salida</a></li>
+                        <li><a href="a-bentrada.php">Entrada</a></li>
+                        <li><a href="a-bproceso.php">Proceso</a></li>
+                        <li><a href="a-bvalidez.php">Validez</a></li>
+                        <li><a href="a-bsalida.php">Salida</a></li>
                       </ul>
                     </li>
-
+                    <ul class="nav side-menu">
+                      <li><a><i class="fa fa-home"></i>Dashboard<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                          <li><a href="a-bentrada.php">Entrada</a></li>
                         </ul>
                         <a href="https://dashboard.smartsupp.com/v2" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;">Mensajeria<span> </a>
                       </li>
+
                 </ul>
               </div>
 
@@ -146,40 +161,44 @@
             <table class="table-fill" >
               <div class="alert alert-info">
           </div>
-            <h2>Bandeja Entrada</h2>
+            <h2>Bandeja Validez</h2>
           </br>
           </br>
           <thead>
               <tr>
+
                 <th class="text-left">N# Ticket</th>
-  							<th class="text-left">FechaCrea</th>
-  							<th class="text-left">Asunto</th>
-  							<th class="text-left">Prioridad</th>
-  							<th class="text-left">Area</th>
-  							<th class="text-left">Estado</th>
-  							<th class="text-left">Revisar</th>
+                <th class="text-left">FechaCreado</th>
+                <th class="text-left">Asunto</th>
+                <th class="text-left">Prioridad</th>
+                <th class="text-left">Area</th>
+                <th class="text-left">Asignado a</th>
+                <th class="text-left">FechaEstimada</th>
+                <th class="text-left">Estado</th>
+                <th class="text-left">Revisar</th>
               </tr>
                 </thead>
           <?php
           require_once '..\DAL\DBAccess.php';
           $dba = new DBAccess();
           $conn = $dba->Get_Connection();
-          $statement = $conn->prepare("call spHelpDesk_GET_Ticket");
-          $statement->execute();
-          while($row = $statement->fetch(PDO::FETCH_OBJ)){
+          $stmt = $conn->prepare("SELECT * FROM HelpDesk_Usuario");
+          $stmt->execute();
+          while($row = $stmt->fetch(PDO::FETCH_OBJ)){
           echo'
 
                 <tbody class="table-hover">
                   <tr>
-                  <td>'.$row->IdTicketDetalle.'</td>
-                  <td>'.$row->FechaCrea.'</td>
-                  <td>'.$row->Asunto.'</td>
-                  <td>'.$row->Prioridad.'</td>
-                  <td>'.$row->Area.'</td>
-                  <td>'.$row->Estado.'</td>
+                  <td>'.$row->IdUsuario.'</td>
+                  <td>'.$row->Nombre.'</td>
+                  <td>'.$row->Nombre.'</td>
+                  <td>'.$row->Nombre.'</td>
+                  <td>'.$row->Nombre.'</td>
+                  <td>'.$row->Nombre.'</td>
+                  <td>'.$row->Nombre.'</td>
+                  <td>'.$row->Nombre.'</td>
 
-
-                  <td><a href="a-asigticket.php?IdTicketDetalle='.$row->IdTicketDetalle.'"><span class="fa fa-eye"> </a></td>
+                  <td><a href="a-detalleuser.html?IdUsuario='.$row->IdUsuario.'"><span class="fa fa-eye"> </a></td>
                 </tr>
 
                 </tbody>';

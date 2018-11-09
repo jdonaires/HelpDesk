@@ -29,13 +29,13 @@
     <link href="build/css/custom.min.css" rel="stylesheet">
   </head>
 
-  <body class="nav-md">
+  <body class="nav-md" method="POST">
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-info-circle"></i> <span>HelpDesk!</span></a>
+              <a href="index.php" class="site_title"><i class="fa fa-info-circle"></i> <span>HelpDesk!</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -63,17 +63,24 @@
                 <h3>General</h3>
 
                   <ul class="nav side-menu">
-                    <li><a><i class="fa fa-home"></i>Bandeja<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-envelope"></i>Bandejas<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                         <li><a href="t-bentrada.php">Entrada</a></li>
                         <li><a href="t-bproceso.php">Proceso</a></li>
                         <li><a href="t-bsalida.php">Salida</a></li>
                       </ul>
-                    </li>
 
-                        </ul>
-                        <a href="https://dashboard.smartsupp.com/v2" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;">Mensajeria<span> </a>
-                      </li>
+                        </li>
+                        <ul class="nav side-menu">
+                          <li><a><i class="fa fa-comment"></i>Contacto<span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                              <li>  <a href="https://dashboard.smartsupp.com/v2" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;">Mensajeria<span> </a>
+                            </li>
+                              <li><a href="t-miperfil.php">Mi perfil</a></li>
+                              <li><a href="#">Cambiar de contraseña</a></li>
+                            </ul>
+                          </li>
+                            </ul>
                 </ul>
               </div>
 
@@ -92,7 +99,7 @@
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.php">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -127,7 +134,7 @@
                     </li>
                     <li><a href="javascript:;">Ayuda
                     </a></li>
-                    <li><a href="salir.php"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesion</a></li>
+                    <li><a href="salir.php"><i class="fa fa-sign-out pull-right"></i>Cerrar Sesión</a></li>
                   </ul>
                 </li>
 
@@ -152,14 +159,12 @@
           <thead>
               <tr>
                 <th class="text-left">N# Ticket</th>
-  							<th class="text-left">FechaCreado</th>
-  							<th class="text-left">Asunto</th>
-  							<th class="text-left">Prioridad</th>
-  							<th class="text-left">Area</th>
-  							<th class="text-left">Asignado a</th>
-  							<th class="text-left">FechaEstimada</th>
-  							<th class="text-left">Estado</th>
-  							<th class="text-left">Revisar</th>
+                <th class="text-left">Fecha Creación</th>
+                <th class="text-left">Asunto</th>
+                <th class="text-left">Prioridad</th>
+                <th class="text-left">Area</th>
+                <th class="text-left">Estado</th>
+                <th class="text-left">Revisar</th>
               </tr>
                 </thead>
           <?php
@@ -179,9 +184,6 @@
                   <td>'.$row->Prioridad.'</td>
                   <td>'.$row->Area.'</td>
                   <td>'.$row->Estado.'</td>
-                  <td>'.$row->Area.'</td>
-                  <td>'.$row->Area.'</td>
-
 
                   <td><a href="a-asigticket.php?IdTicketDetalle='.$row->IdTicketDetalle.'"><span class="fa fa-eye"> </a></td>
                 </tr>
