@@ -1,5 +1,13 @@
 function ShowMessage(Message, Title, typeMessage) {
-    swal(Title, Message, typeMessage);
+    swal({
+        title: Title,
+        text: Message,
+        type: typeMessage,
+        showCancelButton: false,
+        confirmButtonText: "OK",
+    },
+    function () {
+    });
 };
 
 
@@ -26,18 +34,16 @@ function HelpDeskajaxPostSetProcess(parameterData) {
             }
             else {
                 swal({
-                    title: parameterData.title,//(parameterData.isWarning) ? "Advertencia" : "error",
+                    title: parameterData.title,
                     text: data,
                     type: (parameterData.isWarning) ? "warning" : "error",
                     showCancelButton: false,
                     confirmButtonText: "OK",
-                }).then((result) => {
-                    if (result.value) {
-                        if (parameterData.invokefunction != null){
+                    },
+                    function () {
+                        if (parameterData.invokefunction != null)
                             parameterData.invokefunction.call();
-                        }
-                    }
-                })
+                    });
             }
         },
         error: function (request, status, error) {

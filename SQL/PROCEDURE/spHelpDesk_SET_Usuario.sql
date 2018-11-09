@@ -1,12 +1,4 @@
-
-
-drop procedure spHelpDesk_SET_Usuario;
-
-USE helpdesk_2018;
-
-DELIMITER $$
-
-CREATE PROCEDURE spHelpDesk_SET_Usuario(
+CREATE  PROCEDURE `spHelpDesk_SET_Usuario`(
    P_Opcion         CHAR(1) 
 ,  P_IdUsuario      INT
 ,  P_IdPerfil       INT
@@ -19,6 +11,7 @@ CREATE PROCEDURE spHelpDesk_SET_Usuario(
 ,  P_Confirmacion   CHAR(1)
 ,  P_XML            TEXT
 ,  P_ItemXML        INT
+,  P_Estado			VARCHAR(15)
 )
 BEGIN
 /**************************************************************
@@ -27,7 +20,7 @@ BEGIN
 '* FECHA CREA: 23/09/2018
 **************************************************************/
     -- ! DECLARACION DE VARIABLES
-    DECLARE V_MensajeError          VARCHAR(50) DEFAULT '0'; 
+    DECLARE V_MensajeError          VARCHAR(50) DEFAULT ''; 
     DECLARE I_Item                  INT ;
     DECLARE I_IdPrivilegioDetalle   INT;
 
@@ -36,19 +29,28 @@ BEGIN
     -- ! INSERTA NUEVO USUARIO
     IF(P_Opcion = 'I') THEN
         BEGIN
-
-            -- ! GENERA CORRELATIVO DE USUARIO
-            SELECT COALESCE(MAX(IdUsuario), 0) + 1 INTO P_IdUsuario FROM HelpDesk_Usuario;
+			
+            IF(SELECT COUNT(*) FROM HelpDesk_Usuario WHERE Correo = P_Correo) > 0 THEN
+				BEGIN
+					SET V_MensajeError = 'El correo ingresado ya se encuentra registrado en el sistema';
+                END;
+			ELSE
+				BEGIN
             
-            INSERT INTO HelpDesk_Usuario (
-				IdUsuario, IdPerfil, IdArea, Nombre, Apellidos, Correo, Contrasenia, Estado, NroCelular, Confirmacion, FechaCrea, FlgEliminado 
-            )
-            VALUES (
-				P_IdUsuario, P_IdPerfil, P_IdArea, P_Nombre, P_Apellidos, P_Correo, P_Contrasenia, 'Inactivo', P_NroCelular, '0', NOW(), '0'
-            );
-
+					-- ! GENERA CORRELATIVO DE USUARIO
+					SELECT COALESCE(MAX(IdUsuario), 0) + 1 INTO P_IdUsuario FROM HelpDesk_Usuario;
+					
+					INSERT INTO HelpDesk_Usuario (
+						IdUsuario, IdPerfil, IdArea, Nombre, Apellidos, Correo, Contrasenia, Estado, NroCelular, Confirmacion, FechaCrea, FlgEliminado 
+					)
+					VALUES (
+						P_IdUsuario, P_IdPerfil, P_IdArea, P_Nombre, P_Apellidos, P_Correo, P_Contrasenia, 'Inactivo', P_NroCelular, '0', NOW(), '0'
+					);
+				END ;
+			END IF;
         END;
     END IF;
+
 
 	-- ! ACTUALIZA DATOS DE USUARIO
     IF(P_Opcion = 'U') THEN
@@ -67,7 +69,7 @@ BEGIN
     IF(P_Opcion = 'C') THEN
 		BEGIN
 			UPDATE HelpDesk_Usuario SET
-				Confirmacion		= '1'
+				Estado		= 'Activo'
             WHERE IdUsuario = P_IdUsuario;	
 		END;
 	END IF;
@@ -99,8 +101,8 @@ BEGIN
     END IF;
     
      -- SI EN CASO SE GENERA UN ERROR CANCELA TODO EL PROCESO
-    IF  _MessageError <> '0' THEN
+    IF  V_MensajeError <> '' THEN
 		ROLLBACK;
 	END IF;	
-	SELECT  _MessageError;
+	SELECT  V_MensajeError ;
 END
