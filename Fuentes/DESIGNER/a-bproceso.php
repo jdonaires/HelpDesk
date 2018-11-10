@@ -66,6 +66,7 @@
                   <li><a><i class="fa fa-envelope"></i>Bandeja<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="a-bentrada.php">Entrada</a></li>
+                      <li><a href="a-basignados.php">Asignados</a></li>
                       <li><a href="a-bproceso.php">Proceso</a></li>
                       <li><a href="a-bvalidez.php">Validez</a></li>
                       <li><a href="a-bsalida.php">Salida</a></li>
@@ -165,15 +166,15 @@
                                 <th class="text-left">Asignado a</th>
                                 <th class="text-left">FechaEstimada</th>
                                 <th class="text-left">Estado</th>
-                                <th class="text-left">Revisar</th>
-                                <!--th class="text-left">Revisar</th-->
+
+
                               </tr>
                             </thead>
                             <?php
                             require_once '..\DAL\DBAccess.php';
                             $dba = new DBAccess();
                             $conn = $dba->Get_Connection();
-                            $stmt = $conn->prepare("call spHelpDesk_GET_Ticket");
+                            $stmt = $conn->prepare("call spHelpDesk_GET_TicketEstado('PROCESANDO');");
                             $stmt->execute();
                             while($row = $stmt->fetch(PDO::FETCH_OBJ)){
                             echo'
@@ -190,7 +191,7 @@
                                     <td>'.$row->Estado.'</td>
 
 
-                                    <td><a href="t-verticket.php?IdTicket='.$row->IdTicket.'"><span class="fa fa-eye"> </a></td>
+
                                   </tr>
 
                                   </tbody>';

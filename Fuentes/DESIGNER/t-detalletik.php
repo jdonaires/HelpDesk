@@ -63,26 +63,29 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 							<div class="menu_section">
-								<h3>General</h3>
-								<ul class="nav side-menu">
-									<li><a><i class="fa fa-envelope"></i>Bandeja<span class="fa fa-chevron-down"></span></a>
-										<ul class="nav child_menu">
-											<li><a href="t-bentrada.php">Entrada</a></li>
-											<li><a href="t-bproceso.php">Proceso</a></li>
-											<li><a href="t-bsalida.php">Salida</a></li>
-										</ul>
-									</li></ul>
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-envelope"></i>Bandeja<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="t-bentrada.php">Entrada</a></li>
+                      <li><a href="t-bproceso.php">Proceso</a></li>
+                      <li><a href="t-bsalida.php">Salida</a></li>
+                    </ul>
+                  </li></ul>
 
 
-								<ul class="nav side-menu">
-									<li><a><i class="fa fa-comment"></i>Contacto<span class="fa fa-chevron-down"></span></a>
-										<ul class="nav child_menu">
-											<li>  <a href="https://dashboard.smartsupp.com/v2" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;">Mensajeria<span> </a>
-										</li>
-										</ul>
-									</li>
-										</ul>
-							</div>
+
+
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-comment"></i>Contacto<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li>  <a href="https://dashboard.smartsupp.com/v2" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;">Mensajeria<span> </a>
+                    </li>
+                    </ul>
+                  </li>
+                    </ul>
+
+              </div>
             </div>
             <!-- /sidebar menu -->
           </div>
@@ -132,82 +135,96 @@
 								</div>
 								<div class="x_content">
 									<br />
-										<form action="../BOl/ActulizarU.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
-											<?php
+                  <form action="../BOl/ActulizarU.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+                    <?php
 
-											require_once '..\DAL\DBAccess.php';
-											$idTicketDet=$_GET['IdTicketDetalle'];
-											$dba = new DBAccess();
-											$conn = $dba->Get_Connection();
-											$stmt = $conn->prepare("call spHelpDesk_GET_DetTicket($idTicketDet);");
-											$stmt->execute();
-											while($row = $stmt->fetch(PDO::FETCH_OBJ)){
-											echo'
+                    require_once '..\DAL\DBAccess.php';
+                    $idTicketDet=$_GET['IdTicketDetalle'];
+                    $dba = new DBAccess();
+                    $conn = $dba->Get_Connection();
+                    $stmt = $conn->prepare("call spHelpDesk_GET_DetTicket($idTicketDet);");
+                    $stmt->execute();
+                    while($row = $stmt->fetch(PDO::FETCH_OBJ)){
+                    echo'
 
-                      <input class="form" type="hidden" id="IdTicketDetalle" name="IdTicketDetalle" value="'.$row->IdTicketDetalle.'" readonly="readonly">
+                    <input class="form" type="hidden" id="IdTicketDetalle" name="IdTicketDetalle" value="'.$row->IdTicketDetalle.'" readonly="readonly">
 
-										<div class="form-group">
-											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tipo
-											</label>
-											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input type="text" readonly="readonly" id="1"  name="Tipo" value="'.$row->Tipo.'" class="form-control col-md-7 col-xs-12">
-											</div>
-										</div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Descripcion
-                      </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" readonly="readonly" id="2"   name="Descripcion" value="'.$row->Descripcion.'" class="form-control col-md-7 col-xs-12">
-                      </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tipo
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input type="text" readonly="readonly" id="1"  name="Tipo" value="'.$row->Tipo.'" class="form-control col-md-7 col-xs-12">
                     </div>
+                  </div>
 
-										<div class="form-group">
-											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Asunto
-											</label>
-											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input type="text" readonly="readonly" id="3" name="Asunto" value="'.$row->Asunto.'" class="form-control col-md-7 col-xs-12">
-											</div>
-										</div>
-										<div class="form-group">
-											<label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Area</label>
-											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input id="4" readonly="readonly" class="form-control col-md-7 col-xs-12"  name="Area" value="'.$row->Area.'" type="text" name="middle-name">
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-md-3 col-sm-3 col-xs-12">Prioridad
-											</label>
-											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input id="5" readonly="readonly" name="Prioridad" value="'.$row->Prioridad.'"   class="date-picker form-control col-md-7 col-xs-12" type="text">
-											</div>
-										</div>
-
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12"> Detalle del problema
-                      </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea id="birthday" style="height:120px; readonly="readonly" value="" class="date-picker form-control col-md-7 col-xs-12" >'.$row->TDes.'</textarea>
-                      </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Descripcion
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input type="text" readonly="readonly" id="2"   name="Descripcion" value="'.$row->Descripcion.'" class="form-control col-md-7 col-xs-12">
                     </div>
+                  </div>
 
-                    <div class="form-group">
-											<label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha de creacion
-											</label>
-											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input id="6" readonly="readonly" name="FechaCrea" value="'.$row->FechaCrea.'" class="date-picker form-control col-md-7 col-xs-12" type="text">
-											</div>
-										</div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Asunto
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input type="text" readonly="readonly" id="3" name="Asunto" value="'.$row->Asunto.'" class="form-control col-md-7 col-xs-12">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Area</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input id="4" readonly="readonly" class="form-control col-md-7 col-xs-12"  name="Area" value="'.$row->Area.'" type="text" name="middle-name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Prioridad
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input id="5" readonly="readonly" name="Prioridad" value="'.$row->Prioridad.'"   class="date-picker form-control col-md-7 col-xs-12" type="text">
+                    </div>
+                  </div>
 
-										<div class="form-group">
-											<label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha estimada de resolucion
-											</label>
-											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input id="6" readonly="readonly" name="FechaEstimacion" value="'.$row->FechaEstimacion.'" class="date-picker form-control col-md-7 col-xs-12" type="text">
-											</div>
-										</div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12"> Detalle del problema
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <textarea id="birthday" style="height:120px; readonly="readonly" value="" class="date-picker form-control col-md-7 col-xs-12" >'.$row->TDes.'</textarea>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha de creacion
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input id="6" readonly="readonly" name="FechaCrea" value="'.$row->FechaCrea.'" class="date-picker form-control col-md-7 col-xs-12" type="text">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha estimada de resolucion
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input id="6" readonly="readonly" name="FechaEstimacion" value="'.$row->FechaEstimacion.'" class="date-picker form-control col-md-7 col-xs-12" type="text">
+                    </div>
+                  </div>
 
 
+
+
+
+                  <div class="ln_solid"></div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <input class="btn btn-primary" type="button" value="Volver" id="_btnVolver">
+                    <input class="btn btn-success"  type="submit" value="Aceptar Ticket" name="Actualizar">
+
+                    </div>
+                  </div>
+
+                </form>';}
+                ?>
 
 
 
@@ -220,8 +237,7 @@
 											</div>
 										</div>
 
-									</form>';}
-									?>
+									</form>
 
 								</div>
 							</div>

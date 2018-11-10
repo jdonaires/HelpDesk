@@ -68,6 +68,7 @@
                   <li><a><i class="fa fa-envelope"></i>Bandeja<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="a-bentrada.php">Entrada</a></li>
+                      <li><a href="a-basignados.php">Asignados</a></li>
                       <li><a href="a-bproceso.php">Proceso</a></li>
                       <li><a href="a-bvalidez.php">Validez</a></li>
                       <li><a href="a-bsalida.php">Salida</a></li>
@@ -154,6 +155,11 @@
 								<div class="x_content">
 									<br />
 										<form <form action="../BOL/DTicUp.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+                      <?php
+                        echo('<input class="form" type="hidden" id="IdAdmin" name="IdAdmin" value="'.$_SESSION["UsuarioLogin"][0]["IdUsuario"].'"readonly="readonly">');
+
+                      ?>
+
 											<?php
 
 											require_once '..\DAL\DBAccess.php';
@@ -205,13 +211,7 @@
 											</div>
 										</div>
 
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12"> Detalle del problema
-                      </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea id="birthday" style="height:120px; readonly="readonly" value="" class="date-picker form-control col-md-7 col-xs-12" ></textarea>
-                      </div>
-                    </div>
+        
 
                     <div class="form-group">
 											<label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha de creacion
