@@ -1,4 +1,4 @@
-CREATE DEFINER=`usert_test`@`%` PROCEDURE `spHelpDesk_GET_TicketEstado`( 
+CREATE PROCEDURE `spHelpDesk_GET_TicketEstado`( 
 	P_Estado 		VARCHAR(50)
 ,	P_IdResponzable INT
 )
