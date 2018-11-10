@@ -8,9 +8,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-		    <title>HelpDesk | Detalle usuario</title>
-	<link rel="stylesheet" href="css/tabla.css">
+		<title>HelpDesk | Detalle usuario</title>
+		<link rel="stylesheet" href="css/tabla.css">
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -204,56 +203,19 @@
 												<input id="birthday" readonly="readonly" value="'.$row->Estado.'" class="date-picker form-control col-md-7 col-xs-12" type="text">
 											</div>
 										</div>
-
-										<div class="x_title">
-										<h2>Privilegios</h2>
-										<div class="clearfix"></div>
-										</div>
-										<div class="form-group">
-									                         <label class="col-md-3 col-sm-3 col-xs-12 control-label">Privilegios de usuario
-									                           <br>
-									                           <small class="text-navy">Selecciona vistas</small>
-									                         </label>
-
-									                         <div class="col-md-9 col-sm-9 col-xs-12">
-									                           <div class="checkbox">
-									                             <label>
-									                               <input type="checkbox" class="flat" checked="checked">Crear ticket
-									                             </label>
-									                           </div>
-									                           <div class="checkbox">
-									                             <label>
-									                               <input type="checkbox" class="flat" checked="checked">Mi perfil
-									                             </label>
-									                           </div>
-									                           <div class="checkbox">
-									                             <label>
-									                               <input type="checkbox" class="flat" checked="checked">Mi ticket
-									                             </label>
-									                           </div>
-									                           <div class="checkbox">
-									                             <label>
-									                               <input type="checkbox" class="flat" checked="checked">Cambiar contraseña
-									                             </label>
-									                           </div>
-									                         </div>
-									                       </div>
-
-										<br>
-
 										<div class="x_title">
 											<h2>Cambiar estado de cuenta</h2>
 											<div class="clearfix"></div>
 										</div>
 
 										<div class="form-group">
-									<label class="control-label col-md-3 col-sm-3 col-xs-12">Seleccionar</label>
-									<div class="col-md-6 col-sm-6 col-xs-12">
-										<select class="form-control">
-											<option>Activo</option>
-											<option>Inactivo</option>
-											<option>Eliminado</option>
-										</select>
+										<label class="control-label col-md-3 col-sm-3 col-xs-12">Seleccionar</label>
+										<div class="col-md-6 col-sm-6 col-xs-12">
+											<select class="form-control">
+												<option>Activo</option>
+												<option>Inactivo</option>
+												<option>Eliminado</option>
+											</select>
 									</div>
 								</div>
 
@@ -263,6 +225,7 @@
 											<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 											<input class="btn btn-primary" type="button" value="Volver" id="_btnVolver">
 											<input class="btn btn-success" type="button" value="Guardar cambios" id="_btnVolver">
+											<input class="btn btn-success" type="button" value="Asignar Privilegios" id="_asignarPrivilegio" data-toggle="modal" data-target="#myModal">
 											</div>
 										</div>
 
@@ -308,7 +271,25 @@
 
       </div>
     </div>
+		<div id="myModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
 
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Asignación de Privilegio</h4>
+					</div>
+					<div class="modal-body">
+						<p>Some text in the modal.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
     <!-- jQuery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -354,7 +335,7 @@
 </html>
 </style>
 <script>
-$("#_btnVolver").click(function(){
-  location.href="a-bentrada.php" ;
-});
+	$("#_btnVolver").click(function(){
+		location.href="a-bentrada.php" ;
+	});
 </script>
