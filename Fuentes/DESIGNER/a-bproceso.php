@@ -190,7 +190,7 @@
                                     <td>'.$row->Estado.'</td>
 
 
-                                    <td><a href="a-detalleuser.html?IdTicket='.$row->IdTicket.'"><span class="fa fa-eye"> </a></td>
+                                    <td><a href="t-verticket.php?IdTicket='.$row->IdTicket.'"><span class="fa fa-eye"> </a></td>
                                   </tr>
 
                                   </tbody>';
