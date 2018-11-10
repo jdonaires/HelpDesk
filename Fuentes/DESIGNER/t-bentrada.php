@@ -148,24 +148,27 @@
                               </tr>
                             </thead>
                             <?php
+                            $id=$_SESSION["UsuarioLogin"][0]["IdUsuario"];
+
                             require_once '..\DAL\DBAccess.php';
                             $dba = new DBAccess();
                             $conn = $dba->Get_Connection();
-                            $statement = $conn->prepare("call spHelpDesk_GET_Ticket");
+                            $statement = $conn->prepare("call spHelpDesk_GET_TicketEstado('ASIGNADO','$id');");
                             $statement->execute();
                             while($row = $statement->fetch(PDO::FETCH_OBJ)){
                             echo'
 
                                   <tbody>
                                     <tr>
-                                    <td>'.$row->IdTicketDetalle.'</td>
+                                    <td style="display:none;">'.$row->IdTicket.'</td>
+                                    <td>'.$row->CodTicket.'</td>
                                     <td>'.$row->FechaCrea.'</td>
                                     <td>'.$row->Asunto.'</td>
                                     <td>'.$row->Prioridad.'</td>
                                     <td>'.$row->Area.'</td>
-                                    <td>Pendiente</td>
+                                    <td>'.$row->Estado.'</td>
 
-                                    <td><a href="t-detalletik.php?IdTicketDetalle='.$row->IdTicketDetalle.'"><span class="fa fa-eye"> </a></td>
+                                    <td><a href="t-tikdet.php?IdTicketDetalle='.$row->IdTicket.'"><span class="fa fa-eye"> </a></td>
                                   </tr>
 
                                   </tbody>';
