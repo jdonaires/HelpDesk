@@ -165,6 +165,7 @@
                                 <th class="text-left">Asignado a</th>
                                 <th class="text-left">FechaEstimada</th>
                                 <th class="text-left">Estado</th>
+                                <th class="text-left">Revisar</th>
                                 <!--th class="text-left">Revisar</th-->
                               </tr>
                             </thead>

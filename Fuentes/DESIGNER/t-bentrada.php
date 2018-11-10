@@ -163,9 +163,9 @@
                                     <td>'.$row->Asunto.'</td>
                                     <td>'.$row->Prioridad.'</td>
                                     <td>'.$row->Area.'</td>
-                                    <td>'.$row->Estado.'</td>
+                                    <td>Pendiente</td>
 
-                                    <td><a href="#" IdTicketDetalle='.$row->IdTicketDetalle.'"><span class="fa fa-eye"> </a></td>
+                                    <td><a href="t-detalletik.php?IdTicketDetalle='.$row->IdTicketDetalle.'"><span class="fa fa-eye"> </a></td>
                                   </tr>
 
                                   </tbody>';
