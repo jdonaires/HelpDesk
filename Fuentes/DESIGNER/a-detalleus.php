@@ -389,8 +389,8 @@
 			var data = {
 				Opcion: "A" ,
 				IdUsuario: $("#userid").val(),
-				IdPerfil: "",
-				IdArea: "",
+				IdPerfil: 0,
+				IdArea: 0,
 				Nombre: "",
 				Apellidos: "",
 				Correo: "",
