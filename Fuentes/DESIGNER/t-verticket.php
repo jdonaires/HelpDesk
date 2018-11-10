@@ -74,39 +74,53 @@
  				<div class="forma"  style="width:90%;">
  <form action="action_page.php">
 
+   <?php
+
+    require_once '..\DAL\DBAccess.php';
+    $idTicket=$_GET['IdTicket'];
+    $dba = new DBAccess();
+    $conn = $dba->Get_Connection();
+    $stmt = $conn->prepare("call helpdesk_2018.spHelpDesk_Det_Ticket($idTicket)");
+    $stmt->execute();
+    while($row = $stmt->fetch(PDO::FETCH_OBJ)){
+    echo
+    '
+
  		<h3>Descripcion de problema</h3>
  	<label for="lname">N° Ticket</label>
- 	<input class="form" type="text" id="lname" name="lastname" value="TK0001" readonly="readonly">
+ 	<input class="form" type="text" id="lname" name="lastname" value="'.$row->IdTicket.'" readonly="readonly">
 
  <label for="lname">Categoria</label>
- <input class="form" type="text" id="lname" name="lastname" placeholder="Impresora"  readonly="readonly">
+ <input class="form" type="text" id="lname" name="lastname" placeholder="'.$row->Tipo.'"  readonly="readonly">
 
  <label for="lname">Problema</label>
- <input class="form" type="text" id="lname" name="lastname" placeholder="No enciende"  readonly="readonly">
+ <input class="form" type="text" id="lname" name="lastname" placeholder="'.$row->Problema.'"  readonly="readonly">
 
  <label for="lname">Asunto</label>
- <input class="form" type="text" id="lname" name="lastname" placeholder="Impresora No enciende"  readonly="readonly">
+ <input class="form" type="text" id="lname" name="lastname" placeholder="'.$row->Asunto.'"  readonly="readonly">
 
  <label for="lname">Prioridad</label>
- <input class="form" type="text" id="lname" name="lastname" placeholder="Baja"  readonly="readonly">
+ <input class="form" type="text" id="lname" name="lastname" placeholder="'.$row->Prioridad.'"  readonly="readonly">
 
  <label for="subject">Detalle del problema</label>
- <textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." readonly="readonly">
- 	Buenos dias, para solicitar ayuda ya que mi impresora dejo de funcionar hace un dia y no puedo imprimir los documentos del trabajo para los reportes diarios que se entregan al jefe.
- Porfavor ayuda lo más antes posible. </textarea>
+ <textarea class="form" id="subject" name="subject" style="height:200px;" placeholder="Escribe tu mensaje aqui.." readonly="readonly">'.$row->Descripcion.'</textarea>
 
  <label for="lname">Fecha creado</label>
- <input class="form" type="text" id="lname" name="lastname" placeholder="20/09/2018"  readonly="readonly">
+ <input class="form" type="text" id="lname" name="lastname" placeholder="20/09/2018" value="'.$row->FechaCrea.'"  readonly="readonly">
 
  <h3>Asignacion personal</h3>
  <label for="lname">Fecha estimada de resolucion</label>
- <input class="form" type="text" id="lname" name="lastname" value="21/09/2018" readonly="readonly">
+ <input class="form" type="text" id="lname" name="lastname" value="'.$row->FechaEstimacion.'" readonly="readonly">
 
  <label for="lname">Asignado a</label>
- <input class="form" type="text" id="lname" name="lastname" value="Flavio Torres" readonly="readonly">
+ <input class="form" type="text" id="lname" name="lastname" value="'.$row->Nombre.'" readonly="readonly">
 
  <input class="formb" type="submit" value="Iniciar proceso">
+
+ ';}
+ ?>
  </form>
+
  </div>
 
  	<!--/CONTAINER -->
@@ -123,4 +137,3 @@
 
  	</body>
  </html>
- 
