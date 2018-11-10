@@ -6,10 +6,10 @@ class HelpDesk_PrivilegioDAO
 {
 	private $pdo;
 
-	public function _construct()
+	public function __construct()
 	{
-			$dba = new DBAccess();
-			$this->pdo = $dba->Get_Connection();
+		$dba = new DBAccess();
+		$this->pdo = $dba->Get_Connection();
 	}
 
 	public function SET_Privilegio(HelpDesk_Privilegio $HelpDesk_Privilegio)
@@ -30,11 +30,18 @@ class HelpDesk_PrivilegioDAO
 		}
 	}
 
-	public function GET_Privilegio()
+	public function GET_Privilegio($IdUsuario)
 	{
 		try
 		{
-
+			$statement = $this->pdo->prepare("CALL spHelpDesk_GET_BusquedaGeneral(?,?,?,?)");
+			$statement->bindValue(1, "GET_Privilegio", PDO::PARAM_STR);
+			$statement->bindValue(2, "", PDO::PARAM_STR);
+      		$statement->bindValue(3, $IdUsuario, PDO::PARAM_INT);
+      		$statement->bindValue(4, 0, PDO::PARAM_INT);
+      		$statement->execute();
+			$Result = $statement->fetchAll(PDO::FETCH_ASSOC);
+			return $Result;
 		}
 		catch(Exception $ex)
 		{

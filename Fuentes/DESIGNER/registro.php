@@ -154,7 +154,10 @@
 				Apellidos: $("#_apellidos").val(),
 				Correo: $("#_correo").val(),
 				Contrasenia: $("#_contrasenia").val(),
-				NroCelular:$("#_celular").val()
+				NroCelular:$("#_celular").val(),
+				XML : "",
+				ItemXML: 0,
+				Estado = ""
 			};
 			HelpDeskajaxPostSetProcess({
 				url: "../Helper/HelpDesk_Usuario.php",

@@ -12,6 +12,8 @@
         private $Estado;
         private $NroCelular;
         private $Confirmacion;
+        private $XML;
+        private $ItemXML;
 
         function __construct(){
         }
