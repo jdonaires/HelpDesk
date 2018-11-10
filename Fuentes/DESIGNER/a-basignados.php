@@ -8,8 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>HelpDesk | Bandeja de salida</title>
-
+            <title>HelpDesk | Bandeja de proceso</title>
 	<link rel="stylesheet" href="css/tabla.css">
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -145,32 +144,37 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
+
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                       <div class="x_panel">
                         <div class="x_title">
-                          <h2>Bandeja de salida</h2>
+                          <h2>Bandeja de proceso</h2>
                           <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
+                        </br>
 
                           <form role="form"  action="../pag/ver.php" method="POST">
                           <table class="table">
                             <thead>
                               <tr>
                                 <th class="text-left">N# Ticket</th>
-                  							<th class="text-left">FechaCrea</th>
-                  							<th class="text-left">Asunto</th>
-                  							<th class="text-left">Prioridad</th>
-                  							<th class="text-left">Area</th>
-                  							<th class="text-left">Estado</th>
+                                <th class="text-left">FechaCreado</th>
+                                <th class="text-left">Asunto</th>
+                                <th class="text-left">Prioridad</th>
+                                <th class="text-left">Area</th>
+                                <th class="text-left">Asignado a</th>
+                                <th class="text-left">FechaEstimada</th>
+                                <th class="text-left">Estado</th>
+
                               </tr>
                             </thead>
                             <?php
                             require_once '..\DAL\DBAccess.php';
                             $dba = new DBAccess();
                             $conn = $dba->Get_Connection();
-                            $stmt = $conn->prepare("call spHelpDesk_GET_TicketEstado('CERRADO');");
+                            $stmt = $conn->prepare("call spHelpDesk_GET_TicketEstado('ASIGNADO');");
                             $stmt->execute();
                             while($row = $stmt->fetch(PDO::FETCH_OBJ)){
                             echo'
@@ -199,6 +203,7 @@
                         </div>
                       </div>
                     </div></div>
+
               </div>
             </div>
           </div>

@@ -65,6 +65,7 @@
                   <li><a><i class="fa fa-envelope"></i>Bandeja<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="a-bentrada.php">Entrada</a></li>
+                      <li><a href="a-basignados.php">Asignados</a></li>
                       <li><a href="a-bproceso.php">Proceso</a></li>
                       <li><a href="a-bvalidez.php">Validez</a></li>
                       <li><a href="a-bsalida.php">Salida</a></li>
@@ -167,19 +168,20 @@
                             require_once '..\DAL\DBAccess.php';
                             $dba = new DBAccess();
                             $conn = $dba->Get_Connection();
-                            $statement = $conn->prepare("call helpdesk_2018.spHelpDesk_View_Ticket();");
+                            $statement = $conn->prepare("call spHelpDesk_GET_TicketEstado('');");
                             $statement->execute();
                             while($row = $statement->fetch(PDO::FETCH_OBJ)){
                             echo'
 
                                   <tbody class="table-hover">
                                     <tr>
-                                    <td>'.$row->IdTicket.'</td>
+                                    <td style="display:none;">'.$row->IdTicket.'</td>
+                                    <td>'.$row->CodTicket.'</td>
                                     <td>'.$row->FechaCrea.'</td>
                                     <td>'.$row->Asunto.'</td>
                                     <td>'.$row->Prioridad.'</td>
                                     <td>'.$row->Area.'</td>
-                                    <td>Por Asignar</td>
+                                    <td>'.$row->Estado.'</td>
 
                                     <td><a href="a_asigticket.php?IdTicket='.$row->IdTicket.'"><span class="fa fa-eye"> </a></td>
                                   </tr>
