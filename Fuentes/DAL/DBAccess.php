@@ -21,23 +21,6 @@ class DBAccess
     $this->conn = new PDO('mysql:host=localhost:3306;dbname=helpdesk_2018', 'root', 'root');
 
 
-
-    /* Conexion a bd LSNS*/
-    // $this->conn = new PDO('mysql:host=localhost:3306;dbname=helpdesk_2018', 'root', '');
-
-    //  $this->conn = new PDO('mysql:host=localhost:3306;dbname=id2781795_helpdesk_2018', 'id2781795_helpdesk_2018', '12345');
-
-
-  //  $this->conn = new PDO('mysql:host=db4free.net:3306;dbname=helpdesk_2018', 'usert_test', '');
-
-
-
-  /*   $this->conn = new PDO('mysql:host=db4free.net:3306;dbname=helpdesk_2018', 'usert_test', '');
-*/
-
-
-  //   $this->conn = new PDO('mysql:host=db4free.net:3306;dbname=helpdesk_2018', 'usert_test', '');
-
     //$this->conn = new PDO('mysql:host=db4free.net:3306;dbname=helpdesk_2018', 'usert_test', '');
 
 
