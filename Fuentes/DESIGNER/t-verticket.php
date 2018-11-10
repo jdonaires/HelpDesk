@@ -80,7 +80,7 @@
     $idTicket=$_GET['IdTicket'];
     $dba = new DBAccess();
     $conn = $dba->Get_Connection();
-    $stmt = $conn->prepare("call helpdesk_2018.spHelpDesk_Det_Ticket($idTicket)");
+    $stmt = $conn->prepare("call helpdesk_2018.spHelpDesk_Det_VerTicket($idTicket)");
     $stmt->execute();
     while($row = $stmt->fetch(PDO::FETCH_OBJ)){
     echo
