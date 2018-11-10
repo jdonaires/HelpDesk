@@ -144,14 +144,18 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                      <div class="x_panel">
+                        <div class="x_title">
+                          <h2>Lista de nuevos usuarios</h2>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
 
-
-            <table class="table-fill" >
-              <div class="alert alert-info">
-          </div>
-            <h2>Control Nuevos Usuarios</h2>
-          </br>
-          </br>
+          <!-- top tiles -->
+          <form role="form"   method="POST">
+<table class="table">
           <thead>
               <tr>
                 <th class="text-left">Nombre completo</th>
@@ -188,7 +192,7 @@
               </div>
                    </form>
 
-        
+
 
 
               </div>

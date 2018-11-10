@@ -143,14 +143,18 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                      <div class="x_panel">
+                        <div class="x_title">
+                          <h2>Control Clientes</h2>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+
           <!-- top tiles -->
-          <form role="form"  action="../pag/ver.php" method="POST">
-            <table class="table-fill" >
-              <div class="alert alert-info">
-          </div>
-            <h2>Control Clientes</h2>
-          </br>
-          </br>
+          <form role="form"   method="POST">
+<table class="table">
           <thead>
               <tr>
                 <th class="text-left">Nombre completo</th>
@@ -178,7 +182,7 @@
                   <td>'.$row->NroCelular.'</td>
                   <td>'.$row->Correo.'</td>
                   <td>'.$row->Estado.'</td>
-                  <td><a href="a-detalleuser.php?IdUsuario='.$row->IdUsuario.'"><span class="fa fa-eye"> </a></td>
+                  <td><a href="a-detalleusup.php?IdUsuario='.$row->IdUsuario.'"><span class="fa fa-eye"> </a></td>
 
                 </tr>
                 </tbody>';
@@ -187,7 +191,7 @@
               </table>
                    </form>
 
-        
+
               </div>
             </div>
           </div>
