@@ -15,6 +15,9 @@
         $HelpDesk_Usuario->__SET('Correo', $vrHelpDesk_Usuario->Correo);
         $HelpDesk_Usuario->__SET('Contrasenia', $vrHelpDesk_Usuario->Contrasenia);
         $HelpDesk_Usuario->__SET('NroCelular', $vrHelpDesk_Usuario->NroCelular);
+        $HelpDesk_Usuario->__SET('XML', $vrHelpDesk_Usuario->XML);
+        $HelpDesk_Usuario->__SET('ItemXML', $vrHelpDesk_Usuario->ItemXML);
+        $HelpDesk_Usuario->__SET('Estado', $vrHelpDesk_Usuario->Estado);
         $result = $HelpDesk_UsuarioDAO->SET_Usuario($HelpDesk_Usuario);
         echo ($result);
     }

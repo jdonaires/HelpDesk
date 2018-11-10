@@ -28,7 +28,9 @@
 
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
-
+		<script src="js/helpdesk_main.js"></script>
+		<script src="js/sweetalert.min.js"></script>
+		<link href="css/sweetalert.css" rel="stylesheet" />
   </head>
 
   <body class="nav-md">
@@ -160,6 +162,7 @@
 											$stmt->execute();
 											while($row = $stmt->fetch(PDO::FETCH_OBJ)){
 											echo'
+										<input type="text" value="'.$idUsuario.'" style="display:none;" id="userid"/>
 										<div class="form-group">
 											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombres y Apellidos
 											</label>
@@ -211,7 +214,7 @@
 										<div class="form-group">
 										<label class="control-label col-md-3 col-sm-3 col-xs-12">Seleccionar</label>
 										<div class="col-md-6 col-sm-6 col-xs-12">
-											<select class="form-control">
+											<select class="form-control" id="selectEstado">
 												<option>Activo</option>
 												<option>Inactivo</option>
 												<option>Eliminado</option>
@@ -224,7 +227,7 @@
 										<div class="form-group">
 											<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 											<input class="btn btn-primary" type="button" value="Volver" id="_btnVolver">
-											<input class="btn btn-success" type="button" value="Guardar cambios" id="_btnVolver">
+											<input class="btn btn-success" type="button" value="Guardar cambios" id="_registrar">
 											<input class="btn btn-success" type="button" value="Asignar Privilegios" id="_asignarPrivilegio" data-toggle="modal" data-target="#myModal">
 											</div>
 										</div>
@@ -281,10 +284,20 @@
 						<h4 class="modal-title">Asignación de Privilegio</h4>
 					</div>
 					<div class="modal-body">
-						<p>Some text in the modal.</p>
+						<table class="table-fill" >
+						<thead>
+							<tr>
+								<th class="text-left"># </th>
+								<th class="text-left">Privilegio</th>
+								<th class="text-left" style="width: 12%;">Asignar</th>
+							</tr>
+						</thead>
+						<tbody class="table-hover">
+						</tbody>
+						</table>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal" id="btnCloseModal">Cerrar</button>
 					</div>
 				</div>
 
@@ -335,7 +348,69 @@
 </html>
 </style>
 <script>
+	var STR_XML;
+	var I_ITEMCOUNT;
 	$("#_btnVolver").click(function(){
 		location.href="a-bentrada.php" ;
 	});
+
+	$("#_asignarPrivilegio").click(function(){
+		var data = {
+			IdUsuario: $("#userid").val(),
+		};
+		$.ajax({
+			url: "../Helper/HelpDesk_Privilegio.php",
+			data: { "GET_Privilegios": JSON.stringify(data)},
+			type: "POST",
+			async: true,
+			datatype: "html",
+			success: function (data) {
+				var Item = 1;
+				$(".table-fill > tbody").html("");
+				 $.each($.parseJSON(data), function (index, item) {
+            $(".table-fill").append('<tr class="tablePro"><td style="display: none;">'+ item.IdPrivilegio +'</td><td>' + Item++ + '</td><td>' + item.Descripcion + '</td><td style="text-align: center;"> <input type="checkbox" id="cbox2" value="second_checkbox"> </td></tr>');
+        });
+			},
+		});
+	});
+
+	$("#btnCloseModal").click(function(){
+		STR_XML = "";  I_ITEMCOUNT = 0;
+		var tbody = $("table.table-fill").find('tbody');
+		$.each($(tbody).find('tr'), function (index, element) {
+				if($(element).find('td input#cbox2').is(':checked')){
+					STR_XML += '<IdPrivilegio>' + $(element).find('td:nth-child(1)').text() + '</IdPrivilegio>';
+					I_ITEMCOUNT++;
+				}
+		});
+	});
+
+	$("#_registrar").click(function(){
+			var data = {
+				Opcion: "A" ,
+				IdUsuario: $("#userid").val(),
+				IdPerfil: "",
+				IdArea: "",
+				Nombre: "",
+				Apellidos: "",
+				Correo: "",
+				Contrasenia: "",
+				NroCelular: "",
+				XML : STR_XML,
+				ItemXML: I_ITEMCOUNT,
+				Estado: $("#selectEstado").val()
+			};
+
+			HelpDeskajaxPostSetProcess({
+				url: "../Helper/HelpDesk_Usuario.php",
+				data: { "SET_Usuario": JSON.stringify(data)},
+				title: "Registro de Usuario",
+				isWarning:true,
+				invokefunction:NavigationView
+			});
+	});
+	function NavigationView(){
+		location.href="a-contnuevoc.php";
+	}
+
 </script>
