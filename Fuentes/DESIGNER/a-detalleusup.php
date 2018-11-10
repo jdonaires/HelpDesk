@@ -162,18 +162,18 @@
 											while($row = $stmt->fetch(PDO::FETCH_OBJ)){
 											echo'
 										<div class="form-group">
-											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombres y Apellidos
+											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombres
 											</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input type="text" readonly="readonly" id="first-name"  name="Nombre" value="'.$row->Nombre.'" class="form-control col-md-7 col-xs-12">
+												<input type="text" readonly="readonly" id="1"  name="Nombre" value="'.$row->Nombre.'" class="form-control col-md-7 col-xs-12">
 											</div>
 										</div>
 
                     <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Correo
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Apellidos
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" readonly="readonly" id="last-name"  name="Apellidos" value="'.$row->Apellidos.'" class="form-control col-md-7 col-xs-12">
+                        <input type="text" readonly="readonly" id="2"  name="Apellidos" value="'.$row->Apellidos.'" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div>
 
@@ -181,20 +181,20 @@
 											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Correo
 											</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input type="text" readonly="readonly" id="last-name" name="Correo" value="'.$row->Correo.'" class="form-control col-md-7 col-xs-12">
+												<input type="text" readonly="readonly" id="3" name="Correo" value="'.$row->Correo.'" class="form-control col-md-7 col-xs-12">
 											</div>
 										</div>
 										<div class="form-group">
 											<label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Celular</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input id="middle-name" readonly="readonly" class="form-control col-md-7 col-xs-12"  name="Celular" value="'.$row->NroCelular.'" type="text" name="middle-name">
+												<input id="4" readonly="readonly" class="form-control col-md-7 col-xs-12"  name="Celular" value="'.$row->NroCelular.'" type="text" name="middle-name">
 											</div>
 										</div>
 										<div class="form-group">
 											<label class="control-label col-md-3 col-sm-3 col-xs-12">Perfil
 											</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input id="birthday" readonly="readonly" value="'.$row->Perfil.'"   class="date-picker form-control col-md-7 col-xs-12" type="text">
+												<input id="5" readonly="readonly" value="'.$row->Perfil.'"   class="date-picker form-control col-md-7 col-xs-12" type="text">
 											</div>
 										</div>
 
@@ -202,7 +202,7 @@
 											<label class="control-label col-md-3 col-sm-3 col-xs-12">Área
 											</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input id="birthday" readonly="readonly" value="'.$row->Area.'" class="date-picker form-control col-md-7 col-xs-12" type="text">
+												<input id="6" readonly="readonly" value="'.$row->Area.'" class="date-picker form-control col-md-7 col-xs-12" type="text">
 											</div>
 										</div>
 
@@ -246,7 +246,7 @@
 										<div class="form-group">
 											<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 											<input class="btn btn-primary" type="button" value="Volver" id="_btnVolver">
-
+                      <input class="btn btn-success"  id="btneditar" type="button" value="Editar" name="Editar">
 											<input class="btn btn-success"  type="submit" value="Guardar cambios" name="Actualizar">
 
 											</div>
@@ -254,14 +254,19 @@
 
 									</form>';}
 									?>
-                <input class="btn btn-success"  id="btneditar" type="submit" value="Editar" name="Editar">
+
 								</div>
 							</div>
 						</div>
 
             <script type="text/javascript">
             document.getElementById('btneditar').onclick = function() {
-                document.getElementById('lname').removeAttribute('readonly');
+                document.getElementById('1').removeAttribute('readonly');
+                document.getElementById('2').removeAttribute('readonly');
+                document.getElementById('3').removeAttribute('readonly');
+                document.getElementById('4').removeAttribute('readonly');
+
+
 
             };
             </script>

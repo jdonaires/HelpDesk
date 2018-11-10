@@ -183,7 +183,6 @@
                   <td>'.$row->Correo.'</td>
                   <td>'.$row->Estado.'</td>
                   <td><a href="a-detalleusup.php?IdUsuario='.$row->IdUsuario.'"><span class="fa fa-eye"> </a></td>
-
                 </tr>
                 </tbody>';
                 }
