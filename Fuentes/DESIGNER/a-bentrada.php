@@ -168,7 +168,7 @@
                             require_once '..\DAL\DBAccess.php';
                             $dba = new DBAccess();
                             $conn = $dba->Get_Connection();
-                            $statement = $conn->prepare("call spHelpDesk_GET_TicketEstado('');");
+                            $statement = $conn->prepare("call spHelpDesk_GET_TicketEstado('',0);");
                             $statement->execute();
                             while($row = $statement->fetch(PDO::FETCH_OBJ)){
                             echo'
