@@ -179,12 +179,13 @@
 
                                   <tbody class="table-hover">
                                     <tr>
-                                    <td>'.$row->IdTicket.'</td>
+                                    <td style="display:none;">'.$row->IdTicket.'</td>
+                                    <td>'.$row->CodTicket.'</td>
                                     <td>'.$row->FechaCrea.'</td>
                                     <td>'.$row->Asunto.'</td>
                                     <td>'.$row->Prioridad.'</td>
                                     <td>'.$row->Area.'</td>
-                                    <td>'.$row->Nombre.'</td>
+                                    <td>'.$row->Estado.'</td>
                                     <td>'.$row->FechaEstimacion.'</td>
                                     <td>'.$row->Estado.'</td>
 
