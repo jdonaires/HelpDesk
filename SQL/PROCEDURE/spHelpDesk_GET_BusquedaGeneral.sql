@@ -1,4 +1,4 @@
-CREATE DEFINER=`usert_test`@`%` PROCEDURE `spHelpDesk_GET_BusquedaGeneral`(
+CREATE  PROCEDURE spHelpDesk_GET_BusquedaGeneral(
     P_Opcion         VARCHAR(100)
 ,   P_Filtro         TEXT
 ,   P_ParametroId    INT
@@ -121,6 +121,12 @@ BEGIN
 				LEFT JOIN HelpDesk_Problema 		AS PRO ON PRO.IdProblema 	= TIC.IdProblema
 				LEFT JOIN HelpDesk_Categoria 		AS CAT ON CAT.IdCategoria 	= PRO.IdCategoria
 			WHERE TIC.IdCliente = P_ParametroId;
+        END;
+	END IF;
+    
+     IF(P_Opcion = 'GET_Privilegio') THEN
+		BEGIN
+			SELECT * FROM HelpDesk_Privilegio;
         END;
 	END IF;
     

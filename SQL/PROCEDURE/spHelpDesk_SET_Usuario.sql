@@ -1,4 +1,4 @@
-CREATE  PROCEDURE `spHelpDesk_SET_Usuario`(
+CREATE PROCEDURE `spHelpDesk_SET_Usuario`(
    P_Opcion         CHAR(1) 
 ,  P_IdUsuario      INT
 ,  P_IdPerfil       INT
