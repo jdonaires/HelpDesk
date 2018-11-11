@@ -134,8 +134,11 @@
 								</div>
 								<div class="x_content">
 									<br />
-										<form <form action="../BOl/ActulizarU.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+										<form <form action="../BOl/ActEstado.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+                      <?php
+                        echo('<input class="form" type="hidden" id="IdAdmin" name="IdAdmin" value="'.$_SESSION["UsuarioLogin"][0]["IdUsuario"].'"readonly="readonly">');
 
+                      ?>
                       <?php
 
                       require_once '..\DAL\DBAccess.php';
