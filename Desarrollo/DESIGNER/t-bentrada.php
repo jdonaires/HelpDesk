@@ -138,8 +138,10 @@
                           <table class="table">
                             <thead>
                               <tr>
-                                <th class="text-left">N# Ticket</th>
+                                <th class="text-left">N#</th>
+                                 <th class="text-left">Cod Ticket</th>
                                 <th class="text-left">Fecha Creación</th>
+                                <th class="text-left">Cliente</th>
                                 <th class="text-left">Asunto</th>
                                 <th class="text-left">Prioridad</th>
                                 <th class="text-left">Area</th>
@@ -155,14 +157,17 @@
                             $conn = $dba->Get_Connection();
                             $statement = $conn->prepare("call spHelpDesk_GET_TicketEstado('ASIGNADO','$id');");
                             $statement->execute();
+                            $Item = 1;
                             while($row = $statement->fetch(PDO::FETCH_OBJ)){
                             echo'
 
                                   <tbody>
                                     <tr>
                                     <td style="display:none;">'.$row->IdTicket.'</td>
+                                    <td>'.$Item++.'</td>
                                     <td>'.$row->CodTicket.'</td>
                                     <td>'.$row->FechaCrea.'</td>
+                                    <td>'.$row->Cliente.'</td>
                                     <td>'.$row->Asunto.'</td>
                                     <td>'.$row->Prioridad.'</td>
                                     <td>'.$row->Area.'</td>

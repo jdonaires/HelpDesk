@@ -348,8 +348,8 @@
 </html>
 </style>
 <script>
-	var STR_XML;
-	var I_ITEMCOUNT;
+	var STR_XML = "";
+	var I_ITEMCOUNT = 0;
 	$("#_btnVolver").click(function(){
 		location.href="a-bentrada.php" ;
 	});
@@ -396,11 +396,11 @@
 				Correo: "",
 				Contrasenia: "",
 				NroCelular: "",
-				XML : STR_XML,
-				ItemXML: I_ITEMCOUNT,
+				XML: STR_XML,
+				ItemXML:I_ITEMCOUNT,
 				Estado: $("#selectEstado").val()
 			};
-
+			console.log(JSON.stringify(data));
 			HelpDeskajaxPostSetProcess({
 				url: "../Helper/HelpDesk_Usuario.php",
 				data: { "SET_Usuario": JSON.stringify(data)},

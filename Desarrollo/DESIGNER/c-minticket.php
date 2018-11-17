@@ -72,6 +72,11 @@
 				</div>
 				<div class="forma"  style="width:90%;">
 					<form action="action_page.php">
+						<?php
+							session_start();
+							echo('<input class="form" type="hidden" id="IdUsuario" name="IdTicketDetalle" value="'.$_SESSION["UsuarioLogin"][0]["IdUsuario"].'" readonly="readonly">');
+						?>
+						
 						<label for="country">Categoria</label>
 						<select class="form" id="_categoria" name="_categoria">
 							<option value="0">Seleccione..</option>
@@ -151,9 +156,16 @@
 			var data = {
 				Opcion: "I" ,
 				IdTicket: 0,
+				IdCliente:$("#IdUsuario").val(),
 				IdProblema: $("#_problema").val(),
-				Descripcion: $("#_detalle").val(),
 				Asunto: $("#_asunto").val(),
+				Descripcion: $("#_detalle").val(),
+				IdResponsable: 0,
+				IdSoporte: 0,
+				IdProblema_R: 0,
+				Asunto_R:"",
+				Respuesta:"",
+				NivelAtencion:0
 			};
 			HelpDeskajaxPostSetProcess({
 				url: "../Helper/HelpDesk_Ticket.php",
@@ -162,7 +174,6 @@
 				invokefunction:navigationPage
 			});
 		};
-
 	});
 
 	function navigationPage(){

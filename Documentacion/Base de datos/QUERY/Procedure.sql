@@ -1,6 +1,7 @@
 USE HelpDesk_2018;
 
 DROP FUNCTION IF EXISTS fn_Get_EstadoTicket;
+DROP FUNCTION IF EXISTS fn_Get_ResponsableTicket;
 DROP PROCEDURE IF EXISTS HelpDesk_ActulizarUsuario;
 DROP PROCEDURE IF EXISTS sp_Actualizar_Usuario;
 DROP PROCEDURE IF EXISTS spHelpDesk_GET_ContUsuarios;
@@ -34,6 +35,21 @@ BEGIN
 	DECLARE V_Estado VARCHAR(40);
 	SELECT  
 		 COALESCE(Estado, '') INTO V_Estado
+	FROM HelpDesk_TicketDetalle 
+    WHERE IdTicket = P_IdTicket
+	ORDER BY IdTicketDetalle DESC LIMIT 1;
+
+ RETURN  V_Estado;
+END$
+
+CREATE  FUNCTION fn_Get_ResponsableTicket(
+	P_IdTicket  INT
+) 
+RETURNS VARCHAR(500) 
+BEGIN
+	DECLARE I_IdResponsable INT;
+	SELECT  
+		 COALESCE(IdResponsable, 0) INTO I_IdResponsable
 	FROM HelpDesk_TicketDetalle 
     WHERE IdTicket = P_IdTicket
 	ORDER BY IdTicketDetalle DESC LIMIT 1;
@@ -545,7 +561,7 @@ BEGIN
 		  , CONCAT(''TK'', ''-'',  LPAD(TIC.IdTicket, 8, ''0'' )) AS CodTicket 
           , COALESCE(CONCAT(USU.Nombre, '' '', USU.Apellidos), ''-'') AS Responsable
 		  , COALESCE(ARE.Descripcion, ''-'') AS Area
-          , TIC.FechaCrea';
+          , DATE_FORMAT(TIC.FechaCrea,''%d/%m/%Y'') AS FechaCrea';
         
         -- NECESARIO PARA LA VISTA DEL ADMINISTRADOR
         IF (P_IdResponzable = 0) THEN
@@ -811,7 +827,7 @@ BEGIN
     DECLARE V_MensajeError          VARCHAR(50) DEFAULT ''; 
     DECLARE I_Item                  INT ;
     DECLARE I_IdPrivilegioDetalle   INT;
-
+	DECLARE V_EstadoActual			VARCHAR(50);
     -- !OPCION DE LA TRANSACCION
     
     -- ! INSERTA NUEVO USUARIO
@@ -864,7 +880,16 @@ BEGIN
     
     -- ! ASIGNACION DE PRIVILEGIOS POR USUARIO
     IF(P_Opcion = 'A') THEN
-        BEGIN
+        BEGIN	
+			
+			-- ! OBTIENE ESTADO ACTUAL DEL USUARIO
+			SELECT Estado INTO V_EstadoActual FROM HelpDesk_Usuario WHERE IdUsuario = P_IdUsuario;
+            
+            -- ! ACTUALIZA ESTADO DE USUARIO
+            UPDATE HelpDesk_Usuario SET
+				Estado		= CASE WHEN P_Estado IS NULL OR P_Estado = '' THEN V_EstadoActual ELSE P_Estado END
+            WHERE IdUsuario = P_IdUsuario;
+            
             -- ! ELIMINA PRIVILEGIOS ANTERIOR
             DELETE FROM HelpDesk_PrivilegioDetalle WHERE IdUsuario = P_IdUsuario;
 

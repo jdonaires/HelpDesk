@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 		    <title>HelpDesk | Detalle usuario</title>
-	<link rel="stylesheet" href="css/tabla.css">
+  	<link rel="stylesheet" href="css/tabla.css">
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -26,10 +26,13 @@
     <link href="vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
     <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
-
+    <script src="js/sweetalert.min.js"></script>
+		<link href="css/sweetalert.css" rel="stylesheet" />
+    <script src="js/helpdesk_main.js"  ></script>
   </head>
 
   <body class="nav-md">
@@ -186,7 +189,7 @@
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Descripcion
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" readonly="readonly" id="2"   name="Descripcion" value="'.$row->Descripcion.'" class="form-control col-md-7 col-xs-12">
+                        <textarea id="2" name="subject"  readonly="readonly"  class="form-control col-md-7 col-xs-12">'.$row->Descripcion.'</textarea>
                       </div>
                     </div>
 
@@ -232,7 +235,7 @@
                     ';}
                     ?>
                     <?php
-                    $stmt = $conn->prepare("select * from HelpDesk_Usuario where IdPerfil=2 and Estado='activo';");
+                    $stmt = $conn->prepare("select * from HelpDesk_Usuario where IdPerfil=2 and UPPER(Estado)='ACTIVO';");
                     $stmt->execute();
                     ?>
 
@@ -256,7 +259,7 @@
 										<div class="form-group">
 											<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 											<input class="btn btn-primary" type="button" value="Volver" id="_btnVolver">
-											<input class="btn btn-success"  type="submit" value="Aceptar Ticket" name="Actualizar">
+											<input class="btn btn-success"  type="button" value="Aceptar Ticket" name="Actualizar" id="_Enviar">
 
 											</div>
 										</div>
@@ -352,4 +355,32 @@
 $("#_btnVolver").click(function(){
   location.href="a-bentrada.php" ;
 });
+
+// GUARDA DATOS DE TICKET
+	$("#_Enviar").click(function(){
+			var data = {
+				Opcion: "A" ,
+				IdTicket: $("#IdTicketDetalle").val() ,
+				IdCliente:0,
+				IdProblema: 0,
+				Asunto: "",
+				Descripcion: "",
+				IdResponsable: $("#IdAdmin").val(),
+				IdSoporte: $("#Asignar").val(),
+				IdProblema_R: 0,
+				Asunto_R:"",
+				Respuesta:"",
+				NivelAtencion:0
+			};
+			HelpDeskajaxPostSetProcess({
+				url: "../Helper/HelpDesk_Ticket.php",
+				data: { "SET_Ticket": JSON.stringify(data)},
+				title: "Help Desk",
+				invokefunction:navigationPage
+			});
+  });
+  
+  function navigationPage(){
+    window.location='a-bentrada.php'
+  }
 </script>

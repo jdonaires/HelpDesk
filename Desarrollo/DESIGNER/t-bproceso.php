@@ -1,3 +1,9 @@
+<?php
+  $status = session_status();
+  if($status == PHP_SESSION_NONE){
+      session_start();
+  }
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -49,7 +55,6 @@
               <div class="profile_info">
                 <span>Bienvenido,</span>
                 <?php
-  							 	session_start();
   								echo('<h2>'.$_SESSION["UsuarioLogin"][0]["Nombre"].'</h2>');
   							?>
               </div>
@@ -136,7 +141,9 @@
                             <thead>
                               <tr>
                                 <th class="text-left">N# Ticket</th>
+                                 <th class="text-left">Cod. Ticket</th>
                                 <th class="text-left">Fecha Creación</th>
+                                <th class="text-left">Cliente</th>
                                 <th class="text-left">Asunto</th>
                                 <th class="text-left">Prioridad</th>
                                 <th class="text-left">Area</th>
@@ -148,22 +155,25 @@
                             require_once '..\DAL\DBAccess.php';
                             $dba = new DBAccess();
                             $conn = $dba->Get_Connection();
-                            $statement = $conn->prepare("call spHelpDesk_GET_Ticket");
+                            
+                            $statement = $conn->prepare("call spHelpDesk_GET_TicketEstado('PROCESO',".$_SESSION["UsuarioLogin"][0]["IdUsuario"].");");
                             $statement->execute();
+                            $Item = 1;
                             while($row = $statement->fetch(PDO::FETCH_OBJ)){
                             echo'
 
                                   <tbody>
                                     <tr>
-                                    <td>'.$row->IdTicketDetalle.'</td>
-                                    <td>'.$row->FechaCrea.'</td>
-                                    <td>'.$row->Asunto.'</td>
-                                    <td>'.$row->Prioridad.'</td>
-                                    <td>'.$row->Area.'</td>
-                                    <td>'.$row->Estado.'</td>
-
-                                    <td><a href="#" IdTicketDetalle='.$row->IdTicketDetalle.'"><span class="fa fa-eye"> </a></td>
-                                  </tr>
+                                      <td>'.$Item ++.'</td>
+                                      <td>'.$row->CodTicket.'</td>
+                                      <td>'.$row->FechaCrea.'</td>
+                                      <td>'.$row->Cliente.'</td>
+                                      <td>'.$row->Asunto.'</td>
+                                      <td>'.$row->Prioridad.'</td>
+                                      <td>'.$row->Area.'</td>
+                                      <td>'.$row->Estado.'</td>
+                                      <td><a href="#" IdTicketDetalle='.$row->IdTicket.'"><span class="fa fa-eye"> </a></td>
+                                    </tr>
 
                                   </tbody>';
                                   }
