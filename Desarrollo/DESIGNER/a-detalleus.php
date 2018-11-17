@@ -162,78 +162,82 @@
 											$stmt->execute();
 											while($row = $stmt->fetch(PDO::FETCH_OBJ)){
 											echo'
-										<input type="text" value="'.$idUsuario.'" style="display:none;" id="userid"/>
-										<div class="form-group">
+											<input type="text" value="'.$idUsuario.'" style="display:none;" id="userid"/>
+											<div class="form-group">
 											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombres y Apellidos
 											</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
 												<input type="text" readonly="readonly" id="first-name" value="'.$row->Nombre.' '.$row->Apellidos.'" class="form-control col-md-7 col-xs-12">
 											</div>
-										</div>
-										<div class="form-group">
+											</div>
+											<div class="form-group">
 											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Correo
 											</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
 												<input type="text" readonly="readonly" id="last-name" name="last-name" value="'.$row->Correo.'" class="form-control col-md-7 col-xs-12">
 											</div>
-										</div>
-										<div class="form-group">
+											</div>
+											<div class="form-group">
 											<label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Celular</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
 												<input id="middle-name" readonly="readonly" class="form-control col-md-7 col-xs-12" value="'.$row->NroCelular.'" type="text" name="middle-name">
 											</div>
-										</div>
-										<div class="form-group">
+											</div>
+											<div class="form-group">
 											<label class="control-label col-md-3 col-sm-3 col-xs-12">Perfil
 											</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
 												<input id="birthday" readonly="readonly" value="'.$row->Perfil.'"   class="date-picker form-control col-md-7 col-xs-12" type="text">
 											</div>
-										</div>
+											</div>
 
-										<div class="form-group">
-											<label class="control-label col-md-3 col-sm-3 col-xs-12">Área
-											</label>
+											<div class="form-group">
+												<label class="control-label col-md-3 col-sm-3 col-xs-12">Área
+												</label>
+												<div class="col-md-6 col-sm-6 col-xs-12">
+													<input id="birthday" readonly="readonly" value="'.$row->Area.'" class="date-picker form-control col-md-7 col-xs-12" type="text">
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="control-label col-md-3 col-sm-3 col-xs-12">Estado
+												</label>
+												<div class="col-md-6 col-sm-6 col-xs-12">
+													<input id="birthday" readonly="readonly" value="'.$row->Estado.'" class="date-picker form-control col-md-7 col-xs-12" type="text">
+												</div>
+											</div>
+											<div class="x_title">
+												<h2>Cambiar estado de cuenta</h2>
+												<div class="clearfix"></div>
+											</div>
+
+											<div class="form-group">
+											<label class="control-label col-md-3 col-sm-3 col-xs-12">Seleccionar</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input id="birthday" readonly="readonly" value="'.$row->Area.'" class="date-picker form-control col-md-7 col-xs-12" type="text">
+												<select class="form-control" id="selectEstado">
+													<option>Activo</option>
+													<option>Inactivo</option>
+													<option>Eliminado</option>
+												</select>
 											</div>
-										</div>
-
-										<div class="form-group">
-											<label class="control-label col-md-3 col-sm-3 col-xs-12">Estado
-											</label>
-											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input id="birthday" readonly="readonly" value="'.$row->Estado.'" class="date-picker form-control col-md-7 col-xs-12" type="text">
 											</div>
-										</div>
-										<div class="x_title">
-											<h2>Cambiar estado de cuenta</h2>
-											<div class="clearfix"></div>
-										</div>
 
-										<div class="form-group">
-										<label class="control-label col-md-3 col-sm-3 col-xs-12">Seleccionar</label>
-										<div class="col-md-6 col-sm-6 col-xs-12">
-											<select class="form-control" id="selectEstado">
-												<option>Activo</option>
-												<option>Inactivo</option>
-												<option>Eliminado</option>
-											</select>
-									</div>
-								</div>
-
-
-										<div class="ln_solid"></div>
-										<div class="form-group">
-											<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-											<input class="btn btn-primary" type="button" value="Volver" id="_btnVolver">
-											<input class="btn btn-success" type="button" value="Guardar cambios" id="_registrar">
-											<input class="btn btn-success" type="button" value="Asignar Privilegios" id="_asignarPrivilegio" data-toggle="modal" data-target="#myModal">
-											</div>
-										</div>
-
-									</form>';}
-									?>
+											
+											<div class="ln_solid"></div>
+											<div class="form-group">
+												<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+												<input class="btn btn-primary" type="button" value="Volver" id="_btnVolver">
+												<input class="btn btn-success" type="button" value="Guardar cambios" id="_registrar">';
+												
+												if(strtoupper($row->Perfil) != "CLIENTE"){
+													echo '<input class="btn btn-success" type="button" value="Asignar Privilegios" id="_asignarPrivilegio" data-toggle="modal" data-target="#myModal">';
+												}
+												
+												'</div>
+											</div> 
+											';}?>
+										</form>
+									
 
 								</div>
 							</div>
@@ -350,11 +354,15 @@
 <script>
 	var STR_XML = "";
 	var I_ITEMCOUNT = 0;
+	$(document).ready(function(){
+		$(".table-fill > tbody").html("");
+	});
 	$("#_btnVolver").click(function(){
 		location.href="a-bentrada.php" ;
 	});
 
 	$("#_asignarPrivilegio").click(function(){
+		$(".table-fill > tbody").html("");
 		var data = {
 			IdUsuario: $("#userid").val(),
 		};
@@ -400,8 +408,8 @@
 				ItemXML:I_ITEMCOUNT,
 				Estado: $("#selectEstado").val()
 			};
-			console.log(JSON.stringify(data));
-			HelpDeskajaxPostSetProcess({
+			
+		  HelpDeskajaxPostSetProcess({
 				url: "../Helper/HelpDesk_Usuario.php",
 				data: { "SET_Usuario": JSON.stringify(data)},
 				title: "Registro de Usuario",

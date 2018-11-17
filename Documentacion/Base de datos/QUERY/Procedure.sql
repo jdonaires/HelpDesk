@@ -54,7 +54,7 @@ BEGIN
     WHERE IdTicket = P_IdTicket
 	ORDER BY IdTicketDetalle DESC LIMIT 1;
 
- RETURN  V_Estado;
+ RETURN  I_IdResponsable;
 END$
 
 CREATE  PROCEDURE HelpDesk_ActulizarUsuario(
@@ -159,6 +159,9 @@ BEGIN
 	 , USU.Correo 
 	 , USU.Contrasenia 
 	 , USU.Estado
+     , USU.Confirmacion
+     , USU.FechaCrea
+     , USU.FlgEliminado
 	FROM HelpDesk_Usuario USU  
 		INNER JOIN HelpDesk_Perfil PER  ON PER.IdPerfil = USU.IdPerfil
 		INNER JOIN HelpDesk_Area   ARE  ON ARE.IdArea   = USU.IdArea 
@@ -552,14 +555,15 @@ BEGIN
 **************************************************************/
 	DECLARE V_Query1 VARCHAR(1000);
     DECLARE V_Query2 VARCHAR(1000);
-	DECLARE V_Query VARCHAR(1000);
-    DECLARE V_QueryFinal VARCHAR(1000);
+	DECLARE V_Query VARCHAR(9999);
+    DECLARE V_QueryFinal VARCHAR(9999);
     
     SET V_Query1 = ' 
 		SELECT 
 			TIC.IdTicket 
 		  , CONCAT(''TK'', ''-'',  LPAD(TIC.IdTicket, 8, ''0'' )) AS CodTicket 
-          , COALESCE(CONCAT(USU.Nombre, '' '', USU.Apellidos), ''-'') AS Responsable
+          , COALESCE(CONCAT(RES.Nombre, '' '', RES.Apellidos), ''-'') AS Responsable
+		  , COALESCE(CONCAT(USU.Nombre, '' '', USU.Apellidos), ''-'') AS Cliente
 		  , COALESCE(ARE.Descripcion, ''-'') AS Area
           , DATE_FORMAT(TIC.FechaCrea,''%d/%m/%Y'') AS FechaCrea';
         
@@ -571,7 +575,10 @@ BEGIN
 		ELSE 
 		-- NECESARIO PARA LA VISTA DE T. I.
 			BEGIN
-				SET V_Query2 = CONCAT( V_Query1 , ', CASE WHEN fn_Get_EstadoTicket (TIC.IdTicket) =  ''ASIGNADO'' THEN  ''PENDIENTE'' ELSE fn_Get_EstadoTicket (TIC.IdTicket) END AS Estado');
+				SET V_Query2 = CONCAT( V_Query1 , ', CASE 
+														WHEN fn_Get_EstadoTicket (TIC.IdTicket) =  ''ASIGNADO'' THEN  ''PENDIENTE'' 
+                                                        WHEN fn_Get_EstadoTicket (TIC.IdTicket) =  ''PENDIENTE'' THEN  ''PROCESO'' 
+														ELSE fn_Get_EstadoTicket (TIC.IdTicket) END AS Estado');
             END;
 		END IF;
 		
@@ -582,6 +589,7 @@ BEGIN
 		, CONCAT(CAT.Descripcion, " ", PRO.Descripcion) AS Asunto
 		FROM HelpDesk_Ticket AS TIC			
 			LEFT JOIN HelpDesk_Usuario 			AS USU ON USU.IdUsuario 	= TIC.IdCliente
+            LEFT JOIN HelpDesk_Usuario 			AS RES ON RES.IdUsuario 	= fn_Get_ResponsableTicket (TIC.IdTicket)
 			LEFT JOIN HelpDesk_Area 			AS ARE ON ARE.IdArea 		= USU.IdArea
 			LEFT JOIN HelpDesk_Problema 		AS PRO ON PRO.IdProblema 	= TIC.IdProblema
 			LEFT JOIN HelpDesk_Categoria 		AS CAT ON CAT.IdCategoria 	= PRO.IdCategoria');
@@ -825,7 +833,7 @@ BEGIN
 **************************************************************/
     -- ! DECLARACION DE VARIABLES
     DECLARE V_MensajeError          VARCHAR(50) DEFAULT ''; 
-    DECLARE I_Item                  INT ;
+    DECLARE I_Item                  INT DEFAULT 1 ;
     DECLARE I_IdPrivilegioDetalle   INT;
 	DECLARE V_EstadoActual			VARCHAR(50);
     -- !OPCION DE LA TRANSACCION
@@ -892,7 +900,7 @@ BEGIN
             
             -- ! ELIMINA PRIVILEGIOS ANTERIOR
             DELETE FROM HelpDesk_PrivilegioDetalle WHERE IdUsuario = P_IdUsuario;
-
+			
             -- ! INSERTA NUEVOS PRIVILEGIOS
             WHILE (I_Item <= P_ItemXML) DO
             
@@ -904,9 +912,9 @@ BEGIN
                     IdPrivilegioDetalle, IdPrivilegio, IdUsuario, FechaCrea, FlgEliminado
                 )
                 VALUES (
-                    I_IdPrivilegioDetalle, ExtractValue(P_XML, '//IdPrivilegio[$I_Item]'), P_IdUsuario, NOW(), '0'
+                    I_IdPrivilegioDetalle, CAST(ExtractValue(P_XML, '//IdPrivilegio[$I_Item]') AS DECIMAL) , P_IdUsuario, NOW(), '0'
                 );
-
+				
                 SET I_Item  = I_Item + 1;
                 
             END WHILE;
