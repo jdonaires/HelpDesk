@@ -14,16 +14,22 @@
 		<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<script src="js/skel-panels.min.js"></script>
 		<script src="js/init.js"></script>
+		
 		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
+			
 			<link rel="stylesheet" href="css/style-desktop.css" />
 		</noscript>
+		<script src="js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="css/form.css" />
 		<link rel="shortcut icon" type="image/x-icon" href="images/logop.ico" />
+		<script src="js/paginator.min.js"></script>
 		<link rel="stylesheet" href="css/tabla.css">
+		
 		<!-- Smartsupp Live Chat script -->
 		<script type="text/javascript">
 		var _smartsupp = _smartsupp || {};
@@ -41,7 +47,7 @@
 			<div id="header">
 				<div class="container">
 						<div id="logo">
-							<h1> <img id="logoback" width="200px" src="images/logo.png"alt=""/><a id="logodesk" href="#"  style="color:#ffff;">Helpdesk</a></h1>
+							<h1> <img id="logoback" width="200px" src="images/logo.png" alt="" style="margin-top: -50px !important;"><a id="logodesk" href="#"  style="color:#ffff;">Helpdesk</a></h1>
 						</div>
 						<nav id="nav">
 							<ul>
@@ -70,8 +76,6 @@
 				</div>
 				<form role="form"  action="../pag/ver.php" method="POST">
 					<table class="table-fill" >
-						<div class="alert alert-info">
-						</div>
 					</br>
 					</br>
 					<thead>
@@ -107,6 +111,9 @@
 						?>
 					</tbody>
 				</table>
+				<div class="col-md-12 text-center">
+					<ul class="pagination" id="paginador"></ul>
+				</div>
 			</form>
 
 		</div>
@@ -118,3 +125,16 @@
 	</div>
 	</body>
 </html>
+<script>
+	$( document ).ready(function() {
+		paginador = $(".pagination");
+		var items = 2, numeros =4;	
+		init_paginator(paginador,items,numeros);
+		set_callback(get_data_callback);
+		cargaPagina(5);
+	});
+	function get_data_callback(){
+
+	}
+
+</script>
