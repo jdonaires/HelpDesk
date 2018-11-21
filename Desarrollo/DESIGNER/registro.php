@@ -157,7 +157,7 @@
 				NroCelular:$("#_celular").val(),
 				XML : "",
 				ItemXML: 0,
-				Estado = ""
+				Estado : ""
 			};
 			HelpDeskajaxPostSetProcess({
 				url: "../Helper/HelpDesk_Usuario.php",

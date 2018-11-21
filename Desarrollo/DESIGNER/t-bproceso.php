@@ -1,3 +1,9 @@
+<?php
+  $status = session_status();
+  if($status == PHP_SESSION_NONE){
+      session_start();
+  }
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -7,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>HelpDesk | Bandeja de salida</title>
+    <title>HelpDesk | Bandeja de proceso</title>
 	<link rel="stylesheet" href="css/tabla.css">
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -49,7 +55,6 @@
               <div class="profile_info">
                 <span>Bienvenido,</span>
                 <?php
-  							 	session_start();
   								echo('<h2>'.$_SESSION["UsuarioLogin"][0]["Nombre"].'</h2>');
   							?>
               </div>
@@ -77,14 +82,14 @@
                           <li>  <a href="https://dashboard.smartsupp.com/v2" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;">Mensajeria<span> </a>
                         </li>
                         </ul>
-                      </li>
-                    </ul>
                 </ul>
               </div>
 
 
             </div>
             <!-- /sidebar menu -->
+
+
           </div>
         </div>
 
@@ -126,7 +131,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                       <div class="x_panel">
                         <div class="x_title">
-                          <h2>Bandeja de salida</h2>
+                          <h2>Bandeja de proceso</h2>
                           <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
@@ -136,7 +141,9 @@
                             <thead>
                               <tr>
                                 <th class="text-left">N# Ticket</th>
+                                 <th class="text-left">Cod. Ticket</th>
                                 <th class="text-left">Fecha Creación</th>
+                                <th class="text-left">Cliente</th>
                                 <th class="text-left">Asunto</th>
                                 <th class="text-left">Prioridad</th>
                                 <th class="text-left">Area</th>
@@ -148,22 +155,25 @@
                             require_once '..\DAL\DBAccess.php';
                             $dba = new DBAccess();
                             $conn = $dba->Get_Connection();
-                            $statement = $conn->prepare("call spHelpDesk_GET_Ticket");
+                            
+                            $statement = $conn->prepare("call spHelpDesk_GET_TicketEstado('PROCESO',".$_SESSION["UsuarioLogin"][0]["IdUsuario"].");");
                             $statement->execute();
+                            $Item = 1;
                             while($row = $statement->fetch(PDO::FETCH_OBJ)){
                             echo'
 
                                   <tbody>
                                     <tr>
-                                    <td>'.$row->IdTicketDetalle.'</td>
-                                    <td>'.$row->FechaCrea.'</td>
-                                    <td>'.$row->Asunto.'</td>
-                                    <td>'.$row->Prioridad.'</td>
-                                    <td>'.$row->Area.'</td>
-                                    <td>'.$row->Estado.'</td>
-
-                                    <td><a href="#" IdTicketDetalle='.$row->IdTicketDetalle.'"><span class="fa fa-eye"> </a></td>
-                                  </tr>
+                                      <td>'.$Item ++.'</td>
+                                      <td>'.$row->CodTicket.'</td>
+                                      <td>'.$row->FechaCrea.'</td>
+                                      <td>'.$row->Cliente.'</td>
+                                      <td>'.$row->Asunto.'</td>
+                                      <td>'.$row->Prioridad.'</td>
+                                      <td>'.$row->Area.'</td>
+                                      <td>'.$row->Estado.'</td>
+                                      <td><a href="#" IdTicketDetalle='.$row->IdTicket.'"><span class="fa fa-eye"> </a></td>
+                                    </tr>
 
                                   </tbody>';
                                   }

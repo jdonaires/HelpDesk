@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	require_once '..\DAO\HelpDesk_CategoriaDAO.php';
 	$HelpDesk_CategoriaDAO = new HelpDesk_CategoriaDAO();
 	$result = $HelpDesk_CategoriaDAO->GET_Categoria();
@@ -28,7 +28,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="images/logop.ico" />
 		<script type="text/javascript">
 		var _smartsupp = _smartsupp || {};
-		_smartsupp.key = '10e046a39fea2ca7b4867a0023f300d0f5dde264';
+		_smartsupp.key = '854e8cbddf22d3d004589f79e9765c9e86ddaaaa';
 		window.smartsupp||(function(d) {
 			var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
 			s=d.getElementsByTagName('script')[0];c=d.createElement('script');
@@ -72,6 +72,11 @@
 				</div>
 				<div class="forma"  style="width:90%;">
 					<form action="action_page.php">
+						<?php
+							session_start();
+							echo('<input class="form" type="hidden" id="IdUsuario" name="IdTicketDetalle" value="'.$_SESSION["UsuarioLogin"][0]["IdUsuario"].'" readonly="readonly">');
+						?>
+						
 						<label for="country">Categoria</label>
 						<select class="form" id="_categoria" name="_categoria">
 							<option value="0">Seleccione..</option>
@@ -151,9 +156,16 @@
 			var data = {
 				Opcion: "I" ,
 				IdTicket: 0,
+				IdCliente:$("#IdUsuario").val(),
 				IdProblema: $("#_problema").val(),
-				Descripcion: $("#_detalle").val(),
 				Asunto: $("#_asunto").val(),
+				Descripcion: $("#_detalle").val(),
+				IdResponsable: 0,
+				IdSoporte: 0,
+				IdProblema_R: 0,
+				Asunto_R:"",
+				Respuesta:"",
+				NivelAtencion:0
 			};
 			HelpDeskajaxPostSetProcess({
 				url: "../Helper/HelpDesk_Ticket.php",
@@ -162,7 +174,6 @@
 				invokefunction:navigationPage
 			});
 		};
-
 	});
 
 	function navigationPage(){

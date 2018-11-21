@@ -8,8 +8,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>HelpDesk | Detalle usuario</title>
-		<link rel="stylesheet" href="css/tabla.css">
+
+		    <title>HelpDesk | Detalle usuario</title>
+  	<link rel="stylesheet" href="css/tabla.css">
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -25,12 +26,13 @@
     <link href="vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
     <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
-		<script src="js/helpdesk_main.js"></script>
-		<script src="js/sweetalert.min.js"></script>
+    <script src="js/sweetalert.min.js"></script>
 		<link href="css/sweetalert.css" rel="stylesheet" />
+    <script src="js/helpdesk_main.js"  ></script>
   </head>
 
   <body class="nav-md">
@@ -64,45 +66,48 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 							<div class="menu_section">
-								<h3>General</h3>
-								<ul class="nav side-menu">
-									<li><a><i class="fa fa-envelope"></i>Bandeja<span class="fa fa-chevron-down"></span></a>
-										<ul class="nav child_menu">
-											<li><a href="a-bentrada.php">Entrada</a></li>
-											<li><a href="a-bproceso.php">Proceso</a></li>
-											<li><a href="a-bvalidez.php">Validez</a></li>
-											<li><a href="a-bsalida.php">Salida</a></li>
-										</ul>
-									</li></ul>
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-envelope"></i>Bandeja<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="a-bentrada.php">Entrada</a></li>
+                      <li><a href="a-basignados.php">Asignados</a></li>
+                      <li><a href="a-bproceso.php">Proceso</a></li>
+                      <li><a href="a-bvalidez.php">Validez</a></li>
+                      <li><a href="a-bsalida.php">Salida</a></li>
+                    </ul>
+                  </li></ul>
 
-								<ul class="nav side-menu">
-									<li><a><i class="fa fa-user"></i> Administrar Datos <span class="fa fa-chevron-down"></span></a>
-										<ul class="nav child_menu">
-											<li><a href="a-contnuevoc.php">Control Nuevos</a></li>
-											<li><a href="a-contadmin.php">Control Admistradores</a></li>
-											<li><a href="a-contcliente.php">Control Clientes</a></li>
-											<li><a href="a-contti.php">Control Soporte TI</a></li>
-										</ul>
-									</li></ul>
 
-										<ul class="nav side-menu">
-											<li><a><i class="fa fa-dashboard"></i>Dashboard<span class="fa fa-chevron-down"></span></a>
-												<ul class="nav child_menu">
-													<li><a href="#">Abrir</a></li>
-												</ul>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-user"></i> Administrar Datos <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="a-contnuevoc.php">Control Nuevos</a></li>
+                      <li><a href="a-contadmin.php">Control Admistradores</a></li>
+                      <li><a href="a-contcliente.php">Control Clientes</a></li>
+                      <li><a href="a-contti.php">Control Soporte TI</a></li>
+                    </ul>
+                  </li></ul>
 
-											</li>
-								</ul>
+                    <ul class="nav side-menu">
+                      <li><a><i class="fa fa-dashboard"></i>Dashboard<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                          <li><a href="#">Abrir</a></li>
+                        </ul>
 
-								<ul class="nav side-menu">
-									<li><a><i class="fa fa-comment"></i>Contacto<span class="fa fa-chevron-down"></span></a>
-										<ul class="nav child_menu">
-											<li>  <a href="https://dashboard.smartsupp.com/v2" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;">Mensajeria<span> </a>
-										</li>
-										</ul>
-									</li>
-										</ul>
-							</div>
+                      </li>
+                </ul>
+
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-comment"></i>Contacto<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li>  <a href="https://dashboard.smartsupp.com/v2" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;">Mensajeria<span> </a>
+                    </li>
+                    </ul>
+                  </li>
+                    </ul>
+
+              </div>
             </div>
             <!-- /sidebar menu -->
           </div>
@@ -147,97 +152,124 @@
 						<div class="col-md-12 col-sm-12 col-xs-12">
 							<div class="x_panel">
 								<div class="x_title">
-									<h2>Detalle de usuario</h2>
+									<h2>Detalle de Ticket</h2>
 									<div class="clearfix"></div>
 								</div>
 								<div class="x_content">
 									<br />
-										<form role="form"  action="../pag/ver.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+										<form <form action="../BOL/DTicUp.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+                      <?php
+                        echo('<input class="form" type="hidden" id="IdAdmin" name="IdAdmin" value="'.$_SESSION["UsuarioLogin"][0]["IdUsuario"].'"readonly="readonly">');
+
+                      ?>
+
 											<?php
+
 											require_once '..\DAL\DBAccess.php';
-											$idUsuario=$_GET['IdUsuario'];
+											$idTicket=$_GET['IdTicket'];
 											$dba = new DBAccess();
 											$conn = $dba->Get_Connection();
-											$stmt = $conn->prepare("call spHelpDesk_GET_ConsultaUsu('$idUsuario');");
-											$stmt->execute();
-											while($row = $stmt->fetch(PDO::FETCH_OBJ)){
-											echo'
-										<input type="text" value="'.$idUsuario.'" style="display:none;" id="userid"/>
+                      $stmt = $conn->prepare("call helpdesk_2018.spHelpDesk_Det_AsigTicket($idTicket);");
+          						$stmt->execute();
+          						while($row = $stmt->fetch(PDO::FETCH_OBJ)){
+          						echo
+          						'
+
+                      <input class="form" type="hidden" id="IdTicketDetalle" name="IdTicketDetalle" value="'.$row->IdTicket.'" readonly="readonly">
+
 										<div class="form-group">
-											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombres y Apellidos
+											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tipo
 											</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input type="text" readonly="readonly" id="first-name" value="'.$row->Nombre.' '.$row->Apellidos.'" class="form-control col-md-7 col-xs-12">
+												<input type="text" readonly="readonly" id="1"  name="Tipo" value="'.$row->Tipo.'" class="form-control col-md-7 col-xs-12">
+											</div>
+										</div>
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Descripcion
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <textarea id="2" name="subject"  readonly="readonly"  class="form-control col-md-7 col-xs-12">'.$row->Descripcion.'</textarea>
+                      </div>
+                    </div>
+
+										<div class="form-group">
+											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Asunto
+											</label>
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<input type="text" readonly="readonly" id="3" name="Asunto" value="'.$row->Asunto.'" class="form-control col-md-7 col-xs-12">
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Correo
-											</label>
+											<label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Area</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input type="text" readonly="readonly" id="last-name" name="last-name" value="'.$row->Correo.'" class="form-control col-md-7 col-xs-12">
+												<input id="4" readonly="readonly" class="form-control col-md-7 col-xs-12"  name="Area" value="'.$row->Area.'" type="text" name="middle-name">
 											</div>
 										</div>
 										<div class="form-group">
-											<label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Celular</label>
-											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input id="middle-name" readonly="readonly" class="form-control col-md-7 col-xs-12" value="'.$row->NroCelular.'" type="text" name="middle-name">
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-md-3 col-sm-3 col-xs-12">Perfil
+											<label class="control-label col-md-3 col-sm-3 col-xs-12">Prioridad
 											</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input id="birthday" readonly="readonly" value="'.$row->Perfil.'"   class="date-picker form-control col-md-7 col-xs-12" type="text">
+												<input id="5" readonly="readonly" name="Prioridad" value="'.$row->Prioridad.'"   class="date-picker form-control col-md-7 col-xs-12" type="text">
+											</div>
+										</div>
+
+        
+
+                    <div class="form-group">
+											<label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha de creacion
+											</label>
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<input id="6" readonly="readonly" name="FechaCrea" value="'.$row->FechaCrea.'" class="date-picker form-control col-md-7 col-xs-12" type="text">
 											</div>
 										</div>
 
 										<div class="form-group">
-											<label class="control-label col-md-3 col-sm-3 col-xs-12">Área
+											<label class="control-label col-md-3 col-sm-3 col-xs-12">Fecha estimada de resolucion
 											</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input id="birthday" readonly="readonly" value="'.$row->Area.'" class="date-picker form-control col-md-7 col-xs-12" type="text">
+												<input id="6" readonly="readonly" name="FechaEstimacion" value="'.$row->FechaEstimacion.'" class="date-picker form-control col-md-7 col-xs-12" type="text">
 											</div>
 										</div>
 
-										<div class="form-group">
-											<label class="control-label col-md-3 col-sm-3 col-xs-12">Estado
-											</label>
-											<div class="col-md-6 col-sm-6 col-xs-12">
-												<input id="birthday" readonly="readonly" value="'.$row->Estado.'" class="date-picker form-control col-md-7 col-xs-12" type="text">
-											</div>
-										</div>
-										<div class="x_title">
-											<h2>Cambiar estado de cuenta</h2>
-											<div class="clearfix"></div>
-										</div>
+                    ';}
+                    ?>
+                    <?php
+                    $stmt = $conn->prepare("select * from HelpDesk_Usuario where IdPerfil=2 and UPPER(Estado)='ACTIVO';");
+                    $stmt->execute();
+                    ?>
 
-										<div class="form-group">
-										<label class="control-label col-md-3 col-sm-3 col-xs-12">Seleccionar</label>
-										<div class="col-md-6 col-sm-6 col-xs-12">
-											<select class="form-control" id="selectEstado">
-												<option>Activo</option>
-												<option>Inactivo</option>
-												<option>Eliminado</option>
-											</select>
-									</div>
-								</div>
+                    <div class="form-group">
+                  	<label class="control-label col-md-3 col-sm-3 col-xs-12">Seleccionar Encargado</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                    <select  class="form-control" id="Asignar" name="Asignar">
+                    <?php
+                      while($row = $stmt->fetch(PDO::FETCH_OBJ)){
+                        ?>
+                          <option value="<?php echo $row->IdUsuario ?>"><?php echo $row->Nombre ?> </option>
+
+
+                          <?php
+                      }
+                        ?>
+                    </select>
 
 
 										<div class="ln_solid"></div>
 										<div class="form-group">
 											<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 											<input class="btn btn-primary" type="button" value="Volver" id="_btnVolver">
-											<input class="btn btn-success" type="button" value="Guardar cambios" id="_registrar">
-											<input class="btn btn-success" type="button" value="Asignar Privilegios" id="_asignarPrivilegio" data-toggle="modal" data-target="#myModal">
+											<input class="btn btn-success"  type="button" value="Aceptar Ticket" name="Actualizar" id="_Enviar">
+
 											</div>
 										</div>
 
-									</form>';}
-									?>
+									</form>
 
 								</div>
 							</div>
 						</div>
+
 
 					<!-- Nav -->
 						<nav id="nav">
@@ -274,35 +306,7 @@
 
       </div>
     </div>
-		<div id="myModal" class="modal fade" role="dialog">
-			<div class="modal-dialog">
 
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Asignación de Privilegio</h4>
-					</div>
-					<div class="modal-body">
-						<table class="table-fill" >
-						<thead>
-							<tr>
-								<th class="text-left"># </th>
-								<th class="text-left">Privilegio</th>
-								<th class="text-left" style="width: 12%;">Asignar</th>
-							</tr>
-						</thead>
-						<tbody class="table-hover">
-						</tbody>
-						</table>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal" id="btnCloseModal">Cerrar</button>
-					</div>
-				</div>
-
-			</div>
-		</div>
     <!-- jQuery -->
     <script src="vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -348,69 +352,35 @@
 </html>
 </style>
 <script>
-	var STR_XML;
-	var I_ITEMCOUNT;
-	$("#_btnVolver").click(function(){
-		location.href="a-bentrada.php" ;
-	});
+$("#_btnVolver").click(function(){
+  location.href="a-bentrada.php" ;
+});
 
-	$("#_asignarPrivilegio").click(function(){
-		var data = {
-			IdUsuario: $("#userid").val(),
-		};
-		$.ajax({
-			url: "../Helper/HelpDesk_Privilegio.php",
-			data: { "GET_Privilegios": JSON.stringify(data)},
-			type: "POST",
-			async: true,
-			datatype: "html",
-			success: function (data) {
-				var Item = 1;
-				$(".table-fill > tbody").html("");
-				 $.each($.parseJSON(data), function (index, item) {
-            $(".table-fill").append('<tr class="tablePro"><td style="display: none;">'+ item.IdPrivilegio +'</td><td>' + Item++ + '</td><td>' + item.Descripcion + '</td><td style="text-align: center;"> <input type="checkbox" id="cbox2" value="second_checkbox"> </td></tr>');
-        });
-			},
-		});
-	});
-
-	$("#btnCloseModal").click(function(){
-		STR_XML = "";  I_ITEMCOUNT = 0;
-		var tbody = $("table.table-fill").find('tbody');
-		$.each($(tbody).find('tr'), function (index, element) {
-				if($(element).find('td input#cbox2').is(':checked')){
-					STR_XML += '<IdPrivilegio>' + $(element).find('td:nth-child(1)').text() + '</IdPrivilegio>';
-					I_ITEMCOUNT++;
-				}
-		});
-	});
-
-	$("#_registrar").click(function(){
+// GUARDA DATOS DE TICKET
+	$("#_Enviar").click(function(){
 			var data = {
 				Opcion: "A" ,
-				IdUsuario: $("#userid").val(),
-				IdPerfil: 0,
-				IdArea: 0,
-				Nombre: "",
-				Apellidos: "",
-				Correo: "",
-				Contrasenia: "",
-				NroCelular: "",
-				XML : STR_XML,
-				ItemXML: I_ITEMCOUNT,
-				Estado: $("#selectEstado").val()
+				IdTicket: $("#IdTicketDetalle").val() ,
+				IdCliente:0,
+				IdProblema: 0,
+				Asunto: "",
+				Descripcion: "",
+				IdResponsable: $("#IdAdmin").val(),
+				IdSoporte: $("#Asignar").val(),
+				IdProblema_R: 0,
+				Asunto_R:"",
+				Respuesta:"",
+				NivelAtencion:0
 			};
-
 			HelpDeskajaxPostSetProcess({
-				url: "../Helper/HelpDesk_Usuario.php",
-				data: { "SET_Usuario": JSON.stringify(data)},
-				title: "Registro de Usuario",
-				isWarning:true,
-				invokefunction:NavigationView
+				url: "../Helper/HelpDesk_Ticket.php",
+				data: { "SET_Ticket": JSON.stringify(data)},
+				title: "Help Desk",
+				invokefunction:navigationPage
 			});
-	});
-	function NavigationView(){
-		location.href="a-contnuevoc.php";
-	}
-
+  });
+  
+  function navigationPage(){
+    window.location='a-bentrada.php'
+  }
 </script>

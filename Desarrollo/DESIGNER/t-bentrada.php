@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>HelpDesk | Bandeja de proceso</title>
+    <title>HelpDesk | Bandeja de entrada</title>
 	<link rel="stylesheet" href="css/tabla.css">
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +29,7 @@
     <link href="build/css/custom.min.css" rel="stylesheet">
   </head>
 
-  <body class="nav-md">
+  <body class="nav-md" method="POST">
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -44,7 +44,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/user.png" alt="..." class="img-circle profile_img">
+              <img src="images/user.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
@@ -70,21 +70,24 @@
                         <li><a href="t-bproceso.php">Proceso</a></li>
                         <li><a href="t-bsalida.php">Salida</a></li>
                       </ul>
-                    </li>
-                    <ul class="nav side-menu">
-                      <li><a><i class="fa fa-comment"></i>Contacto<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                          <li>  <a href="https://dashboard.smartsupp.com/v2" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;">Mensajeria<span> </a>
                         </li>
-                        </ul>
                 </ul>
+
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-comment"></i>Contacto<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li>  <a href="https://dashboard.smartsupp.com/v2" target="_blank" onclick="window.open(this.href,this.target,"width=400,height=150,top=200,left=200,toolbar=no,location=no,status=no,menubar=no");return false;">Mensajeria<span> </a>
+                    </li>
+                    </ul>
+                  </li>
+                    </ul>
+
+
               </div>
 
 
             </div>
             <!-- /sidebar menu -->
-
-
           </div>
         </div>
 
@@ -106,9 +109,9 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="t-miperfil.php">Mi perfil</a></li>
-                    <li><a href="#">Cambiar de contraseña</a></li>
-                  <li><a href="salir.php"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesion</a></li>
+                      <li><a href="t-miperfil.php">Mi perfil</a></li>
+                      <li><a href="#">Cambiar de contraseña</a></li>
+                    <li><a href="salir.php"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesion</a></li>
                   </ul>
                 </li>
 
@@ -126,7 +129,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                       <div class="x_panel">
                         <div class="x_title">
-                          <h2>Bandeja de proceso</h2>
+                          <h2>Bandeja de entrada</h2>
                           <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
@@ -135,8 +138,10 @@
                           <table class="table">
                             <thead>
                               <tr>
-                                <th class="text-left">N# Ticket</th>
+                                <th class="text-left">N#</th>
+                                 <th class="text-left">Cod Ticket</th>
                                 <th class="text-left">Fecha Creación</th>
+                                <th class="text-left">Cliente</th>
                                 <th class="text-left">Asunto</th>
                                 <th class="text-left">Prioridad</th>
                                 <th class="text-left">Area</th>
@@ -145,24 +150,30 @@
                               </tr>
                             </thead>
                             <?php
+                            $id=$_SESSION["UsuarioLogin"][0]["IdUsuario"];
+
                             require_once '..\DAL\DBAccess.php';
                             $dba = new DBAccess();
                             $conn = $dba->Get_Connection();
-                            $statement = $conn->prepare("call spHelpDesk_GET_Ticket");
+                            $statement = $conn->prepare("call spHelpDesk_GET_TicketEstado('ASIGNADO','$id');");
                             $statement->execute();
+                            $Item = 1;
                             while($row = $statement->fetch(PDO::FETCH_OBJ)){
                             echo'
 
                                   <tbody>
                                     <tr>
-                                    <td>'.$row->IdTicketDetalle.'</td>
+                                    <td style="display:none;">'.$row->IdTicket.'</td>
+                                    <td>'.$Item++.'</td>
+                                    <td>'.$row->CodTicket.'</td>
                                     <td>'.$row->FechaCrea.'</td>
+                                    <td>'.$row->Cliente.'</td>
                                     <td>'.$row->Asunto.'</td>
                                     <td>'.$row->Prioridad.'</td>
                                     <td>'.$row->Area.'</td>
                                     <td>'.$row->Estado.'</td>
 
-                                    <td><a href="#" IdTicketDetalle='.$row->IdTicketDetalle.'"><span class="fa fa-eye"> </a></td>
+                                    <td><a href="t-tikdet.php?IdTicketDetalle='.$row->IdTicket.'"><span class="fa fa-eye"> </a></td>
                                   </tr>
 
                                   </tbody>';
@@ -173,12 +184,15 @@
                         </div>
                       </div>
                     </div></div>
+
               </div>
             </div>
           </div>
         </div>
 
         <footer>
+
+          </div>
           <div class="clearfix"></div>
         </footer>
 
