@@ -390,7 +390,9 @@ BEGIN
     
      IF(P_Opcion = 'GET_Privilegio') THEN
 		BEGIN
-			SELECT * FROM HelpDesk_Privilegio;
+			SELECT PRI.* FROM HelpDesk_Privilegio PRI
+				INNER JOIN HelpDesk_Usuario USU ON USU.IdPerfil = PRI.IdPerfil
+			WHERE USU.IdUsuario = P_ParametroId;
         END;
 	END IF;
     
