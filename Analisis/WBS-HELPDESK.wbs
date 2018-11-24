@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 
 <project version="5">
-	<proj ListSeperator="," DefaultDurationUnits="days" DefaultWorkUnits="hours" HoursPerDay="8" HoursPerWeek="40" DaysPerMonth="21.75" ScheduleDisplay="automatic" DefaultStartTime="08:00" DefaultFinishTime="17:00" NADate="" uimode="normal" lockwbs="yes" CalendarUID="0" NavigatorCodes="long" projUID="R034R047RCPA">
+	<proj ListSeperator=";" DefaultDurationUnits="days" DefaultWorkUnits="hours" HoursPerDay="8" HoursPerWeek="40" DaysPerMonth="21.75" ScheduleDisplay="automatic" DefaultStartTime="08:00" DefaultFinishTime="17:00" NADate="" uimode="normal" lockwbs="yes" CalendarUID="0" NavigatorCodes="long" projUID="R034R047RCPA">
 		<calendar name="Standard" uid="0" baseuid="-1">
 			<normalhours s1="08:00" f1="12:00" s2="13:00" f2="17:00"/>
 			<dow day="sun" working="no"/>
@@ -32,7 +32,7 @@
 			<dow day="fri" working="yes"/>
 			<dow day="sat" working="yes"/>
 		</calendar>
-		<currency symbol="S/." digits="2" positiveOrder="2" negativeOrder="12"/>
+		<currency symbol="S/." digits="2" positiveOrder="2" negativeOrder="8"/>
 		<summary ScheduleFromStart="yes" CalculateCostProgress="yes" MultipleCriticalPaths="no" CriticalSlack="0d" Progress="normal" Name="WBS_proyectpo" Calendar="Standard" Title="WBS_proyectpo" Work="1h" Duration="65d" Start="2018-09-01T08:00" Finish="2018-11-22T17:00"/>
 		<valuelist name="WBS" restrict="no" append="no" autosuffix="yes">
 			<item value="1" desc="Help Desk"/>
@@ -69,7 +69,17 @@
 		<valuelist name="Outline Code10" restrict="no" append="yes" autosuffix="no">
 		</valuelist>
 		<groupspec>
-			<outline current="52"/>
+			<outline current="51">
+				<collapse uid="2"/>
+				<collapse uid="3"/>
+				<collapse uid="4"/>
+				<collapse uid="24"/>
+				<collapse uid="10"/>
+				<collapse uid="11"/>
+				<collapse uid="61"/>
+				<collapse uid="59"/>
+				<collapse uid="5"/>
+			</outline>
 		</groupspec>
 		<tasks>
 			<task ID="0" UniqueID="0" OutlineLevel="0" WBS="0" Name="WBS_proyectpo" Work="1h" WorkVariance="1h" RemainingWork="1h" Duration="65d" DurationVariance="65d" RemainingDuration="65d" Start="2018-08-24T08:00" Finish="2018-11-22T17:00" EarlyStart="2018-08-24T08:00" EarlyFinish="2018-11-22T17:00" LateStart="2018-11-05T08:00" LateFinish="2018-11-22T17:00" Critical="yes" Summary="yes"/>
@@ -3005,7 +3015,7 @@
 </wbs_diff>
 
 		</wbs_view>
-		<wbs_view id="WBS Planning View Detailed" pagelayout="WBS Chart Page Layout" borderpolicy="outlinelevel" borderfillpolicy="outlinelevel" bordershadowpolicy="outlinelevel">
+		<wbs_view id="WBS Planning View Detailed" pagelayout="WBS Chart Page Layout" zoomlevel="95" borderpolicy="outlinelevel" borderfillpolicy="outlinelevel" bordershadowpolicy="outlinelevel" field="Duration">
 			<connector>
 				<line id="in" width="1.5pt"/>
 				<line id="out" width="1.5pt"/>
@@ -3173,9 +3183,76 @@
 </wbs_diff>
 
 		</wbs_view>
+		<wbs_view id="WBS Chart with WBS Codes" pagelayout="WBS Chart Page Layout" borderpolicy="outlinelevel" borderfillpolicy="outlinelevel" bordershadowpolicy="outlinelevel">
+			<connector crstyle="curve">
+				<line id="in" width="1.5pt"/>
+				<line id="out" width="1.5pt"/>
+				<line id="common" width="1.5pt"/>
+			</connector>
+			<item id="summary" drop="21.6pt" before="14.4pt"/>
+			<item id="task" before="14.4pt" listmode="stemleft"/>
+			<border id="Critical Task" shdir="bottom_right" shdepth="4.5pt" bkcolor="lightyellow"/>
+			<border id="Critical Milestone" shdir="bottom_right" shdepth="4.5pt" bkcolor="lightyellow"/>
+			<border id="Critical Summary" shdir="bottom_right" shdepth="4.5pt" bkcolor="lightyellow"/>
+			<border id="Noncritical Task" shdir="bottom_right" shdepth="4.5pt" bkcolor="lightyellow"/>
+			<border id="Noncritical Milestone" shdir="bottom_right" shdepth="4.5pt" bkcolor="lightyellow"/>
+			<border id="Noncritical Summary" shdir="bottom_right" shdepth="4.5pt" bkcolor="lightyellow"/>
+			<border id="External Task" shdir="bottom_right" shdepth="4.5pt" bkcolor="lightyellow"/>
+			<border id="Level 0 (Project Summary)" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 1 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 1 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 2 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 2 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 3 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 3 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 4 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 4 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 5 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 5 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 6 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 6 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 7 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 7 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 8 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 8 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 9 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 9 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 10 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 10 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 11 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 11 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 12 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 12 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 13 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 13 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 14 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 14 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 15 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 15 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 16 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 16 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 17 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 17 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 18 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 18 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 19 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 19 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 20 Summary" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<border id="Level 20 Task" shape="curved_rect" shdir="bottom_right" shdepth="3pt" shcolor="dimgray" bkcolor="#BDFDBD"/>
+			<grid id="summary" rows="1" cols="2">
+				<row>
+					<cell field="WBS" font-size="11pt" bold="yes" color="red" lafter="yes" left_p="3.6pt" right_p="3.6pt" top_p="4.3pt" bottom_p="4.3pt" charlen="25"/>
+					<cell field="Name" format="1" type="wraptext" halign="left" font-size="11pt" bold="yes" left_p="0pt" right_p="3.6pt" top_p="4.3pt" bottom_p="4.3pt" charlen="25"/>
+				</row>
+			</grid>
+			<grid id="task" rows="1" cols="2">
+				<row>
+					<cell field="WBS" font-size="11pt" bold="yes" color="red" lafter="yes" left_p="3.6pt" right_p="3.6pt" top_p="4.3pt" bottom_p="4.3pt" charlen="25"/>
+					<cell field="Name" format="1" type="wraptext" halign="left" font-size="11pt" bold="yes" left_p="0pt" right_p="3.6pt" top_p="4.3pt" bottom_p="4.3pt" charlen="25"/>
+				</row>
+			</grid>
+			<groupspec>
+			</groupspec>
+		</wbs_view>
 	</views>
-	<baseline id="rollup">
-	</baseline>
-	<baseline id="full">
-	</baseline>
 </project>
