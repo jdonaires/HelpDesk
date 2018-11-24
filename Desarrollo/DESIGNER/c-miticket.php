@@ -81,13 +81,13 @@
 					<thead>
 						<tr>
 							<th class="text-left"># </th>
-							<th class="text-left">N# Ticket</th>
+							<th class="text-left" style="width: 200px;">N# Ticket</th>
 							<th class="text-left">Fecha Creado</th>
 							<th class="text-left">Asunto</th>
 							<th class="text-left">Prioridad</th>
-							<th class="text-left">Asignado a</th>
-							<th class="text-left">Fecha Estimada</th>
-							<th class="text-left">Estado</th>
+							<th class="text-left" style="width: 600px;">Asignado a</th>
+							<th class="text-left" style="width: 150px;">Fecha Estimada</th>
+							<th class="text-left" style="width: 250px;">Estado</th>
 						</tr>
 					</thead>
 					<tbody class="table-hover">
@@ -97,13 +97,13 @@
 								echo('
 								<tr>
 								<td>'.$items.'</td>
-								<td>'.$item["CodTicket"].'</td>
+								<td style="width: 200px;">'.$item["CodTicket"].'</td>
 								<td>'.$item["FechaCrea"].'</td>
 								<td>'.$item["Asunto"].'</td>
 								<td>'.$item["Prioridad"].'</td>
-								<td>'.$item["Responsable"].'</td>
-								<td>'.$item["FechaEstimacion"].'</td>
-								<td>'.$item["Estado"].'</td>
+								<td style="width: 600px;">'.$item["Responsable"].'</td>
+								<td style="width: 150px;">'.$item["FechaEstimacion"].'</td>
+								<td style="width: 250px;">'.$item["Estado"].'</td>
 								</tr>
 								');
 								$items = $items + 1;

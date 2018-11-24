@@ -1,5 +1,9 @@
 USE HelpDesk_2018;
 
+
+ALTER TABLE helpdesk_2018.helpdesk_problema 
+CHANGE COLUMN `FechaEstimacion` `FechaEstimacion` INT NULL DEFAULT NULL COMMENT '' ;
+
 DROP FUNCTION IF EXISTS fn_Get_EstadoTicket;
 DROP FUNCTION IF EXISTS fn_Get_ResponsableTicket;
 DROP PROCEDURE IF EXISTS HelpDesk_ActulizarUsuario;
@@ -203,7 +207,7 @@ BEGIN
 	, COALESCE(fn_Get_EstadoTicket (TIC.IdTicket), 'SIN ASIGNAR') AS Estado
 	, PRO.Descripcion
 	, PRO.Prioridad
-	, PRO.FechaEstimacion
+	, DATE_ADD(FechaCrea, INTERVAL PRO.FechaEstimacion DAY)  AS FechaEstimacion
 	, CONCAT(CAT.Descripcion, " ", PRO.Descripcion) AS Asunto
 	FROM HelpDesk_Ticket AS TIC
 		LEFT JOIN HelpDesk_TicketDetalle 	AS TID ON TID.IdTicket 		= TIC.IdTicket		
@@ -227,7 +231,7 @@ BEGIN
 		ARE.Descripcion as Area,
 		TIC.FechaCrea,
 		PRO.Prioridad,
-		PRO.FechaEstimacion,
+		DATE_ADD(FechaCrea, INTERVAL PRO.FechaEstimacion DAY)  AS FechaEstimacion,
 		CONCAT(CAT.Tipo," ",PRO.Descripcion) AS Asunto
 		FROM HelpDesk_Ticket as TIC
 			INNER JOIN HelpDesk_Usuario 	AS US  ON US.IdUsuario 		= TIC.IdCliente
@@ -250,7 +254,7 @@ BEGIN
 		TIC.FechaCrea,
         USA.Nombre,
 		PRO.Prioridad,
-		PRO.FechaEstimacion,
+		DATE_ADD(TIC.FechaCrea, INTERVAL PRO.FechaEstimacion DAY)  AS FechaEstimacion,
 		CONCAT(CAT.Tipo," ",PRO.Descripcion) AS Asunto
 		FROM HelpDesk_Ticket as TIC
 			INNER JOIN HelpDesk_TicketDetalle 	AS TID 	ON TID.IdTicket 	= TIC.IdTicket
@@ -313,7 +317,7 @@ BEGIN
 					, PRO.IdCategoria
 					, PRO.Descripcion 
 					, PRO.Prioridad
-					, PRO.FechaEstimacion
+					, PRO.FechaEstimacion 
 					, CAT.Descripcion  + ' ' + PRO.Descripcion AS 'Asunto'
 			FROM HelpDesk_Problema PRO
 				INNER JOIN HelpDesk_Categoria CAT ON CAT.IdCategoria = PRO.IdCategoria
@@ -370,7 +374,7 @@ BEGIN
 			, COALESCE(TID.Estado, 'SIN ASIGNAR') AS Estado
 			, PRO.Descripcion
 			, PRO.Prioridad
-			, PRO.FechaEstimacion
+			, DATE_ADD(TIC.FechaCrea, INTERVAL PRO.FechaEstimacion DAY)  AS FechaEstimacion
 			, CONCAT(CAT.Descripcion, " ", PRO.Descripcion) AS Asunto
 			FROM HelpDesk_Ticket AS TIC
 				LEFT JOIN (
@@ -484,7 +488,7 @@ SELECT
 	TID.Estado,
 	TIC.FechaCrea,
 	PRO.Prioridad,
-	PRO.FechaEstimacion,
+	DATE_ADD(TIC.FechaCrea, INTERVAL PRO.FechaEstimacion DAY)  AS FechaEstimacion,
 		concat(CAT.Tipo," ",PRO.Descripcion) AS Asunto
 	FROM HelpDesk_Ticket as TIC
 	INNER JOIN HelpDesk_TicketDetalle as TID ON TID.IdTicket= TIC.IdTicket
@@ -533,7 +537,7 @@ SELECT
 	TIC.FechaCrea,
 	PRO.Descripcion,
 	PRO.Prioridad,
-	PRO.FechaEstimacion,
+	DATE_ADD(TIC.FechaCrea, INTERVAL PRO.FechaEstimacion DAY)  AS FechaEstimacion,
 		concat(CAT.Descripcion," ",PRO.Descripcion) AS Asunto
 	FROM HelpDesk_Ticket as TIC
 	INNER JOIN HelpDesk_TicketDetalle as TID ON TID.IdTicket= TIC.IdTicket
@@ -587,7 +591,7 @@ BEGIN
 	SET V_Query = CONCAT(V_Query2, ' 
 		, PRO.Descripcion
 		, PRO.Prioridad
-		, PRO.FechaEstimacion
+		, DATE_ADD(TIC.FechaCrea, INTERVAL PRO.FechaEstimacion DAY)  AS FechaEstimacion
 		, CONCAT(CAT.Descripcion, " ", PRO.Descripcion) AS Asunto
 		FROM HelpDesk_Ticket AS TIC			
 			LEFT JOIN HelpDesk_Usuario 			AS USU ON USU.IdUsuario 	= TIC.IdCliente
@@ -975,7 +979,7 @@ SELECT
 	TID.Estado,
 	TIC.FechaCrea,
 	PRO.Prioridad,
-	PRO.FechaEstimacion,
+	DATE_ADD(TIC.FechaCrea, INTERVAL PRO.FechaEstimacion DAY)  AS FechaEstimacion,
 		concat(CAT.Tipo," ",PRO.Descripcion) AS Asunto
 	FROM HelpDesk_Ticket as TIC
 	INNER JOIN HelpDesk_TicketDetalle as TID ON TID.IdTicket= TIC.IdTicket

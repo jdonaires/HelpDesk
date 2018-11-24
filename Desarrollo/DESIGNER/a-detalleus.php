@@ -152,7 +152,7 @@
 								</div>
 								<div class="x_content">
 									<br />
-										<form role="form"  action="../pag/ver.php" method="POST" data-parsley-validate class="form-horizontal form-label-left">
+										<form role="form"  method="POST" data-parsley-validate class="form-horizontal form-label-left">
 											<?php
 											require_once '..\DAL\DBAccess.php';
 											$idUsuario=$_GET['IdUsuario'];
@@ -229,9 +229,9 @@
 												<input class="btn btn-primary" type="button" value="Volver" id="_btnVolver">
 												<input class="btn btn-success" type="button" value="Guardar cambios" id="_registrar">';
 												
-												if(strtoupper($row->Perfil) != "CLIENTE"){
+												/*if(strtoupper($row->Perfil) != "CLIENTE"){
 													echo '<input class="btn btn-success" type="button" value="Asignar Privilegios" id="_asignarPrivilegio" data-toggle="modal" data-target="#myModal">';
-												}
+												}*/
 												
 												'</div>
 											</div> 
